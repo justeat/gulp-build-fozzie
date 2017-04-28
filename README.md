@@ -38,7 +38,7 @@ Lint all JavaScript in the `js` directory.
 
 #### `scripts:test`
 
-Runs any unit tests found using Jest.
+Runs any unit tests found under `src/js` using Jest.
 
 #### `scripts:bundle`
 
