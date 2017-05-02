@@ -75,7 +75,7 @@ gulp.task('scripts:test', callback => {
  */
 gulp.task('scripts:bundle', ['clean:scripts'], () => {
 
-    return browserify(config.js.srcDir + config.js.srcFile, { debug: config.isDev })
+    return browserify(`${config.js.srcDir}/${config.js.srcFile}`, { debug: config.isDev })
         .transform(babelify)
         .bundle()
 

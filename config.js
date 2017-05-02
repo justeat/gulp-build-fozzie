@@ -10,7 +10,7 @@ const ConfigOptions = () => {
     const envLog = isProduction ? 'Production' : 'Development';
     console.log(gutil.colors.yellow(`❯❯❯❯ Running Gulp build in ${gutil.colors.bold(`${envLog}`)}`));
 
-    return {
+    let config = {
 
         isProduction,
 
@@ -34,7 +34,7 @@ const ConfigOptions = () => {
          */
         js: {
             srcDir: `${srcDir}/js`,
-            srcFile: '/fozzie.js',
+            srcFile: 'index.js',
             distDir: `${distDir}/js`,
             distFile: 'script.js'
         },
@@ -70,7 +70,7 @@ const ConfigOptions = () => {
              */
             changeEvent: function (evt) {
                 gutil.log();
-                gutil.log(gutil.colors.cyan.bold(`❯❯ File: ${path.basename(evt.path)}`), 'was', gutil.colors.magenta(evt.type));
+                gutil.log(gutil.colors.cyan.bold(`â¯â¯ File: ${path.basename(evt.path)}`), 'was', gutil.colors.magenta(evt.type));
             },
 
             /**
@@ -99,8 +99,14 @@ const ConfigOptions = () => {
 
                 this.emit('end');
             }
+        },
+
+        update: (options = {}) => {
+            config = Object.assign(config, options);
         }
     };
+
+    return config;
 };
 
 module.exports = ConfigOptions();
