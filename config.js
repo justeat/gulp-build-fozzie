@@ -102,7 +102,13 @@ const ConfigOptions = () => {
         },
 
         update: (options = {}) => {
-            config = Object.assign(config, options);
+            config = Object.assign(config, options, {
+                css: Object.assign(config.css, options.css),
+                js: Object.assign(config.js, options.js),
+                img: Object.assign(config.img, options.img),
+                misc: Object.assign(config.misc, options.misc),
+                gulp: Object.assign(config.gulp, options.gulp)
+            });
         }
     };
 
