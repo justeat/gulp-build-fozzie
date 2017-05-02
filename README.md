@@ -13,7 +13,7 @@ To integrate these tasks into your project you need to complete the following st
     yarn add gulp-build-fozzie
     ```
 
-1. Inside your gulpfile require and execute `gulp-build-fozzie`, you can [pass in options at this point to override the defaults](#default-options)
+1. Inside your gulpfile require and execute `gulp-build-fozzie`, you can [pass in options at this point to override the defaults](#options)
 
     ```js
     const gulp = require('gulp');
@@ -57,7 +57,7 @@ Performs a variety of tasks including;
 Removes any JavaScript already in the `dist/js` directory.
 
 
-## Default options
+## Options
 
 ### `css`
 
@@ -179,4 +179,16 @@ Event which fires when an error occurs.
 
 ### Other options
 
-There are two other options available; `isProduction` which is set to `true` when the `--prod` flag is passed, and `isDev` which is set to the opposite value of `isProduction`.
+The following options are also present in the config but cannot be overridden.
+
+#### `isProduction`
+
+Type: `boolean`
+
+Set to `true` when the `--prod` flag is passed.
+
+#### `isDev`
+
+Type: `boolean`
+
+Set to the opposite value of `isProduction`
