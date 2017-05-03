@@ -6,7 +6,7 @@ const config = require('../config');
 /**
  * `clean:scripts` Task
  * -------------
- * Removes all files form the JS dist directory
+ * Removes all files form the JavaScript dist directory
  *
  */
 gulp.task('clean:scripts', () => del(`${config.js.distDir}/**/*`));
