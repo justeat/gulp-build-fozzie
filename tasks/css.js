@@ -1,11 +1,17 @@
+const gulp = require('gulp');
+const config = require('../config');
+const postcss = require('gulp-postcss');
+const scss = require('postcss-scss');
+const stylelint = require('stylelint');
+const reporter = require('postcss-reporter');
 
-const gulp = require('gulp'),
-    config = require('../config'),
-    postcss = require('gulp-postcss'),
-    scss = require('postcss-scss'),
-    stylelint = require('stylelint'),
-    reporter = require('postcss-reporter');
 
+/**
+ *  css Task
+ *  -------------
+ *
+ */
+gulp.task('css', ['css:lint'], () => {});
 
 /**
  * css:lint Task

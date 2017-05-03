@@ -29,7 +29,11 @@ To integrate these tasks into your project you need to complete the following st
 
 ## The Fozzie tasks
 
-### `css:lint`
+### `css`
+
+Runs the following tasks
+
+#### `css:lint`
 
 Lint all CSS (SCSS) in the `scss` directory.
 
