@@ -5,7 +5,6 @@ const gulpif = require('gulp-if');
 const size = require('gulp-size');
 const runSequence = require('run-sequence');
 const exorcist = require('exorcist');
-const config = require('../config');
 const eslint = require('gulp-eslint');
 
 // jest packages
@@ -21,6 +20,8 @@ const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
 const rev = require('gulp-rev');
+
+const config = require('../config');
 
 
 /**

@@ -1,4 +1,10 @@
 const gulp = require('gulp');
 
 
-gulp.task('default', ['css', 'scripts']);
+/**
+ * `scripts:test` Task
+ * -------------
+ * Runs the JS unit tests.
+ *
+ */
+gulp.task('default', ['css', 'scripts', 'images']);
