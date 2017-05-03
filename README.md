@@ -1,5 +1,7 @@
 # gulp-build-fozzie :bear:
 
+[![Build Status](https://travis-ci.com/justeat/gulp-build-fozzie.svg?token=dcwzUq7CHTHZqWbdRCbR&branch=master)](https://travis-ci.com/justeat/gulp-build-fozzie)
+
 Gulp build tasks for use across Fozzie modules
 
 
