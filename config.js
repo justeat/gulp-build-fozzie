@@ -1,4 +1,5 @@
 const gutil = require('gulp-util');
+const path = require('path');
 
 const srcDir = 'src';
 const distDir = 'dist';
