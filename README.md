@@ -16,12 +16,12 @@ To integrate these tasks into your project you need to complete the following st
     yarn add gulp-build-fozzie
     ```
 
-1. Inside your gulpfile require and execute `gulp-build-fozzie`, you can [pass in options at this point to override the defaults](#options)
+1. Inside your gulpfile require and then execute `gulp-build-fozzie`, you can [pass in options at this point to override the defaults](#options)
 
     ```js
-    const gulp = require('gulp');
+    const build = require('gulp-build-fozzie')
 
-    require('gulp-build-fozzie')(/*options*/);
+    build(/*options*/);
     ```
 
 1. That's it! You can now run any of the Fozzie tasks.
