@@ -36,7 +36,8 @@ const ConfigOptions = () => {
             srcDir: `${srcDir}/js`,
             srcFile: 'index.js',
             distDir: `${distDir}/js`,
-            distFile: 'script.js'
+            distFile: 'script.js',
+            applyRevision: true
         },
 
         /**

@@ -106,8 +106,19 @@ gulp.task('scripts:bundle', ['clean:scripts'], () => {
         ))
 
         // minify the bundle
-        .pipe(uglify({ output: { quote_keys: true /* keeps IE support for quoted object literals */ } }))
-        .pipe(rev()) // revision control for caching
+        .pipe(uglify({
+            output: {
+                // keeps IE support for quoted object literals
+                quote_keys: true
+            }
+        }))
+
+        // revision control for caching
+        .pipe(gulpif(config.js.applyRevision,
+            rev()
+        ))
+
+        // Apply filename suffix
         .pipe(rename({ suffix: '.min' }))
 
         // output the size of the minified JS

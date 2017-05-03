@@ -83,7 +83,7 @@ Type: `array`
 
 Default: `['> 5%', 'last 2 versions', 'ie > 7', 'Safari >= 8']`
 
-We are supporting the last 2 browsers, any browsers with >5% market share, and ensuring we support IE8+ with prefixes.
+Options which are passed to auto prefixer.
 
 #### `sourcemaps`
 
@@ -126,6 +126,14 @@ Type: `string`
 Default: `script.js`
 
 The filename for the bundled JavaScript.
+
+#### `applyRevision`
+
+Type: `boolean`
+
+Default: true
+
+Will add a content hash to the filename.
 
 ### `img`
 
