@@ -14,7 +14,11 @@
   },
   "homepage": "https://github.com/justeat/gulp-build-fozzie#readme",
   "scripts": {
-    "test": "jest"
+    "prepublish": "yarn test",
+    "test": "jest",
+    "release-patch": "release-it patch",
+    "release-minor": "release-it minor",
+    "release-major": "release-it major"
   },
   "dependencies": {
     "babelify": "^7.3.0",
@@ -45,6 +49,10 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "devDependencies": {
-    "jest": "^19.0.2"
+    "jest": "^19.0.2",
+    "release-it": "^2.7.1"
+  },
+  "peerDependencies": {
+    "gulp": "^3.9.1"
   }
 }
