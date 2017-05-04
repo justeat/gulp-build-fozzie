@@ -16,9 +16,9 @@
   "scripts": {
     "prepublish": "yarn test",
     "test": "jest",
-    "release-patch": "release-it patch",
-    "release-minor": "release-it minor",
-    "release-major": "release-it major"
+    "release-patch": "release-it patch --non-interactive -p",
+    "release-minor": "release-it minor --non-interactive -p",
+    "release-major": "release-it major --non-interactive -p"
   },
   "dependencies": {
     "babelify": "^7.3.0",
