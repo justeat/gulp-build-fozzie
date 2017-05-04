@@ -11,24 +11,24 @@ Gulp build tasks for use across Fozzie modules
 In order for some of the tasks to be able to run you'll need to prepare your project by following these steps
 
 1. Install gulp as a dependency
-   ```bash
-   yarn add gulp
-   ```
+
+    ```bash
+    yarn add gulp
+    ```
 
 1. In order for the [`scripts:bundle`](#scriptsbundle) task can run, add the `babel-preset-es2015` preset
 
-  ```bash
-  yarn add babel-preset-es2015
-  ```
+    ```bash
+    yarn add babel-preset-es2015
+    ```
 
-  Then add a `.babelrc` file to the root of your project
+    Then add a `.babelrc` file to the root of your project
 
-  ```javascript
-  {
-      "presets": ["es2015"]
-  }
-
-  ```
+    ```javascript
+    {
+        "presets": ["es2015"]
+    }
+    ```
 
 1. Add an `.eslintrc` file to the root of your project with your configuration for the [`scripts:lint`](#scriptslint) task
 
