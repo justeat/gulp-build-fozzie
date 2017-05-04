@@ -6,204 +6,277 @@
 Gulp build tasks for use across Fozzie modules
 
 
+## Requirements
+
+In order for some of the tasks to be able to run you'll need to prepare your project by following these steps
+
+1. Install gulp as a dependency
+   ```bash
+   yarn add gulp
+   ```
+
+1. In order for the [`scripts:bundle`](#scriptsbundle) task can run, add the `babel-preset-es2015` preset
+
+  ```bash
+  yarn add babel-preset-es2015
+  ```
+
+  Then add a `.babelrc` file to the root of your project
+
+  ```javascript
+  {
+      "presets": ["es2015"]
+  }
+
+  ```
+
+1. Add an `.eslintrc` file to the root of your project with your configuration for the [`scripts:lint`](#scriptslint) task
+
+1. Add an `.stylelintrc` file to the root of your project with your configuration for the [`css:lint`](#csslint) task
+
+
+
 ## Setup
 
 To integrate these tasks into your project you need to complete the following steps
 
-1. Add `gulp-build-fozzie` to your project
+Add `gulp-build-fozzie` to your project
 
-    ```bash
-    yarn add gulp-build-fozzie
-    ```
+```bash
+yarn add gulp-build-fozzie
+```
 
-1. Inside your gulpfile require and then execute `gulp-build-fozzie`, you can [pass in options at this point to override the defaults](#options)
+Inside your gulpfile require and then execute `gulp-build-fozzie`, you can [pass in options at this point to override the defaults](#options)
 
-    ```js
-    const build = require('gulp-build-fozzie')
+```js
+const build = require('gulp-build-fozzie')
 
-    build(/*options*/);
-    ```
+build(/*options*/);
+```
 
-1. That's it! You can now run any of the Fozzie tasks.
+That's it! You can now run any of [the Fozzie tasks](#the-fozzie-tasks).
 
 
-## The Fozzie tasks
+## The Gulp Tasks
 
 ### `css`
 
 Runs the following tasks
 
-#### `css:lint`
+- #### `css:lint`
 
-Lint all CSS (SCSS) in the `scss` directory.
+  Lint all CSS (SCSS) in the `scss` directory.
 
 ### `scripts`
 
 Runs the following tasks
 
-#### `scripts:lint`
+- #### `scripts:lint`
 
-Lint all JavaScript in the `js` directory.
+  Lint all JavaScript in the `js` directory.
 
-#### `scripts:test`
+- #### `scripts:test`
 
-Runs any unit tests found under `src/js` using Jest.
+  Runs any unit tests found under `src/js` using Jest.
 
-#### `scripts:bundle`
+- #### `scripts:bundle`
 
-Performs a variety of tasks including;
+  Performs a variety of tasks including;
 
-- ES2015 transpilation using Babel
-- Bundle all code into a single file
-- Generate sourcemap files
-- Minify the JavaScript
-- Add hashed version to file name
+  - ES2015 transpilation using Babel
+  - Bundle all code into a single file
+  - Generate sourcemap files
+  - Minify the JavaScript
+  - Add hashed version to file name
+  - Output bundle to the `dist/js` directory
 
-#### `clean:scripts`
+- #### `clean:scripts`
 
-Removes any JavaScript already in the `dist/js` directory.
+  Removes any JavaScript already in the `dist/js` directory.
+
+### `images`
+
+Runs the following tasks
+
+- #### `images:optimise`
+
+Optimises all images found in the `src/img` directory then copies them to the `dist/img` directory.
 
 
 ## Options
 
+Here is the outline of the configuration options, descriptions of each are below.
+
+```js
+{
+    css: {
+        srcDir,
+        distDir,
+        autoprefixer,
+        sourcemaps
+    },
+    js: {
+        srcDir,
+        srcFile,
+        distDir,
+        distFile,
+        applyRevision
+    },
+    img: {
+        srcDir,
+        distDir
+    },
+    misc: {
+        showFileSize,
+        showFiles
+    },
+    gulp: {
+        changeEvent,
+        onError
+    },
+    isProduction,
+    isDev
+}
+```
+
 ### `css`
 
-#### `srcDir`
+- #### `srcDir`
 
-Type: `string`
+  Type: `string`
 
-Default: `src/scss`
+  Default: `src/scss`
 
-The directory where your SCSS files reside.
+  The directory where your SCSS files reside.
 
-#### `distDir`
+- #### `distDir`
 
-Type: `string`
+  Type: `string`
 
-Default: `dist/css`
+  Default: `dist/css`
 
-The bundled CSS file will be output to this directory.
+  The bundled CSS file will be output to this directory.
 
-#### `autoprefixer`
+- #### `autoprefixer`
 
-Type: `array`
+  Type: `array`
 
-Default: `['> 5%', 'last 2 versions', 'ie > 7', 'Safari >= 8']`
+  Default: `['> 5%', 'last 2 versions', 'ie > 7', 'Safari >= 8']`
 
-Options which are passed to auto prefixer.
+  Options which are passed to auto prefixer.
 
-#### `sourcemaps`
+- #### `sourcemaps`
 
-Type: `boolean`
+  Type: `boolean`
 
-Default: [`isDev`](#other-options)
+  Default: [`isDev`](#other-options)
 
-Turns sourcemaps on or off.
+  Turns sourcemaps on or off.
 
 ### `js`
 
-#### `srcDir`
+- #### `srcDir`
 
-Type: `string`
+  Type: `string`
 
-Default: `src/js`
+  Default: `src/js`
 
-The directory where your es2015 files reside.
+  The directory where your es2015 files reside.
 
-#### `srcFile`
+- #### `srcFile`
 
-Type: `string`
+  Type: `string`
 
-Default: `index.js`
+  Default: `index.js`
 
-The filename for the entry point to your es2015 code.
+  The filename for the entry point to your es2015 code.
 
-#### `distDir`
+- #### `distDir`
 
-Type: `string`
+  Type: `string`
 
-Default: `dist/js`
+  Default: `dist/js`
 
-The bundled JavaScript file will be output to this directory.
+  The bundled JavaScript file will be output to this directory.
 
-#### `distFile`
+- #### `distFile`
 
-Type: `string`
+  Type: `string`
 
-Default: `script.js`
+  Default: `script.js`
 
-The filename for the bundled JavaScript.
+ The filename for the bundled JavaScript.
 
-#### `applyRevision`
+- #### `applyRevision`
 
-Type: `boolean`
+  Type: `boolean`
 
-Default: true
+  Default: true
 
-Will add a content hash to the filename.
+  Will add a content hash to the filename.
 
 ### `img`
 
-#### `srcDir`
+- #### `srcDir`
 
-Type: `string`
+  Type: `string`
 
-Default: `src/img`
+  Default: `src/img`
 
-The directory where your image files reside.
+  The directory where your image files reside.
 
-#### `distDir`
+- #### `distDir`
 
-Type: `string`
+  Type: `string`
 
-Default: `dist/img`
+  Default: `dist/img`
 
-The processed image files will be output to this directory.
+  The processed image files will be output to this directory.
 
 ### `misc`
 
-#### `showFileSize`
+- #### `showFileSize`
 
-Type: `boolean`
+  Type: `boolean`
 
-Default: `true`
+  Default: `true`
 
-Shoud file sizes be displayed when a task is run?
+  Shoud file sizes be displayed when a task is run?
 
-#### `showFiles`
+- #### `showFiles`
 
-Type: `boolean`
+  Type: `boolean`
 
-Default: `true`
+  Default: `true`
 
-Shoud file names be displayed when a task is run?
+  Shoud file names be displayed when a task is run?
 
 ### `gulp`
 
-#### `changeEvent`
+- #### `changeEvent`
 
-Type: `function`
+  Type: `function`
 
-Event which fires when a file is modified.
+  Event which fires when a file is modified.
 
-#### `onError`
+- #### `onError`
 
-Type: `function`
+  Type: `function`
 
-Event which fires when an error occurs.
+  Event which fires when an error occurs.
 
 ### Other options
 
 The following options are also present in the config but cannot be overridden.
 
-#### `isProduction`
+- #### `isProduction`
 
-Type: `boolean`
+  Type: `boolean`
 
-Set to `true` when the `--prod` flag is passed.
+  Set to `true` when the `--prod` flag is passed.
 
-#### `isDev`
+- #### `isDev`
 
-Type: `boolean`
+  Type: `boolean`
 
-Set to the opposite value of `isProduction`
+  Set to the opposite value of `isProduction`
