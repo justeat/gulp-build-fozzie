@@ -70,7 +70,7 @@ const ConfigOptions = () => {
             /**
              * Reports which file was changed
              */
-            changeEvent: function (evt) {
+            changeEvent (evt) {
                 gutil.log();
                 gutil.log(gutil.colors.cyan.bold(`â¯â¯ File: ${path.basename(evt.path)}`), 'was', gutil.colors.magenta(evt.type));
             },
@@ -81,7 +81,7 @@ const ConfigOptions = () => {
              * Can use any of the following from err object (is this on MacOS only? Almost none of these are available on Windows):
              * status,file,line,column,message,formatted,messageFormatted,messageOriginal,relativePath,name,stack,showStack,showProperties,plugin
              */
-            onError: function (err) {
+            onError (err) {
                 const { line, column, relativePath, plugin, message, status } = err;
 
                 gutil.beep();
@@ -103,7 +103,7 @@ const ConfigOptions = () => {
             }
         },
 
-        update: (options = {}) => {
+        update (options = {}) {
             config = Object.assign(config, options, {
                 css: Object.assign(config.css, options.css),
                 js: Object.assign(config.js, options.js),
