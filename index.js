@@ -17,7 +17,7 @@ const config = require('./config');
 module.exports = function (options = {}) {
     // Update config with custom values — these value will
     // persist across all further requires in other files.
-    config.update(options)
+    config.update(options);
 
     // Require all tasks in /tasks, including subfolders
     requireDir('./tasks', { recurse: true });
