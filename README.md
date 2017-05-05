@@ -1,6 +1,6 @@
 # gulp-build-fozzie :bear:
 
-[![npm version](https://badge.fury.io/js/gulp-build-fozzie.svg)](https://badge.fury.io/js/gulp-build-fozzie)
+[![npm version](https://badge.fury.io/js/%40justeat%2Fgulp-build-fozzie.svg)](https://badge.fury.io/js/%40justeat%2Fgulp-build-fozzie)
 [![Build Status](https://travis-ci.com/justeat/gulp-build-fozzie.svg?token=dcwzUq7CHTHZqWbdRCbR&branch=master)](https://travis-ci.com/justeat/gulp-build-fozzie)
 
 Gulp build tasks for use across Fozzie modules
@@ -40,16 +40,16 @@ In order for some of the tasks to be able to run you'll need to prepare your pro
 
 To integrate these tasks into your project you need to complete the following steps
 
-Add `gulp-build-fozzie` to your project
+Add `@justeat/gulp-build-fozzie` to your project
 
 ```bash
-yarn add gulp-build-fozzie
+yarn add @justeat/gulp-build-fozzie
 ```
 
-Inside your gulpfile require and then execute `gulp-build-fozzie`, you can [pass in options at this point to override the defaults](#options)
+Inside your gulpfile require and then execute `@justeat/gulp-build-fozzie`, you can [pass in options at this point to override the defaults](#options)
 
 ```js
-const build = require('gulp-build-fozzie')
+const build = require('@justeat/gulp-build-fozzie')
 
 build(/*options*/);
 ```
