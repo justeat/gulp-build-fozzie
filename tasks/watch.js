@@ -10,7 +10,10 @@ const config = require('../config');
  */
 gulp.task('watch', ['default'], () => {
 
-    gulp.watch(`${config.js.srcDir}/**/*.js`, ['scripts'])
+    gulp.watch(`${config.js.srcDir}/**/!(*.test).js`, ['scripts'])
+        .on('change', config.gulp.changeEvent);
+
+    gulp.watch(`${config.js.srcDir}/**/*.test.js`, ['scripts:lint', 'scripts:test'])
         .on('change', config.gulp.changeEvent);
 
     gulp.watch(`${config.css.srcDir}/**/*.scss`, ['css'])
