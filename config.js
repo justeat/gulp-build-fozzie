@@ -1,15 +1,16 @@
 const gutil = require('gulp-util');
 const path = require('path');
 
-const srcDir = 'src';
-const distDir = 'dist';
-const isProduction = !!gutil.env.prod;
-const isDev = !isProduction;
-
 const ConfigOptions = () => {
 
+    const projectName = 'Gulp Build Fozzie';
+    const srcDir = 'src';
+    const distDir = 'dist';
+    const isProduction = !!gutil.env.prod;
+    const isDev = !isProduction;
     const envLog = isProduction ? 'Production' : 'Development';
-    console.log(gutil.colors.yellow(`❯❯❯❯ Running Gulp build in ${gutil.colors.bold(`${envLog}`)}`));
+
+    gutil.log(gutil.colors.yellow(`❯❯❯❯ Running ${projectName} task in ${gutil.colors.bold(`${envLog}`)}`));
 
     let config = {
 

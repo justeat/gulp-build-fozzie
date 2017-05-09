@@ -63,7 +63,7 @@ gulp.task('scripts:lint', () => gulp.src(`${config.js.srcDir}/**`)
 gulp.task('scripts:test', callback => {
     jest.runCLI(
         {},
-        path.resolve(process.cwd()),
+        [path.resolve(process.cwd())],
         () => callback()
     );
 });
