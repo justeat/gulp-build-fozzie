@@ -10,3 +10,15 @@ const config = require('../config');
  *
  */
 gulp.task('clean:scripts', () => del(`${config.js.distDir}/**/*`));
+
+
+/**
+ * `clean:docs` Task
+ * -------------
+ * Removes all files form the docs dist directory
+ *
+ */
+gulp.task('clean:docs', () => del([
+    `${config.docs.distDir}/**/*`,
+    `!${config.docs.distDir}/assets/**`
+]));
