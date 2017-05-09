@@ -102,6 +102,18 @@ Runs the following tasks
 
 Optimises all images found in the `src/img` directory then copies them to the `dist/img` directory.
 
+### `docs` - _available in development only_
+
+Runs the following tasks
+
+- #### `clean:docs`
+
+  Removes document files already in the `docs/dist` directory.
+
+- #### `assemble`
+
+  Generates the documentation files.
+
 
 ## Options
 
@@ -126,6 +138,13 @@ Here is the outline of the configuration options, descriptions of each are below
         srcDir,
         distDir
     },
+    docs: {
+        srcDir,
+        distDir,
+        templDir,
+        cssUrl,
+        jsUrl
+    },
     misc: {
         showFileSize,
         showFiles
@@ -139,13 +158,14 @@ Here is the outline of the configuration options, descriptions of each are below
 }
 ```
 
+
 ### `css`
 
 - #### `srcDir`
 
   Type: `string`
 
-  Default: `src/scss`
+  Default: `'src/scss'`
 
   The directory where your SCSS files reside.
 
@@ -153,7 +173,7 @@ Here is the outline of the configuration options, descriptions of each are below
 
   Type: `string`
 
-  Default: `dist/css`
+  Default: `'dist/css'`
 
   The bundled CSS file will be output to this directory.
 
@@ -173,13 +193,14 @@ Here is the outline of the configuration options, descriptions of each are below
 
   Turns sourcemaps on or off.
 
+
 ### `js`
 
 - #### `srcDir`
 
   Type: `string`
 
-  Default: `src/js`
+  Default: `'src/js'`
 
   The directory where your es2015 files reside.
 
@@ -187,7 +208,7 @@ Here is the outline of the configuration options, descriptions of each are below
 
   Type: `string`
 
-  Default: `index.js`
+  Default: `'index.js'`
 
   The filename for the entry point to your es2015 code.
 
@@ -195,7 +216,7 @@ Here is the outline of the configuration options, descriptions of each are below
 
   Type: `string`
 
-  Default: `dist/js`
+  Default: `'dist/js'`
 
   The bundled JavaScript file will be output to this directory.
 
@@ -203,7 +224,7 @@ Here is the outline of the configuration options, descriptions of each are below
 
   Type: `string`
 
-  Default: `script.js`
+  Default: `'script.js'`
 
  The filename for the bundled JavaScript.
 
@@ -215,13 +236,14 @@ Here is the outline of the configuration options, descriptions of each are below
 
   Will add a content hash to the filename.
 
+
 ### `img`
 
 - #### `srcDir`
 
   Type: `string`
 
-  Default: `src/img`
+  Default: `'src/img'`
 
   The directory where your image files reside.
 
@@ -229,9 +251,53 @@ Here is the outline of the configuration options, descriptions of each are below
 
   Type: `string`
 
-  Default: `dist/img`
+  Default: `'dist/img'`
 
   The processed image files will be output to this directory.
+
+
+### `docs`
+
+- #### `srcDir`
+
+  Type: `string`
+
+  Default: `'docs/src'`
+
+  The directory where your documentation files reside.
+
+- #### `distDir`
+
+  Type: `string`
+
+  Default: `'docs/dist'`
+
+  The documentation files will be output to this directory once they have been processed.
+
+- #### `templDir`
+
+  Type: `string`
+
+  Default: `'docs/src/templates'`
+
+  The directory where your documentations templates files reside.
+
+- #### `cssUrl`
+
+  Type: `string`
+
+  Default: `''`
+
+  The URL to use for the documentation CSS.
+
+- #### `jsUrl`
+
+  Type: `string`
+
+  Default: `''`
+
+  The URL to use for the documentation JavaScript.
+
 
 ### `misc`
 
@@ -251,6 +317,7 @@ Here is the outline of the configuration options, descriptions of each are below
 
   Shoud file names be displayed when a task is run?
 
+
 ### `gulp`
 
 - #### `changeEvent`
@@ -264,6 +331,7 @@ Here is the outline of the configuration options, descriptions of each are below
   Type: `function`
 
   Event which fires when an error occurs.
+
 
 ### Other options
 

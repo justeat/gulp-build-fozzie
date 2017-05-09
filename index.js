@@ -21,4 +21,8 @@ module.exports = function (options = {}) {
 
     // Require all tasks in /tasks, including subfolders
     requireDir('./tasks', { recurse: true });
+
+    if (config.isDev) {
+        requireDir('./tasks-dev', { recurse: false });
+    }
 };

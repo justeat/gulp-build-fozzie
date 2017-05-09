@@ -10,6 +10,7 @@ const config = require('../config');
 /**
  * `assemble` Task
  * -------------
+ * Generates the documentation files.
  *
  */
 gulp.task('assemble', () => {

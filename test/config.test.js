@@ -67,6 +67,29 @@ describe('image config', () => {
     });
 });
 
+describe('documentation config', () => {
+
+    it('src directory should be set', () => {
+        expect(config.docs.srcDir).toBe('docs/src');
+    });
+
+    it('dist directory should be set', () => {
+        expect(config.docs.distDir).toBe('docs/dist');
+    });
+
+    it('template directory should be set', () => {
+        expect(config.docs.templDir).toBe('docs/src/templates');
+    });
+
+    it('css url should be set', () => {
+        expect(config.docs.cssUrl).toBe('');
+    });
+
+    it('javascript url should be set', () => {
+        expect(config.docs.jsUrl).toBe('');
+    });
+});
+
 describe('miscellaneous config', () => {
 
     it('showFileSize should be true', () => {
