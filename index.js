@@ -13,6 +13,7 @@
 
 const requireDir = require('require-dir');
 const config = require('./config');
+const gulp = require('gulp');
 
 module.exports = function (options = {}) {
     // Update config with custom values — these value will
@@ -25,4 +26,6 @@ module.exports = function (options = {}) {
     if (config.isDev) {
         requireDir('./tasks-dev', { recurse: false });
     }
+
+    return gulp.tasks;
 };

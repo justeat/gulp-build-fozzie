@@ -1,11 +1,11 @@
-const gulp = require('gulp');
+﻿const gulp = require('gulp');
 const del = require('del');
 const config = require('../config');
 
 
 /**
  * `clean:scripts` Task
- * -------------
+ * ---------------------
  * Removes all files form the JavaScript dist directory
  *
  */

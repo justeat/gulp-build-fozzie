@@ -1,4 +1,4 @@
-const gulp = require('gulp');
+﻿const gulp = require('gulp');
 const eslint = require('gulp-eslint');
 const cache = require('gulp-cached');
 const config = require('../config');
@@ -6,7 +6,7 @@ const config = require('../config');
 
 /**
  * `tasks:lint` Task
- * -------------
+ * ------------------
  * Uses config rules to test the build tasks for valid JS.
  *
  */

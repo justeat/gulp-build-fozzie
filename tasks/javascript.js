@@ -26,7 +26,7 @@ const config = require('../config');
 
 /**
  *  `scripts` Task
- *  ------------
+ *  ---------------
  *
  */
 gulp.task('scripts', callback => {

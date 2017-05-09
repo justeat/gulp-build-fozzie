@@ -1,4 +1,4 @@
-const gulp = require('gulp');
+﻿const gulp = require('gulp');
 const config = require('../config');
 const postcss = require('gulp-postcss');
 const scss = require('postcss-scss');
@@ -8,7 +8,7 @@ const reporter = require('postcss-reporter');
 
 /**
  *  css Task
- *  -------------
+ *  ---------
  *
  */
 gulp.task('css', ['css:lint'], () => {});
@@ -30,4 +30,5 @@ gulp.task('css:lint', () => gulp.src([`${config.css.srcDir}/**/*.scss`])
             })
         ],
         { syntax: scss })
-    ));
+    )
+);
