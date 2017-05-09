@@ -49,6 +49,18 @@ const ConfigOptions = () => {
             distDir: `${distDir}/img`
         },
 
+
+        /**
+         * Documentation-related variables
+         */
+        docs: {
+            srcDir: `docs/${srcDir}`,
+            distDir: `docs/${distDir}`,
+            templDir: `docs/${srcDir}/templates`,
+            cssUrl: '',
+            jsUrl: ''
+        },
+
         /**
          * Banners and info
          */
