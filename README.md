@@ -3,12 +3,12 @@
 [![npm version](https://badge.fury.io/js/%40justeat%2Fgulp-build-fozzie.svg)](https://badge.fury.io/js/%40justeat%2Fgulp-build-fozzie)
 [![Build Status](https://travis-ci.com/justeat/gulp-build-fozzie.svg?token=dcwzUq7CHTHZqWbdRCbR&branch=master)](https://travis-ci.com/justeat/gulp-build-fozzie)
 
-Gulp build tasks for use across Fozzie modules
+Gulp build tasks for use across Fozzie modules.
 
 
 ## Requirements
 
-In order for some of the tasks to be able to run you'll need to prepare your project by following these steps
+In order for some of the tasks to be able to run you'll need to prepare your project by following these steps:
 
 1. Install gulp as a dependency
 
@@ -16,13 +16,13 @@ In order for some of the tasks to be able to run you'll need to prepare your pro
     yarn add gulp
     ```
 
-1. In order for the [`scripts:bundle`](#scriptsbundle) task can run, add the `babel-preset-es2015` preset
+1. To ensure that the [`scripts:bundle`](#scriptsbundle) task can run, add the `babel-preset-es2015` preset:
 
     ```bash
     yarn add babel-preset-es2015
     ```
 
-    Then add a `.babelrc` file to the root of your project
+    Then add a `.babelrc` file to the root of your project:
 
     ```javascript
     {
@@ -30,15 +30,25 @@ In order for some of the tasks to be able to run you'll need to prepare your pro
     }
     ```
 
-1. Add an `.eslintrc` file to the root of your project with your configuration for the [`scripts:lint`](#scriptslint) task
+1. Add an `.eslintrc` file to the root of your project with your configuration for the [`scripts:lint`](#scriptslint) task.
 
-1. Add an `.stylelintrc` file to the root of your project with your configuration for the [`css:lint`](#csslint) task
+--- TODO – Add a gist with the recommended `.eslint` contents once we’re happy with the setup ---
+
+1. To use our recommended fozzie stylelint linting rules, add the following into your `package.json` file:
+
+```
+"stylelint": {
+    "extends": "@justeat/stylelint-config-fozzie"
+}
+```
+
+  If you wish to extend these rules, you can also define your own `.stylelintrc` file in the root of your project with the rules that you wish to override.
 
 
 
 ## Setup
 
-To integrate these tasks into your project you need to complete the following steps
+To integrate these tasks into your project you need to complete the following steps:
 
 Add `@justeat/gulp-build-fozzie` to your project
 

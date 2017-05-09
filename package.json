@@ -21,9 +21,14 @@
     "release-major": "release-it major --non-interactive -p"
   },
   "dependencies": {
+    "@justeat/eslint-config-fozzie": "^0.1.1",
+    "@justeat/stylelint-config-fozzie": "^0.1.1",
     "assemble": "^0.23.0",
     "babelify": "^7.3.0",
     "browserify": "^14.3.0",
+    "eslint": "^3.19.0",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-jest": "^20.0.0",
     "exorcist": "^0.4.0",
     "gulp": "^3.9.1",
     "gulp-cached": "^1.1.1",
