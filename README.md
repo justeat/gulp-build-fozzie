@@ -102,6 +102,27 @@ Runs the following tasks
 
 Optimises all images found in the `src/img` directory then copies them to the `dist/img` directory.
 
+### `watch`
+
+Runs the `default` task then the following watch tasks
+
+- #### `watch:scripts`
+
+Runs the [`scripts`](#scripts) task when a JavaScript file is updated or added.
+
+- #### `watch:scripts:test`
+
+Runs the [`scripts:lint`](#scriptslint) and [`scripts:test`](#scriptstest) tasks when a JavaScript unit test file is updated or added.
+
+- #### `watch:css`
+
+Runs the [`css`](#css) task when a CSS file is updated or added.
+
+- #### `watch:images`
+
+Runs the [`images`](#images) task when an image file is updated or added.
+
+
 ### `docs` - _available in development only_
 
 Runs the following tasks
