@@ -64,7 +64,7 @@ const build = require('@justeat/gulp-build-fozzie');
 gulp.tasks = build(/*options*/);
 ```
 
-That's it! You can now run any of [the Fozzie tasks](#the-fozzie-tasks).
+That's it! You can now run any of [the Gulp tasks](#the-gulp-tasks).
 
 
 ## The Gulp Tasks
