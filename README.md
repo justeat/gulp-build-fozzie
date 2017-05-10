@@ -118,32 +118,42 @@ Runs the `default` task then the following watch tasks
 
 - #### `watch:scripts`
 
-Runs the [`scripts`](#scripts) task when a JavaScript file is updated or added.
+Runs the [`scripts`](#scripts) task when a JavaScript file is changed.
 
 - #### `watch:scripts:test`
 
-Runs the [`scripts:lint`](#scriptslint) and [`scripts:test`](#scriptstest) tasks when a JavaScript unit test file is updated or added.
+Runs the [`scripts:lint`](#scriptslint) and [`scripts:test`](#scriptstest) tasks when a JavaScript unit test file is changed.
 
 - #### `watch:css`
 
-Runs the [`css`](#css) task when a CSS file is updated or added.
+Runs the [`css`](#css) task when a CSS file is changed.
 
 - #### `watch:images`
 
-Runs the [`images`](#images) task when an image file is updated or added.
+Runs the [`images`](#images) task when an image file is changed.
+
+- #### `watch:docs`
+
+Runs the [`assemble`](#assemble) task when documentation files are changed.
 
 
-### `docs` - _available in development only_
+### Development only tasks
 
-Runs the following tasks
+- #### `docs`
+
+This will build a fresh copy of any documentation found in the `docs` directory using Assemble, then call the [`watch`](#watch) task which will watch for any file changes, and finally call the [`browserSync:docs`](#browsersyncdocs) task which reloads the web page when changes are detected in the `docs/dist` directory.
 
 - #### `clean:docs`
 
-  Removes document files already in the `docs/dist` directory.
+Removes document files already in the `docs/dist` directory.
+
+- #### `browserSync:docs`
+
+Refreshes the browser when changes to the `docs/dist` directory are detected.
 
 - #### `assemble`
 
-  Generates the documentation files.
+Generates the documentation files.
 
 
 ## Options
