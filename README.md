@@ -30,9 +30,7 @@ In order for some of the tasks to be able to run you'll need to prepare your pro
     }
     ```
 
-1. Add an `.eslintrc` file to the root of your project with your configuration for the [`scripts:lint`](#scriptslint) task.
-
---- TODO – Add a gist with the recommended `.eslint` contents once we’re happy with the setup ---
+1. Add an `.eslintrc` file to the root of your project.  The recommended eslint configuration for fozzie modules can be found in [`/fozzie-config/.eslintrc`](https://github.com/justeat/gulp-build-fozzie/fozzie-config/.eslintrc) – simply add this into your projects `.eslintrc` file to use the JS linting rules we recommend when running the [`scripts:lint`](#scriptslint) task.
 
 1. To use our recommended fozzie stylelint linting rules, add the following into your `package.json` file:
 
