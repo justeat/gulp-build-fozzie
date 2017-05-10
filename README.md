@@ -16,13 +16,13 @@ In order for some of the tasks to be able to run you'll need to prepare your pro
     yarn add gulp
     ```
 
-1. To ensure that the [`scripts:bundle`](#scriptsbundle) task can run, add the `babel-preset-es2015` preset:
+1. If you'd like the [`scripts:bundle`](#scriptsbundle) task to transpile es2015 code, add the `babel-preset-es2015` preset to the project:
 
     ```bash
     yarn add babel-preset-es2015
     ```
 
-    Then add a `.babelrc` file to the root of your project:
+    Then add a `.babelrc` file, with the `babel-preset-es2015` preset, to the root of your project:
 
     ```javascript
     {
@@ -30,18 +30,19 @@ In order for some of the tasks to be able to run you'll need to prepare your pro
     }
     ```
 
-1. Add an `.eslintrc` file to the root of your project.  The recommended eslint configuration for fozzie modules can be found in [`/fozzie-config/.eslintrc`](https://github.com/justeat/gulp-build-fozzie/fozzie-config/.eslintrc) – simply add this into your projects `.eslintrc` file to use the JS linting rules we recommend when running the [`scripts:lint`](#scriptslint) task.
+    If you do not add a `.babelrc` file (you may be writing es5 code for example) then the code will be bumdled up as is.
+
+1. Add an `.eslintrc` file to the root of your project. The recommended eslint configuration for fozzie modules can be found in [`/fozzie-config/.eslintrc`](https://github.com/justeat/gulp-build-fozzie/fozzie-config/.eslintrc) – simply add the contents of this into your projects `.eslintrc` file to use the JS linting rules we recommend when running the [`scripts:lint`](#scriptslint) task.
 
 1. To use our recommended fozzie stylelint linting rules, add the following into your `package.json` file:
 
-```
-"stylelint": {
-    "extends": "@justeat/stylelint-config-fozzie"
-}
-```
+    ```
+    "stylelint": {
+        "extends": "@justeat/stylelint-config-fozzie"
+    }
+    ```
 
-  If you wish to extend these rules, you can also define your own `.stylelintrc` file in the root of your project with the rules that you wish to override.
-
+    If you wish to extend these rules, you can also define your own `.stylelintrc` file in the root of your project with the rules that you wish to override.
 
 
 ## Setup
@@ -54,12 +55,13 @@ Add `@justeat/gulp-build-fozzie` to your project
 yarn add @justeat/gulp-build-fozzie
 ```
 
-Inside your gulpfile require and then execute `@justeat/gulp-build-fozzie`, you can [pass in options at this point to override the defaults](#options)
+Inside your gulpfile require `@justeat/gulp-build-fozzie`, then assign it to `gulp.tasks` (`gulp-build-fozzie` returns a list of gulp tasks), you can optionally [pass in options at this point to override the defaults](#options).
 
 ```js
-const build = require('@justeat/gulp-build-fozzie')
+const gulp = require('gulp');
+const build = require('@justeat/gulp-build-fozzie');
 
-build(/*options*/);
+gulp.tasks = build(/*options*/);
 ```
 
 That's it! You can now run any of [the Fozzie tasks](#the-fozzie-tasks).
