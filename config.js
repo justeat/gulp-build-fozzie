@@ -57,7 +57,7 @@ const ConfigOptions = () => {
         docs: {
             srcDir: `docs/${srcDir}`,
             distDir: `docs/${distDir}`,
-            templDir: `templates`,
+            templDir: 'templates',
             dataDir : 'data',
             cssUrl: '',
             jsUrl: ''

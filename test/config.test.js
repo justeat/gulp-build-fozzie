@@ -78,7 +78,11 @@ describe('documentation config', () => {
     });
 
     it('template directory should be set', () => {
-        expect(config.docs.templDir).toBe('docs/src/templates');
+        expect(config.docs.templDir).toBe('templates');
+    });
+
+    it('data directory should be set', () => {
+        expect(config.docs.dataDir).toBe('data');
     });
 
     it('css url should be set', () => {
