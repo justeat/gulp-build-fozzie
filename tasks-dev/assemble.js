@@ -36,7 +36,7 @@ gulp.task('assemble', () => {
       next();
     });
 
-    return app.src(`${config.docs.templDir}/pages/**/*.{md,hbs}`)
+    return app.src(`${config.docs.srcDir}/${config.docs.templDir}/pages/**/*.{md,hbs}`)
         .pipe(plumber(err => console.error(err.message))) // stops watch from breaking on error
         .pipe(newer({
             dest: config.docs.distDir,
