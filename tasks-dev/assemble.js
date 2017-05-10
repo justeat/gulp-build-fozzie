@@ -1,9 +1,11 @@
 const gulp = require('gulp');
 const assemble = require('assemble');
+const helpers = require('handlebars-helpers');
 const debug = require('gulp-debug');
 const plumber = require('gulp-plumber');
 const newer = require('gulp-newer');
 const extname = require('gulp-extname');
+const expand = require('expand');
 const config = require('../config');
 
 
@@ -16,6 +18,7 @@ const config = require('../config');
 gulp.task('assemble', () => {
     const app = assemble();
 
+    app.helper('is', helpers.comparison().is);
     app.helper('markdown', require('helper-markdown'));
 
     app.enable('debugEngine');
