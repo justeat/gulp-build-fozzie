@@ -1,4 +1,5 @@
 ﻿const gulp = require('gulp');
+const runSequence = require('run-sequence');
 const config = require('../config');
 
 /**
@@ -8,13 +9,21 @@ const config = require('../config');
  * relevant build tasks on change for each type.
  *
  */
-gulp.task('watch', ['default', 'watch:scripts', 'watch:scripts:test', 'watch:css', 'watch:images']);
+gulp.task('watch', callback => {
+
+    runSequence(
+        'default',
+        ['watch:scripts', 'watch:scripts:test', 'watch:css', 'watch:images', 'watch:docs'],
+        callback
+    );
+
+});
 
 
 /**
  * watch:scripts Task
  * -------------
- * Runs the `scripts` task when a JavaScript file is updated or added.
+ * Runs the `scripts` task when a JavaScript file is changed.
  *
  */
 gulp.task('watch:scripts', () => {
@@ -28,7 +37,7 @@ gulp.task('watch:scripts', () => {
 /**
  * watch:scripts:test Task
  * -------------
- * Runs the `scripts:lint` and `scripts:test` tasks when a JavaScript unit test file is updated or added.
+ * Runs the `scripts:lint` and `scripts:test` tasks when a JavaScript unit test file is changed.
  *
  */
 gulp.task('watch:scripts:test', () => {
@@ -42,7 +51,7 @@ gulp.task('watch:scripts:test', () => {
 /**
  * watch:css Task
  * -------------
- * Runs the `css` task when a CSS file is updated or added.
+ * Runs the `css` task when a CSS file is changed.
  *
  */
 gulp.task('watch:css', () => {
@@ -56,7 +65,7 @@ gulp.task('watch:css', () => {
 /**
  * watch:images Task
  * -------------
- * Runs the `images` task when an image file is updated or added.
+ * Runs the `images` task when an image file is changed.
  *
  */
 gulp.task('watch:images', () => {
