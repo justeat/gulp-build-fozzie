@@ -20,6 +20,7 @@ gulp.task('assemble', () => {
 
     app.helper('is', helpers.comparison().is);
     app.helper('markdown', require('helper-markdown'));
+    app.helper('md', require('helper-md'));
 
     app.enable('debugEngine');
     app.layouts(`${config.docs.srcDir}/${config.docs.templDir}/layouts/*.{md,hbs}`);
