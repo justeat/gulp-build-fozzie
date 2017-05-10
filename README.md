@@ -16,7 +16,7 @@ In order for some of the tasks to be able to run you'll need to prepare your pro
     yarn add gulp
     ```
 
-1. If you'd like the [`scripts:bundle`](#scriptsbundle) task to transpile es2015 code, add the `babel-preset-es2015` preset to the project:
+1. To ensure that the [`scripts:bundle`](#scriptsbundle) task can transpile es2015 code, add the `babel-preset-es2015` preset to the project:
 
     ```bash
     yarn add babel-preset-es2015
@@ -30,7 +30,7 @@ In order for some of the tasks to be able to run you'll need to prepare your pro
     }
     ```
 
-    If you do not add a `.babelrc` file (you may be writing es5 code for example) then the code will be bumdled up as is.
+    If you do not add a `.babelrc` file (you may be writing es5 code for example) then the code will be bundled up as is.
 
 1. Add an `.eslintrc` file to the root of your project. The recommended eslint configuration for fozzie modules can be found in [`/fozzie-config/.eslintrc`](https://github.com/justeat/gulp-build-fozzie/fozzie-config/.eslintrc) – simply add the contents of this into your projects `.eslintrc` file to use the JS linting rules we recommend when running the [`scripts:lint`](#scriptslint) task.
 
