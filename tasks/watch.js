@@ -65,3 +65,23 @@ gulp.task('watch:images', () => {
         .on('change', config.gulp.changeEvent);
 
 });
+
+
+/**
+ * watch:docs Task
+ * -------------
+ * Runs the `assemble` task when any documentation files change.
+ *
+ */
+gulp.task('watch:docs', () => {
+    console.log(`${config.docs.srcDir}/**/*.{md,hbs}`);
+
+    // be careful with the paths here – must be relative, using 'cwd' attribute
+    // to specify root otherwise it won’t recompile when newly created files
+    // are added to a directory while running the watch
+    gulp.watch(`**/*.{md,hbs}`,
+        { cwd: `./${config.docs.rootDir}` },
+        ['assemble']
+    );
+
+});
