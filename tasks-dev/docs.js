@@ -11,8 +11,8 @@ const runSequence = require('run-sequence');
 gulp.task('docs', callback => {
     runSequence(
         'clean:docs',
-        // 'watch',
-        'assemble',
+        'watch',
+        'browserSync:docs',
         callback
     );
 });

@@ -6,6 +6,7 @@ const ConfigOptions = () => {
     const projectName = 'Gulp Build Fozzie';
     const srcDir = 'src';
     const distDir = 'dist';
+    const docsRoot = 'docs';
     const isProduction = !!gutil.env.prod;
     const isDev = !isProduction;
     const envLog = isProduction ? 'Production' : 'Development';
@@ -55,8 +56,9 @@ const ConfigOptions = () => {
          * Documentation-related variables
          */
         docs: {
-            srcDir: `docs/${srcDir}`,
-            distDir: `docs/${distDir}`,
+            rootDir: docsRoot,
+            srcDir: `${docsRoot}/${srcDir}`,
+            distDir: `${docsRoot}/${distDir}`,
             templDir: 'templates',
             dataDir : 'data',
             cssUrl: '',
