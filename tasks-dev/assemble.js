@@ -19,12 +19,21 @@ gulp.task('assemble', () => {
     app.helper('markdown', require('helper-markdown'));
 
     app.enable('debugEngine');
-    app.layouts(`${config.docs.templDir}/layouts/*.{md,hbs}`);
-    app.partials(`${config.docs.templDir}/includes/**/*.{md,hbs}`);
+    app.layouts(`${config.docs.srcDir}/${config.docs.templDir}/layouts/*.{md,hbs}`);
+    app.partials(`${config.docs.srcDir}/${config.docs.templDir}/includes/**/*.{md,hbs}`);
+    app.data(`${config.docs.srcDir}/${config.docs.dataDir}/*.{json,yml}`);
     app.option('layout', 'default');
+
+    app.data('./package.json', { namespace: true });
     app.data({
         cssUrl: config.docs.cssUrl,
         jsUrl: config.docs.jsUrl
+    });
+
+    // pre-render any data <%= variable %> declarations in the yml front-end matter
+    app.preRender(/\.(hbs|html)$/, (view, next) => {
+      view.data = expand(view.data, app.cache.data);
+      next();
     });
 
     return app.src(`${config.docs.templDir}/pages/**/*.{md,hbs}`)
