@@ -55,13 +55,13 @@ Add `@justeat/gulp-build-fozzie` to your project
 yarn add @justeat/gulp-build-fozzie
 ```
 
-Inside your gulpfile require `@justeat/gulp-build-fozzie`, then assign it to `gulp.tasks` (`gulp-build-fozzie` returns a list of gulp tasks), you can optionally [pass in options at this point to override the defaults](#options).
+Inside your gulpfile require and then run `@justeat/gulp-build-fozzie` passing `gulp` as the first argument, You can optionally [pass in options here which will override the defaults](#options).
 
 ```js
 const gulp = require('gulp');
 const build = require('@justeat/gulp-build-fozzie');
 
-gulp.tasks = build(/*options*/);
+build(gulp, /*options*/);
 ```
 
 That's it! You can now run any of [the Gulp tasks](#the-gulp-tasks).
