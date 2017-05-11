@@ -1,6 +1,6 @@
 {
   "name": "@justeat/gulp-build-fozzie",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Gulp build tasks for use across Fozzie modules",
   "main": "index.js",
   "author": "Damian Mullins <damian@lowflyingowls.co.uk> (http://www.damianmullins.com)",
