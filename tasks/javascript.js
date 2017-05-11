@@ -23,6 +23,10 @@ const rev = require('gulp-rev');
 
 const config = require('../config');
 
+const jsSrcDir = config.js.srcDir + config.js.jsDir;
+const jsDistDir = config.js.distDir + config.js.jsDir;
+const jsDocsDistDir = config.docs.distDir + config.js.jsDir;
+
 
 /**
  *  `scripts` Task
@@ -45,7 +49,7 @@ gulp.task('scripts', callback => {
  * Uses config rules to test for valid JS.
  *
  */
-gulp.task('scripts:lint', () => gulp.src(`${config.js.srcDir}/**`)
+gulp.task('scripts:lint', () => gulp.src(`${jsSrcDir}/**`)
     .pipe(cache('scripts-lint'))
     .pipe(plumber(config.gulp.onError)) // stops watch from breaking if an error occurs
     .pipe(eslint())
@@ -75,7 +79,7 @@ gulp.task('scripts:test', callback => {
  * Bundle the JS modules together into a single file and and transpile es2015 features to es5
  *
  */
-gulp.task('scripts:bundle', ['clean:scripts'], () => browserify(`${config.js.srcDir}/${config.js.srcFile}`, { debug: config.isDev })
+gulp.task('scripts:bundle', ['clean:scripts'], () => browserify(`${jsSrcDir}/${config.js.srcFile}`, { debug: config.isDev })
     .transform(babelify)
     .bundle()
 
@@ -84,13 +88,13 @@ gulp.task('scripts:bundle', ['clean:scripts'], () => browserify(`${config.js.src
 
     // move the source map outisde of the JS file when not in prod
     .pipe(gulpif(config.isDev,
-        exorcist(`${config.js.distDir}/${config.js.distFile}.map`)
+        exorcist(`${jsDistDir}/${config.js.distFile}.map`)
     ))
 
     // create unminified file
     .pipe(source(config.js.distFile))
     .pipe(buffer())
-    .pipe(gulp.dest(config.js.distDir))
+    .pipe(gulp.dest(jsDistDir))
 
     // output the size of the unminified JS
     .pipe(gulpif(config.misc.showFileSize,
@@ -113,6 +117,8 @@ gulp.task('scripts:bundle', ['clean:scripts'], () => browserify(`${config.js.src
         }
     }))
 
+    .pipe(gulp.dest(jsDocsDistDir))
+
     // revision control for caching
     .pipe(gulpif(config.js.applyRevision,
         rev()
@@ -134,5 +140,5 @@ gulp.task('scripts:bundle', ['clean:scripts'], () => browserify(`${config.js.src
         sourcemaps.write('.')
     ))
 
-    .pipe(gulp.dest(config.js.distDir))
+    .pipe(gulp.dest(jsDistDir))
 );
