@@ -23,12 +23,10 @@ const ConfigOptions = () => {
          * CSS-related variables
          */
         css: {
-            srcDir: `${srcDir}/scss`,
-            distDir: `${distDir}/css`,
-
-            // We are supporting the last 2 browsers, any browsers with >5% market share,
-            // and ensuring we support IE8+ with prefixes
-            autoprefixer: ['> 5%', 'last 2 versions', 'ie > 7', 'Safari >= 8'],
+            srcDir: `${srcDir}`,
+            distDir: `${distDir}`,
+            scssDir: `/scss`,
+            cssDir: `/css`,
             sourcemaps: isDev
         },
 
@@ -36,9 +34,10 @@ const ConfigOptions = () => {
          * Javascript-related variables
          */
         js: {
-            srcDir: `${srcDir}/js`,
+            srcDir: `${srcDir}`,
             srcFile: 'index.js',
-            distDir: `${distDir}/js`,
+            distDir: `${distDir}`,
+            jsDir: `/js`,
             distFile: 'script.js',
             applyRevision: true
         },
