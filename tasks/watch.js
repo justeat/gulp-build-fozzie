@@ -53,7 +53,8 @@ gulp.task('watch:scripts', () => {
 /**
  * watch:scripts:test Task
  * -------------
- * Runs the `scripts:lint` and `scripts:test` tasks when a JavaScript unit test file is changed.
+ * Runs the `scripts:lint` and `scripts:test` tasks when a JavaScript unit
+ * test file is changed.
  *
  */
 gulp.task('watch:scripts:test', () => {
@@ -81,7 +82,8 @@ gulp.task('watch:images', () => {
 /**
  * watch:docs Task
  * -------------
- * Runs the `assemble` task when any documentation files change.
+ * Watches for changes to JavaScript, CSS, image, and documentation file
+ * changes, running relevant build tasks on change for each type.
  *
  */
 gulp.task('watch:docs', callback => {

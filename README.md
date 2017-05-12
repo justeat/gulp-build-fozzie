@@ -128,7 +128,11 @@ Optimises all images found in the source directory then copies them to the dist 
 
 ### `watch`
 
-Runs the `default` task then the following watch tasks
+Runs the `default` task then the following watch tasks.
+
+- #### `watch:css`
+
+Runs the [`css`](#css) task when a CSS file is changed.
 
 - #### `watch:scripts`
 
@@ -138,15 +142,15 @@ Runs the [`scripts`](#scripts) task when a JavaScript file is changed.
 
 Runs the [`scripts:lint`](#scriptslint) and [`scripts:test`](#scriptstest) tasks when a JavaScript unit test file is changed.
 
-- #### `watch:css`
-
-Runs the [`css`](#css) task when a CSS file is changed.
-
 - #### `watch:images`
 
 Runs the [`images`](#images) task when an image file is changed.
 
-- #### `watch:docs`
+### `watch:docs`
+
+Runs the same tasks as [`watch`](#watch) as well as the following watch tasks.
+
+- #### `watch:docs:templates`
 
 Runs the [`assemble`](#assemble) task when documentation files are changed.
 
