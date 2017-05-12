@@ -162,29 +162,27 @@ Here is the outline of the configuration options, descriptions of each are below
 
 ```js
 {
+    assetSrcDir,
+    assetDistDir,
     css: {
-        srcDir,
-        distDir,
-        autoprefixer,
+        scssDir,
+        cssDir,
         sourcemaps
     },
     js: {
-        srcDir,
         srcFile,
-        distDir,
+        jsDir,
         distFile,
         applyRevision
     },
     img: {
-        srcDir,
-        distDir
+        imgDir
     },
     docs: {
-        srcDir,
-        distDir,
+        rootDir,
         templDir,
-        cssUrl,
-        jsUrl
+        dataDir,
+        outputAssets
     },
     misc: {
         showFileSize,
@@ -200,31 +198,27 @@ Here is the outline of the configuration options, descriptions of each are below
 ```
 
 
+### `assetSrcDir`
+
+### `assetDistDir`
+
 ### `css`
 
-- #### `srcDir`
+- #### `scssDir`
 
   Type: `string`
 
-  Default: `'src/scss'`
+  Default: `'scss'`
 
   The directory where your SCSS files reside.
 
-- #### `distDir`
+- #### `cssDir`
 
   Type: `string`
 
-  Default: `'dist/css'`
+  Default: `'css'`
 
   The bundled CSS file will be output to this directory.
-
-- #### `autoprefixer`
-
-  Type: `array`
-
-  Default: `['> 5%', 'last 2 versions', 'ie > 7', 'Safari >= 8']`
-
-  Options which are passed to auto prefixer.
 
 - #### `sourcemaps`
 
@@ -237,14 +231,6 @@ Here is the outline of the configuration options, descriptions of each are below
 
 ### `js`
 
-- #### `srcDir`
-
-  Type: `string`
-
-  Default: `'src/js'`
-
-  The directory where your es2015 files reside.
-
 - #### `srcFile`
 
   Type: `string`
@@ -253,13 +239,15 @@ Here is the outline of the configuration options, descriptions of each are below
 
   The filename for the entry point to your es2015 code.
 
-- #### `distDir`
+- #### `jsDir`
 
   Type: `string`
 
-  Default: `'dist/js'`
+  Default: `'js'`
 
-  The bundled JavaScript file will be output to this directory.
+  Name of the directory that your JavaScript files are kept.
+
+  Compiled JavaScript files will be placed inside a directory with the same name.
 
 - #### `distFile`
 
@@ -280,64 +268,52 @@ Here is the outline of the configuration options, descriptions of each are below
 
 ### `img`
 
-- #### `srcDir`
+- #### `imgDir`
 
   Type: `string`
 
-  Default: `'src/img'`
+  Default: `'img'`
 
-  The directory where your image files reside.
+  Name of the directory that your image files are kept.
 
-- #### `distDir`
-
-  Type: `string`
-
-  Default: `'dist/img'`
-
-  The processed image files will be output to this directory.
+  Processed image files will be placed inside a directory with the same name.
 
 
 ### `docs`
 
-- #### `srcDir`
+- #### `rootDir`
 
   Type: `string`
 
-  Default: `'docs/src'`
+  Default: `'docs'`
 
-  The directory where your documentation files reside.
+  Root directory where your documentation files reside.
 
-- #### `distDir`
-
-  Type: `string`
-
-  Default: `'docs/dist'`
-
-  The documentation files will be output to this directory once they have been processed.
+  By default your source files will be searched for in `docs/src`, and the generated content will be output to `docs/dist`.
 
 - #### `templDir`
 
   Type: `string`
 
-  Default: `'docs/src/templates'`
+  Default: `'templates'`
 
-  The directory where your documentations templates files reside.
+  The name of the directory that your documentation template files are kept.
 
-- #### `cssUrl`
-
-  Type: `string`
-
-  Default: `''`
-
-  The URL to use for the documentation CSS.
-
-- #### `jsUrl`
+- #### `dataDir`
 
   Type: `string`
 
-  Default: `''`
+  Default: `'data'`
 
-  The URL to use for the documentation JavaScript.
+  The name of the directory that your documentation data files are kept.
+
+- #### `outputAssets`
+
+  Type: `boolean`
+
+  Default: `'false'`
+
+  Inidicates wether or not the JavaScript, CSS, and image files should be placed into the `docs/dist/assets` directory.
 
 
 ### `misc`
