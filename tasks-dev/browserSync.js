@@ -9,7 +9,8 @@ gulp.task('browserSync:docs', ['assemble'], () => {
     browserSync.init({
         files: [
             `${pathBuilder.docsDistDir}/**/*.html`,
-            `${pathBuilder.docsDistDir}/assets/**/*.css`
+            `${pathBuilder.docsDistDir}/assets/**/*.css`,
+            `${pathBuilder.docsDistDir}/assets/**/*.js`
         ],
         server: {
             baseDir: pathBuilder.docsDistDir,
