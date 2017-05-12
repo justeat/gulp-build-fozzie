@@ -52,7 +52,7 @@ const ConfigOptions = () => {
         docs: {
             rootDir: 'docs',
             templDir: 'templates',
-            dataDir : 'data',
+            dataDir: 'data',
             outputAssets: false
         },
 
