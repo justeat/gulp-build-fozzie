@@ -85,7 +85,7 @@ Runs the following tasks
 
   Performs a variety of tasks including;
 
-  - Pull in Eyeglas modules
+  - Pull in Eyeglass modules
   - Run postcss plugins
   - Minify the CSS
   - Add hashed version to file name
