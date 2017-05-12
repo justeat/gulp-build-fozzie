@@ -1,7 +1,9 @@
 const changed = require('gulp-changed');
 const gulp = require('gulp');
 const imagemin = require('gulp-imagemin');
+
 const config = require('../config');
+const pathBuilder = require('../pathBuilder');
 
 
 /**
@@ -19,10 +21,10 @@ gulp.task('images', ['images:optimise']);
  * Minifies PNG, JPEG, GIF and SVG images using imagemin
  *
  */
-gulp.task('images:optimise', () => gulp.src(`${config.img.srcDir}/**`)
+gulp.task('images:optimise', () => gulp.src(`${pathBuilder.imgSrcDir}/**`)
 
     // ignore unchanged files
-    .pipe(changed(config.img.distDir))
+    .pipe(changed(`${config.assetDistDir}/${config.img.imgDir}`))
 
     // optimize
     .pipe(imagemin([
@@ -33,6 +35,6 @@ gulp.task('images:optimise', () => gulp.src(`${config.img.srcDir}/**`)
     ], { verbose: config.isDev }))
 
     // write the files to disk
-    .pipe(gulp.dest(config.img.distDir))
+    .pipe(gulp.dest(`${config.assetDistDir}/${config.img.imgDir}`))
 
 );
