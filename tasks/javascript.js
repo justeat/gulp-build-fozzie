@@ -22,10 +22,7 @@ const rename = require('gulp-rename');
 const rev = require('gulp-rev');
 
 const config = require('../config');
-
-const jsSrcDir = config.js.srcDir + config.js.jsDir;
-const jsDistDir = config.js.distDir + config.js.jsDir;
-const jsDocsDistDir = config.docs.distDir + config.js.jsDir;
+const pathBuilder = require('../pathBuilder');
 
 
 /**
@@ -49,9 +46,12 @@ gulp.task('scripts', callback => {
  * Uses config rules to test for valid JS.
  *
  */
-gulp.task('scripts:lint', () => gulp.src(`${jsSrcDir}/**`)
+gulp.task('scripts:lint', () => gulp.src(`${pathBuilder.jsSrcDir}/**`)
     .pipe(cache('scripts-lint'))
-    .pipe(plumber(config.gulp.onError)) // stops watch from breaking if an error occurs
+
+    // stops watch from breaking on error
+    .pipe(plumber(config.gulp.onError))
+
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError())
@@ -79,7 +79,7 @@ gulp.task('scripts:test', callback => {
  * Bundle the JS modules together into a single file and and transpile es2015 features to es5
  *
  */
-gulp.task('scripts:bundle', ['clean:scripts'], () => browserify(`${jsSrcDir}/${config.js.srcFile}`, { debug: config.isDev })
+gulp.task('scripts:bundle', ['clean:scripts'], () => browserify(`${pathBuilder.jsSrcDir}/${config.js.srcFile}`, { debug: config.isDev })
     .transform(babelify)
     .bundle()
 
@@ -88,13 +88,13 @@ gulp.task('scripts:bundle', ['clean:scripts'], () => browserify(`${jsSrcDir}/${c
 
     // move the source map outisde of the JS file when not in prod
     .pipe(gulpif(config.isDev,
-        exorcist(`${jsDistDir}/${config.js.distFile}.map`)
+        exorcist(`${pathBuilder.jsDistDir}/${config.js.distFile}.map`)
     ))
 
     // create unminified file
     .pipe(source(config.js.distFile))
     .pipe(buffer())
-    .pipe(gulp.dest(jsDistDir))
+    .pipe(gulp.dest(pathBuilder.jsDistDir))
 
     // output the size of the unminified JS
     .pipe(gulpif(config.misc.showFileSize,
@@ -117,7 +117,12 @@ gulp.task('scripts:bundle', ['clean:scripts'], () => browserify(`${jsSrcDir}/${c
         }
     }))
 
-    .pipe(gulp.dest(jsDocsDistDir))
+    // output to docs assets folder
+    .pipe(
+        gulpif(config.docs.outputAssets,
+            gulp.dest(pathBuilder.docsJsDistDir)
+        )
+    )
 
     // revision control for caching
     .pipe(gulpif(config.js.applyRevision,
@@ -140,5 +145,5 @@ gulp.task('scripts:bundle', ['clean:scripts'], () => browserify(`${jsSrcDir}/${c
         sourcemaps.write('.')
     ))
 
-    .pipe(gulp.dest(jsDistDir))
+    .pipe(gulp.dest(pathBuilder.jsDistDir))
 );

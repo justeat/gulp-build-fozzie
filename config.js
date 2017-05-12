@@ -4,9 +4,6 @@ const path = require('path');
 const ConfigOptions = () => {
 
     const projectName = 'Gulp Build Fozzie';
-    const srcDir = 'src';
-    const distDir = 'dist';
-    const docsRoot = 'docs';
     const isProduction = !!gutil.env.prod;
     const isDev = !isProduction;
     const envLog = isProduction ? 'Production' : 'Development';
@@ -19,14 +16,15 @@ const ConfigOptions = () => {
 
         isDev,
 
+        assetSrcDir: 'src',
+        assetDistDir: 'dist',
+
         /**
          * CSS-related variables
          */
         css: {
-            srcDir: `${srcDir}`,
-            distDir: `${distDir}`,
-            scssDir: `/scss`,
-            cssDir: `/css`,
+            scssDir: 'scss',
+            cssDir: 'css',
             sourcemaps: isDev
         },
 
@@ -34,10 +32,8 @@ const ConfigOptions = () => {
          * Javascript-related variables
          */
         js: {
-            srcDir: `${srcDir}`,
             srcFile: 'index.js',
-            distDir: `${distDir}`,
-            jsDir: `/js`,
+            jsDir: 'js',
             distFile: 'script.js',
             applyRevision: true
         },
@@ -46,8 +42,7 @@ const ConfigOptions = () => {
          * Image-related variables
          */
         img: {
-            srcDir: `${srcDir}/img`,
-            distDir: `${distDir}/img`
+            imgDir: 'img'
         },
 
 
@@ -55,13 +50,10 @@ const ConfigOptions = () => {
          * Documentation-related variables
          */
         docs: {
-            rootDir: docsRoot,
-            srcDir: `${docsRoot}/${srcDir}`,
-            distDir: `${docsRoot}/${distDir}`,
+            rootDir: 'docs',
             templDir: 'templates',
-            dataDir : 'data',
-            cssUrl: '',
-            jsUrl: ''
+            dataDir: 'data',
+            outputAssets: false
         },
 
         /**

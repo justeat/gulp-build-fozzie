@@ -1,6 +1,8 @@
 const gulp = require('gulp');
 const runSequence = require('run-sequence');
 
+const config       = require('../config');
+
 
 /**
  * `docs` Task
@@ -9,9 +11,12 @@ const runSequence = require('run-sequence');
  *
  */
 gulp.task('docs', callback => {
+
+    config.docs.outputAssets = true;
+
     runSequence(
         'clean:docs',
-        'watch',
+        'watch:docs',
         'browserSync:docs',
         callback
     );

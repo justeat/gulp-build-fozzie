@@ -1,6 +1,8 @@
 ﻿const gulp = require('gulp');
 const runSequence = require('run-sequence');
+
 const config = require('../config');
+const pathBuilder = require('../pathBuilder');
 
 /**
  * watch Task
@@ -13,37 +15,9 @@ gulp.task('watch', callback => {
 
     runSequence(
         'default',
-        ['watch:scripts', 'watch:scripts:test', 'watch:css', 'watch:images', 'watch:docs'],
+        ['watch:css', 'watch:scripts', 'watch:scripts:test', 'watch:images'],
         callback
     );
-
-});
-
-
-/**
- * watch:scripts Task
- * -------------
- * Runs the `scripts` task when a JavaScript file is changed.
- *
- */
-gulp.task('watch:scripts', () => {
-
-    gulp.watch(`${config.js.srcDir}/**/!(*.test).js`, ['scripts'])
-        .on('change', config.gulp.changeEvent);
-
-});
-
-
-/**
- * watch:scripts:test Task
- * -------------
- * Runs the `scripts:lint` and `scripts:test` tasks when a JavaScript unit test file is changed.
- *
- */
-gulp.task('watch:scripts:test', () => {
-
-    gulp.watch(`${config.js.srcDir}/**/*.test.js`, ['scripts:lint', 'scripts:test'])
-        .on('change', config.gulp.changeEvent);
 
 });
 
@@ -56,7 +30,36 @@ gulp.task('watch:scripts:test', () => {
  */
 gulp.task('watch:css', () => {
 
-    gulp.watch(`${config.css.srcDir}/**/*.scss`, ['css'])
+    gulp.watch(`${pathBuilder.scssSrcDir}/**/*.scss`, ['css'])
+        .on('change', config.gulp.changeEvent);
+
+});
+
+
+/**
+ * watch:scripts Task
+ * -------------
+ * Runs the `scripts` task when a JavaScript file is changed.
+ *
+ */
+gulp.task('watch:scripts', () => {
+
+    gulp.watch(`${pathBuilder.jsSrcDir}/**/!(*.test).js`, ['scripts'])
+        .on('change', config.gulp.changeEvent);
+
+});
+
+
+/**
+ * watch:scripts:test Task
+ * -------------
+ * Runs the `scripts:lint` and `scripts:test` tasks when a JavaScript unit
+ * test file is changed.
+ *
+ */
+gulp.task('watch:scripts:test', () => {
+
+    gulp.watch(`${pathBuilder.jsSrcDir}/**/*.test.js`, ['scripts:lint', 'scripts:test'])
         .on('change', config.gulp.changeEvent);
 
 });
@@ -70,7 +73,7 @@ gulp.task('watch:css', () => {
  */
 gulp.task('watch:images', () => {
 
-    gulp.watch(`${config.img.srcDir}/**/*.{png,jpg,jpeg,gif,svg}`, ['images'])
+    gulp.watch(`${pathBuilder.imgSrcDir}/**/*.{png,jpg,jpeg,gif,svg}`, ['images'])
         .on('change', config.gulp.changeEvent);
 
 });
@@ -79,11 +82,28 @@ gulp.task('watch:images', () => {
 /**
  * watch:docs Task
  * -------------
+ * Watches for changes to JavaScript, CSS, image, and documentation file
+ * changes, running relevant build tasks on change for each type.
+ *
+ */
+gulp.task('watch:docs', callback => {
+
+    runSequence(
+        'default',
+        ['watch:css', 'watch:scripts', 'watch:scripts:test', 'watch:images', 'watch:docs:templates'],
+        callback
+    );
+
+});
+
+
+/**
+ * watch:docs:templates Task
+ * -------------
  * Runs the `assemble` task when any documentation files change.
  *
  */
-gulp.task('watch:docs', () => {
-    console.log(`${config.docs.srcDir}/**/*.{md,hbs}`);
+gulp.task('watch:docs:templates', () => {
 
     // be careful with the paths here – must be relative, using 'cwd' attribute
     // to specify root otherwise it won’t recompile when newly created files

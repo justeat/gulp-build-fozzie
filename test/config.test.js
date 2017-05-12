@@ -14,16 +14,12 @@ describe('environment config', () => {
 
 describe('css config', () => {
 
-    it('src directory should be set', () => {
-        expect(config.css.srcDir).toBe('src/scss');
+    it('scssDir should be set', () => {
+        expect(config.css.scssDir).toBe('scss');
     });
 
-    it('dist directory should be set', () => {
-        expect(config.css.distDir).toBe('dist/css');
-    });
-
-    it('autoprefixer options should be set', () => {
-        expect(config.css.autoprefixer).toEqual(['> 5%', 'last 2 versions', 'ie > 7', 'Safari >= 8']);
+    it('cssDir should be set', () => {
+        expect(config.css.cssDir).toBe('css');
     });
 
     it('sourcemaps should be true', () => {
@@ -34,16 +30,8 @@ describe('css config', () => {
 
 describe('javascript config', () => {
 
-    it('src directory should be set', () => {
-        expect(config.js.srcDir).toBe('src/js');
-    });
-
     it('src file should be set', () => {
         expect(config.js.srcFile).toBe('index.js');
-    });
-
-    it('dist directory should be set', () => {
-        expect(config.js.distDir).toBe('dist/js');
     });
 
     it('dist file should be set', () => {
@@ -58,24 +46,12 @@ describe('javascript config', () => {
 
 describe('image config', () => {
 
-    it('src directory should be set', () => {
-        expect(config.img.srcDir).toBe('src/img');
-    });
-
-    it('dist directory should be set', () => {
-        expect(config.img.distDir).toBe('dist/img');
+    it('image directory should be set', () => {
+        expect(config.img.imgDir).toBe('img');
     });
 });
 
 describe('documentation config', () => {
-
-    it('src directory should be set', () => {
-        expect(config.docs.srcDir).toBe('docs/src');
-    });
-
-    it('dist directory should be set', () => {
-        expect(config.docs.distDir).toBe('docs/dist');
-    });
 
     it('template directory should be set', () => {
         expect(config.docs.templDir).toBe('templates');
@@ -85,12 +61,8 @@ describe('documentation config', () => {
         expect(config.docs.dataDir).toBe('data');
     });
 
-    it('css url should be set', () => {
-        expect(config.docs.cssUrl).toBe('');
-    });
-
-    it('javascript url should be set', () => {
-        expect(config.docs.jsUrl).toBe('');
+    it('output assets should be false', () => {
+        expect(config.docs.outputAssets).toBe(false);
     });
 });
 
