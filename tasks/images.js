@@ -1,5 +1,6 @@
-const changed = require('gulp-changed');
 const gulp = require('gulp');
+const changed = require('gulp-changed');
+const gulpif = require('gulp-if');
 const imagemin = require('gulp-imagemin');
 
 const config = require('../config');
@@ -24,7 +25,7 @@ gulp.task('images', ['images:optimise']);
 gulp.task('images:optimise', () => gulp.src(`${pathBuilder.imgSrcDir}/**`)
 
     // ignore unchanged files
-    .pipe(changed(`${config.assetDistDir}/${config.img.imgDir}`))
+    .pipe(changed(`${pathBuilder.imgDistDir}`))
 
     // optimize
     .pipe(imagemin([
@@ -34,7 +35,13 @@ gulp.task('images:optimise', () => gulp.src(`${pathBuilder.imgSrcDir}/**`)
         imagemin.svgo()
     ], { verbose: config.isDev }))
 
+    .pipe(
+        gulpif(config.docs.outputAssets,
+            gulp.dest(pathBuilder.docsImgDistDir)
+        )
+    )
+
     // write the files to disk
-    .pipe(gulp.dest(`${config.assetDistDir}/${config.img.imgDir}`))
+    .pipe(gulp.dest(`${pathBuilder.imgDistDir}`))
 
 );

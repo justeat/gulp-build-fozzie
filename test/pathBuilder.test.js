@@ -30,6 +30,10 @@ describe('image paths', () => {
         expect(pathBuilder.imgSrcDir).toBe('src/img');
     });
 
+    it('distribution directory path should be correct', () => {
+        expect(pathBuilder.imgDistDir).toBe('dist/img');
+    });
+
 });
 
 describe('documentation paths', () => {
@@ -52,6 +56,10 @@ describe('documentation paths', () => {
 
     it('javascript distribution directory path should be correct', () => {
         expect(pathBuilder.docsJsDistDir).toBe('docs/dist/assets/js');
+    });
+
+    it('image distribution directory path should be correct', () => {
+        expect(pathBuilder.docsImgDistDir).toBe('docs/dist/assets/img');
     });
 
 });

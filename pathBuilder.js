@@ -12,12 +12,14 @@ var pathBuilder = {
     jsDistDir: `${config.assetDistDir}/${config.js.jsDir}`,
 
     imgSrcDir: `${config.assetSrcDir}/${config.img.imgDir}`,
+    imgDistDir: `${config.assetDistDir}/${config.img.imgDir}`,
 
     docsSrcDir,
     docsDistDir,
     docsTemplatesDir: `${docsSrcDir}/${config.docs.templDir}`,
     docsCssDistDir: `${docsDistDir}/assets/${config.css.cssDir}`,
-    docsJsDistDir: `${docsDistDir}/assets/${config.js.jsDir}`
+    docsJsDistDir: `${docsDistDir}/assets/${config.js.jsDir}`,
+    docsImgDistDir: `${docsDistDir}/assets/${config.img.imgDir}`
 };
 
 module.exports = pathBuilder;
