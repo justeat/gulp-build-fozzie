@@ -75,7 +75,21 @@ Runs the following tasks
 
 - #### `css:lint`
 
-  Lint all CSS (SCSS) in the `scss` directory.
+  Lint all CSS (SCSS) in the source directory.
+
+- #### `clean:css`
+
+  Removes any CSS already in the dist directory.
+
+- #### `css:bundle`
+
+  Performs a variety of tasks including;
+
+  - Pull in Eyeglas modules
+  - Run postcss plugins
+  - Minify the CSS
+  - Add hashed version to file name
+  - Output bundle to the dist directory
 
 ### `scripts`
 
@@ -83,11 +97,15 @@ Runs the following tasks
 
 - #### `scripts:lint`
 
-  Lint all JavaScript in the `js` directory.
+  Lint all JavaScript in the source directory.
 
 - #### `scripts:test`
 
-  Runs any unit tests found under `src/js` using Jest.
+  Runs any unit tests found in the JavaScript source directory using Jest.
+
+- #### `clean:scripts`
+
+  Removes any JavaScript already in the dist directory.
 
 - #### `scripts:bundle`
 
@@ -98,11 +116,7 @@ Runs the following tasks
   - Generate sourcemap files
   - Minify the JavaScript
   - Add hashed version to file name
-  - Output bundle to the `dist/js` directory
-
-- #### `clean:scripts`
-
-  Removes any JavaScript already in the `dist/js` directory.
+  - Output bundle to the dist directory
 
 ### `images`
 
@@ -110,7 +124,7 @@ Runs the following tasks
 
 - #### `images:optimise`
 
-Optimises all images found in the `src/img` directory then copies them to the `dist/img` directory.
+Optimises all images found in the source directory then copies them to the dist directory.
 
 ### `watch`
 
@@ -145,11 +159,11 @@ This will build a fresh copy of any documentation found in the `docs` directory 
 
 - #### `clean:docs`
 
-Removes document files already in the `docs/dist` directory.
+Removes document files already in the docs dist directory.
 
 - #### `browserSync:docs`
 
-Refreshes the browser when changes to the `docs/dist` directory are detected.
+Refreshes the browser when changes to the docs dist directory are detected.
 
 - #### `assemble`
 
@@ -200,7 +214,11 @@ Here is the outline of the configuration options, descriptions of each are below
 
 ### `assetSrcDir`
 
+Root source directory for your assets.
+
 ### `assetDistDir`
+
+Root dist directory for your assets.
 
 ### `css`
 

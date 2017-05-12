@@ -58,7 +58,7 @@ gulp.task('css:lint', () => gulp.src(`${pathBuilder.scssSrcDir}/**/*.scss`)
 
 
 /**
- *  css Task
+ *  css:bundle Task
  *  ---------
  *
  */
