@@ -15,7 +15,7 @@ gulp.task('watch', callback => {
 
     runSequence(
         'default',
-        ['watch:css', 'watch:scripts', 'watch:scripts:test', 'watch:images', 'watch:docs'],
+        ['watch:css', 'watch:scripts', 'watch:scripts:test', 'watch:images'],
         callback
     );
 
@@ -84,7 +84,25 @@ gulp.task('watch:images', () => {
  * Runs the `assemble` task when any documentation files change.
  *
  */
-gulp.task('watch:docs', () => {
+gulp.task('watch:docs', callback => {
+
+    runSequence(
+        'default',
+        ['watch:css', 'watch:scripts', 'watch:scripts:test', 'watch:images', 'watch:docs:templates'],
+        callback
+    );
+
+});
+
+
+/**
+ * watch:docs:templates Task
+ * -------------
+ * Runs the `assemble` task when any documentation files change.
+ *
+ */
+gulp.task('watch:docs:templates', () => {
+
     // be careful with the paths here – must be relative, using 'cwd' attribute
     // to specify root otherwise it won’t recompile when newly created files
     // are added to a directory while running the watch
