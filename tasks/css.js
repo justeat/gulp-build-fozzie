@@ -44,6 +44,9 @@ gulp.task('css', callback => {
  *
  */
 gulp.task('css:lint', () => gulp.src(`${pathBuilder.scssSrcDir}/**/*.scss`)
+    // stops watch from breaking on error
+    .pipe(plumber(config.gulp.onError))
+
     .pipe(
         postcss([
             stylelint(),
@@ -63,6 +66,7 @@ gulp.task('css:lint', () => gulp.src(`${pathBuilder.scssSrcDir}/**/*.scss`)
  *
  */
 gulp.task('css:bundle', ['clean:css'], () => gulp.src(`${pathBuilder.scssSrcDir}/**/*.scss`)
+    // stops watch from breaking on error
     .pipe(plumber(config.gulp.onError))
 
     .pipe(gulpif(config.isDev, sourcemaps.init()))

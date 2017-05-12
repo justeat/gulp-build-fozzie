@@ -48,7 +48,10 @@ gulp.task('scripts', callback => {
  */
 gulp.task('scripts:lint', () => gulp.src(`${pathBuilder.jsSrcDir}/**`)
     .pipe(cache('scripts-lint'))
-    .pipe(plumber(config.gulp.onError)) // stops watch from breaking if an error occurs
+
+    // stops watch from breaking on error
+    .pipe(plumber(config.gulp.onError))
+
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError())
