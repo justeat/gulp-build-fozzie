@@ -1,17 +1,18 @@
 const gulp = require('gulp');
 const browserSync = require('browser-sync');
-const config = require('../config');
 
+const config = require('../config');
+const pathBuilder = require('../pathBuilder');
 
 gulp.task('browserSync:docs', ['assemble'], () => {
 
     browserSync.init({
         files: [
-            `${config.docs.distDir}/**/*.html`,
-            `${config.docs.distDir}/assets/**/*.css`
+            `${pathBuilder.docsDistDir}/**/*.html`,
+            `${pathBuilder.docsDistDir}/assets/**/*.css`
         ],
         server: {
-            baseDir: config.docs.distDir,
+            baseDir: pathBuilder.docsDistDir,
             serveStaticOptions: {
                 extensions: ['html']
             }
