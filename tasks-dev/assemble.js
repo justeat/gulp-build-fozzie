@@ -31,7 +31,9 @@ gulp.task('assemble', () => {
     app.option('layout', 'default');
 
     app.data('./package.json', { namespace: true });
-    // app.data({});
+    app.data({
+        jsFilename: config.js.distFile
+    });
 
     // pre-render any data <%= variable %> declarations in the yml front-end matter
     app.preRender(/\.(hbs|html)$/, (view, next) => {
