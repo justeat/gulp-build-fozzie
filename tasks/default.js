@@ -6,4 +6,4 @@
  *
  *
  */
-gulp.task('default', ['css', 'scripts', 'images']);
+gulp.task('default', ['css', 'scripts', 'images', 'sw']);
