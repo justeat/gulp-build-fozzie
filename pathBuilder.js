@@ -14,6 +14,9 @@ var pathBuilder = {
     imgSrcDir: `${config.assetSrcDir}/${config.img.imgDir}`,
     imgDistDir: `${config.assetDistDir}/${config.img.imgDir}`,
 
+    swSrcDir: `${config.assetSrcDir}/${config.sw.swDir}`,
+    swDistDir: `${config.assetDistDir}/${config.sw.swDir}`,
+
     docsSrcDir,
     docsDistDir,
     docsTemplatesDir: `${docsSrcDir}/${config.docs.templDir}`,
