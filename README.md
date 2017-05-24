@@ -197,11 +197,11 @@ Here is the outline of the configuration options, descriptions of each are below
         imgDir
     },
     sw: {
-        cacheId,
-        importScripts,
-        staticFileGlobs,
         swDir,
-        outputFile
+        outputFile,
+        staticFileGlobs,
+        importScripts,
+        cacheId
     },
     docs: {
         rootDir,
