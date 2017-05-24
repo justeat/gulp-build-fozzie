@@ -49,11 +49,11 @@ const ConfigOptions = () => {
          * Service Worker related variables
          */
          sw: {
-             cacheId: '',
-             importScripts: [],
-             staticFileGlobs: [],
              swDir: 'sw',
-             outputPath: 'service-worker.js'
+             outputFile: 'service-worker.js',
+             staticFileGlobs: [],
+             importScripts: [],
+             cacheId: ''
          },
 
         /**

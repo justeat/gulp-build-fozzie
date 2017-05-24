@@ -196,6 +196,13 @@ Here is the outline of the configuration options, descriptions of each are below
     img: {
         imgDir
     },
+    sw: {
+        cacheId,
+        importScripts,
+        staticFileGlobs,
+        swDir,
+        outputFile
+    },
     docs: {
         rootDir,
         templDir,
@@ -299,6 +306,51 @@ Root dist directory for your assets.
   Name of the directory that your image files are kept.
 
   Processed image files will be placed inside a directory with the same name.
+
+
+### `sw`
+
+- #### `swDir`
+
+  Type: `string`
+
+  Default: `'sw'`
+
+  Name of the directory that your service worker's custom internal scripts are kept in.
+
+  Scripts here will be placed inside a directory with the same name.
+
+- #### `outputFile`
+
+  Type: `string`
+
+  Default: `'service-worker.js'`
+
+  The name of the generated service worker file, to be placed in the root of your application.
+
+- #### `staticFileGlobs`
+
+  Type: `array`
+
+  Default: `[]`
+
+  The files to be cached by the service worker.
+
+- #### `importScripts`
+
+  Type: `array`
+
+  Default: `[]`
+
+  Any additional internal scripts to include, aside from those in `swDir`.
+
+- #### `cacheId`
+
+  Type: `string`
+
+  Default: `''`
+
+  An optional string used to differentiate caches on the same origin during local development.
 
 
 ### `docs`
