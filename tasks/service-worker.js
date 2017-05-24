@@ -21,6 +21,13 @@ gulp.task('service-worker', ['service-worker:copy'], () =>
     })
 );
 
+
+/**
+ * sw Task
+ * -------------
+ * Copies the worker's internal scripts to the dist directory
+ *
+ */
 gulp.task('service-worker:copy', () => gulp.src(config.sw.importScripts.concat(pathBuilder.swSrcDir))
     .pipe(changed(pathBuilder.swDistDir)) // only let through changed files
     .pipe(gulp.dest(pathBuilder.swDistDir))
