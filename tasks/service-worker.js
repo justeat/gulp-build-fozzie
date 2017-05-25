@@ -17,7 +17,7 @@ gulp.task('service-worker', ['service-worker:copy', 'service-worker:locate'], ()
     swPrecache.write(config.sw.outputPath, {
         // Used to avoid cache conflicts when serving on localhost.
         cacheId: config.sw.cacheId,
-        importScripts: config.sw.importScripts.concat(filenames.get('service-worker-scripts')), // what to do here
+        importScripts: config.sw.importScripts.concat(filenames.get('service-worker-scripts')),
         staticFileGlobs: config.sw.staticFileGlobs
     })
 );
