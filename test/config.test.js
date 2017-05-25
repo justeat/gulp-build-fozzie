@@ -62,11 +62,11 @@ describe('service worker config', () => {
     });
 
     it('static file globs should be empty', () => {
-        expect(config.sw.staticFileGlobs).toEqual(expect.arrayContaining([]));
+        expect(config.sw.staticFileGlobs).toEqual([]);
     });
 
     it('scripts to import should be empty', () => {
-        expect(config.sw.importScripts).toEqual(expect.arrayContaining([]));
+        expect(config.sw.importScripts).toEqual([]);
     });
 
     it('cache id should be set', () => {
