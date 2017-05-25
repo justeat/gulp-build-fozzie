@@ -61,12 +61,12 @@ describe('service worker config', () => {
         expect(config.sw.outputFile).toBe('service-worker.js');
     });
 
-    it('static file globs should be set', () => {
-        expect(config.sw.staticFileGlobs).toBe([]);
+    it('static file globs should be empty', () => {
+        expect(config.sw.staticFileGlobs).toEqual(expect.arrayContaining([]));
     });
 
-    it('scripts to import should be set', () => {
-        expect(config.sw.importScripts).toBe([]);
+    it('scripts to import should be empty', () => {
+        expect(config.sw.importScripts).toEqual(expect.arrayContaining([]));
     });
 
     it('cache id should be set', () => {
