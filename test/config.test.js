@@ -51,6 +51,29 @@ describe('image config', () => {
     });
 });
 
+describe('service worker config', () => {
+
+    it('service worker directory should be set', () => {
+        expect(config.sw.swDir).toBe('sw');
+    });
+
+    it('output filename should be set', () => {
+        expect(config.sw.outputFile).toBe('service-worker.js');
+    });
+
+    it('static file globs should be empty', () => {
+        expect(config.sw.staticFileGlobs).toEqual([]);
+    });
+
+    it('scripts to import should be empty', () => {
+        expect(config.sw.importScripts).toEqual([]);
+    });
+
+    it('cache id should be set', () => {
+        expect(config.sw.cacheId).toBe('');
+    });
+});
+
 describe('documentation config', () => {
 
     it('template directory should be set', () => {

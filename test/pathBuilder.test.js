@@ -36,6 +36,18 @@ describe('image paths', () => {
 
 });
 
+describe('service worker paths', () => {
+
+    it('source directory path should be correct', () => {
+        expect(pathBuilder.swSrcDir).toBe('src/sw');
+    });
+
+    it('distribution directory path should be correct', () => {
+        expect(pathBuilder.swDistDir).toBe('dist/sw');
+    });
+
+});
+
 describe('documentation paths', () => {
 
     it('source directory path should be correct', () => {
