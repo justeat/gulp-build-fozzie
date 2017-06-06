@@ -185,6 +185,7 @@ Here is the outline of the configuration options, descriptions of each are below
     css: {
         scssDir,
         cssDir,
+        lintPaths,
         sourcemaps
     },
     js: {
@@ -241,6 +242,14 @@ Root dist directory for your assets.
   Default: `'css'`
 
   The bundled CSS file will be output to this directory.
+
+-#### `lintPaths`
+
+  Type: `array`
+
+  Default: `[ ]`
+
+  Allows additional paths to be included or excluded from the linting task.
 
 - #### `sourcemaps`
 

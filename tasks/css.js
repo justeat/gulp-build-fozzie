@@ -43,7 +43,9 @@ gulp.task('css', callback => {
  * Uses our config rules set in .stylelintrc to validate syntax and structure of the CSS
  *
  */
-gulp.task('css:lint', () => gulp.src(`${pathBuilder.scssSrcDir}/**/*.scss`)
+const lintSrc = [`${pathBuilder.scssSrcDir}/**/*.scss`].concat(config.css.lintPaths);
+
+gulp.task('css:lint', () => gulp.src(lintSrc)
     // stops watch from breaking on error
     .pipe(plumber(config.gulp.onError))
 

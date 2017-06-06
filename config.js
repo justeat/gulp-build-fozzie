@@ -11,7 +11,6 @@ const ConfigOptions = () => {
     gutil.log(gutil.colors.yellow(`❯❯❯❯ Running ${projectName} task in ${gutil.colors.bold(`${envLog}`)}`));
 
     let config = {
-
         isProduction,
 
         isDev,
@@ -25,6 +24,7 @@ const ConfigOptions = () => {
         css: {
             scssDir: 'scss',
             cssDir: 'css',
+            lintPaths: [''],
             sourcemaps: isDev
         },
 
