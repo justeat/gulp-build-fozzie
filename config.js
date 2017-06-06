@@ -45,6 +45,16 @@ const ConfigOptions = () => {
             imgDir: 'img'
         },
 
+        /**
+         * Service Worker related variables
+         */
+         sw: {
+             swDir: 'sw',
+             outputFile: 'service-worker.js',
+             staticFileGlobs: [],
+             importScripts: [],
+             cacheId: ''
+         },
 
         /**
          * Documentation-related variables
