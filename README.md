@@ -192,6 +192,7 @@ Here is the outline of the configuration options, descriptions of each are below
         srcFile,
         jsDir,
         distFile,
+        lintPaths,
         applyRevision
     },
     img: {
@@ -296,6 +297,16 @@ Root dist directory for your assets.
   Default: `'script.js'`
 
  The filename for the bundled JavaScript.
+
+-#### `lintPaths`
+
+  Type: `array`
+
+  Default: `[ ]`
+
+  Allows additional paths to be included or excluded from the JS linting task.
+
+  By default, the task will lint all files within the `jsDir` directory.
 
 - #### `applyRevision`
 
