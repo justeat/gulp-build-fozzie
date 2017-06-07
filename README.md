@@ -258,6 +258,8 @@ Root dist directory for your assets.
 
   Allows additional paths to be included or excluded from the linting task.
 
+  By default, the task will lint all `.scss` files within the `scssDir` directory.
+
 - #### `sourcemaps`
 
   Type: `boolean`
