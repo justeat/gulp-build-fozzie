@@ -250,7 +250,7 @@ Root dist directory for your assets.
 
   The bundled CSS file will be output to this directory.
 
--#### `lintPaths`
+- #### `lintPaths`
 
   Type: `array`
 
