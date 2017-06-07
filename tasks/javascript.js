@@ -46,7 +46,9 @@ gulp.task('scripts', callback => {
  * Uses config rules to test for valid JS.
  *
  */
-gulp.task('scripts:lint', () => gulp.src(`${pathBuilder.jsSrcDir}/**`)
+const lintSrc = [`${pathBuilder.jsSrcDir}/**`].concat(config.js.lintPaths);
+
+gulp.task('scripts:lint', () => gulp.src(lintSrc)
     .pipe(cache('scripts-lint'))
 
     // stops watch from breaking on error

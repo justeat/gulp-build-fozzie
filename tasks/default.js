@@ -1,4 +1,4 @@
-﻿const gulp = require('gulp');
+const gulp = require('gulp');
 
 /**
  * `default` Task
@@ -6,4 +6,4 @@
  *
  *
  */
-gulp.task('default', ['css', 'scripts', 'images', 'service-worker']);
+gulp.task('default', ['css', 'scripts', 'images']);

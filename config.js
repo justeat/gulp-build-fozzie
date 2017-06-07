@@ -34,6 +34,7 @@ const ConfigOptions = () => {
         js: {
             srcFile: 'index.js',
             jsDir: 'js',
+            lintPaths: [''],
             distFile: 'script.js',
             applyRevision: true
         },
