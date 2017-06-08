@@ -61,7 +61,9 @@ const ConfigOptions = () => {
          * Documentation-related variables
          */
         docs: {
-            rootDir: 'docs',
+            rootDir: './docs',
+            srcDir: 'src',
+            distDir: 'dist',
             templDir: 'templates',
             dataDir: 'data',
             outputAssets: false
