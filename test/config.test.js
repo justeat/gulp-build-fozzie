@@ -22,6 +22,10 @@ describe('css config', () => {
         expect(config.css.cssDir).toBe('css');
     });
 
+    it('lintPaths should be set', () => {
+        expect(config.css.lintPaths).toEqual([""]);
+    });
+
     it('sourcemaps should be true', () => {
         expect(config.css.sourcemaps).toBe(true);
     });
@@ -36,6 +40,10 @@ describe('javascript config', () => {
 
     it('dist file should be set', () => {
         expect(config.js.distFile).toBe('script.js');
+    });
+
+    it('lintPaths should be set', () => {
+        expect(config.js.lintPaths).toEqual([""]);
     });
 
     it('applyRevision should be true', () => {

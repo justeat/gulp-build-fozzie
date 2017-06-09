@@ -51,27 +51,27 @@ describe('service worker paths', () => {
 describe('documentation paths', () => {
 
     it('source directory path should be correct', () => {
-        expect(pathBuilder.docsSrcDir).toBe('docs/src');
+        expect(pathBuilder.docsSrcDir).toBe('./docs/src');
     });
 
     it('distribution directory path should be correct', () => {
-        expect(pathBuilder.docsDistDir).toBe('docs/dist');
+        expect(pathBuilder.docsDistDir).toBe('./docs/dist');
     });
 
     it('template directory path should be correct', () => {
-        expect(pathBuilder.docsTemplatesDir).toBe('docs/src/templates');
+        expect(pathBuilder.docsTemplatesDir).toBe('./docs/src/templates');
     });
 
     it('css distribution directory path should be correct', () => {
-        expect(pathBuilder.docsCssDistDir).toBe('docs/dist/assets/css');
+        expect(pathBuilder.docsCssDistDir).toBe('./docs/dist/assets/css');
     });
 
     it('javascript distribution directory path should be correct', () => {
-        expect(pathBuilder.docsJsDistDir).toBe('docs/dist/assets/js');
+        expect(pathBuilder.docsJsDistDir).toBe('./docs/dist/assets/js');
     });
 
     it('image distribution directory path should be correct', () => {
-        expect(pathBuilder.docsImgDistDir).toBe('docs/dist/assets/img');
+        expect(pathBuilder.docsImgDistDir).toBe('./docs/dist/assets/img');
     });
 
 });
