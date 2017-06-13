@@ -9,7 +9,6 @@ const config       = require('../config');
  * Removes all files form the docs dist directory
  *
  */
-
 gulp.task('docs', callback => {
 
     config.docs.outputAssets = true;

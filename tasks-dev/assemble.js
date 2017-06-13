@@ -24,7 +24,6 @@ app.helper('md', require('helper-md'));
  */
 gulp.task('assemble', () => {
 
-
     app.enable('debugEngine');
     app.layouts(`${pathBuilder.docsTemplatesDir}/layouts/*.{md,hbs}`);
     app.partials(`${pathBuilder.docsTemplatesDir}/includes/**/*.{md,hbs}`);
@@ -33,7 +32,7 @@ gulp.task('assemble', () => {
 
     app.data('./package.json', { namespace: true });
     app.data({
-        baseUrl: (config.docs.isProd ? '/ICP/app_consumerweb' : ''),
+        baseUrl: (config.docs.isProd ? config.docs.remoteBase : ''),
         jsFilename: config.js.distFile
     });
 
