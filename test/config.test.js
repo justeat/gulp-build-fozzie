@@ -84,6 +84,22 @@ describe('service worker config', () => {
 
 describe('documentation config', () => {
 
+    it('root directory should be set', () => {
+        expect(config.docs.rootDir).toBe('./docs');
+    });
+
+    it('src directory should be set', () => {
+        expect(config.docs.srcDir).toBe('src');
+    });
+
+    it('dist directory should be set', () => {
+        expect(config.docs.distDir).toBe('dist');
+    });
+
+    it('asset directory should be set', () => {
+        expect(config.docs.assetDir).toBe('assets/');
+    });
+
     it('template directory should be set', () => {
         expect(config.docs.templDir).toBe('templates');
     });
@@ -94,6 +110,10 @@ describe('documentation config', () => {
 
     it('output assets should be false', () => {
         expect(config.docs.outputAssets).toBe(false);
+    });
+
+    it('remoteBase should be set', () => {
+        expect(config.docs.remoteBase).toBe('/ICP/app_consumerweb');
     });
 });
 
