@@ -1,4 +1,4 @@
-const config = require('../config');
+﻿const config = require('../config');
 
 describe('environment config', () => {
 
@@ -22,6 +22,10 @@ describe('css config', () => {
         expect(config.css.cssDir).toBe('css');
     });
 
+    it('lintPaths should be set', () => {
+        expect(config.css.lintPaths).toEqual([""]);
+    });
+
     it('sourcemaps should be true', () => {
         expect(config.css.sourcemaps).toBe(true);
     });
@@ -36,6 +40,10 @@ describe('javascript config', () => {
 
     it('dist file should be set', () => {
         expect(config.js.distFile).toBe('script.js');
+    });
+
+    it('lintPaths should be set', () => {
+        expect(config.js.lintPaths).toEqual([""]);
     });
 
     it('applyRevision should be true', () => {
@@ -76,6 +84,22 @@ describe('service worker config', () => {
 
 describe('documentation config', () => {
 
+    it('root directory should be set', () => {
+        expect(config.docs.rootDir).toBe('./docs');
+    });
+
+    it('src directory should be set', () => {
+        expect(config.docs.srcDir).toBe('src');
+    });
+
+    it('dist directory should be set', () => {
+        expect(config.docs.distDir).toBe('dist');
+    });
+
+    it('asset directory should be set', () => {
+        expect(config.docs.assetDir).toBe('assets/');
+    });
+
     it('template directory should be set', () => {
         expect(config.docs.templDir).toBe('templates');
     });
@@ -86,6 +110,10 @@ describe('documentation config', () => {
 
     it('output assets should be false', () => {
         expect(config.docs.outputAssets).toBe(false);
+    });
+
+    it('remoteBase should be set', () => {
+        expect(config.docs.remoteBase).toBe('');
     });
 });
 

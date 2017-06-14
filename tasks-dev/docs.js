@@ -3,7 +3,6 @@ const runSequence = require('run-sequence');
 
 const config       = require('../config');
 
-
 /**
  * `docs` Task
  * -------------

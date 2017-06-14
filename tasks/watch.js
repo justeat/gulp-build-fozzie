@@ -1,4 +1,4 @@
-﻿const gulp = require('gulp');
+const gulp = require('gulp');
 const runSequence = require('run-sequence');
 
 const config = require('../config');
@@ -111,6 +111,7 @@ gulp.task('watch:docs:templates', () => {
     gulp.watch(`**/*.{md,hbs}`,
         { cwd: `./${config.docs.rootDir}` },
         ['assemble']
-    );
+    )
+    .on('change', config.gulp.changeEvent);
 
 });

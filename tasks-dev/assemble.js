@@ -11,6 +11,11 @@ const config = require('../config');
 const pathBuilder = require('../pathBuilder');
 
 
+const app = assemble();
+app.helper('is', helpers.comparison().is);
+app.helper('markdown', require('helper-markdown'));
+app.helper('md', require('helper-md'));
+
 /**
  * `assemble` Task
  * -------------
@@ -18,11 +23,6 @@ const pathBuilder = require('../pathBuilder');
  *
  */
 gulp.task('assemble', () => {
-    const app = assemble();
-
-    app.helper('is', helpers.comparison().is);
-    app.helper('markdown', require('helper-markdown'));
-    app.helper('md', require('helper-md'));
 
     app.enable('debugEngine');
     app.layouts(`${pathBuilder.docsTemplatesDir}/layouts/*.{md,hbs}`);
@@ -32,22 +32,18 @@ gulp.task('assemble', () => {
 
     app.data('./package.json', { namespace: true });
     app.data({
+        baseUrl: (config.docs.isProd ? config.docs.remoteBase : ''),
         jsFilename: config.js.distFile
-    });
-
-    // pre-render any data <%= variable %> declarations in the yml front-end matter
-    app.preRender(/\.(hbs|html)$/, (view, next) => {
-        view.data = expand(view.data, app.cache.data);
-        next();
     });
 
     return app.src(`${pathBuilder.docsTemplatesDir}/pages/**/*.{md,hbs}`)
         // stops watch from breaking on error
-        .pipe(plumber(err => console.error(err.message)))
-        .pipe(newer({
-            dest: pathBuilder.docsDistDir,
-            ext: '.html'
-        }))
+        .pipe(plumber(config.gulp.onError))
+        // can’t get newer to work with page includes: such that a many > 1 relationship.  Commenting out so just recompiles all for now
+        // .pipe(newer({
+        //     dest: pathBuilder.docsDistDir,
+        //     ext: '.html'
+        // }))
         .pipe(debug())
         .pipe(app.renderFile())
         .pipe(extname())

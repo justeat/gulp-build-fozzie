@@ -207,9 +207,13 @@ Here is the outline of the configuration options, descriptions of each are below
     },
     docs: {
         rootDir,
+        srcDir,
+        distDir,
+        assetDir,
         templDir,
         dataDir,
-        outputAssets
+        outputAssets,
+        remoteBase
     },
     misc: {
         showFileSize,
@@ -387,6 +391,36 @@ Root dist directory for your assets.
 
   By default your source files will be searched for in `docs/src`, and the generated content will be output to `docs/dist`.
 
+- #### `srcDir`
+
+  Type: `string`
+
+  Default: `'src'`
+
+  The source directory for your documentation template files.
+
+  By default the documentation task will use the path `docs/src` – with the `src` part of this path controlled by this config variable.
+
+- #### `distDir`
+
+  Type: `string`
+
+  Default: `'dist'`
+
+  The directory your documentation will be compiled to.
+
+  By default the documentation task will use `docs/dist` – with the `dist` part of this path controlled by this config variable.
+
+- #### `assetDir`
+
+  Type: `string`
+
+  Default: `'assets/'`
+
+  The directory your generated assets will be placed inside the documentation directory.
+
+  By default the documentation task will use `docs/dist/assets/` – with the `assets/` part of this path controlled by this config variable.
+
 - #### `templDir`
 
   Type: `string`
@@ -409,8 +443,15 @@ Root dist directory for your assets.
 
   Default: `'false'`
 
-  Inidicates wether or not the JavaScript, CSS, and image files should be placed into the `docs/dist/assets` directory.
+  Indicates whether or not the JavaScript, CSS and image files should be placed into the `docs/dist/assets/` directory.
 
+- #### `remoteBase`
+
+  Type: `string`
+
+  Default: `''`
+
+  Applies a base path to asset URLs when publishing documentation to Github pages.  By default this is set to be an empty string.
 
 ### `misc`
 
