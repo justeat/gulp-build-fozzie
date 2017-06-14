@@ -68,7 +68,7 @@ const ConfigOptions = () => {
             templDir: 'templates',
             dataDir: 'data',
             outputAssets: false,
-            remoteBase: '/ICP/app_consumerweb'
+            remoteBase: ''
         },
 
         /**
