@@ -1,4 +1,4 @@
-const config = require('../config');
+﻿const config = require('../config');
 
 describe('environment config', () => {
 
@@ -113,7 +113,7 @@ describe('documentation config', () => {
     });
 
     it('remoteBase should be set', () => {
-        expect(config.docs.remoteBase).toBe('/ICP/app_consumerweb');
+        expect(config.docs.remoteBase).toBe('');
     });
 });
 
