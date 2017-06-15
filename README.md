@@ -135,6 +135,22 @@ Runs the following tasks
 
 Optimises all images found in the source directory then copies them to the dist directory.
 
+### `service-worker`
+
+Runs the following tasks
+
+- #### `service-worker:locate`
+
+Discovers scripts in the service worker directory.
+
+- #### `service-worker:copy`
+
+Copies the worker's internal scripts to the dist directory.
+
+- #### `service-worker:write`
+
+Generates a service worker to pre-cache the assets defined in the config.
+
 ### `watch`
 
 Runs the `default` task then the following watch tasks.
@@ -189,6 +205,7 @@ Here is the outline of the configuration options, descriptions of each are below
 
 ```js
 {
+    webRootDir,
     assetSrcDir,
     assetDistDir,
     css: {
@@ -237,6 +254,10 @@ Here is the outline of the configuration options, descriptions of each are below
 }
 ```
 
+
+### `webRootDir`
+
+The root directory of your website.
 
 ### `assetSrcDir`
 
