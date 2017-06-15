@@ -6,6 +6,15 @@
 Gulp build tasks for use across Fozzie modules.
 
 
+## Contents
+
+- [Requirements](#requirements)
+- [Setup](#setup)
+- [The Gulp Tasks](#the-gulp-tasks)
+  - [Development only tasks](#development-only-tasks)
+- [Options](#options)
+  - [Other options](#other-options)
+
 ## Requirements
 
 In order for some of the tasks to be able to run you'll need to prepare your project by following these steps:
