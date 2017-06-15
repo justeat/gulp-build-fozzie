@@ -432,7 +432,7 @@ Root dist directory for your assets.
 
   Type: `string`
 
-  Default: `'assets'`
+  Default: `'assets/'`
 
   The directory your generated assets will be placed inside the documentation directory.
 
