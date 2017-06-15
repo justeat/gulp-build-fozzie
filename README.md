@@ -191,8 +191,8 @@ Here is the outline of the configuration options, descriptions of each are below
     js: {
         srcFile,
         jsDir,
-        distFile,
         lintPaths,
+        distFile,
         applyRevision
     },
     img: {
@@ -231,9 +231,17 @@ Here is the outline of the configuration options, descriptions of each are below
 
 ### `assetSrcDir`
 
+Type: `string`
+
+Default: `'src'`
+
 Root source directory for your assets.
 
 ### `assetDistDir`
+
+Type: `string`
+
+Default: `'dist'`
 
 Root dist directory for your assets.
 
@@ -259,7 +267,7 @@ Root dist directory for your assets.
 
   Type: `array`
 
-  Default: `[ ]`
+  Default: `['']`
 
   Allows additional paths to be included or excluded from the linting task.
 
@@ -294,6 +302,16 @@ Root dist directory for your assets.
 
   Compiled JavaScript files will be placed inside a directory with the same name.
 
+- #### `lintPaths`
+
+  Type: `array`
+
+  Default: `['']`
+
+  Allows additional paths to be included or excluded from the JS linting task.
+
+  By default, the task will lint all files within the `jsDir` directory.
+
 - #### `distFile`
 
   Type: `string`
@@ -301,16 +319,6 @@ Root dist directory for your assets.
   Default: `'script.js'`
 
  The filename for the bundled JavaScript.
-
--#### `lintPaths`
-
-  Type: `array`
-
-  Default: `[ ]`
-
-  Allows additional paths to be included or excluded from the JS linting task.
-
-  By default, the task will lint all files within the `jsDir` directory.
 
 - #### `applyRevision`
 
@@ -385,7 +393,7 @@ Root dist directory for your assets.
 
   Type: `string`
 
-  Default: `'docs'`
+  Default: `'./docs'`
 
   Root directory where your documentation files reside.
 
@@ -441,7 +449,7 @@ Root dist directory for your assets.
 
   Type: `boolean`
 
-  Default: `'false'`
+  Default: `false`
 
   Indicates whether or not the JavaScript, CSS and image files should be placed into the `docs/dist/assets/` directory.
 
