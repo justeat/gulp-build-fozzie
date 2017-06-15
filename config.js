@@ -130,6 +130,7 @@ const ConfigOptions = () => {
                 css: Object.assign(config.css, options.css),
                 js: Object.assign(config.js, options.js),
                 img: Object.assign(config.img, options.img),
+                sw: Object.assign(config.sw, options.sw),
                 docs: Object.assign(config.docs, options.docs),
                 misc: Object.assign(config.misc, options.misc),
                 gulp: Object.assign(config.gulp, options.gulp)
