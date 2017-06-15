@@ -180,6 +180,7 @@ Here is the outline of the configuration options, descriptions of each are below
 
 ```js
 {
+    webRootDir,
     assetSrcDir,
     assetDistDir,
     css: {
@@ -228,6 +229,10 @@ Here is the outline of the configuration options, descriptions of each are below
 }
 ```
 
+
+### `webRootDir`
+
+The root directory of your website.
 
 ### `assetSrcDir`
 
