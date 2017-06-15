@@ -59,7 +59,11 @@ describe('documentation paths', () => {
     });
 
     it('template directory path should be correct', () => {
-        expect(pathBuilder.docsTemplatesDir).toBe('./docs/src/templates');
+        expect(pathBuilder.docsTemplateDir).toBe('./docs/src/templates');
+    });
+
+    it('data directory path should be correct', () => {
+        expect(pathBuilder.docsDataDir).toBe('./docs/src/data');
     });
 
     it('css distribution directory path should be correct', () => {

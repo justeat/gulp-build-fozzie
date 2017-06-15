@@ -97,7 +97,7 @@ describe('documentation config', () => {
     });
 
     it('asset directory should be set', () => {
-        expect(config.docs.assetDir).toBe('assets/');
+        expect(config.docs.assetDir).toBe('assets');
     });
 
     it('template directory should be set', () => {

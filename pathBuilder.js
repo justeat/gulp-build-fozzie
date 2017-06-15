@@ -19,10 +19,11 @@ var pathBuilder = {
 
     docsSrcDir,
     docsDistDir,
-    docsTemplatesDir: `${docsSrcDir}/${config.docs.templDir}`,
-    docsCssDistDir: `${docsDistDir}/${config.docs.assetDir}${config.css.cssDir}`,
-    docsJsDistDir: `${docsDistDir}/${config.docs.assetDir}${config.js.jsDir}`,
-    docsImgDistDir: `${docsDistDir}/${config.docs.assetDir}${config.img.imgDir}`
+    docsTemplateDir: `${docsSrcDir}/${config.docs.templDir}`,
+    docsDataDir: `${docsSrcDir}/${config.docs.dataDir}`,
+    docsCssDistDir: `${docsDistDir}/${config.docs.assetDir}/${config.css.cssDir}`,
+    docsJsDistDir: `${docsDistDir}/${config.docs.assetDir}/${config.js.jsDir}`,
+    docsImgDistDir: `${docsDistDir}/${config.docs.assetDir}/${config.img.imgDir}`
 };
 
 module.exports = pathBuilder;
