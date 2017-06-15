@@ -19,7 +19,8 @@ var pathBuilder = {
 
     docsSrcDir,
     docsDistDir,
-    docsTemplatesDir: `${docsSrcDir}/${config.docs.templDir}`,
+    docsTemplateDir: `${docsSrcDir}/${config.docs.templDir}`,
+    docsDataDir: `${docsSrcDir}/${config.docs.dataDir}`,
     docsCssDistDir: `${docsDistDir}/${config.docs.assetDir}${config.css.cssDir}`,
     docsJsDistDir: `${docsDistDir}/${config.docs.assetDir}${config.js.jsDir}`,
     docsImgDistDir: `${docsDistDir}/${config.docs.assetDir}${config.img.imgDir}`
