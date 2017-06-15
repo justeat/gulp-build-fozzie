@@ -10,6 +10,14 @@ describe('environment config', () => {
         expect(config.isDev).toBe(true);
     });
 
+    it('asset src directory should be set', () => {
+        expect(config.assetSrcDir).toBe('src');
+    });
+
+    it('asset dist directory should be set', () => {
+        expect(config.assetDistDir).toBe('dist');
+    });
+
 });
 
 describe('css config', () => {
