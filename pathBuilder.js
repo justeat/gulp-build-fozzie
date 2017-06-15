@@ -14,6 +14,7 @@ var pathBuilder = {
     imgSrcDir: `${config.assetSrcDir}/${config.img.imgDir}`,
     imgDistDir: `${config.assetDistDir}/${config.img.imgDir}`,
 
+    swOutputPath: `${config.webRootDir}/${config.sw.outputFile}`,
     swSrcDir: `${config.assetSrcDir}/${config.sw.swDir}`,
     swDistDir: `${config.assetDistDir}/${config.sw.swDir}`,
 

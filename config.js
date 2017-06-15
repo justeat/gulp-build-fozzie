@@ -15,6 +15,7 @@ const ConfigOptions = () => {
 
         isDev,
 
+        webRootDir: '.',
         assetSrcDir: 'src',
         assetDistDir: 'dist',
 
@@ -49,13 +50,13 @@ const ConfigOptions = () => {
         /**
          * Service Worker related variables
          */
-         sw: {
-             swDir: 'sw',
-             outputFile: 'service-worker.js',
-             staticFileGlobs: [],
-             importScripts: [],
-             cacheId: ''
-         },
+        sw: {
+            swDir: 'sw',
+            outputFile: 'service-worker.js',
+            staticFileGlobs: [],
+            importScripts: [],
+            cacheId: ''
+        },
 
         /**
          * Documentation-related variables

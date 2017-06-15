@@ -14,7 +14,7 @@ const config        = require('../config');
  *
  */
 gulp.task('service-worker', ['service-worker:copy', 'service-worker:locate'], () =>
-    swPrecache.write(config.sw.outputFile, {
+    swPrecache.write(pathBuilder.swOutputPath, {
         // Used to avoid cache conflicts when serving on localhost.
         cacheId: config.sw.cacheId,
         importScripts: config.sw.importScripts.concat(filenames.get('service-worker-scripts')),
