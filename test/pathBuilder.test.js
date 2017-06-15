@@ -2,7 +2,7 @@ const pathBuilder = require('../pathBuilder');
 
 describe('css paths', () => {
 
-    it('scss source directory path should be correct', () => {
+    it('scss src directory path should be correct', () => {
         expect(pathBuilder.scssSrcDir).toBe('src/scss');
     });
 
@@ -14,7 +14,7 @@ describe('css paths', () => {
 
 describe('javascript paths', () => {
 
-    it('source directory path should be correct', () => {
+    it('src directory path should be correct', () => {
         expect(pathBuilder.jsSrcDir).toBe('src/js');
     });
 
@@ -26,7 +26,7 @@ describe('javascript paths', () => {
 
 describe('image paths', () => {
 
-    it('source directory path should be correct', () => {
+    it('src directory path should be correct', () => {
         expect(pathBuilder.imgSrcDir).toBe('src/img');
     });
 
@@ -38,7 +38,7 @@ describe('image paths', () => {
 
 describe('service worker paths', () => {
 
-    it('source directory path should be correct', () => {
+    it('src directory path should be correct', () => {
         expect(pathBuilder.swSrcDir).toBe('src/sw');
     });
 
@@ -50,7 +50,7 @@ describe('service worker paths', () => {
 
 describe('documentation paths', () => {
 
-    it('source directory path should be correct', () => {
+    it('src directory path should be correct', () => {
         expect(pathBuilder.docsSrcDir).toBe('./docs/src');
     });
 

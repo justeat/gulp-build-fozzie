@@ -14,16 +14,16 @@ describe('environment config', () => {
 
 describe('css config', () => {
 
-    it('scssDir should be set', () => {
+    it('scss directory should be set', () => {
         expect(config.css.scssDir).toBe('scss');
     });
 
-    it('cssDir should be set', () => {
+    it('css directory should be set', () => {
         expect(config.css.cssDir).toBe('css');
     });
 
-    it('lintPaths should be set', () => {
-        expect(config.css.lintPaths).toEqual([""]);
+    it('lint paths should be set', () => {
+        expect(config.css.lintPaths).toEqual(['']);
     });
 
     it('sourcemaps should be true', () => {
@@ -42,11 +42,11 @@ describe('javascript config', () => {
         expect(config.js.distFile).toBe('script.js');
     });
 
-    it('lintPaths should be set', () => {
-        expect(config.js.lintPaths).toEqual([""]);
+    it('lint paths should be set', () => {
+        expect(config.js.lintPaths).toEqual(['']);
     });
 
-    it('applyRevision should be true', () => {
+    it('apply revision should be true', () => {
         expect(config.js.applyRevision).toBe(true);
     });
 
@@ -69,11 +69,11 @@ describe('service worker config', () => {
         expect(config.sw.outputFile).toBe('service-worker.js');
     });
 
-    it('static file globs should be empty', () => {
+    it('static file globs should be set', () => {
         expect(config.sw.staticFileGlobs).toEqual([]);
     });
 
-    it('scripts to import should be empty', () => {
+    it('import scripts should be set', () => {
         expect(config.sw.importScripts).toEqual([]);
     });
 
@@ -119,22 +119,22 @@ describe('documentation config', () => {
 
 describe('miscellaneous config', () => {
 
-    it('showFileSize should be true', () => {
+    it('show file size should be true', () => {
         expect(config.misc.showFileSize).toBe(true);
     });
 
-    it('showFiles should be true', () => {
+    it('show files should be true', () => {
         expect(config.misc.showFiles).toBe(true);
     });
 });
 
 describe('gulp config', () => {
 
-    it('changeEvent should be a function', () => {
+    it('change event should be a function', () => {
         expect(typeof config.gulp.changeEvent).toBe('function');
     });
 
-    it('onError should be a function', () => {
+    it('on error should be a function', () => {
         expect(typeof config.gulp.onError).toBe('function');
     });
 
