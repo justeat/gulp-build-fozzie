@@ -35,8 +35,6 @@ gulp.task('service-worker:write', () => {
         handler: config.sw.dynamicFileStrategy
     }));
 
-    gutil.log(runtimeCaching);
-
     swPrecache.write(pathBuilder.swOutputPath, {
         // Used to avoid cache conflicts when serving on localhost.
         cacheId: config.sw.cacheId,
