@@ -30,7 +30,7 @@ gulp.task('service-worker', callback => {
  *
  */
 gulp.task('service-worker:write', () => {
-    let runtimeCaching = [];
+    const runtimeCaching = [];
     config.sw.dynamicFileRegex.forEach(regex =>
         runtimeCaching.push({
             urlPattern: regex,
@@ -43,9 +43,9 @@ gulp.task('service-worker:write', () => {
         cacheId: config.sw.cacheId,
         importScripts: config.sw.importScripts.concat(filenames.get('service-worker-scripts')),
         staticFileGlobs: config.sw.staticFileGlobs,
-        runtimeCaching: runtimeCaching,
+        runtimeCaching,
         logger: gutil.log
-    })
+    });
 });
 
 
