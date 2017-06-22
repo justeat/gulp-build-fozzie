@@ -30,13 +30,12 @@ gulp.task('service-worker', callback => {
  *
  */
 gulp.task('service-worker:write', () => {
-    const runtimeCaching = [];
-    config.sw.dynamicFileRegex.forEach(regex =>
-        runtimeCaching.push({
-            urlPattern: regex,
-            handler: config.sw.dynamicFileStrategy
-        })
-    );
+    const runtimeCaching = config.sw.dynamicFileRegex.map(urlPattern => ({
+        urlPattern,
+        handler: config.sw.dynamicFileStrategy
+    }));
+
+    gutil.log(runtimeCaching);
 
     swPrecache.write(pathBuilder.swOutputPath, {
         // Used to avoid cache conflicts when serving on localhost.
