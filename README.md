@@ -228,6 +228,8 @@ Here is the outline of the configuration options, descriptions of each are below
         swDir,
         outputFile,
         staticFileGlobs,
+        dynamicFileRegex,
+        dynamicFileStrategy,
         importScripts,
         cacheId
     },
