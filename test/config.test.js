@@ -81,6 +81,14 @@ describe('service worker config', () => {
         expect(config.sw.staticFileGlobs).toEqual([]);
     });
 
+    it('dynamic file regex should be set', () => {
+        expect(config.sw.dynamicFileRegex).toEqual([]);
+    });
+
+    it('dynamic file strategy should be set', () => {
+        expect(config.sw.dynamicFileStrategy).toBe('cacheFirst');
+    });
+
     it('import scripts should be set', () => {
         expect(config.sw.importScripts).toEqual([]);
     });

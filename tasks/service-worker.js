@@ -3,6 +3,7 @@ const changed       = require('gulp-changed');
 const swPrecache    = require('sw-precache');
 const filenames     = require('gulp-filenames');
 const runSequence   = require('run-sequence');
+const gutil         = require('gulp-util');
 
 const pathBuilder   = require('../pathBuilder');
 const config        = require('../config');
@@ -28,14 +29,24 @@ gulp.task('service-worker', callback => {
  * Generates a service worker to pre-cache the assets defined in the config
  *
  */
-gulp.task('service-worker:write', () =>
+gulp.task('service-worker:write', () => {
+    let runtimeCaching = [];
+    config.sw.dynamicFileRegex.forEach(regex =>
+        runtimeCaching.push({
+            urlPattern: regex,
+            handler: config.sw.dynamicFileStrategy
+        })
+    );
+
     swPrecache.write(pathBuilder.swOutputPath, {
         // Used to avoid cache conflicts when serving on localhost.
         cacheId: config.sw.cacheId,
         importScripts: config.sw.importScripts.concat(filenames.get('service-worker-scripts')),
-        staticFileGlobs: config.sw.staticFileGlobs
+        staticFileGlobs: config.sw.staticFileGlobs,
+        runtimeCaching: runtimeCaching,
+        logger: gutil.log
     })
-);
+});
 
 
 /**

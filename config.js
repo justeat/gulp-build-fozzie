@@ -53,6 +53,8 @@ const ConfigOptions = () => {
             swDir: 'sw',
             outputFile: 'service-worker.js',
             staticFileGlobs: [],
+            dynamicFileRegex: [],
+            dynamicFileStrategy: 'cacheFirst',
             importScripts: [],
             cacheId: ''
         },
