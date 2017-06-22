@@ -228,6 +228,8 @@ Here is the outline of the configuration options, descriptions of each are below
         swDir,
         outputFile,
         staticFileGlobs,
+        dynamicFileRegex,
+        dynamicFileStrategy,
         importScripts,
         cacheId
     },
@@ -398,7 +400,23 @@ Root dist directory for your assets.
 
   Default: `[]`
 
-  The files to be cached by the service worker.
+  The static files in your application to be cached by the service worker.
+
+  - #### `dynamicFileRegex`
+
+  Type: `array`
+
+  Default: `[]`
+
+  An array of regex to match the dynamic content or API calls to cache e.g. `[/^https:\/\/example\.com\/api/, /^https:\/\/fonts.googleapis.com\/css/]`.
+
+  - #### `dynamicFileStrategy`
+
+  Type: `string`
+
+  Default: `cacheFirst`
+
+  The cache strategy to be used for content matched by `dynamicFileRegex` - these correspond to the [sw-toolbox handlers](https://googlechrome.github.io/sw-toolbox/api.html#handlers).
 
 - #### `importScripts`
 
