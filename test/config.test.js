@@ -69,6 +69,10 @@ describe('image config', () => {
 
 describe('service worker config', () => {
 
+    it('is enabled should be false', () => {
+        expect(config.sw.isEnabled).toBe(false);
+    });
+
     it('service worker directory should be set', () => {
         expect(config.sw.swDir).toBe('sw');
     });

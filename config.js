@@ -50,6 +50,7 @@ const ConfigOptions = () => {
          * Service Worker related variables
          */
         sw: {
+            isEnabled: false,
             swDir: 'sw',
             outputFile: 'service-worker.js',
             staticFileGlobs: [],
