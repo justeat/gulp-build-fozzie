@@ -225,6 +225,7 @@ Here is the outline of the configuration options, descriptions of each are below
         imgDir
     },
     sw: {
+        isEnabled,
         swDir,
         outputFile,
         staticFileGlobs,
@@ -375,6 +376,14 @@ Root dist directory for your assets.
 
 
 ### `sw`
+
+- #### `isEnabled`
+
+  Type: `boolean`
+
+  Default: `false`
+
+  Determines whether the service worker is generated or not.
 
 - #### `swDir`
 

@@ -1,4 +1,7 @@
-const gulp = require('gulp');
+const gulp          = require('gulp');
+const runSequence   = require('run-sequence');
+const config        = require('../config');
+
 
 /**
  * `default` Task
@@ -6,4 +9,16 @@ const gulp = require('gulp');
  *
  *
  */
-gulp.task('default', ['css', 'scripts', 'images']);
+gulp.task('default', callback => {
+    if (config.sw.isEnabled) {
+        runSequence(
+            ['css', 'scripts', 'images'],
+            'service-worker',
+            callback);
+    }
+    else {
+        runSequence(
+            ['css', 'scripts', 'images'],
+            callback);
+    }
+});
