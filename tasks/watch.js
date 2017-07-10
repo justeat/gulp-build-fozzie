@@ -30,7 +30,10 @@ gulp.task('watch', callback => {
  */
 gulp.task('watch:css', () => {
 
-    gulp.watch(`${pathBuilder.scssSrcDir}/**/*.scss`, ['css'])
+    gulp.watch([
+            `${pathBuilder.scssSrcDir}/**/*.scss`,
+            'node_modules/@justeat/**/*.scss'
+        ], ['css'])
         .on('change', config.gulp.changeEvent);
 
 });

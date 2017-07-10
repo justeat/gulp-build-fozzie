@@ -97,7 +97,7 @@ const ConfigOptions = () => {
              */
             changeEvent (evt) {
                 gutil.log();
-                gutil.log(gutil.colors.cyan.bold(`â¯â¯ File: ${path.basename(evt.path)}`), 'was', gutil.colors.magenta(evt.type));
+                gutil.log(gutil.colors.cyan.bold(`❯❯ File: ${path.basename(evt.path)}`), 'was', gutil.colors.magenta(evt.type));
             },
 
             /**
