@@ -85,8 +85,9 @@ gulp.task('scripts:bundle', ['clean:scripts'], () => browserify(`${pathBuilder.j
     .transform(babelify)
     .bundle()
 
-    // handle errors
-    .on('error', config.gulp.onError)
+    .pipe(plumber({
+        errorHandler: config.gulp.onError
+    }))
 
     // move the source map outisde of the JS file when not in prod
     .pipe(gulpif(config.isDev,
