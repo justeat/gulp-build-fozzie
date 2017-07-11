@@ -1,0 +1,14 @@
+# The CODEOWNERS file is used to define individuals or teams that are
+# responsible for code in a repository.
+
+# Code owners are automatically requested for review when someone opens a pull
+# request that modifies code that they own.
+
+# Order is important; the last matching pattern takes the most precedence.
+
+
+# These owners will be the default owners for everything in the repo.
+*            @justeat/ui-admins
+
+# When someone opens a pull request that only modifies JS unit test files
+*.test.js    @damianmullins
