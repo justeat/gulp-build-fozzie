@@ -65,6 +65,10 @@ describe('image config', () => {
     it('image directory should be set', () => {
         expect(config.img.imgDir).toBe('img');
     });
+
+    it('svg sprite filename should be set', () => {
+        expect(config.img.svgSpriteFilename).toBe('sprite.svg');
+    });
 });
 
 describe('service worker config', () => {

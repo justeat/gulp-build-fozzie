@@ -40,7 +40,7 @@ gulp.task('css', callback => {
 /**
  * css:lint Task
  * -------------
- * Uses our config rules set in .stylelintrc to validate syntax and structure of the CSS
+ * Uses our config rules set in .stylelintrc to validate syntax and structure of the CSS.
  *
  */
 const lintSrc = [`${pathBuilder.scssSrcDir}/**/*.scss`].concat(config.css.lintPaths);

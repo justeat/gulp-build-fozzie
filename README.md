@@ -131,9 +131,17 @@ Runs the following tasks
 
 Runs the following tasks
 
+- #### `clean:images`
+
+  Removes any images already in the dist directory.
+
 - #### `images:optimise`
 
-Optimises all images found in the source directory then copies them to the dist directory.
+  Optimises all images found in the source directory then copies them to the dist directory.
+
+- #### `images:svg-sprite`
+
+Generate an SVG sprite and copy into the dist directory
 
 ### `service-worker`
 
@@ -222,7 +230,8 @@ Here is the outline of the configuration options, descriptions of each are below
         applyRevision
     },
     img: {
-        imgDir
+        imgDir,
+        svgSpriteFilename
     },
     sw: {
         isEnabled,
@@ -373,6 +382,14 @@ Root dist directory for your assets.
   Name of the directory that your image files are kept.
 
   Processed image files will be placed inside a directory with the same name.
+
+- #### `svgSpriteFilename`
+
+  Type: `string`
+
+  Default: `'sprite.svg'`
+
+  Filename of the SVG sprite which is generated from any SVG assets found in the image directory.
 
 
 ### `sw`
