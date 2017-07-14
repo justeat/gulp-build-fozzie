@@ -24,6 +24,15 @@ gulp.task('clean:scripts', () => del(`${pathBuilder.jsDistDir}/**/*`));
 
 
 /**
+ * `clean:images` Task
+ * ---------------------
+ * Removes all images form the images dist directory.
+ *
+ */
+gulp.task('clean:images', () => del(`${pathBuilder.imgDistDir}/**/*`));
+
+
+/**
  * `clean:docs` Task
  * -------------
  * Removes all files form the docs dist directory.

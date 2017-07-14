@@ -18,7 +18,13 @@ const pathBuilder = require('../pathBuilder');
  *
  *
  */
-gulp.task('images', ['images:optimise', 'images:svg-sprite']);
+gulp.task('images', callback => {
+    runSequence(
+        'clean:images',
+        ['images:optimise', 'images:svg-sprite'],
+        callback
+    );
+});
 
 
 /**
