@@ -43,7 +43,8 @@ const ConfigOptions = () => {
          * Image-related variables
          */
         img: {
-            imgDir: 'img'
+            imgDir: 'img',
+            svgSpriteFilename: 'sprite.svg'
         },
 
         /**
