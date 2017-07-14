@@ -131,9 +131,13 @@ Runs the following tasks
 
 Runs the following tasks
 
+- #### `clean:images`
+
+  Removes any images already in the dist directory.
+
 - #### `images:optimise`
 
-Optimises all images found in the source directory then copies them to the dist directory.
+  Optimises all images found in the source directory then copies them to the dist directory.
 
 - #### `images:svg-sprite`
 

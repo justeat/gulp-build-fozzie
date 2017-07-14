@@ -1,7 +1,12 @@
 const gulp = require('gulp');
+const path = require('path');
+const runSequence = require('run-sequence');
 const changed = require('gulp-changed');
 const gulpif = require('gulp-if');
 const imagemin = require('gulp-imagemin');
+const rename = require('gulp-rename');
+const svgmin = require('gulp-svgmin');
+const svgstore = require('gulp-svgstore');
 
 const config = require('../config');
 const pathBuilder = require('../pathBuilder');
@@ -13,7 +18,13 @@ const pathBuilder = require('../pathBuilder');
  *
  *
  */
-gulp.task('images', ['images:optimise', 'images:svg-sprite']);
+gulp.task('images', callback => {
+    runSequence(
+        'clean:images',
+        ['images:optimise', 'images:svg-sprite'],
+        callback
+    );
+});
 
 
 /**
@@ -72,7 +83,7 @@ gulp.task('images:svg-sprite', () => gulp.src(`${pathBuilder.imgSrcDir}/**/*.svg
         file.basename = name.join('-');
     }))
 
-    .pipe(imagemin.svgo())
+    .pipe(svgmin())
     .pipe(svgstore())
     .pipe(rename(config.img.svgSpriteFilename))
 
@@ -85,4 +96,4 @@ gulp.task('images:svg-sprite', () => gulp.src(`${pathBuilder.imgSrcDir}/**/*.svg
 
     // write the files to disk
     .pipe(gulp.dest(`${pathBuilder.imgDistDir}`))
-});
+);
