@@ -66,8 +66,8 @@ gulp.task('images:optimise', () => gulp.src(`${pathBuilder.imgSrcDir}/**`)
  *
  */
 gulp.task('images:svg-sprite', () => gulp.src(`${pathBuilder.imgSrcDir}/**/*.svg`, {
-    base: pathBuilder.imgSrcDir
-})
+        base: pathBuilder.imgSrcDir
+    })
     .pipe(rename(file => {
         // Builds an ID containing the path and filename joined with dashes
         // e.g. icons/cards/amex becomes icons-cards-amex
