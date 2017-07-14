@@ -78,7 +78,7 @@ gulp.task('scripts:test', callback => {
 /**
  * `scripts:bundle` Task
  * -------------
- * Bundle the JS modules together into a single file and and transpile es2015 features to es5
+ * Bundle the JS modules together into a single file and and transpile es2015 features to es5.
  *
  */
 gulp.task('scripts:bundle', ['clean:scripts'], () => browserify(`${pathBuilder.jsSrcDir}/${config.js.srcFile}`, { debug: config.isDev })

@@ -26,7 +26,7 @@ gulp.task('service-worker', callback => {
 /**
  * `service-worker:write` Task
  * -------------
- * Generates a service worker to pre-cache the assets defined in the config
+ * Generates a service worker to pre-cache the assets defined in the config.
  *
  */
 gulp.task('service-worker:write', () => {
@@ -49,7 +49,7 @@ gulp.task('service-worker:write', () => {
 /**
  * `service-worker:copy` Task
  * -------------
- * Copies the worker's internal scripts to the dist directory
+ * Copies the worker's internal scripts to the dist directory.
  *
  */
 gulp.task('service-worker:copy', () => gulp.src([`${pathBuilder.swSrcDir}/**/*`, ...config.sw.importScripts])
@@ -61,7 +61,7 @@ gulp.task('service-worker:copy', () => gulp.src([`${pathBuilder.swSrcDir}/**/*`,
 /**
  * `service-worker:locate` Task
  * -------------
- * Discovers scripts in the service worker directory
+ * Discovers scripts in the service worker directory.
  *
  */
 gulp.task('service-worker:locate', () => gulp.src(`${pathBuilder.swSrcDir}/**/*`)
