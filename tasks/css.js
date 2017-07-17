@@ -6,6 +6,7 @@ const gulpif = require('gulp-if');
 const rename = require('gulp-rename');
 const filesizegzip = require('filesizegzip');
 const tap = require('gulp-tap');
+const rev = require('gulp-rev');
 
 const sass = require('gulp-sass');
 const eyeglass = require('eyeglass');
@@ -17,7 +18,6 @@ const assets = require('postcss-assets');
 const stylelint = require('stylelint');
 const reporter = require('postcss-reporter');
 const autoprefixer = require('autoprefixer');
-const rev = require('gulp-rev');
 
 const config = require('../config');
 const pathBuilder = require('../pathBuilder');
@@ -30,22 +30,21 @@ const pathBuilder = require('../pathBuilder');
  */
 gulp.task('css', callback => {
     runSequence(
-        'css:lint',
+        'scss:lint',
         'css:bundle',
+        'css:lint',
         callback
     );
 });
 
 
 /**
- * css:lint Task
+ * scss:lint Task
  * -------------
  * Uses our config rules set in .stylelintrc to validate syntax and structure of the CSS.
  *
  */
-const lintSrc = [`${pathBuilder.scssSrcDir}/**/*.scss`].concat(config.css.lintPaths);
-
-gulp.task('css:lint', () => gulp.src(lintSrc, { follow: config.isDev })
+gulp.task('scss:lint', () => gulp.src([`${pathBuilder.scssSrcDir}/**/*.scss`, ...config.css.lintPaths], { follow: config.isDev })
     // stops watch from breaking on error
     .pipe(plumber(config.gulp.onError))
 
@@ -58,6 +57,34 @@ gulp.task('css:lint', () => gulp.src(lintSrc, { follow: config.isDev })
             })
         ],
         { syntax: scss })
+    )
+);
+
+
+/**
+ * scss:lint Task
+ * -------------
+ * Uses config rules to test for valid SCSS
+ *
+ */
+gulp.task('css:lint', () => gulp.src(`${config.css.distDir}/**/*.css`)
+    // stops watch from breaking on error
+    .pipe(plumber(config.gulp.onError))
+
+    .pipe(
+        postcss([
+            stylelint({
+                config: {
+                    'rules': {
+                        'selector-type-no-unknown': true
+                    }
+                }
+            }),
+            reporter({
+                clearMessages: true,
+                throwError: true
+            })
+        ])
     )
 );
 
@@ -100,18 +127,18 @@ gulp.task('css:bundle', ['clean:css'], () => gulp.src(`${pathBuilder.scssSrcDir}
     // output our unminified files – not for use in prod but useful to be able to debug from
     .pipe(gulp.dest(pathBuilder.cssDistDir))
 
-    .pipe(
-        postcss([
-            // run CSSO – a CSS minifier
-            cssnano()
-        ])
-    )
-
     // output to docs assets folder
     .pipe(
         gulpif(config.docs.outputAssets,
             gulp.dest(pathBuilder.docsCssDistDir)
         )
+    )
+
+    .pipe(
+        postcss([
+            // run CSSO – a CSS minifier
+            cssnano()
+        ])
     )
 
     //add .min suffix to CSS files
@@ -128,6 +155,13 @@ gulp.task('css:bundle', ['clean:css'], () => gulp.src(`${pathBuilder.scssSrcDir}
 
     // export sourcemaps (as a separate file)
     .pipe(gulpif(config.isDev, sourcemaps.write(undefined, { sourceRoot: null })))
+
+    // output to docs assets folder
+    .pipe(
+        gulpif(config.docs.outputAssets,
+            gulp.dest(pathBuilder.docsCssDistDir)
+        )
+    )
 
     // revision control for caching
     .pipe(rev())
