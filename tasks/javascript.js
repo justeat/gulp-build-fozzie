@@ -20,7 +20,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
 const rev = require('gulp-rev');
-const stripDebug   = require('gulp-strip-debug');
+const stripDebug = require('gulp-strip-debug');
 
 const config = require('../config');
 const pathBuilder = require('../pathBuilder');
