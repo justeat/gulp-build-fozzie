@@ -1,1 +1,0 @@
-'use strict';var gulp=require('gulp'),eslint=require('gulp-eslint'),cache=require('gulp-cached'),config=require('../config');gulp.task('tasks:lint',function(){return gulp.src('tasks/**').pipe(cache('tasks-lint')).pipe(eslint()).pipe(eslint.format()).pipe(eslint.failAfterError())});
