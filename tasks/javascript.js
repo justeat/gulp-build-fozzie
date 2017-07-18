@@ -20,6 +20,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
 const rev = require('gulp-rev');
+const stripDebug   = require('gulp-strip-debug');
 
 const config = require('../config');
 const pathBuilder = require('../pathBuilder');
@@ -34,6 +35,7 @@ gulp.task('scripts', callback => {
     runSequence(
         'scripts:lint',
         'scripts:test',
+        'clean:scripts',
         'scripts:bundle',
         callback
     );
@@ -79,7 +81,7 @@ gulp.task('scripts:test', callback => {
  * Bundle the JS modules together into a single file and and transpile es2015 features to es5.
  *
  */
-gulp.task('scripts:bundle', ['clean:scripts'], () => browserify(`${pathBuilder.jsSrcDir}/${config.js.srcFile}`, { debug: config.isDev })
+gulp.task('scripts:bundle', () => browserify(`${pathBuilder.jsSrcDir}/${config.js.srcFile}`, { debug: config.isDev })
     .transform(babelify)
     .bundle()
 
@@ -108,6 +110,11 @@ gulp.task('scripts:bundle', ['clean:scripts'], () => browserify(`${pathBuilder.j
     // capture sourcemaps from transforms
     .pipe(gulpif(config.isDev,
         sourcemaps.init({ loadMaps: true })
+    ))
+
+    // if production build, rip out our console logs
+    .pipe(gulpif(config.isProduction,
+        stripDebug()
     ))
 
     // minify the bundle
