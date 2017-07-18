@@ -1,0 +1,1 @@
+'use strict';var requireDir=require('require-dir'),config=require('./config'),gulp=require('gulp');module.exports=function(a){var b=1<arguments.length&&arguments[1]!==void 0?arguments[1]:{};config.update(b),gulp.tasks=a.tasks,requireDir('./tasks',{recurse:!0}),config.isDev&&requireDir('./tasks-dev',{recurse:!1})};

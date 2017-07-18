@@ -1,0 +1,1 @@
+'use strict';var gulp=require('gulp'),runSequence=require('run-sequence'),config=require('../config');gulp.task('default',function(a){config.sw.isEnabled?runSequence(['css','scripts','images'],'service-worker',a):runSequence(['css','scripts','images'],a)});

@@ -1,0 +1,1 @@
+'use strict';var gulp=require('gulp'),runSequence=require('run-sequence'),config=require('../config');gulp.task('docs',function(a){config.docs.outputAssets=!0,runSequence('clean:docs','watch:docs','browserSync:docs',a)});
