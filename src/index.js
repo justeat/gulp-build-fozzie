@@ -12,7 +12,7 @@
  */
 
 const requireDir = require('require-dir');
-const config = require('./dist/config');
+const config = require('./config');
 const gulp = require('gulp');
 
 module.exports = function (srcGulp, options = {}) {
@@ -24,10 +24,10 @@ module.exports = function (srcGulp, options = {}) {
     gulp.tasks = srcGulp.tasks;
 
     // Require all tasks in /tasks, including subfolders
-    requireDir('./dist/tasks', { recurse: true });
+    requireDir('./tasks', { recurse: true });
 
     // Require dev tasks if running in development.
     if (config.isDev) {
-        requireDir('./dist/tasks-dev', { recurse: false });
+        requireDir('./tasks-dev', { recurse: false });
     }
 };
