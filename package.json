@@ -2,7 +2,7 @@
   "name": "@justeat/gulp-build-fozzie",
   "version": "2.1.0",
   "description": "Gulp build tasks for use across Fozzie modules",
-  "main": "index.js",
+  "main": "src/index.js",
   "author": "Damian Mullins <damian.mullins@just-eat.com> (http://www.damianmullins.com)",
   "contributors": [
     "Github contributors <https://github.com/justeat/gulp-build-fozzie/graphs/contributors>"
@@ -19,6 +19,7 @@
   "scripts": {
     "prepublishOnly": "yarn test",
     "test": "jest",
+    "compile": "babel -d dist src",
     "release-patch": "release-it patch --non-interactive -p",
     "release-minor": "release-it minor --non-interactive -p",
     "release-major": "release-it major --non-interactive -p"
@@ -28,6 +29,10 @@
     "@justeat/stylelint-config-fozzie": "^1.0.0",
     "assemble": "^0.24.3",
     "autoprefixer": "^7.0.1",
+    "babel-cli": "^6.24.1",
+    "babel-plugin-transform-object-assign": "^6.22.0",
+    "babel-preset-babili": "^0.1.4",
+    "babel-preset-es2015": "^6.24.1",
     "babelify": "^7.3.0",
     "browser-sync": "^2.18.8",
     "browserify": "^14.3.0",

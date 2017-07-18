@@ -1,0 +1,9 @@
+{
+  "presets": [
+    "es2015",
+    "babili"
+  ],
+  "plugins": [
+    "transform-object-assign"
+  ]
+}
