@@ -21,6 +21,7 @@
   "homepage": "https://github.com/justeat/gulp-build-fozzie#readme",
   "scripts": {
     "prepublishOnly": "yarn test",
+    "prepublish": "yarn run compile",
     "test": "jest",
     "compile": "babel -d dist src",
     "release-patch": "release-it patch --non-interactive -p",
