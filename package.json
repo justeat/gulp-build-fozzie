@@ -2,7 +2,10 @@
   "name": "@justeat/gulp-build-fozzie",
   "version": "2.1.0",
   "description": "Gulp build tasks for use across Fozzie modules",
-  "main": "src/index.js",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "author": "Damian Mullins <damian.mullins@just-eat.com> (http://www.damianmullins.com)",
   "contributors": [
     "Github contributors <https://github.com/justeat/gulp-build-fozzie/graphs/contributors>"
