@@ -45,7 +45,7 @@ gulp.task('css', callback => {
  */
 const lintSrc = [`${pathBuilder.scssSrcDir}/**/*.scss`].concat(config.css.lintPaths);
 
-gulp.task('css:lint', () => gulp.src(lintSrc)
+gulp.task('css:lint', () => gulp.src(lintSrc, { follow: config.isDev })
     // stops watch from breaking on error
     .pipe(plumber(config.gulp.onError))
 
