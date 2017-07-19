@@ -42,7 +42,7 @@ gulp.task('css', callback => {
 /**
  * scss:lint Task
  * -------------
- * Uses our config rules set in .stylelintrc to validate syntax and structure of the CSS.
+ * Uses our config rules to validate syntax and structure of the SCSS.
  *
  */
 gulp.task('scss:lint', () => gulp.src([`${pathBuilder.scssSrcDir}/**/*.scss`, ...config.css.lintPaths], { follow: config.isDev })
@@ -65,7 +65,7 @@ gulp.task('scss:lint', () => gulp.src([`${pathBuilder.scssSrcDir}/**/*.scss`, ..
 /**
  * scss:lint Task
  * -------------
- * Uses config rules to test for valid SCSS
+ * Uses our config rules to validate syntax and structure of the CSS.
  *
  */
 gulp.task('css:lint', () => gulp.src(`${config.css.distDir}/**/*.css`)
