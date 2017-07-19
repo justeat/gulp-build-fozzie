@@ -82,9 +82,13 @@ That's it! You can now run any of [the Gulp tasks](#the-gulp-tasks).
 
 Runs the following tasks
 
+- #### `scss:lint`
+
+  Lint all SCSS files in the source directory — this runs before the [`css:bundle`](#cssbundle) task.
+
 - #### `css:lint`
 
-  Lint all CSS (SCSS) in the source directory.
+  Lint all CSS files in the dist directory — this runs after the [`css:bundle`](#cssbundle) task.
 
 - #### `clean:css`
 
