@@ -74,7 +74,16 @@ gulp.task('css:lint', () => gulp.src(`${pathBuilder.cssDistDir}/**/*.css`)
 
     .pipe(
         postcss([
-            stylelint(),
+            stylelint({
+                config: {
+                    'rules': {
+                        'property-no-unknown': true,
+                        'selector-pseudo-element-no-unknown': true,
+                        'selector-type-no-unknown': true,
+                        'unit-no-unknown': true
+                    }
+                }
+            }),
             reporter({
                 clearMessages: true,
                 throwError: true
