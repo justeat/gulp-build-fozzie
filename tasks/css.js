@@ -74,13 +74,7 @@ gulp.task('css:lint', () => gulp.src(`${config.css.distDir}/**/*.css`)
 
     .pipe(
         postcss([
-            stylelint({
-                config: {
-                    'rules': {
-                        'selector-type-no-unknown': true
-                    }
-                }
-            }),
+            stylelint(),
             reporter({
                 clearMessages: true,
                 throwError: true
