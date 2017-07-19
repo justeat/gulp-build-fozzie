@@ -68,7 +68,7 @@ gulp.task('scss:lint', () => gulp.src([`${pathBuilder.scssSrcDir}/**/*.scss`, ..
  * Uses our config rules to validate syntax and structure of the CSS.
  *
  */
-gulp.task('css:lint', () => gulp.src(`${config.css.distDir}/**/*.css`)
+gulp.task('css:lint', () => gulp.src(`${pathBuilder.cssDistDir}/**/*.css`)
     // stops watch from breaking on error
     .pipe(plumber(config.gulp.onError))
 
