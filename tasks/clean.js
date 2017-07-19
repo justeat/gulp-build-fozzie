@@ -11,10 +11,7 @@ const pathBuilder = require('../pathBuilder');
  * Removes all files form the CSS dist directory.
  *
  */
-gulp.task('clean:css', () => del([
-    `${pathBuilder.cssDistDir}/**/*`,
-    `${pathBuilder.docsCssDistDir}/**/*`
-]));
+gulp.task('clean:css', () => del(`${pathBuilder.cssDistDir}/**/*`);
 
 
 /**

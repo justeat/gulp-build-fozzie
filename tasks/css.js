@@ -31,6 +31,7 @@ const pathBuilder = require('../pathBuilder');
 gulp.task('css', callback => {
     runSequence(
         'scss:lint',
+        'clean:css',
         'css:bundle',
         'css:lint',
         callback
@@ -94,7 +95,7 @@ gulp.task('css:lint', () => gulp.src(`${config.css.distDir}/**/*.css`)
  *  ---------
  *
  */
-gulp.task('css:bundle', ['clean:css'], () => gulp.src(`${pathBuilder.scssSrcDir}/**/*.scss`)
+gulp.task('css:bundle', () => gulp.src(`${pathBuilder.scssSrcDir}/**/*.scss`)
     // stops watch from breaking on error
     .pipe(plumber(config.gulp.onError))
 
