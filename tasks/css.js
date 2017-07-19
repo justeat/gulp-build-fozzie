@@ -63,7 +63,7 @@ gulp.task('scss:lint', () => gulp.src([`${pathBuilder.scssSrcDir}/**/*.scss`, ..
 
 
 /**
- * scss:lint Task
+ * css:lint Task
  * -------------
  * Uses our config rules to validate syntax and structure of the CSS.
  *
