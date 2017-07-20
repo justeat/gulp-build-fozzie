@@ -20,7 +20,7 @@
     "prepublishOnly": "yarn test",
     "test": "jest",
     "test:cover": "yarn run test -- --coverage",
-    "test:cover:CI": "yarn run test:cover && cat ./coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
+    "test:cover:CI": "cat coverage/lcov.info | coveralls",
     "release-patch": "release-it patch --non-interactive -p",
     "release-minor": "release-it minor --non-interactive -p",
     "release-major": "release-it major --non-interactive -p"
