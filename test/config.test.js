@@ -101,7 +101,7 @@ describe('css config', () => {
         config.update({ css: { lintPaths } });
 
         // Assert
-        expect(config.css.lintPaths).toBe(lintPaths);
+        expect(config.css.lintPaths).toEqual(lintPaths);
     });
 
     it('sourcemaps should be true', () => {
@@ -165,7 +165,7 @@ describe('javascript config', () => {
         config.update({ js: { lintPaths } });
 
         // Assert
-        expect(config.js.lintPaths).toBe(lintPaths);
+        expect(config.js.lintPaths).toEqual(lintPaths);
     });
 
     it('dist file should be set', () => {
