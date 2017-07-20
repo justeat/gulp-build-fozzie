@@ -239,32 +239,120 @@ describe('service worker config', () => {
         expect(config.sw.isEnabled).toBe(false);
     });
 
+    it('is enabled can be updated', () => {
+        // Arrange
+        const isEnabled = true;
+
+        // Act
+        config.update({ sw: { isEnabled } });
+
+        // Assert
+        expect(config.sw.isEnabled).toBe(isEnabled);
+    });
+
     it('service worker directory should be set', () => {
         expect(config.sw.swDir).toBe('sw');
+    });
+
+    it('service worker directory can be updated', () => {
+        // Arrange
+        const swDir = 'service-worker';
+
+        // Act
+        config.update({ sw: { swDir } });
+
+        // Assert
+        expect(config.sw.swDir).toBe(swDir);
     });
 
     it('output filename should be set', () => {
         expect(config.sw.outputFile).toBe('service-worker.js');
     });
 
+    it('output filename can be updated', () => {
+        // Arrange
+        const outputFile = 'sw.js';
+
+        // Act
+        config.update({ sw: { outputFile } });
+
+        // Assert
+        expect(config.sw.outputFile).toBe(outputFile);
+    });
+
     it('static file globs should be set', () => {
         expect(config.sw.staticFileGlobs).toEqual([]);
+    });
+
+    it('static file globs can be updated', () => {
+        // Arrange
+        const staticFileGlobs = ['./glob', '🛰'];
+
+        // Act
+        config.update({ sw: { staticFileGlobs } });
+
+        // Assert
+        expect(config.sw.staticFileGlobs).toEqual(staticFileGlobs);
     });
 
     it('dynamic file regex should be set', () => {
         expect(config.sw.dynamicFileRegex).toEqual([]);
     });
 
+    it('dynamic file regex can be updated', () => {
+        // Arrange
+        const dynamicFileRegex = ['regex', '🗡'];
+
+        // Act
+        config.update({ sw: { dynamicFileRegex } });
+
+        // Assert
+        expect(config.sw.dynamicFileRegex).toEqual(dynamicFileRegex);
+    });
+
     it('dynamic file strategy should be set', () => {
         expect(config.sw.dynamicFileStrategy).toBe('cacheFirst');
+    });
+
+    it('dynamic file strategy can be updated', () => {
+        // Arrange
+        const dynamicFileStrategy = 'networkFirst';
+
+        // Act
+        config.update({ sw: { dynamicFileStrategy } });
+
+        // Assert
+        expect(config.sw.dynamicFileStrategy).toBe(dynamicFileStrategy);
     });
 
     it('import scripts should be set', () => {
         expect(config.sw.importScripts).toEqual([]);
     });
 
+    it('import scripts can be updated', () => {
+        // Arrange
+        const importScripts = ['script.js'];
+
+        // Act
+        config.update({ sw: { importScripts } });
+
+        // Assert
+        expect(config.sw.importScripts).toEqual(importScripts);
+    });
+
     it('cache id should be set', () => {
         expect(config.sw.cacheId).toBe('');
+    });
+
+    it('cache id can be updated', () => {
+        // Arrange
+        const cacheId = 'id-1';
+
+        // Act
+        config.update({ sw: { cacheId } });
+
+        // Assert
+        expect(config.sw.cacheId).toBe(cacheId);
     });
 });
 
