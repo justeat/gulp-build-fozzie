@@ -8,3 +8,7 @@ cache: yarn
 
 script:
   - yarn test
+
+after_success:
+  # Send coverage data to coveralls.
+  - yarn run test:cover:CI
