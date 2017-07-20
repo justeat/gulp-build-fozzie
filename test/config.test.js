@@ -127,16 +127,75 @@ describe('javascript config', () => {
         expect(config.js.srcFile).toBe('index.js');
     });
 
-    it('dist file should be set', () => {
-        expect(config.js.distFile).toBe('script.js');
+    it('src file can be updated', () => {
+        // Arrange
+        const srcFile = 'app.js';
+
+        // Act
+        config.update({ js: { srcFile } });
+
+        // Assert
+        expect(config.js.srcFile).toBe(srcFile);
+    });
+
+    it('javascript directory should be set', () => {
+        expect(config.js.jsDir).toBe('js');
+    });
+
+    it('javascript directory can be updated', () => {
+        // Arrange
+        const jsDir = 'scripts';
+
+        // Act
+        config.update({ js: { jsDir } });
+
+        // Assert
+        expect(config.js.jsDir).toBe(jsDir);
     });
 
     it('lint paths should be set', () => {
         expect(config.js.lintPaths).toEqual(['']);
     });
 
+    it('lint paths can be updated', () => {
+        // Arrange
+        const lintPaths = ['./lint-me', '🐝'];
+
+        // Act
+        config.update({ js: { lintPaths } });
+
+        // Assert
+        expect(config.js.lintPaths).toBe(lintPaths);
+    });
+
+    it('dist file should be set', () => {
+        expect(config.js.distFile).toBe('script.js');
+    });
+
+    it('dist file can be updated', () => {
+        // Arrange
+        const distFile = 'app.js';
+
+        // Act
+        config.update({ js: { distFile } });
+
+        // Assert
+        expect(config.js.distFile).toBe(distFile);
+    });
+
     it('apply revision should be true', () => {
         expect(config.js.applyRevision).toBe(true);
+    });
+
+    it('apply revision can be updated', () => {
+        // Arrange
+        const applyRevision = false;
+
+        // Act
+        config.update({ js: { applyRevision } });
+
+        // Assert
+        expect(config.js.applyRevision).toBe(applyRevision);
     });
 
 });
