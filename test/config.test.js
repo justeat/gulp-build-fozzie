@@ -362,32 +362,120 @@ describe('documentation config', () => {
         expect(config.docs.rootDir).toBe('./docs');
     });
 
+    it('root directory can be updated', () => {
+        // Arrange
+        const rootDir = 'documentation';
+
+        // Act
+        config.update({ docs: { rootDir } });
+
+        // Assert
+        expect(config.docs.rootDir).toBe(rootDir);
+    });
+
     it('src directory should be set', () => {
         expect(config.docs.srcDir).toBe('src');
+    });
+
+    it('src directory can be updated', () => {
+        // Arrange
+        const srcDir = 'source';
+
+        // Act
+        config.update({ docs: { srcDir } });
+
+        // Assert
+        expect(config.docs.srcDir).toBe(srcDir);
     });
 
     it('dist directory should be set', () => {
         expect(config.docs.distDir).toBe('dist');
     });
 
+    it('dist directory can be updated', () => {
+        // Arrange
+        const distDir = 'distribution';
+
+        // Act
+        config.update({ docs: { distDir } });
+
+        // Assert
+        expect(config.docs.distDir).toBe(distDir);
+    });
+
     it('asset directory should be set', () => {
         expect(config.docs.assetDir).toBe('assets/');
+    });
+
+    it('asset directory can be updated', () => {
+        // Arrange
+        const assetDir = 'assets-dir';
+
+        // Act
+        config.update({ docs: { assetDir } });
+
+        // Assert
+        expect(config.docs.assetDir).toBe(assetDir);
     });
 
     it('template directory should be set', () => {
         expect(config.docs.templDir).toBe('templates');
     });
 
+    it('template directory can be updated', () => {
+        // Arrange
+        const templDir = 'tmpl';
+
+        // Act
+        config.update({ docs: { templDir } });
+
+        // Assert
+        expect(config.docs.templDir).toBe(templDir);
+    });
+
     it('data directory should be set', () => {
         expect(config.docs.dataDir).toBe('data');
+    });
+
+    it('data directory can be updated', () => {
+        // Arrange
+        const dataDir = 'data-dir';
+
+        // Act
+        config.update({ docs: { dataDir } });
+
+        // Assert
+        expect(config.docs.dataDir).toBe(dataDir);
     });
 
     it('output assets should be false', () => {
         expect(config.docs.outputAssets).toBe(false);
     });
 
-    it('remoteBase should be set', () => {
+    it('output assets can be updated', () => {
+        // Arrange
+        const outputAssets = true;
+
+        // Act
+        config.update({ docs: { outputAssets } });
+
+        // Assert
+        expect(config.docs.outputAssets).toBe(outputAssets);
+    });
+
+    it('remote base should be set', () => {
         expect(config.docs.remoteBase).toBe('');
+    });
+
+    it('remote base can be updated', () => {
+        // Arrange
+        const remoteBase = 'remote';
+
+        // Act
+        config.update({ docs: { remoteBase } });
+
+        // Assert
+        expect(config.docs.remoteBase).toBe(remoteBase);
     });
 });
 
