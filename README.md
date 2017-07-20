@@ -2,6 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/%40justeat%2Fgulp-build-fozzie.svg)](https://badge.fury.io/js/%40justeat%2Fgulp-build-fozzie)
 [![Build Status](https://travis-ci.org/justeat/gulp-build-fozzie.svg?branch=master)](https://travis-ci.org/justeat/gulp-build-fozzie)
+[![Coverage Status](https://coveralls.io/repos/github/justeat/gulp-build-fozzie/badge.svg?branch=coveralls)](https://coveralls.io/github/justeat/gulp-build-fozzie?branch=coveralls)
 
 Gulp build tasks for use across Fozzie modules.
 
