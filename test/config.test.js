@@ -10,12 +10,49 @@ describe('environment config', () => {
         expect(config.isDev).toBe(true);
     });
 
+    it('web root directory should be true', () => {
+        expect(config.webRootDir).toBe('.');
+    });
+
+    it('can update web root directory', () => {
+        // Arrange
+        const webRootDir = './';
+
+        // Act
+        config.update({ webRootDir });
+
+        // Assert
+        expect(config.webRootDir).toBe(webRootDir);
+    });
+
     it('asset src directory should be set', () => {
         expect(config.assetSrcDir).toBe('src');
     });
 
+    it('can update asset src directory', () => {
+        // Arrange
+        const assetSrcDir = 'source';
+
+        // Act
+        config.update({ assetSrcDir });
+
+        // Assert
+        expect(config.assetSrcDir).toBe(assetSrcDir);
+    });
+
     it('asset dist directory should be set', () => {
         expect(config.assetDistDir).toBe('dist');
+    });
+
+    it('can update asset dist directory', () => {
+        // Arrange
+        const assetDistDir = 'distribution';
+
+        // Act
+        config.update({ assetDistDir });
+
+        // Assert
+        expect(config.assetDistDir).toBe(assetDistDir);
     });
 
 });
@@ -160,6 +197,21 @@ describe('gulp config', () => {
 
     it('on error should be a function', () => {
         expect(typeof config.gulp.onError).toBe('function');
+    });
+
+});
+
+describe('config update', () => {
+
+    it('passing empty config should not override', () => {
+        // Arrange
+        const newConfig = {};
+
+        // Act
+        config.update(newConfig);
+
+        // Assert
+        expect(config).not.toEqual({});
     });
 
 });
