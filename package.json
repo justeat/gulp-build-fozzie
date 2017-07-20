@@ -1,6 +1,6 @@
 {
   "name": "@justeat/gulp-build-fozzie",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Gulp build tasks for use across Fozzie modules",
   "main": "index.js",
   "author": "Damian Mullins <damian.mullins@just-eat.com> (http://www.damianmullins.com)",
@@ -19,6 +19,8 @@
   "scripts": {
     "prepublishOnly": "yarn test",
     "test": "jest",
+    "test:cover": "yarn run test -- --coverage",
+    "test:cover:CI": "cat coverage/lcov.info | coveralls",
     "release-patch": "release-it patch --non-interactive -p",
     "release-minor": "release-it minor --non-interactive -p",
     "release-major": "release-it major --non-interactive -p"
@@ -77,6 +79,7 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "devDependencies": {
+    "coveralls": "^2.13.1",
     "release-it": "^2.7.3"
   },
   "peerDependencies": {
