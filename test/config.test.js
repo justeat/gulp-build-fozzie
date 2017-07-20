@@ -518,8 +518,30 @@ describe('gulp config', () => {
         expect(typeof config.gulp.changeEvent).toBe('function');
     });
 
+    it('change event can be updated', () => {
+        // Arrange
+        const changeEvent = () => 'changed!';
+
+        // Act
+        config.update({ gulp: { changeEvent } });
+
+        // Assert
+        expect(config.gulp.changeEvent).toBe(changeEvent);
+    });
+
     it('on error should be a function', () => {
         expect(typeof config.gulp.onError).toBe('function');
+    });
+
+    it('on error can be updated', () => {
+        // Arrange
+        const onError = () => 'error!';
+
+        // Act
+        config.update({ gulp: { onError } });
+
+        // Assert
+        expect(config.gulp.onError).toBe(onError);
     });
 
 });
