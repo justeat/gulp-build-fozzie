@@ -6,6 +6,7 @@ const gulpif = require('gulp-if');
 const rename = require('gulp-rename');
 const filesizegzip = require('filesizegzip');
 const tap = require('gulp-tap');
+const rev = require('gulp-rev');
 
 const sass = require('gulp-sass');
 const eyeglass = require('eyeglass');
@@ -17,7 +18,6 @@ const assets = require('postcss-assets');
 const stylelint = require('stylelint');
 const reporter = require('postcss-reporter');
 const autoprefixer = require('autoprefixer');
-const rev = require('gulp-rev');
 
 const config = require('../config');
 const pathBuilder = require('../pathBuilder');
@@ -30,22 +30,22 @@ const pathBuilder = require('../pathBuilder');
  */
 gulp.task('css', callback => {
     runSequence(
-        'css:lint',
+        'scss:lint',
+        'clean:css',
         'css:bundle',
+        'css:lint',
         callback
     );
 });
 
 
 /**
- * css:lint Task
+ * scss:lint Task
  * -------------
- * Uses our config rules set in .stylelintrc to validate syntax and structure of the CSS.
+ * Uses our config rules to validate syntax and structure of the SCSS.
  *
  */
-const lintSrc = [`${pathBuilder.scssSrcDir}/**/*.scss`].concat(config.css.lintPaths);
-
-gulp.task('css:lint', () => gulp.src(lintSrc, { follow: config.isDev })
+gulp.task('scss:lint', () => gulp.src([`${pathBuilder.scssSrcDir}/**/*.scss`, ...config.css.lintPaths], { follow: config.isDev })
     // stops watch from breaking on error
     .pipe(plumber(config.gulp.onError))
 
@@ -63,11 +63,42 @@ gulp.task('css:lint', () => gulp.src(lintSrc, { follow: config.isDev })
 
 
 /**
+ * css:lint Task
+ * -------------
+ * Uses our config rules to validate syntax and structure of the CSS.
+ *
+ */
+gulp.task('css:lint', () => gulp.src(`${pathBuilder.cssDistDir}/**/*.css`)
+    // stops watch from breaking on error
+    .pipe(plumber(config.gulp.onError))
+
+    .pipe(
+        postcss([
+            stylelint({
+                config: {
+                    'rules': {
+                        'property-no-unknown': true,
+                        'selector-pseudo-element-no-unknown': true,
+                        'selector-type-no-unknown': true,
+                        'unit-no-unknown': true
+                    }
+                }
+            }),
+            reporter({
+                clearMessages: true,
+                throwError: true
+            })
+        ])
+    )
+);
+
+
+/**
  *  css:bundle Task
  *  ---------
  *
  */
-gulp.task('css:bundle', ['clean:css'], () => gulp.src(`${pathBuilder.scssSrcDir}/**/*.scss`)
+gulp.task('css:bundle', () => gulp.src(`${pathBuilder.scssSrcDir}/**/*.scss`)
     // stops watch from breaking on error
     .pipe(plumber(config.gulp.onError))
 
