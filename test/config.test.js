@@ -206,8 +206,30 @@ describe('image config', () => {
         expect(config.img.imgDir).toBe('img');
     });
 
+    it('image directory can be updated', () => {
+        // Arrange
+        const imgDir = 'images';
+
+        // Act
+        config.update({ img: { imgDir } });
+
+        // Assert
+        expect(config.img.imgDir).toBe(imgDir);
+    });
+
     it('svg sprite filename should be set', () => {
         expect(config.img.svgSpriteFilename).toBe('sprite.svg');
+    });
+
+    it('svg sprite filename can be updated', () => {
+        // Arrange
+        const svgSpriteFilename = 'fairy.svg';
+
+        // Act
+        config.update({ img: { svgSpriteFilename } });
+
+        // Assert
+        expect(config.img.svgSpriteFilename).toBe(svgSpriteFilename);
     });
 });
 
