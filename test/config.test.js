@@ -548,7 +548,7 @@ describe('gulp config', () => {
 
 describe('config update', () => {
 
-    it('passing empty config should not override', () => {
+    it('passing empty object should not override entire config', () => {
         // Arrange
         const newConfig = {};
 
