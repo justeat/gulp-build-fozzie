@@ -63,16 +63,60 @@ describe('css config', () => {
         expect(config.css.scssDir).toBe('scss');
     });
 
+    it('scss directory can be updated', () => {
+        // Arrange
+        const scssDir = 'sass';
+
+        // Act
+        config.update({ css: { scssDir } });
+
+        // Assert
+        expect(config.css.scssDir).toBe(scssDir);
+    });
+
     it('css directory should be set', () => {
         expect(config.css.cssDir).toBe('css');
+    });
+
+    it('css directory can be updated', () => {
+        // Arrange
+        const cssDir = 'styles';
+
+        // Act
+        config.update({ css: { cssDir } });
+
+        // Assert
+        expect(config.css.cssDir).toBe(cssDir);
     });
 
     it('lint paths should be set', () => {
         expect(config.css.lintPaths).toEqual(['']);
     });
 
+    it('lint paths can be updated', () => {
+        // Arrange
+        const lintPaths = ['./lint-me', '🦄'];
+
+        // Act
+        config.update({ css: { lintPaths } });
+
+        // Assert
+        expect(config.css.lintPaths).toBe(lintPaths);
+    });
+
     it('sourcemaps should be true', () => {
         expect(config.css.sourcemaps).toBe(true);
+    });
+
+    it('sourcemaps can be updated', () => {
+        // Arrange
+        const sourcemaps = false;
+
+        // Act
+        config.update({ css: { sourcemaps } });
+
+        // Assert
+        expect(config.css.sourcemaps).toBe(sourcemaps);
     });
 
 });
