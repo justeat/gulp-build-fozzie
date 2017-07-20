@@ -14,7 +14,7 @@ describe('environment config', () => {
         expect(config.webRootDir).toBe('.');
     });
 
-    it('can update web root directory', () => {
+    it('web root directory can be updated', () => {
         // Arrange
         const webRootDir = './';
 
@@ -29,7 +29,7 @@ describe('environment config', () => {
         expect(config.assetSrcDir).toBe('src');
     });
 
-    it('can update asset src directory', () => {
+    it('asset src directory can be updated', () => {
         // Arrange
         const assetSrcDir = 'source';
 
@@ -44,7 +44,7 @@ describe('environment config', () => {
         expect(config.assetDistDir).toBe('dist');
     });
 
-    it('can update asset dist directory', () => {
+    it('asset dist directory can be updated', () => {
         // Arrange
         const assetDistDir = 'distribution';
 
