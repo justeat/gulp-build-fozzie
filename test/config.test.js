@@ -485,8 +485,30 @@ describe('miscellaneous config', () => {
         expect(config.misc.showFileSize).toBe(true);
     });
 
+    it('show file size can be updated', () => {
+        // Arrange
+        const showFileSize = false;
+
+        // Act
+        config.update({ misc: { showFileSize } });
+
+        // Assert
+        expect(config.misc.showFileSize).toBe(showFileSize);
+    });
+
     it('show files should be true', () => {
         expect(config.misc.showFiles).toBe(true);
+    });
+
+    it('show files can be updated', () => {
+        // Arrange
+        const showFiles = false;
+
+        // Act
+        config.update({ misc: { showFiles } });
+
+        // Assert
+        expect(config.misc.showFiles).toBe(showFiles);
     });
 });
 
