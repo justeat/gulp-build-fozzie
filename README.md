@@ -274,6 +274,10 @@ Here is the outline of the configuration options, descriptions of each are below
 
 ### `webRootDir`
 
+Type: `string`
+
+Default: `'.'`
+
 The root directory of your website.
 
 ### `assetSrcDir`
@@ -433,7 +437,7 @@ Root dist directory for your assets.
 
   The static files in your application to be cached by the service worker.
 
-  - #### `dynamicFileRegex`
+- #### `dynamicFileRegex`
 
   Type: `array`
 
@@ -441,7 +445,7 @@ Root dist directory for your assets.
 
   An array of regex to match the dynamic content or API calls to cache e.g. `[/^https:\/\/example\.com\/api/, /^https:\/\/fonts.googleapis.com\/css/]`.
 
-  - #### `dynamicFileStrategy`
+- #### `dynamicFileStrategy`
 
   Type: `string`
 
