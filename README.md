@@ -1,7 +1,8 @@
 # gulp-build-fozzie :bear:
 
 [![npm version](https://badge.fury.io/js/%40justeat%2Fgulp-build-fozzie.svg)](https://badge.fury.io/js/%40justeat%2Fgulp-build-fozzie)
-[![Build Status](https://travis-ci.org/justeat/gulp-build-fozzie.svg?branch=master)](https://travis-ci.org/justeat/gulp-build-fozzie)
+[![Build Status](https://travis-ci.org/justeat/gulp-build-fozzie.svg)](https://travis-ci.org/justeat/gulp-build-fozzie)
+[![Coverage Status](https://coveralls.io/repos/github/justeat/gulp-build-fozzie/badge.svg)](https://coveralls.io/github/justeat/gulp-build-fozzie)
 
 Gulp build tasks for use across Fozzie modules.
 
@@ -82,9 +83,13 @@ That's it! You can now run any of [the Gulp tasks](#the-gulp-tasks).
 
 Runs the following tasks
 
+- #### `scss:lint`
+
+  Lint all SCSS files in the source directory — this runs before the [`css:bundle`](#cssbundle) task.
+
 - #### `css:lint`
 
-  Lint all CSS (SCSS) in the source directory.
+  Lint all CSS files in the dist directory — this runs after the [`css:bundle`](#cssbundle) task.
 
 - #### `clean:css`
 
@@ -269,6 +274,10 @@ Here is the outline of the configuration options, descriptions of each are below
 
 ### `webRootDir`
 
+Type: `string`
+
+Default: `'.'`
+
 The root directory of your website.
 
 ### `assetSrcDir`
@@ -428,7 +437,7 @@ Root dist directory for your assets.
 
   The static files in your application to be cached by the service worker.
 
-  - #### `dynamicFileRegex`
+- #### `dynamicFileRegex`
 
   Type: `array`
 
@@ -436,7 +445,7 @@ Root dist directory for your assets.
 
   An array of regex to match the dynamic content or API calls to cache e.g. `[/^https:\/\/example\.com\/api/, /^https:\/\/fonts.googleapis.com\/css/]`.
 
-  - #### `dynamicFileStrategy`
+- #### `dynamicFileStrategy`
 
   Type: `string`
 
