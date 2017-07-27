@@ -1,8 +1,11 @@
 {
   "name": "@justeat/gulp-build-fozzie",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "description": "Gulp build tasks for use across Fozzie modules",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "author": "Damian Mullins <damian.mullins@just-eat.com> (http://www.damianmullins.com)",
   "contributors": [
     "Github contributors <https://github.com/justeat/gulp-build-fozzie/graphs/contributors>"
@@ -18,7 +21,9 @@
   "homepage": "https://github.com/justeat/gulp-build-fozzie#readme",
   "scripts": {
     "prepublishOnly": "yarn test",
+    "prepublish": "yarn run compile",
     "test": "jest",
+    "compile": "babel -d dist src",
     "test:cover": "yarn run test -- --coverage",
     "test:cover:CI": "cat coverage/lcov.info | coveralls",
     "release-patch": "release-it patch --non-interactive -p",
@@ -79,6 +84,9 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-babili": "^0.1.4",
+    "babel-preset-es2015": "^6.24.1",
     "coveralls": "^2.13.1",
     "release-it": "^2.7.3"
   },
