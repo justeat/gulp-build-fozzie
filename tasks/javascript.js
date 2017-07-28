@@ -99,6 +99,13 @@ gulp.task('scripts:bundle', () => browserify(`${pathBuilder.jsSrcDir}/${config.j
     .pipe(buffer())
     .pipe(gulp.dest(pathBuilder.jsDistDir))
 
+    // output to docs assets folder
+    .pipe(
+        gulpif(config.docs.outputAssets,
+            gulp.dest(pathBuilder.docsJsDistDir)
+        )
+    )
+
     // output the size of the unminified JS
     .pipe(gulpif(config.misc.showFileSize,
         size({
@@ -124,13 +131,6 @@ gulp.task('scripts:bundle', () => browserify(`${pathBuilder.jsSrcDir}/${config.j
             quote_keys: true
         }
     }))
-
-    // output to docs assets folder
-    .pipe(
-        gulpif(config.docs.outputAssets,
-            gulp.dest(pathBuilder.docsJsDistDir)
-        )
-    )
 
     // revision control for caching
     .pipe(gulpif(config.js.applyRevision,
