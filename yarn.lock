@@ -19,9 +19,9 @@
     normalize-path "^2.0.1"
     through2 "^2.0.3"
 
-"@justeat/eslint-config-fozzie@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@justeat/eslint-config-fozzie/-/eslint-config-fozzie-1.0.0.tgz#283ead03a1fbbc1f91a5737cf8168e2891493026"
+"@justeat/eslint-config-fozzie@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@justeat/eslint-config-fozzie/-/eslint-config-fozzie-1.1.0.tgz#d56dbb2505a79ee278dfc22830079636c08abcfd"
   dependencies:
     eslint-config-airbnb-base "^11.2.0"
 
