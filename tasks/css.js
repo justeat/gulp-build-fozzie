@@ -131,6 +131,11 @@ gulp.task('css:bundle', () => gulp.src(`${pathBuilder.scssSrcDir}/**/*.scss`)
     // output our unminified files – not for use in prod but useful to be able to debug from
     .pipe(gulp.dest(pathBuilder.cssDistDir))
 
+    // output to docs assets folder
+    .pipe(gulpif(config.docs.outputAssets,
+        gulp.dest(pathBuilder.docsCssDistDir)
+    ))
+
     .pipe(
         postcss([
             // run CSSO – a CSS minifier
@@ -151,11 +156,6 @@ gulp.task('css:bundle', () => gulp.src(`${pathBuilder.scssSrcDir}/**/*.scss`)
     // export sourcemaps (as a separate file)
     .pipe(gulpif(
         config.isDev, sourcemaps.write(undefined, { sourceRoot: null })
-    ))
-
-    // output to docs assets folder
-    .pipe(gulpif(config.docs.outputAssets,
-        gulp.dest(pathBuilder.docsCssDistDir)
     ))
 
     // revision control for caching
