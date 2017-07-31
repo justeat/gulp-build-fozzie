@@ -513,11 +513,11 @@ Root dist directory for your assets.
 
   By default the documentation task will use `docs/dist/assets/` – with the `assets/` part of this path controlled by this config variable.
 
-- ### `assetDistDir`
+- #### `assetDistDir`
 
   Type: `string`
 
-  Default: `'dist'`
+  Default: `'dist/'`
 
   Root dist directory for your assets.
 
