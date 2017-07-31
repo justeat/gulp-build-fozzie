@@ -71,15 +71,15 @@ describe('documentation paths', () => {
     });
 
     it('css distribution directory path should be correct', () => {
-        expect(pathBuilder.docsCssDistDir).toBe('./docs/dist/assets/css');
+        expect(pathBuilder.docsCssDistDir).toBe('./docs/dist/assets/dist/css');
     });
 
     it('javascript distribution directory path should be correct', () => {
-        expect(pathBuilder.docsJsDistDir).toBe('./docs/dist/assets/js');
+        expect(pathBuilder.docsJsDistDir).toBe('./docs/dist/assets/dist/js');
     });
 
     it('image distribution directory path should be correct', () => {
-        expect(pathBuilder.docsImgDistDir).toBe('./docs/dist/assets/img');
+        expect(pathBuilder.docsImgDistDir).toBe('./docs/dist/assets/dist/img');
     });
 
 });

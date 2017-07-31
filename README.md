@@ -253,6 +253,7 @@ Here is the outline of the configuration options, descriptions of each are below
         srcDir,
         distDir,
         assetDir,
+        assetDistDir,
         templDir,
         dataDir,
         outputAssets,
@@ -511,6 +512,14 @@ Root dist directory for your assets.
   The directory your generated assets will be placed inside the documentation directory.
 
   By default the documentation task will use `docs/dist/assets/` – with the `assets/` part of this path controlled by this config variable.
+
+- ### `assetDistDir`
+
+  Type: `string`
+
+  Default: `'dist'`
+
+  Root dist directory for your assets.
 
 - #### `templDir`
 
