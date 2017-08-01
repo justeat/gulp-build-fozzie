@@ -69,7 +69,6 @@ const ConfigOptions = () => {
             srcDir: 'src',
             distDir: 'dist',
             assetDir: 'assets/',
-            assetDistDir: 'dist/',
             templDir: 'templates',
             dataDir: 'data',
             outputAssets: false,

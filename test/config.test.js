@@ -418,21 +418,6 @@ describe('documentation config', () => {
         expect(config.docs.assetDir).toBe(assetDir);
     });
 
-    it('asset dist directory should be set', () => {
-        expect(config.docs.assetDistDir).toBe('dist/');
-    });
-
-    it('asset dist directory can be updated', () => {
-        // Arrange
-        const assetDistDir = 'assets-dist';
-
-        // Act
-        config.update({ docs: { assetDistDir } });
-
-        // Assert
-        expect(config.docs.assetDistDir).toBe(assetDistDir);
-    });
-
     it('template directory should be set', () => {
         expect(config.docs.templDir).toBe('templates');
     });
