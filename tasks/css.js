@@ -102,7 +102,9 @@ gulp.task('css:bundle', () => gulp.src(`${pathBuilder.scssSrcDir}/**/*.scss`)
     // stops watch from breaking on error
     .pipe(plumber(config.gulp.onError))
 
-    .pipe(gulpif(config.isDev, sourcemaps.init()))
+    .pipe(gulpif(
+        config.isDev, sourcemaps.init()
+    ))
 
     // compile using Sass & pulling int any Eyeglass modules (SCSS NPM modules)
     .pipe(
@@ -120,16 +122,19 @@ gulp.task('css:bundle', () => gulp.src(`${pathBuilder.scssSrcDir}/**/*.scss`)
     )
 
     // Output file-size
-    .pipe(
-        gulpif(config.misc.showFileSize,
-            tap(file => {
-                gutil.log(`❯❯ CSS ${file.relative}`, filesizegzip(file.contents, true));
-            })
-        )
-    )
+    .pipe(gulpif(config.misc.showFileSize,
+        tap(file => {
+            gutil.log(`❯❯ CSS ${file.relative}`, filesizegzip(file.contents, true));
+        })
+    ))
 
     // output our unminified files – not for use in prod but useful to be able to debug from
     .pipe(gulp.dest(pathBuilder.cssDistDir))
+
+    // output to docs assets folder
+    .pipe(gulpif(config.docs.outputAssets,
+        gulp.dest(pathBuilder.docsCssDistDir)
+    ))
 
     .pipe(
         postcss([
@@ -138,27 +143,20 @@ gulp.task('css:bundle', () => gulp.src(`${pathBuilder.scssSrcDir}/**/*.scss`)
         ])
     )
 
-    // output to docs assets folder
-    .pipe(
-        gulpif(config.docs.outputAssets,
-            gulp.dest(pathBuilder.docsCssDistDir)
-        )
-    )
-
     //add .min suffix to CSS files
     .pipe(rename({ suffix: ".min" }))
 
     // Output file-size
-    .pipe(
-        gulpif(config.misc.showFileSize,
-            tap(file => {
-                gutil.log(`❯❯ Minified CSS ${file.relative}`, filesizegzip(file.contents, true));
-            })
-        )
-    )
+    .pipe(gulpif(config.misc.showFileSize,
+        tap(file => {
+            gutil.log(`❯❯ Minified CSS ${file.relative}`, filesizegzip(file.contents, true));
+        })
+    ))
 
     // export sourcemaps (as a separate file)
-    .pipe(gulpif(config.isDev, sourcemaps.write(undefined, { sourceRoot: null })))
+    .pipe(gulpif(
+        config.isDev, sourcemaps.write(undefined, { sourceRoot: null })
+    ))
 
     // revision control for caching
     .pipe(rev())
