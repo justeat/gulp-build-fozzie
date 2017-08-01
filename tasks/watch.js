@@ -91,6 +91,8 @@ gulp.task('watch:images', () => {
  */
 gulp.task('watch:docs', callback => {
 
+    config.docs.outputAssets = true;
+
     runSequence(
         'default',
         ['watch:css', 'watch:scripts', 'watch:scripts:test', 'watch:images', 'watch:docs:templates'],

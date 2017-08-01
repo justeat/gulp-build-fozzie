@@ -87,12 +87,10 @@ gulp.task('images:svg-sprite', () => gulp.src(`${pathBuilder.imgSrcDir}/**/*.svg
     .pipe(svgstore())
     .pipe(rename(config.img.svgSpriteFilename))
 
-    .pipe(
-        gulpif(config.docs.outputAssets,
-            // write the files to the docs directory
-            gulp.dest(pathBuilder.docsImgDistDir)
-        )
-    )
+    .pipe(gulpif(config.docs.outputAssets,
+        // write the files to the docs directory
+        gulp.dest(pathBuilder.docsImgDistDir)
+    ))
 
     // write the files to disk
     .pipe(gulp.dest(`${pathBuilder.imgDistDir}`))

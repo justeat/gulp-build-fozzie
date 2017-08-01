@@ -97,6 +97,7 @@ gulp.task('scripts:bundle', () => browserify(`${pathBuilder.jsSrcDir}/${config.j
     // create unminified file
     .pipe(source(config.js.distFile))
     .pipe(buffer())
+
     .pipe(gulp.dest(pathBuilder.jsDistDir))
 
     // output the size of the unminified JS
@@ -125,20 +126,23 @@ gulp.task('scripts:bundle', () => browserify(`${pathBuilder.jsSrcDir}/${config.j
         }
     }))
 
+    // Apply filename suffix
+    .pipe(rename({ suffix: '.min' }))
+
+    // write the sourcemap to a separate file
+    .pipe(gulpif(config.isDev,
+        sourcemaps.write('.')
+    ))
+
     // output to docs assets folder
-    .pipe(
-        gulpif(config.docs.outputAssets,
-            gulp.dest(pathBuilder.docsJsDistDir)
-        )
-    )
+    .pipe(gulpif(config.docs.outputAssets,
+        gulp.dest(pathBuilder.docsJsDistDir)
+    ))
 
     // revision control for caching
     .pipe(gulpif(config.js.applyRevision,
         rev()
     ))
-
-    // Apply filename suffix
-    .pipe(rename({ suffix: '.min' }))
 
     // output the size of the minified JS
     .pipe(gulpif(config.misc.showFileSize,
@@ -146,11 +150,6 @@ gulp.task('scripts:bundle', () => browserify(`${pathBuilder.jsSrcDir}/${config.j
             title: 'Bundled JS Report – minified build –',
             showFiles: config.misc.showFiles
         })
-    ))
-
-    // write the sourcemap to a separate file
-    .pipe(gulpif(config.isDev,
-        sourcemaps.write('.')
     ))
 
     .pipe(gulp.dest(pathBuilder.jsDistDir))
