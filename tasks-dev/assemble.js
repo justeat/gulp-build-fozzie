@@ -17,6 +17,11 @@ app.helper('is', helpers.comparison().is);
 app.helper('markdown', require('helper-markdown'));
 app.helper('md', require('helper-md'));
 
+// Loops through the helpers object and initialises handlebars helpers
+for (helper in config.docs.helpers) {
+    app.helper(helper, config.docs.helpers[helper]);
+}
+
 
 /**
  * `assemble` Task
