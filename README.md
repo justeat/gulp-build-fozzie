@@ -256,7 +256,8 @@ Here is the outline of the configuration options, descriptions of each are below
         templDir,
         dataDir,
         outputAssets,
-        remoteBase
+        remoteBase,
+        helpers
     },
     misc: {
         showFileSize,
@@ -543,6 +544,24 @@ Root dist directory for your assets.
   Default: `''`
 
   Applies a base path to asset URLs when publishing documentation to Github pages.  By default this is set to be an empty string.
+
+- #### `helpers`
+
+  Type: `object`
+
+  Default: `{ }`
+
+  Can pass in an object set of functions, which will be exposed in handlebars as helper functions in the documentation tasks when called using their object key.
+
+  For example:
+
+  ```
+  {
+    'toLowercase': (input) => { return input.toLowerCase(); }
+  }
+  ```
+
+  Will expose the helper `toLowercase` such that it could be used such that `{{toLowercase name}}` will convert the handlebars string `name` to lowercase.
 
 ### `misc`
 
