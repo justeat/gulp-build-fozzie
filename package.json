@@ -1,6 +1,6 @@
 {
   "name": "@justeat/gulp-build-fozzie",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "Gulp build tasks for use across Fozzie modules",
   "main": "index.js",
   "author": "Damian Mullins <damian.mullins@just-eat.com> (http://www.damianmullins.com)",
@@ -28,8 +28,10 @@
   "dependencies": {
     "@justeat/eslint-config-fozzie": "^1.1.0",
     "@justeat/stylelint-config-fozzie": "^1.0.0",
+    "assemble": "^0.24.3",
     "autoprefixer": "^7.0.1",
     "babelify": "^7.3.0",
+    "browser-sync": "^2.18.8",
     "browserify": "^14.3.0",
     "cssnano": "^3.10.0",
     "eslint": "^4.1.1",
@@ -62,6 +64,9 @@
     "gulp-tap": "^1.0.1",
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
+    "handlebars-helpers": "^0.9.3",
+    "helper-markdown": "^1.0.0",
+    "helper-md": "^0.2.2",
     "jest-cli": "^20.0.0",
     "postcss-assets": "^4.1.0",
     "postcss-reporter": "^4.0.0",
@@ -74,12 +79,7 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "devDependencies": {
-    "assemble": "^0.24.3",
-    "browser-sync": "^2.18.8",
     "coveralls": "^2.13.1",
-    "handlebars-helpers": "^0.9.3",
-    "helper-markdown": "^1.0.0",
-    "helper-md": "^0.2.2",
     "release-it": "^2.7.3"
   },
   "peerDependencies": {
