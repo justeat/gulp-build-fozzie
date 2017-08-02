@@ -1,6 +1,6 @@
 {
   "name": "@justeat/gulp-build-fozzie",
-  "version": "3.4.1",
+  "version": "3.5.0",
   "description": "Gulp build tasks for use across Fozzie modules",
   "main": "index.js",
   "author": "Damian Mullins <damian.mullins@just-eat.com> (http://www.damianmullins.com)",
@@ -26,16 +26,16 @@
     "release-major": "release-it major --non-interactive -p"
   },
   "dependencies": {
-    "@justeat/eslint-config-fozzie": "^1.1.0",
-    "@justeat/stylelint-config-fozzie": "^1.0.0",
+    "@justeat/eslint-config-fozzie": "^1.2.0",
+    "@justeat/stylelint-config-fozzie": "^1.1.0",
     "assemble": "^0.24.3",
-    "autoprefixer": "^7.0.1",
+    "autoprefixer": "^7.1.2",
     "babelify": "^7.3.0",
-    "browser-sync": "^2.18.8",
+    "browser-sync": "^2.18.13",
     "browserify": "^14.3.0",
     "cssnano": "^3.10.0",
-    "eslint": "^4.1.1",
-    "eslint-plugin-import": "^2.6.0",
+    "eslint": "^4.3.0",
+    "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jest": "^20.0.0",
     "exorcist": "^0.4.0",
     "expand": "^0.5.0",
@@ -54,7 +54,7 @@
     "gulp-plumber": "^1.1.0",
     "gulp-postcss": "^7.0.0",
     "gulp-rename": "^1.2.2",
-    "gulp-rev": "^7.1.2",
+    "gulp-rev": "^8.0.0",
     "gulp-sass": "^3.1.0",
     "gulp-size": "^2.1.0",
     "gulp-sourcemaps": "^2.6.0",
@@ -64,15 +64,15 @@
     "gulp-tap": "^1.0.1",
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
-    "handlebars-helpers": "^0.9.3",
+    "handlebars-helpers": "^0.9.6",
     "helper-markdown": "^1.0.0",
     "helper-md": "^0.2.2",
     "jest-cli": "^20.0.0",
-    "postcss-assets": "^4.1.0",
-    "postcss-reporter": "^4.0.0",
+    "postcss-assets": "^4.2.0",
+    "postcss-reporter": "^5.0.0",
     "postcss-scss": "^1.0.2",
     "require-dir": "^0.3.1",
-    "run-sequence": "^2.0.0",
+    "run-sequence": "^2.1.0",
     "stylelint": "^8.0.0",
     "sw-precache": "^5.1.1",
     "vinyl-buffer": "^1.0.0",
@@ -80,7 +80,7 @@
   },
   "devDependencies": {
     "coveralls": "^2.13.1",
-    "release-it": "^2.7.3"
+    "release-it": "^2.8.2"
   },
   "peerDependencies": {
     "gulp": "^3.9.1"
