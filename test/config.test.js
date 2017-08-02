@@ -1,4 +1,4 @@
-﻿const config = require('../config');
+const config = require('../config');
 
 describe('environment config', () => {
 
@@ -476,6 +476,11 @@ describe('documentation config', () => {
 
         // Assert
         expect(config.docs.remoteBase).toBe(remoteBase);
+    });
+
+
+    it('helpers should be an object', () => {
+        expect(typeof config.docs.helpers).toBe('object');
     });
 });
 

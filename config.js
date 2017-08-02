@@ -72,7 +72,8 @@ const ConfigOptions = () => {
             templDir: 'templates',
             dataDir: 'data',
             outputAssets: false,
-            remoteBase: ''
+            remoteBase: '',
+            helpers: {}
         },
 
         /**
