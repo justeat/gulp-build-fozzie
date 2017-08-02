@@ -34,7 +34,7 @@ gulp.task('assemble', () => {
 
     app.data('./package.json', { namespace: true });
     app.data({
-        baseUrl: config.docs.isProd ? config.docs.remoteBase : '',
+        baseUrl: config.isProduction ? config.docs.remoteBase : '',
         jsFilename: config.js.distFile
     });
 
