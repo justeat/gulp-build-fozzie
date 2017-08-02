@@ -555,13 +555,13 @@ Root dist directory for your assets.
 
   For example:
 
-  ```
+  ```js
   {
     'toLowercase': (input) => { return input.toLowerCase(); }
   }
   ```
 
-  Will expose the helper `toLowercase` such that it could be used such that `{{toLowercase name}}` will convert the handlebars string `name` to lowercase.
+  Will expose the helper `toLowercase` so that using `{{toLowercase name}}` within a handlebars template will convert the handlebars string `name` to lowercase.
 
 ### `misc`
 
