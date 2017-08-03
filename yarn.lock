@@ -3708,17 +3708,6 @@ expand@^0.4.3:
     lazy-cache "^2.0.1"
     regex-flags "^0.1.0"
 
-expand@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/expand/-/expand-0.5.0.tgz#4526e339c9e4aace1d204d08f81fe6f4fa792db6"
-  dependencies:
-    engine "^0.1.12"
-    get-value "^2.0.6"
-    is-primitive "^2.0.0"
-    kind-of "^3.1.0"
-    lazy-cache "^2.0.2"
-    regex-flags "^0.1.0"
-
 export-files@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/export-files/-/export-files-2.1.1.tgz#bbf64574053a09e4eb98e5f43501d572b2c3ce7f"
