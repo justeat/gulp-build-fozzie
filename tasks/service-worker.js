@@ -35,7 +35,7 @@ gulp.task('service-worker:write', () => {
         handler: config.sw.dynamicFileStrategy
     }));
 
-    swPrecache.write(pathBuilder.swOutputPath, {
+    swPrecache.write(`${pathBuilder.swOutputPath}/${config.sw.outputFile}`, {
         // Used to avoid cache conflicts when serving on localhost.
         cacheId: config.sw.cacheId,
         importScripts: config.sw.importScripts.concat(filenames.get('service-worker-scripts')),

@@ -39,7 +39,7 @@ describe('image paths', () => {
 describe('service worker paths', () => {
 
     it('output path should be correct', () => {
-        expect(pathBuilder.swOutputPath).toBe('./service-worker.js');
+        expect(pathBuilder.swOutputPath).toBe('.');
     });
 
     it('src directory path should be correct', () => {
