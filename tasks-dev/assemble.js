@@ -18,9 +18,9 @@ app.helper('md', require('helper-md'));
 
 
 // Loops through the helpers object and initialises handlebars helpers
-for (helper in config.docs.helpers) {
+Object.keys(config.docs.helpers).forEach(helper => {
     app.helper(helper, config.docs.helpers[helper]);
-}
+});
 
 
 /**
