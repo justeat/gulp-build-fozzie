@@ -13,9 +13,8 @@ const pathBuilder = require('../pathBuilder');
 
 
 /**
- * images Task
+ * `images` Task
  * -------------
- *
  *
  */
 gulp.task('images', callback => {
@@ -28,7 +27,7 @@ gulp.task('images', callback => {
 
 
 /**
- * images:optimise Task
+ * `images:optimise` Task
  * -------------
  * Minifies PNG, JPEG, GIF and SVG images using imagemin.
  *
@@ -60,7 +59,7 @@ gulp.task('images:optimise', () => gulp.src(`${pathBuilder.imgSrcDir}/**`)
 
 
 /**
- * images:svg-sprite Task
+ * `images:svg-sprite` Task
  * -------------
  * Generate an SVG sprite using svgstore.
  *

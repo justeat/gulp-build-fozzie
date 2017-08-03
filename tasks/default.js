@@ -7,7 +7,6 @@ const config = require('../config');
  * `default` Task
  * ---------------
  *
- *
  */
 gulp.task('default', callback => {
     if (config.sw.isEnabled) {

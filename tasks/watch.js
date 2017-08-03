@@ -5,7 +5,7 @@ const config = require('../config');
 const pathBuilder = require('../pathBuilder');
 
 /**
- * watch Task
+ * `watch` Task
  * -------------
  * Watches for changes to JavaScript, CSS, and image file changes, running
  * relevant build tasks on change for each type.
@@ -23,7 +23,7 @@ gulp.task('watch', callback => {
 
 
 /**
- * watch:css Task
+ * `watch:css` Task
  * -------------
  * Runs the `css` task when a CSS file is changed.
  *
@@ -41,7 +41,7 @@ gulp.task('watch:css', () => {
 
 
 /**
- * watch:scripts Task
+ * `watch:scripts` Task
  * -------------
  * Runs the `scripts` task when a JavaScript file is changed.
  *
@@ -55,7 +55,7 @@ gulp.task('watch:scripts', () => {
 
 
 /**
- * watch:scripts:test Task
+ * `watch:scripts:test` Task
  * -------------
  * Runs the `scripts:lint` and `scripts:test` tasks when a JavaScript unit
  * test file is changed.
@@ -70,7 +70,7 @@ gulp.task('watch:scripts:test', () => {
 
 
 /**
- * watch:images Task
+ * `watch:images` Task
  * -------------
  * Runs the `images` task when an image file is changed.
  *
@@ -84,7 +84,7 @@ gulp.task('watch:images', () => {
 
 
 /**
- * watch:docs Task
+ * `watch:docs` Task
  * -------------
  * Watches for changes to JavaScript, CSS, image, and documentation file
  * changes, running relevant build tasks on change for each type.
@@ -104,7 +104,7 @@ gulp.task('watch:docs', callback => {
 
 
 /**
- * watch:docs:templates Task
+ * `watch:docs:templates` Task
  * -------------
  * Runs the `assemble` task when any documentation files change.
  *
