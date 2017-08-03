@@ -9,7 +9,7 @@ const svgmin = require('gulp-svgmin');
 const svgstore = require('gulp-svgstore');
 
 const config = require('../config');
-const pathBuilder = require('../pathBuilder');
+const pathBuilder = require('../pathBuilder')();
 
 
 /**

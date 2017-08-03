@@ -1,8 +1,7 @@
 ﻿const gulp = require('gulp');
 const del = require('del');
 
-const config = require('../config');
-const pathBuilder = require('../pathBuilder');
+const pathBuilder = require('../pathBuilder')();
 
 
 /**

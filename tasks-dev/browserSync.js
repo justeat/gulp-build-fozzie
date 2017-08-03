@@ -1,8 +1,7 @@
 const gulp = require('gulp');
 const browserSync = require('browser-sync');
 
-const config = require('../config');
-const pathBuilder = require('../pathBuilder');
+const pathBuilder = require('../pathBuilder')();
 
 gulp.task('browserSync:docs', ['assemble'], () => {
 
