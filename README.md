@@ -571,7 +571,7 @@ Root dist directory for your assets.
 
   Default: `true`
 
-  Shoud file sizes be displayed when a task is run?
+  Should file sizes be displayed when a task is run?
 
 - #### `showFiles`
 
@@ -579,7 +579,7 @@ Root dist directory for your assets.
 
   Default: `true`
 
-  Shoud file names be displayed when a task is run?
+  Should file names be displayed when a task is run?
 
 
 ### `gulp`
