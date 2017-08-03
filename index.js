@@ -15,7 +15,7 @@ const requireDir = require('require-dir');
 const config = require('./config');
 const gulp = require('gulp');
 
-module.exports = function (srcGulp, options = {}) {
+module.exports = function build (srcGulp, options = {}) {
     // Update config with custom values — these values will
     // persist across all further requires in other files.
     config.update(options);
