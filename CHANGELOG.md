@@ -7,16 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 [3.7.0] - 2017-08-03
 ------------------------------
 ### Added
-- Added `lint` task which uses eslint to lint all of the JavaScript files in the project. The task is run — along with the `test` task — [_both BEFORE the package is packed and published, and on local npm install_](https://docs.npmjs.com/misc/scripts),
+- Added `lint` task which uses eslint to lint all of the JavaScript files in the project. The task is run — along with the `test` task — [_both BEFORE the package is packed and published, and on local npm install_](https://docs.npmjs.com/misc/scripts).
+
+### Changed
+- The `for...in` loop in `assemble.js` was throwing eslint errors, in order to fix this we converted the loop to use `Object.keys` and `forEach` instead.
 
 
 [3.6.0] - 2017-08-02
 ------------------------------
 ### Added
 - `config.docs.helpers` object added for passing through helper function for handlebars to use
-
-### Changed
-- The `for...in` loop in `assemble.js` was throwing eslint errors, in order to fix this we converted the loop to use `Object.keys` and `forEach` instead.
 
 
 [3.5.0] - 2017-08-02
