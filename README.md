@@ -18,6 +18,7 @@ Gulp build tasks for use across Fozzie modules.
   - [Development only tasks](#development-only-tasks)
 - [Options](#options)
   - [Other options](#other-options)
+- [Path Builder](#path-builder)
 
 
 ## Requirements
