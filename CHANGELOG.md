@@ -17,6 +17,7 @@ v4.0.0
 
 ### Changed
 - The return value is now an object containing the `build`, `config`, and `pathBuilder` objects instead of the `build` function.
+- Service worker path no longer contains the service worker filename.
 
 ### Added
 - The Readme *Setup* section was updated to reflect the changes to the default return value.
