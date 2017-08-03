@@ -3,8 +3,7 @@ const config = require('./config');
 const docsSrcDir = `${config.docs.rootDir}/${config.docs.srcDir}`;
 const docsDistDir = `${config.docs.rootDir}/${config.docs.distDir}`;
 
-const pathBuilder = {
-
+const pathBuilder = () => ({
     scssSrcDir: `${config.assetSrcDir}/${config.css.scssDir}`,
     cssDistDir: `${config.assetDistDir}/${config.css.cssDir}`,
 
@@ -25,6 +24,6 @@ const pathBuilder = {
     docsCssDistDir: `${docsDistDir}/${config.docs.assetDir}${config.css.cssDir}`,
     docsJsDistDir: `${docsDistDir}/${config.docs.assetDir}${config.js.jsDir}`,
     docsImgDistDir: `${docsDistDir}/${config.docs.assetDir}${config.img.imgDir}`
-};
+});
 
 module.exports = pathBuilder;
