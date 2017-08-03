@@ -6,9 +6,11 @@ node_js:
 
 cache: yarn
 
+before_script:
+  - yarn run lint
+
 script:
   - yarn test:cover
 
 after_success:
-  - yarn run lint
   - yarn run test:cover:CI
