@@ -8,7 +8,7 @@ const extname = require('gulp-extname');
 const expand = require('expand');
 
 const config = require('../config');
-const pathBuilder = require('../pathBuilder')();
+const pathBuilder = require('../pathBuilder');
 
 
 const app = assemble();
