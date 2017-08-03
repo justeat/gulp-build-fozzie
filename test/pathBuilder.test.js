@@ -1,4 +1,4 @@
-const pathBuilder = require('../pathBuilder')();
+const pathBuilder = require('../pathBuilder');
 
 describe('path builder', () => {
 
