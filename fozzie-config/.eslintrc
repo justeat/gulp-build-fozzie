@@ -1,9 +1,0 @@
-{
-    "extends": "@justeat/eslint-config-fozzie",
-
-    "env": {
-        "node": true,
-        "es6": true,
-        "jest": true
-    }
-}
