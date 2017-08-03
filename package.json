@@ -1,6 +1,6 @@
 {
   "name": "@justeat/gulp-build-fozzie",
-  "version": "3.6.0",
+  "version": "3.7.0",
   "description": "Gulp build tasks for use across Fozzie modules",
   "main": "index.js",
   "author": "Damian Mullins <damian.mullins@just-eat.com> (http://www.damianmullins.com)",
@@ -17,10 +17,11 @@
   },
   "homepage": "https://github.com/justeat/gulp-build-fozzie#readme",
   "scripts": {
-    "prepublishOnly": "yarn test",
+    "prepare": "yarn run lint && yarn test",
     "test": "jest",
     "test:cover": "yarn run test -- --coverage",
     "test:cover:CI": "cat coverage/lcov.info | coveralls",
+    "lint": "eslint **/*.js",
     "release-patch": "release-it patch --non-interactive -p",
     "release-minor": "release-it minor --non-interactive -p",
     "release-major": "release-it major --non-interactive -p"
@@ -34,11 +35,11 @@
     "browser-sync": "^2.18.13",
     "browserify": "^14.3.0",
     "cssnano": "^3.10.0",
+    "del": "^3.0.0",
     "eslint": "^4.3.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jest": "^20.0.0",
     "exorcist": "^0.4.0",
-    "expand": "^0.5.0",
     "eyeglass": "^1.2.1",
     "filesizegzip": "^2.0.0",
     "gulp": "^3.9.1",

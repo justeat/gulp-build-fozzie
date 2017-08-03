@@ -121,8 +121,10 @@ gulp.task('scripts:bundle', () => browserify(`${pathBuilder.jsSrcDir}/${config.j
     // minify the bundle
     .pipe(uglify({
         output: {
+            /* eslint-disable camelcase */
             // keeps IE support for quoted object literals
             quote_keys: true
+            /* eslint-enable camelcase */
         }
     }))
 

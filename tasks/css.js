@@ -40,7 +40,7 @@ gulp.task('css', callback => {
 
 
 /**
- * scss:lint Task
+ * `scss:lint` Task
  * -------------
  * Uses our config rules to validate syntax and structure of the SCSS.
  *
@@ -63,7 +63,7 @@ gulp.task('scss:lint', () => gulp.src([`${pathBuilder.scssSrcDir}/**/*.scss`, ..
 
 
 /**
- * css:lint Task
+ * `css:lint` Task
  * -------------
  * Uses our config rules to validate syntax and structure of the CSS.
  *
@@ -76,7 +76,7 @@ gulp.task('css:lint', () => gulp.src(`${pathBuilder.cssDistDir}/**/*.css`)
         postcss([
             stylelint({
                 config: {
-                    'rules': {
+                    rules: {
                         'property-no-unknown': true,
                         'selector-pseudo-element-no-unknown': true,
                         'selector-type-no-unknown': true,
@@ -94,7 +94,7 @@ gulp.task('css:lint', () => gulp.src(`${pathBuilder.cssDistDir}/**/*.css`)
 
 
 /**
- *  css:bundle Task
+ *  `css:bundle` Task
  *  ---------
  *
  */
@@ -114,7 +114,9 @@ gulp.task('css:bundle', () => gulp.src(`${pathBuilder.scssSrcDir}/**/*.scss`)
     .pipe(
         postcss([
             // Converts any specified assets to data URIs
-            assets({ loadPaths: [ pathBuilder.imgSrcDir ] }),
+            assets({
+                loadPaths: [pathBuilder.imgSrcDir]
+            }),
 
             // Autoprefixes CSS properties for various browsers – browsers specified in package.json config
             autoprefixer()
@@ -138,8 +140,8 @@ gulp.task('css:bundle', () => gulp.src(`${pathBuilder.scssSrcDir}/**/*.scss`)
         ])
     )
 
-    //add .min suffix to CSS files
-    .pipe(rename({ suffix: ".min" }))
+    // add .min suffix to CSS files
+    .pipe(rename({ suffix: '.min' }))
 
     // export sourcemaps (as a separate file)
     .pipe(gulpif(config.isDev,

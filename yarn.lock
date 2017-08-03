@@ -2986,6 +2986,17 @@ del@^2.0.2:
     pinkie-promise "^2.0.0"
     rimraf "^2.2.8"
 
+del@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/del/-/del-3.0.0.tgz#53ecf699ffcbcb39637691ab13baf160819766e5"
+  dependencies:
+    globby "^6.1.0"
+    is-path-cwd "^1.0.0"
+    is-path-in-cwd "^1.0.0"
+    p-map "^1.1.1"
+    pify "^3.0.0"
+    rimraf "^2.2.8"
+
 delayed-stream@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
@@ -3695,17 +3706,6 @@ expand@^0.4.3:
     is-primitive "^2.0.0"
     kind-of "^3.0.3"
     lazy-cache "^2.0.1"
-    regex-flags "^0.1.0"
-
-expand@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/expand/-/expand-0.5.0.tgz#4526e339c9e4aace1d204d08f81fe6f4fa792db6"
-  dependencies:
-    engine "^0.1.12"
-    get-value "^2.0.6"
-    is-primitive "^2.0.0"
-    kind-of "^3.1.0"
-    lazy-cache "^2.0.2"
     regex-flags "^0.1.0"
 
 export-files@^2.1.1:

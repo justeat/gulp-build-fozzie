@@ -1,12 +1,12 @@
-const gulp          = require('gulp');
-const changed       = require('gulp-changed');
-const swPrecache    = require('sw-precache');
-const filenames     = require('gulp-filenames');
-const runSequence   = require('run-sequence');
-const gutil         = require('gulp-util');
+const gulp = require('gulp');
+const changed = require('gulp-changed');
+const swPrecache = require('sw-precache');
+const filenames = require('gulp-filenames');
+const runSequence = require('run-sequence');
+const gutil = require('gulp-util');
 
-const pathBuilder   = require('../pathBuilder');
-const config        = require('../config');
+const pathBuilder = require('../pathBuilder');
+const config = require('../config');
 
 
 /**

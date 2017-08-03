@@ -3,9 +3,8 @@ const assemble = require('assemble');
 const helpers = require('handlebars-helpers');
 const debug = require('gulp-debug');
 const plumber = require('gulp-plumber');
-const newer = require('gulp-newer');
+// const newer = require('gulp-newer');
 const extname = require('gulp-extname');
-const expand = require('expand');
 
 const config = require('../config');
 const pathBuilder = require('../pathBuilder');
@@ -17,10 +16,11 @@ app.helper('is', helpers.comparison().is);
 app.helper('markdown', require('helper-markdown'));
 app.helper('md', require('helper-md'));
 
+
 // Loops through the helpers object and initialises handlebars helpers
-for (helper in config.docs.helpers) {
+Object.keys(config.docs.helpers).forEach(helper => {
     app.helper(helper, config.docs.helpers[helper]);
-}
+});
 
 
 /**
@@ -46,11 +46,13 @@ gulp.task('assemble', () => {
     return app.src(`${pathBuilder.docsTemplateDir}/pages/**/*.{md,hbs}`)
         // stops watch from breaking on error
         .pipe(plumber(config.gulp.onError))
+
         // can’t get newer to work with page includes: such that a many > 1 relationship.  Commenting out so just recompiles all for now
         // .pipe(newer({
         //     dest: pathBuilder.docsDistDir,
         //     ext: '.html'
         // }))
+
         .pipe(debug())
         .pipe(app.renderFile())
         .pipe(extname())

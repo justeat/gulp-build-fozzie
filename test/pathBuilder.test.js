@@ -1,5 +1,13 @@
 const pathBuilder = require('../pathBuilder');
 
+describe('path builder', () => {
+
+    it('is an object', () => {
+        expect(typeof pathBuilder).toBe('object');
+    });
+
+});
+
 describe('css paths', () => {
 
     it('scss src directory path should be correct', () => {

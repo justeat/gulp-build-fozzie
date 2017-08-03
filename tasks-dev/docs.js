@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 const runSequence = require('run-sequence');
 
-const config       = require('../config');
+const config = require('../config');
 
 /**
  * `docs` Task

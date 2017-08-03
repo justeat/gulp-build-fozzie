@@ -1,9 +1,14 @@
 const gulp = require('gulp');
 const browserSync = require('browser-sync');
 
-const config = require('../config');
 const pathBuilder = require('../pathBuilder');
 
+/**
+ * `browserSync:docs` Task
+ * -------------
+ * Generates the documentation files then opens the docs in a local server.
+ *
+ */
 gulp.task('browserSync:docs', ['assemble'], () => {
 
     browserSync.init({
