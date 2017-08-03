@@ -30,7 +30,8 @@ gulp.task('watch', callback => {
  */
 gulp.task('watch:css', () => {
 
-    gulp.watch([
+    gulp
+        .watch([
             `${pathBuilder.scssSrcDir}/**/*.scss`,
             'node_modules/@justeat/**/*.scss'
         ], ['css'])
@@ -113,10 +114,10 @@ gulp.task('watch:docs:templates', () => {
     // be careful with the paths here – must be relative, using 'cwd' attribute
     // to specify root otherwise it won’t recompile when newly created files
     // are added to a directory while running the watch
-    gulp.watch(`**/*.{md,hbs}`,
+    gulp.watch('**/*.{md,hbs}',
         { cwd: `./${config.docs.rootDir}` },
         ['assemble']
     )
-    .on('change', config.gulp.changeEvent);
+        .on('change', config.gulp.changeEvent);
 
 });

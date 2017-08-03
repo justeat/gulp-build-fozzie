@@ -109,7 +109,7 @@ const ConfigOptions = () => {
              * status,file,line,column,message,formatted,messageFormatted,messageOriginal,relativePath,name,stack,showStack,showProperties,plugin
              */
             onError (err) {
-                const { line, column, relativePath, plugin, message, status } = err;
+                const { line, column, relativePath, plugin, message } = err;
 
                 gutil.beep();
                 gutil.log(gutil.colors.red.bold('-----------------------------------------------------------------------'));

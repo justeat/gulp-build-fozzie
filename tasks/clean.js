@@ -1,7 +1,6 @@
-﻿const gulp = require('gulp');
+const gulp = require('gulp');
 const del = require('del');
 
-const config = require('../config');
 const pathBuilder = require('../pathBuilder');
 
 
@@ -11,7 +10,9 @@ const pathBuilder = require('../pathBuilder');
  * Removes all files form the CSS dist directory.
  *
  */
-gulp.task('clean:css', () => del(`${pathBuilder.cssDistDir}/**/*`));
+gulp.task('clean:css', () => del(
+    `${pathBuilder.cssDistDir}/**/*`)
+);
 
 
 /**
@@ -20,7 +21,9 @@ gulp.task('clean:css', () => del(`${pathBuilder.cssDistDir}/**/*`));
  * Removes all files form the JavaScript dist directory.
  *
  */
-gulp.task('clean:scripts', () => del(`${pathBuilder.jsDistDir}/**/*`));
+gulp.task('clean:scripts', () => del(
+    `${pathBuilder.jsDistDir}/**/*`)
+);
 
 
 /**
@@ -29,7 +32,9 @@ gulp.task('clean:scripts', () => del(`${pathBuilder.jsDistDir}/**/*`));
  * Removes all images form the images dist directory.
  *
  */
-gulp.task('clean:images', () => del(`${pathBuilder.imgDistDir}/**/*`));
+gulp.task('clean:images', () => del(
+    `${pathBuilder.imgDistDir}/**/*`)
+);
 
 
 /**
@@ -38,4 +43,6 @@ gulp.task('clean:images', () => del(`${pathBuilder.imgDistDir}/**/*`));
  * Removes all files form the docs dist directory.
  *
  */
-gulp.task('clean:docs', () => del([`${pathBuilder.docsDistDir}/**/*`]));
+gulp.task('clean:docs', () => del(
+    [`${pathBuilder.docsDistDir}/**/*`])
+);

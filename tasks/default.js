@@ -1,6 +1,6 @@
-const gulp          = require('gulp');
-const runSequence   = require('run-sequence');
-const config        = require('../config');
+const gulp = require('gulp');
+const runSequence = require('run-sequence');
+const config = require('../config');
 
 
 /**
@@ -14,11 +14,12 @@ gulp.task('default', callback => {
         runSequence(
             ['css', 'scripts', 'images'],
             'service-worker',
-            callback);
-    }
-    else {
+            callback
+        );
+    } else {
         runSequence(
             ['css', 'scripts', 'images'],
-            callback);
+            callback
+        );
     }
 });

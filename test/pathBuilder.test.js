@@ -1,4 +1,12 @@
-const pathBuilder = require('../pathBuilder');
+const pathBuilder = require('../pathBuilder')();
+
+describe('path builder', () => {
+
+    it('is an object', () => {
+        expect(typeof pathBuilder).toBe('object');
+    });
+
+});
 
 describe('css paths', () => {
 
