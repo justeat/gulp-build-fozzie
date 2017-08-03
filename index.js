@@ -24,6 +24,7 @@ const build = (srcGulp, options = {}) => {
         // Update config with custom values — these values will
         // persist across all further requires in other files.
         config.update(options);
+        pathBuilder.update(config);
     }
 
     // Assign existing gulp tasks so that they are not lost.

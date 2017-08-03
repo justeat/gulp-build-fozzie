@@ -20,7 +20,7 @@ const reporter = require('postcss-reporter');
 const autoprefixer = require('autoprefixer');
 
 const config = require('../config');
-const pathBuilder = require('../pathBuilder')();
+const pathBuilder = require('../pathBuilder');
 
 
 /**

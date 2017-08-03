@@ -1,29 +1,47 @@
-const config = require('./config');
+const baseConfig = require('./config');
 
-const docsSrcDir = `${config.docs.rootDir}/${config.docs.srcDir}`;
-const docsDistDir = `${config.docs.rootDir}/${config.docs.distDir}`;
 
-const pathBuilder = () => ({
-    scssSrcDir: `${config.assetSrcDir}/${config.css.scssDir}`,
-    cssDistDir: `${config.assetDistDir}/${config.css.cssDir}`,
+const buildPaths = config => {
 
-    jsSrcDir: `${config.assetSrcDir}/${config.js.jsDir}`,
-    jsDistDir: `${config.assetDistDir}/${config.js.jsDir}`,
+    const docsSrcDir = `${config.docs.rootDir}/${config.docs.srcDir}`;
+    const docsDistDir = `${config.docs.rootDir}/${config.docs.distDir}`;
 
-    imgSrcDir: `${config.assetSrcDir}/${config.img.imgDir}`,
-    imgDistDir: `${config.assetDistDir}/${config.img.imgDir}`,
+    let paths = {
+        scssSrcDir: `${config.assetSrcDir}/${config.css.scssDir}`,
+        cssDistDir: `${config.assetDistDir}/${config.css.cssDir}`,
 
-    swOutputPath: `${config.webRootDir}/${config.sw.outputFile}`,
-    swSrcDir: `${config.assetSrcDir}/${config.sw.swDir}`,
-    swDistDir: `${config.assetDistDir}/${config.sw.swDir}`,
+        jsSrcDir: `${config.assetSrcDir}/${config.js.jsDir}`,
+        jsDistDir: `${config.assetDistDir}/${config.js.jsDir}`,
 
-    docsSrcDir,
-    docsDistDir,
-    docsTemplateDir: `${docsSrcDir}/${config.docs.templDir}`,
-    docsDataDir: `${docsSrcDir}/${config.docs.dataDir}`,
-    docsCssDistDir: `${docsDistDir}/${config.docs.assetDir}${config.css.cssDir}`,
-    docsJsDistDir: `${docsDistDir}/${config.docs.assetDir}${config.js.jsDir}`,
-    docsImgDistDir: `${docsDistDir}/${config.docs.assetDir}${config.img.imgDir}`
-});
+        imgSrcDir: `${config.assetSrcDir}/${config.img.imgDir}`,
+        imgDistDir: `${config.assetDistDir}/${config.img.imgDir}`,
 
-module.exports = pathBuilder;
+        swOutputPath: `${config.webRootDir}/${config.sw.outputFile}`,
+        swSrcDir: `${config.assetSrcDir}/${config.sw.swDir}`,
+        swDistDir: `${config.assetDistDir}/${config.sw.swDir}`,
+
+        docsSrcDir,
+        docsDistDir,
+        docsTemplateDir: `${docsSrcDir}/${config.docs.templDir}`,
+        docsDataDir: `${docsSrcDir}/${config.docs.dataDir}`,
+        docsCssDistDir: `${docsDistDir}/${config.docs.assetDir}${config.css.cssDir}`,
+        docsJsDistDir: `${docsDistDir}/${config.docs.assetDir}${config.js.jsDir}`,
+        docsImgDistDir: `${docsDistDir}/${config.docs.assetDir}${config.img.imgDir}`
+    }
+
+    return paths;
+};
+
+const pathBuilder = () => {
+
+    let paths = buildPaths(baseConfig);
+
+    paths.update = config => {
+        const updated = buildPaths(config);
+        paths = Object.assign(paths, updated);
+    };
+
+    return paths;
+};
+
+module.exports = pathBuilder();
