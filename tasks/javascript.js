@@ -23,7 +23,7 @@ const rev = require('gulp-rev');
 const stripDebug = require('gulp-strip-debug');
 
 const config = require('../config');
-const pathBuilder = require('../pathBuilder');
+const pathBuilder = require('../pathBuilder')();
 
 
 /**
