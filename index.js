@@ -12,13 +12,20 @@
  */
 
 const requireDir = require('require-dir');
-const config = require('./config');
 const gulp = require('gulp');
+const config = require('./config');
+const pathBuilder = require('./pathBuilder');
 
-module.exports = function (srcGulp, options = {}) {
-    // Update config with custom values — these values will
-    // persist across all further requires in other files.
-    config.update(options);
+const isEmpty = obj => Object.keys(obj).length === 0 && obj.constructor === Object;
+
+const build = (srcGulp, options = {}) => {
+
+    if (!isEmpty(options)) {
+        // Update config with custom values — these values will
+        // persist across all further requires in other files.
+        config.update(options);
+        pathBuilder.update(config);
+    }
 
     // Assign existing gulp tasks so that they are not lost.
     gulp.tasks = srcGulp.tasks;
@@ -30,4 +37,10 @@ module.exports = function (srcGulp, options = {}) {
     if (config.isDev) {
         requireDir('./tasks-dev', { recurse: false });
     }
+};
+
+module.exports = {
+    build,
+    config,
+    pathBuilder
 };
