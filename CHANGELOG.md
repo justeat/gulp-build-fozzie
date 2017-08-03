@@ -3,27 +3,46 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [3.6.0] - 2017-08-02
+
+v4.0.0
+------------------------------
+*August 03, 2017*
+
+### Changed
+- The return value is now an object containing the `build`, `config`, and `pathBuilder` objects instead of the `build` function.
+
+### Added
+- The Readme *Setup* section was updated to reflect the changes to the default return value.
+- The Readme *Path Builder* section was added.
+
+
+v3.6.0
+------------------------------
+*August 02, 2017*
 
 ### Added
 - `config.docs.helpers` object added for passing through helper function for handlebars to use
 
 
-## [3.5.0] - 2017-08-02
+v3.5.0
+------------------------------
+*August 02, 2017*
 
 ### Changed
 - Updating numerous package dependencies in `package.json` and `yarn.lock`
 
 
-[3.4.1] - 2017-08-02
+v3.4.1
 ------------------------------
+*August 02, 2017*
 
 ### Fixed
 - Fixed `isProduction` check for docs base URL.
 
 
-[3.4.0] - 2017-08-02
+v3.4.0
 ------------------------------
+*August 02, 2017*
 
 ### Changed
 - Consistent formatting of `gulp-if` statements.
@@ -33,4 +52,3 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - CSS sourcemaps are written to separate files.
 - JavaScript sourcemaps are now written correctly.
 - `watch:docs` task now outputs assets correctly.
-

@@ -11,10 +11,14 @@ Gulp build tasks for use across Fozzie modules.
 
 - [Requirements](#requirements)
 - [Setup](#setup)
+  - [Config and pathBuilder](#config-and-pathbuilder)
+    - [Config object](#config-object)
+    - [pathBuilder object](#pathbuilder-object)
 - [The Gulp Tasks](#the-gulp-tasks)
   - [Development only tasks](#development-only-tasks)
 - [Options](#options)
   - [Other options](#other-options)
+
 
 ## Requirements
 
@@ -69,12 +73,35 @@ Inside your gulpfile require and then run `@justeat/gulp-build-fozzie` passing `
 
 ```js
 const gulp = require('gulp');
-const build = require('@justeat/gulp-build-fozzie');
+const { build } = require('@justeat/gulp-build-fozzie');
 
 build(gulp, /*options*/);
 ```
 
 That's it! You can now run any of [the Gulp tasks](#the-gulp-tasks).
+
+### Config and pathBuilder
+
+Additionally, you also have access to the internal `config` and `pathBuilder`
+objects which are used inside of `gulp-build-fozzie`.
+
+```js
+const { config, pathBuilder } = require('@justeat/gulp-build-fozzie');
+```
+
+#### `config` object
+
+This is the config object which is used inside of `gulp-build-fozzie`, if you have passed any options via the `build` method these will also be present.
+
+See the [Options](#options) section below for details on what this object will contain.
+
+#### `pathBuilder` object
+
+The `pathBuilder` object is used inside of `gulp-build-fozzie` in order to build the paths to directories for the gulp tasks.
+
+The reason for these paths being exposed is so that if you have any custom tasks in your project you can use these paths rather than creating them yourself in your code, this reduces duplication and is less likely to introduce bugs or cause issues.
+
+See the [Path Builder](#path-builder) section below for details on what paths are available.
 
 
 ## The Gulp Tasks
@@ -612,3 +639,99 @@ The following options are also present in the config but cannot be overridden.
   Type: `boolean`
 
   Set to the opposite value of `isProduction`
+
+
+## Path Builder
+
+You can access the `pathBuilder` paths like this.
+
+```js
+const { pathBuilder } = require('@justeat/gulp-build-fozzie');
+
+gulp.task('scss', () => gulp.src(`${pathBuilder.scssSrcDir}/**`)
+
+...
+```
+
+These are the paths which the `pathBuilder` object provides.
+
+### CSS
+
+- #### `scssSrcDir`
+
+  Default: `'src/scss'`
+
+
+- #### `cssDistDir`
+
+  Default: `'dist/css'`
+
+
+- #### `jsSrcDir`
+
+  Default: `'src/js'`
+
+
+- #### `jsDistDir`
+
+  Default: `'dist/js'`
+
+
+- #### `imgSrcDir`
+
+  Default: `'src/img'`
+
+
+- #### `imgDistDir`
+
+  Default: `'dist/img'`
+
+
+- #### `swOutputPath`
+
+  Default: `'.'`
+
+
+- #### `swSrcDir`
+
+  Default: `'src/sw'`
+
+
+- #### `swDistDir`
+
+  Default: `'dist/sw'`
+
+
+- #### `docsSrcDir`
+
+  Default: `'./docs/src'`
+
+
+- #### `docsDistDir`
+
+  Default: `'./docs/dist'`
+
+
+- #### `docsTemplateDir`
+
+  Default: `'./docs/src/templates'`
+
+
+- #### `docsDataDir`
+
+  Default: `'./docs/src/data'`
+
+
+- #### `docsCssDistDir`
+
+  Default: `'./docs/dist/assets/css'`
+
+
+- #### `docsJsDistDir`
+
+  Default: `'./docs/dist/assets/js'`
+
+
+- #### `docsImgDistDir`
+
+  Default: `'./docs/dist/assets/img'`
