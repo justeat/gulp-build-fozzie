@@ -15,6 +15,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - `config.docs.helpers` object added for passing through helper function for handlebars to use
 
+### Changed
+- The `for...in` loop in `assemble.js` was throwing eslint errors, in order to fix this we converted the loop to use `Object.keys` and `forEach` instead.
+
 
 [3.5.0] - 2017-08-02
 ------------------------------
