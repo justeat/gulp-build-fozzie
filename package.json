@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/justeat/gulp-build-fozzie#readme",
   "scripts": {
-    "prepublishOnly": "yarn test",
+    "prepare": "yarn run lint && yarn test",
     "test": "jest",
     "test:cover": "yarn run test -- --coverage",
     "test:cover:CI": "cat coverage/lcov.info | coveralls",
