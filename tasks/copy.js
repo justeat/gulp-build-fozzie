@@ -35,7 +35,7 @@ const copy = fileType => {
                     gulp.dest(assetDocsDist)
                 ));
         } else {
-            gutil.log(gutil.colors.red.bold(`Error copying file - path not defined`));
+            gutil.log(gutil.colors.red.bold('Error copying file - path not defined'));
         }
     });
 };
