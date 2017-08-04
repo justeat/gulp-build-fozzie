@@ -148,10 +148,6 @@ Runs the following tasks
 
 Generate an SVG sprite and copy into the dist directory
 
-### `copy:js`, `copy:css` & `copy:img`
-
-There are three separate copy tasks that can be called; `copy:js`, `copy:css` and `copy:img`.  Each of these copies the specified set of assets from the `src` to the `dist` asset folders.
-
 ### `service-worker`
 
 Runs the following tasks
@@ -167,6 +163,10 @@ Copies the worker's internal scripts to the dist directory.
 - #### `service-worker:write`
 
 Generates a service worker to pre-cache the assets defined in the config.
+
+### `copy:js`, `copy:css` & `copy:img`
+
+There are three separate copy tasks that can be called; `copy:js`, `copy:css` and `copy:img`.  Each of these copies the specified set of assets from the `src` to the `dist` asset folders.
 
 ### `watch`
 
