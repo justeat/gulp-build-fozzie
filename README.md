@@ -164,6 +164,10 @@ Copies the worker's internal scripts to the dist directory.
 
 Generates a service worker to pre-cache the assets defined in the config.
 
+### `copy:js`, `copy:css` & `copy:img`
+
+There are three separate copy tasks that can be called; `copy:js`, `copy:css` and `copy:img`.  Each of these copies the specified set of assets from the `src` to the `dist` asset folders.
+
 ### `watch`
 
 Runs the `default` task then the following watch tasks.
@@ -247,6 +251,11 @@ Here is the outline of the configuration options, descriptions of each are below
         dynamicFileStrategy,
         importScripts,
         cacheId
+    },
+    copy: {
+        js,
+        css,
+        img
     },
     docs: {
         rootDir,
@@ -469,6 +478,37 @@ Root dist directory for your assets.
   Default: `''`
 
   An optional string used to differentiate caches on the same origin during local development.
+
+### `copy`
+
+- #### `js`, `css` & `img`
+
+  Type: `Object`
+
+  Default: `{}`
+
+  Each of `copy.js`, `copy.css` and `copy.img` takes an object list of assets in the format:
+
+  ```js
+    copy:
+      js: {
+        'prism': {
+            path: '/libs/prism.min.js',
+            dest: '/libs',
+            revision: false,
+        }
+      }
+    }
+  ```
+
+  In which:
+  - `path` is a string specifying the path within the relevant asset `src` folder of the asset to be copied.
+  - `dest` is a string specifying that destination folder for the asset to be copied to, within the relevant asset `dist` folder.
+  - `revision` is a boolean such that if it is true, the asset will be [revision hashed](https://www.npmjs.com/package/gulp-rev) when copied to it’s destination.
+
+  `path` and `dest` must always be defined for each asset you wish to copy.
+
+  The object key (which in the above example is `prism`) of each asset is simply for your own use to identify each asset in your config.
 
 
 ### `docs`

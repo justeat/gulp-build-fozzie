@@ -21,6 +21,7 @@ gulp.task('images', callback => {
     runSequence(
         'clean:images',
         ['images:optimise', 'images:svg-sprite'],
+        'copy:img',
         callback
     );
 });

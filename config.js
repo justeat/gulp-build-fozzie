@@ -62,6 +62,15 @@ const ConfigOptions = () => {
         },
 
         /**
+         * Copy takes an object of assets to copy from src to dist folders
+         */
+        copy: {
+            js: {},
+            css: {},
+            img: {}
+        },
+
+        /**
          * Documentation-related variables
          */
         docs: {
@@ -136,6 +145,7 @@ const ConfigOptions = () => {
                 js: Object.assign(config.js, options.js),
                 img: Object.assign(config.img, options.img),
                 sw: Object.assign(config.sw, options.sw),
+                copy: Object.assign(config.copy, options.copy),
                 docs: Object.assign(config.docs, options.docs),
                 misc: Object.assign(config.misc, options.misc),
                 gulp: Object.assign(config.gulp, options.gulp)

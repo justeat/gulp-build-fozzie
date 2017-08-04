@@ -37,6 +37,7 @@ gulp.task('scripts', callback => {
         'scripts:test',
         'clean:scripts',
         'scripts:bundle',
+        'copy:js',
         callback
     );
 });

@@ -356,6 +356,39 @@ describe('service worker config', () => {
     });
 });
 
+describe('copy config', () => {
+
+    it('copy.js config should be set', () => {
+        expect(config.copy.js).toEqual({});
+    });
+
+    it('copy.css config should be set', () => {
+        expect(config.copy.css).toEqual({});
+    });
+
+    it('copy.img config should be set', () => {
+        expect(config.copy.img).toEqual({});
+    });
+
+    it('copy config can be updated', () => {
+        // Arrange
+        const js = {
+            prism: {
+                path: '/libs/prism.min.js',
+                dest: '/libs'
+            }
+        };
+
+        // Act
+        config.update({ copy: { js } });
+
+        // Assert
+        expect(config.copy.js.prism.path).toBe('/libs/prism.min.js');
+    });
+
+});
+
+
 describe('documentation config', () => {
 
     it('root directory should be set', () => {
