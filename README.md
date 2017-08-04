@@ -67,7 +67,13 @@ If you do not add a `.babelrc` file (you may be writing es5 code for example) th
 
 #### JavaScript Linting
 
-Add an `.eslintrc` file to the root of your project. The recommended eslint configuration for fozzie modules can be found in [`.eslintrc`](.eslintrc) – simply add the contents of this into your projects' `.eslintrc` file to use the JS linting rules we recommend when running the [`scripts:lint`](#scriptslint) task.
+Add an `.eslintrc` file to the root of your project which the following content to use the JS linting rules we recommend when running the [`scripts:lint`](#scriptslint) task:
+
+```json
+{
+    "extends": "@justeat/eslint-config-fozzie"
+}
+```
 
 #### CSS Linting
 
