@@ -16,12 +16,10 @@ const gulp = require('gulp');
 const config = require('./config');
 const pathBuilder = require('./pathBuilder');
 
-const isEmpty = obj => Object.keys(obj).length === 0 && obj.constructor === Object;
+const build = (srcGulp, options) => {
 
-const build = (srcGulp, options = {}) => {
-
-    if (!isEmpty(options)) {
-        // Update config with custom values — these values will
+    if (options) {
+        // Update config & pathBuilder with custom values — these values will
         // persist across all further requires in other files.
         config.update(options);
         pathBuilder.update(config);
