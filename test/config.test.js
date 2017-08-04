@@ -358,8 +358,16 @@ describe('service worker config', () => {
 
 describe('copy config', () => {
 
-    it('copy config should be set to an empty object', () => {
-        expect(config.copy).toEqual({});
+    it('copy.js config should be set', () => {
+        expect(config.copy.js).toEqual({});
+    });
+
+    it('copy.css config should be set', () => {
+        expect(config.copy.css).toEqual({});
+    });
+
+    it('copy.img config should be set', () => {
+        expect(config.copy.img).toEqual({});
     });
 
     it('copy config can be updated', () => {

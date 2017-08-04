@@ -64,7 +64,11 @@ const ConfigOptions = () => {
         /**
          * Copy takes an object of assets to copy from src to dist folders
          */
-        copy: {},
+        copy: {
+            js: {},
+            css: {},
+            img: {}
+        },
 
         /**
          * Documentation-related variables

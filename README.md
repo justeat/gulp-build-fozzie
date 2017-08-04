@@ -485,9 +485,9 @@ Root dist directory for your assets.
 
   Type: `Object`
 
-  Default: `null`
+  Default: `{}`
 
-  Each of `copy.js`, `copy:css` and `copy:img` takes an object list of assets in the format:
+  Each of `copy.js`, `copy.css` and `copy.img` takes an object list of assets in the format:
 
   ```js
     copy:
