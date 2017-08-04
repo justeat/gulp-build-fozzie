@@ -11,7 +11,7 @@ Gulp build tasks for use across Fozzie modules.
 
 - [Setup](#setup)
   - [Optional setup](#optional-setup)
-    - [Transpile es2015 code](#user-content-transpile-es2015-code)
+    - [Transpile es2015 code](#transpile-es2015-code)
     - [JavaScript Linting](#javascript-linting)
     - [CSS Linting](#css-linting)
   - [Config and pathBuilder](#config-and-pathbuilder)
