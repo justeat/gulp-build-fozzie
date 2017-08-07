@@ -1,5 +1,3 @@
-import { danger, fail, warn, message } from "danger";
-
 const modifiedFiles = danger.git.modified_files;
 const newFiles = danger.git.created_files;
 
@@ -11,12 +9,17 @@ if (!danger.git.modified_files.includes('CHANGELOG.md')) {
 
 // Check for version update
 const hasPackageJsonChanged = danger.git.modified_files.includes('package.json');
-const packageDiff = danger.git.diffForFile('package.json');
 
-if (!hasPackageJsonChanged || (hasPackageJsonChanged && packageDiff && !packageDiff.includes('version'))) {
-    const semverLink = 'https://docs.npmjs.com/getting-started/semantic-versioning';
-    fail(`:exclamation: This PR should include a <a href="${semverLink}">SEMVER</a> version bump, so that it can be published once merged.`);
-}
+schedule(async () => {
+    const packageDiff = await danger.git.JSONDiffForFile('package.json');
+
+    console.log(hasPackageJsonChanged, packageDiff);
+
+    if (!hasPackageJsonChanged || (hasPackageJsonChanged && !packageDiff.version)) {
+        const semverLink = 'https://docs.npmjs.com/getting-started/semantic-versioning';
+        fail(`:exclamation: This PR should include a <a href="${semverLink}">SEMVER</a> version bump, so that it can be published once merged.`);
+    }
+});
 
 
 const taskFiles = modifiedFiles.filter(path => path.startsWith('tasks'));
@@ -28,6 +31,7 @@ if ((taskFiles.length > 0 || configChanged) && !readmeChanged) {
 }
 
 
+// Message on deletions
 if (danger.github.pr.deletions > danger.github.pr.additions) {
-  message(':fire: :clap: Nice one! You’re a deleting machine');
+  message(':fire: :clap: You’re a deletion machine!');
 }
