@@ -67,7 +67,7 @@ If you do not add a `.babelrc` file (you may be writing es5 code for example) th
 
 #### JavaScript Linting
 
-Add an `.eslintrc` file to the root of your project which the following content to use the JS linting rules we recommend when running the [`scripts:lint`](#scriptslint) task:
+Add an `.eslintrc` file to the root of your project with the following content to use the JS linting rules we recommend when running the [`scripts:lint`](#scriptslint) task:
 
 ```json
 {
@@ -75,9 +75,13 @@ Add an `.eslintrc` file to the root of your project which the following content 
 }
 ```
 
+If you wish to extend or override these rules you can simply add them after the `extends` line in the `.eslintrc` file.
+
+[For more information on how you can configure eslint check out the documentation](http://eslint.org/docs/user-guide/configuring).
+
 #### CSS Linting
 
-To use our recommended fozzie stylelint linting rules, add the following into your `package.json` file:
+To use our recommended fozzie stylelint linting rules add the following into your `package.json` file:
 
 ```json
 "stylelint": {
@@ -85,7 +89,9 @@ To use our recommended fozzie stylelint linting rules, add the following into yo
 }
 ```
 
-If you wish to extend these rules, you can also define your own `.stylelintrc` file in the root of your project with the rules that you wish to override.
+If you wish to extend or override these rules you can simply add them after the `extends` line in the `package.json` file.
+
+[For more information on how you can configure stylelint check out the documentation](https://stylelint.io/user-guide/configuration/).
 
 ### Config and pathBuilder
 
