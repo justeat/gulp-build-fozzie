@@ -9,72 +9,111 @@ Gulp build tasks for use across Fozzie modules.
 
 ## Contents
 
-- [Requirements](#requirements)
 - [Setup](#setup)
+  - [Optional setup](#optional-setup)
+    - [Transpile es2015 code](#transpile-es2015-code)
+    - [JavaScript Linting](#javascript-linting)
+    - [CSS Linting](#css-linting)
+  - [Config and pathBuilder](#config-and-pathbuilder)
+    - [Config object](#config-object)
+    - [pathBuilder object](#pathbuilder-object)
 - [The Gulp Tasks](#the-gulp-tasks)
   - [Development only tasks](#development-only-tasks)
 - [Options](#options)
   - [Other options](#other-options)
-
-## Requirements
-
-In order for some of the tasks to be able to run you'll need to prepare your project by following these steps:
-
-1. Install gulp as a dependency
-
-    ```bash
-    yarn add gulp
-    ```
-
-1. To ensure that the [`scripts:bundle`](#scriptsbundle) task can transpile es2015 code, add the `babel-preset-es2015` preset to the project:
-
-    ```bash
-    yarn add babel-preset-es2015
-    ```
-
-    Then add a `.babelrc` file, with the `babel-preset-es2015` preset, to the root of your project:
-
-    ```javascript
-    {
-        "presets": ["es2015"]
-    }
-    ```
-
-    If you do not add a `.babelrc` file (you may be writing es5 code for example) then the code will be bundled up as is.
-
-1. Add an `.eslintrc` file to the root of your project. The recommended eslint configuration for fozzie modules can be found in [`/fozzie-config/.eslintrc`](https://github.com/justeat/gulp-build-fozzie/fozzie-config/.eslintrc) – simply add the contents of this into your projects `.eslintrc` file to use the JS linting rules we recommend when running the [`scripts:lint`](#scriptslint) task.
-
-1. To use our recommended fozzie stylelint linting rules, add the following into your `package.json` file:
-
-    ```
-    "stylelint": {
-        "extends": "@justeat/stylelint-config-fozzie"
-    }
-    ```
-
-    If you wish to extend these rules, you can also define your own `.stylelintrc` file in the root of your project with the rules that you wish to override.
+- [Path Builder](#path-builder)
 
 
 ## Setup
 
-To integrate these tasks into your project you need to complete the following steps:
-
-Add `@justeat/gulp-build-fozzie` to your project
+First, add `gulp` and `gulp-build-fozzie` as dependencies
 
 ```bash
-yarn add @justeat/gulp-build-fozzie
+yarn add gulp @justeat/gulp-build-fozzie
 ```
 
-Inside your gulpfile require and then run `@justeat/gulp-build-fozzie` passing `gulp` as the first argument, You can optionally [pass in options here which will override the defaults](#options).
+Next, inside your `gulpfile.js`, require the build function from `@justeat/gulp-build-fozzie`, then pass `gulp` as the first argument.
 
 ```js
 const gulp = require('gulp');
-const build = require('@justeat/gulp-build-fozzie');
+const { build } = require('@justeat/gulp-build-fozzie');
 
 build(gulp, /*options*/);
 ```
 
+You can optionally [pass in options which will override the default config values](#options).
+
 That's it! You can now run any of [the Gulp tasks](#the-gulp-tasks).
+
+### Optional setup
+
+#### Transpile es2015 code
+
+To ensure that the [`scripts:bundle`](#scriptsbundle) task can transpile es2015 code, add the `babel-preset-es2015` preset to the project:
+
+```bash
+yarn add babel-preset-es2015
+```
+
+Then add a `.babelrc` file, with the `babel-preset-es2015` preset, to the root of your project:
+
+```json
+{
+    "presets": ["es2015"]
+}
+```
+
+If you do not add a `.babelrc` file (you may be writing es5 code for example) then the code will be bundled up as is.
+
+#### JavaScript Linting
+
+Add an `.eslintrc` file to the root of your project with the following content to use the JS linting rules we recommend when running the [`scripts:lint`](#scriptslint) task:
+
+```json
+{
+    "extends": "@justeat/eslint-config-fozzie"
+}
+```
+
+If you wish to extend or override these rules you can simply add them after the `extends` line in the `.eslintrc` file.
+
+[For more information on how you can configure eslint check out the documentation](http://eslint.org/docs/user-guide/configuring).
+
+#### CSS Linting
+
+To use our recommended fozzie stylelint linting rules add the following into your `package.json` file:
+
+```json
+"stylelint": {
+    "extends": "@justeat/stylelint-config-fozzie"
+}
+```
+
+If you wish to extend or override these rules you can simply add them after the `extends` line in the `package.json` file.
+
+[For more information on how you can configure stylelint check out the documentation](https://stylelint.io/user-guide/configuration/).
+
+### Config and pathBuilder
+
+You can also access the `config` and `pathBuilder` objects which are used inside of `gulp-build-fozzie` by requiring them:
+
+```js
+const { config, pathBuilder } = require('@justeat/gulp-build-fozzie');
+```
+
+These are exposed for convenience, and means that you do not need to manually build paths and maintain a separate config object for any custom tasks in your project. It also reduces duplication and prevents bugs which can arise from specifying incorrect paths.
+
+#### `config` object
+
+This is the config object which is used inside of `gulp-build-fozzie`, if you have passed any options via the `build` method they will be available here.
+
+See the [Options](#options) section below for the details of this object.
+
+#### `pathBuilder` object
+
+The `pathBuilder` object is used inside of `gulp-build-fozzie` in order to build the paths used in the gulp tasks.
+
+See the [Path Builder](#path-builder) section below for details on which paths are available.
 
 
 ## The Gulp Tasks
@@ -611,7 +650,7 @@ Root dist directory for your assets.
 
   Default: `true`
 
-  Shoud file sizes be displayed when a task is run?
+  Should file sizes be displayed when a task is run?
 
 - #### `showFiles`
 
@@ -619,7 +658,7 @@ Root dist directory for your assets.
 
   Default: `true`
 
-  Shoud file names be displayed when a task is run?
+  Should file names be displayed when a task is run?
 
 
 ### `gulp`
@@ -652,3 +691,99 @@ The following options are also present in the config but cannot be overridden.
   Type: `boolean`
 
   Set to the opposite value of `isProduction`
+
+
+## Path Builder
+
+You can access the `pathBuilder` paths like this.
+
+```js
+const { pathBuilder } = require('@justeat/gulp-build-fozzie');
+
+gulp.task('scss', () => gulp.src(`${pathBuilder.scssSrcDir}/**`)
+
+...
+```
+
+These are the paths which the `pathBuilder` object provides.
+
+### CSS
+
+- #### `scssSrcDir`
+
+  Default: `'src/scss'`
+
+
+- #### `cssDistDir`
+
+  Default: `'dist/css'`
+
+
+- #### `jsSrcDir`
+
+  Default: `'src/js'`
+
+
+- #### `jsDistDir`
+
+  Default: `'dist/js'`
+
+
+- #### `imgSrcDir`
+
+  Default: `'src/img'`
+
+
+- #### `imgDistDir`
+
+  Default: `'dist/img'`
+
+
+- #### `swOutputPath`
+
+  Default: `'.'`
+
+
+- #### `swSrcDir`
+
+  Default: `'src/sw'`
+
+
+- #### `swDistDir`
+
+  Default: `'dist/sw'`
+
+
+- #### `docsSrcDir`
+
+  Default: `'./docs/src'`
+
+
+- #### `docsDistDir`
+
+  Default: `'./docs/dist'`
+
+
+- #### `docsTemplateDir`
+
+  Default: `'./docs/src/templates'`
+
+
+- #### `docsDataDir`
+
+  Default: `'./docs/src/data'`
+
+
+- #### `docsCssDistDir`
+
+  Default: `'./docs/dist/assets/css'`
+
+
+- #### `docsJsDistDir`
+
+  Default: `'./docs/dist/assets/js'`
+
+
+- #### `docsImgDistDir`
+
+  Default: `'./docs/dist/assets/img'`
