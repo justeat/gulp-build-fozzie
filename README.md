@@ -404,7 +404,7 @@ Root dist directory for your assets.
 
   Default: `'js'`
 
-  Name of the directory that your JavaScript files are kept.
+  Name of the directory where your JavaScript files are kept.
 
   Compiled JavaScript files will be placed inside a directory with the same name.
 
@@ -443,7 +443,7 @@ Root dist directory for your assets.
 
   Default: `'img'`
 
-  Name of the directory that your image files are kept.
+  Name of the directory where your image files are kept.
 
   Processed image files will be placed inside a directory with the same name.
 
@@ -472,7 +472,7 @@ Root dist directory for your assets.
 
   Default: `'sw'`
 
-  Name of the directory that your service worker's custom internal scripts are kept in.
+  Name of the directory where your service worker's custom internal scripts are kept in.
 
   Scripts here will be placed inside a directory with the same name.
 
@@ -540,7 +540,7 @@ Root dist directory for your assets.
         'prism': {
             path: '/libs/prism.min.js',
             dest: '/libs',
-            revision: false,
+            revision: false
         }
       }
     }
@@ -604,7 +604,7 @@ Root dist directory for your assets.
 
   Default: `'templates'`
 
-  The name of the directory that your documentation template files are kept.
+  The name of the directory where your documentation template files are kept.
 
 - #### `dataDir`
 
@@ -612,7 +612,7 @@ Root dist directory for your assets.
 
   Default: `'data'`
 
-  The name of the directory that your documentation data files are kept.
+  The name of the directory where your documentation data files are kept.
 
 - #### `outputAssets`
 
