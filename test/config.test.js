@@ -386,8 +386,28 @@ describe('copy config', () => {
         expect(config.copy.js.prism.path).toBe('/libs/prism.min.js');
     });
 
-});
+    it('copy fonts config should be set', () => {
+        expect(config.copy.fonts).toEqual({});
+    });
 
+    it('copy fonts config can be updated', () => {
+        // Arrange
+        const fonts = {
+            'fonts': {
+                path: '/libs/**/*',
+                dest: '',
+                revision: false
+            }
+        };
+
+        // Act
+        config.update({ copy: { fonts } });
+
+        // Assert
+        expect(config.copy.fonts).toEqual(fonts);
+    });
+
+});
 
 describe('documentation config', () => {
 

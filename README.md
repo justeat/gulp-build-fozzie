@@ -203,9 +203,11 @@ Copies the worker's internal scripts to the dist directory.
 
 Generates a service worker to pre-cache the assets defined in the config.
 
-### `copy:js`, `copy:css` & `copy:img`
+### `copy:js`, `copy:css`, `copy:img` & `copy:fonts`
 
-There are three separate copy tasks that can be called; `copy:js`, `copy:css` and `copy:img`.  Each of these copies the specified set of assets from the `src` to the `dist` asset folders.
+Each of these tasks copies the specified set of assets from the `src` to the `dist` asset folders.
+
+See the [config section](#js-css-img--fonts) for details on how to configure these tasks.
 
 ### `watch`
 
@@ -294,7 +296,8 @@ Here is the outline of the configuration options, descriptions of each are below
     copy: {
         js,
         css,
-        img
+        img,
+        fonts
     },
     docs: {
         rootDir,
@@ -523,13 +526,13 @@ Root dist directory for your assets.
 
 ### `copy`
 
-- #### `js`, `css` & `img`
+- #### `js`, `css` `img` & `fonts`
 
   Type: `Object`
 
   Default: `{}`
 
-  Each of `copy.js`, `copy.css` and `copy.img` takes an object list of assets in the format:
+  `copy.js`, `copy.css`, `copy.img` and `copy.fonts` each take an object list of assets in the format:
 
   ```js
     copy:

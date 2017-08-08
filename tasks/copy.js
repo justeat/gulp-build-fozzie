@@ -9,17 +9,19 @@ const pathBuilder = require('../pathBuilder');
 
 
 const copy = fileType => {
+
     Object.keys(config.copy[fileType]).forEach(assetId => {
         const asset = config.copy[fileType][assetId];
         const fileTypeCapitalised = fileType.charAt(0).toUpperCase() + fileType.slice(1);
+        const dest = asset.dest || '';
 
         const assetSrc = pathBuilder[`${fileType}SrcDir`] + asset.path;
-        const assetDist = pathBuilder[`${fileType}DistDir`] + asset.dest;
-        const assetDocsDist = pathBuilder[`docs${fileTypeCapitalised}DistDir`] + asset.dest;
+        const assetDist = pathBuilder[`${fileType}DistDir`] + dest;
+        const assetDocsDist = pathBuilder[`docs${fileTypeCapitalised}DistDir`] + dest;
 
-        if (asset.path !== undefined && asset.dest !== undefined) {
+        if (asset.path !== undefined) {
 
-            gutil.log(`❯❯ Copying ${assetSrc} to ${assetDist}`);
+            gutil.log(`❯❯ Copying ${assetSrc} to ${assetDist} ${config.docs.outputAssets ? `and ${assetDocsDist}` : ''}`);
 
             gulp.src(assetSrc)
                 .pipe(plumber(config.gulp.onError))

@@ -67,7 +67,8 @@ const ConfigOptions = () => {
         copy: {
             js: {},
             css: {},
-            img: {}
+            img: {},
+            fonts: {}
         },
 
         /**
