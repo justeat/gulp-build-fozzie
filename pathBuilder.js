@@ -26,7 +26,11 @@ const buildPaths = config => {
         docsDataDir: `${docsSrcDir}/${config.docs.dataDir}`,
         docsCssDistDir: `${docsDistDir}/${config.docs.assetDir}${config.css.cssDir}`,
         docsJsDistDir: `${docsDistDir}/${config.docs.assetDir}${config.js.jsDir}`,
-        docsImgDistDir: `${docsDistDir}/${config.docs.assetDir}${config.img.imgDir}`
+        docsImgDistDir: `${docsDistDir}/${config.docs.assetDir}${config.img.imgDir}`,
+        docsFontsDistDir: `${docsDistDir}/${config.docs.assetDir}${config.fonts.fontsDir}`,
+
+        fontsSrcDir: `${config.assetSrcDir}/${config.fonts.fontsDir}`,
+        fontsDistDir: `${config.assetDistDir}/${config.fonts.fontsDir}`
     };
 };
 

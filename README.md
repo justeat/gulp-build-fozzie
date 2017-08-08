@@ -800,3 +800,13 @@ These are the paths which the `pathBuilder` object provides.
 - #### `docsImgDistDir`
 
   Default: `'./docs/dist/assets/img'`
+
+
+- #### `fontsSrcDir`
+
+  Default: `'src/fonts'`
+
+
+- #### `fontsDistDir`
+
+  Default: `'dist/fonts'`
