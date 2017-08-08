@@ -358,24 +358,17 @@ describe('service worker config', () => {
 
 describe('copy config', () => {
 
-    it('copy.js config should be set', () => {
+    it('copy javascript config should be set', () => {
         expect(config.copy.js).toEqual({});
     });
 
-    it('copy.css config should be set', () => {
-        expect(config.copy.css).toEqual({});
-    });
-
-    it('copy.img config should be set', () => {
-        expect(config.copy.img).toEqual({});
-    });
-
-    it('copy config can be updated', () => {
+    it('copy javascript config can be updated', () => {
         // Arrange
         const js = {
-            prism: {
-                path: '/libs/prism.min.js',
-                dest: '/libs'
+            'scripts': {
+                path: '/libs/**/*',
+                dest: '/libs',
+                revision: false
             }
         };
 
@@ -383,7 +376,49 @@ describe('copy config', () => {
         config.update({ copy: { js } });
 
         // Assert
-        expect(config.copy.js.prism.path).toBe('/libs/prism.min.js');
+        expect(config.copy.js).toEqual(js);
+    });
+
+    it('copy css config should be set', () => {
+        expect(config.copy.css).toEqual({});
+    });
+
+    it('copy css config can be updated', () => {
+        // Arrange
+        const css = {
+            'styles': {
+                path: '/libs/**/*',
+                dest: '/libs',
+                revision: false
+            }
+        };
+
+        // Act
+        config.update({ copy: { css } });
+
+        // Assert
+        expect(config.copy.css).toEqual(css);
+    });
+
+    it('copy image config should be set', () => {
+        expect(config.copy.img).toEqual({});
+    });
+
+    it('copy image config can be updated', () => {
+        // Arrange
+        const img = {
+            'images': {
+                path: '/libs/**/*',
+                dest: '',
+                revision: false
+            }
+        };
+
+        // Act
+        config.update({ copy: { img } });
+
+        // Assert
+        expect(config.copy.img).toEqual(img);
     });
 
     it('copy fonts config should be set', () => {
