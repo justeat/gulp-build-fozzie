@@ -42,17 +42,32 @@ const copy = fileType => {
     });
 };
 
-// copy all the asset JS over to the docs folder
+/**
+ * `copy:js` Task
+ * ---------------------
+ * Copy the specified JavaScript assets over to the dist folder.
+ *
+ */
 gulp.task('copy:js', () => {
     copy('js');
 });
 
-// copy all the asset JS over to the docs folder
+/**
+ * `copy:css` Task
+ * ---------------------
+ * Copy the specified CSS assets over to the dist folder.
+ *
+ */
 gulp.task('copy:css', () => {
     copy('css');
 });
 
-// copy all the asset JS over to the docs folder
+/**
+ * `copy:img` Task
+ * ---------------------
+ * Copy the specified image assets over to the dist folder.
+ *
+ */
 gulp.task('copy:img', () => {
     copy('img');
 });
