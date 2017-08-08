@@ -365,7 +365,7 @@ describe('copy config', () => {
     it('copy javascript config can be updated', () => {
         // Arrange
         const js = {
-            'scripts': {
+            scripts: {
                 path: '/libs/**/*',
                 dest: '/libs',
                 revision: false
@@ -386,7 +386,7 @@ describe('copy config', () => {
     it('copy css config can be updated', () => {
         // Arrange
         const css = {
-            'styles': {
+            styles: {
                 path: '/libs/**/*',
                 dest: '/libs',
                 revision: false
@@ -407,7 +407,7 @@ describe('copy config', () => {
     it('copy image config can be updated', () => {
         // Arrange
         const img = {
-            'images': {
+            images: {
                 path: '/libs/**/*',
                 dest: '',
                 revision: false
@@ -428,7 +428,7 @@ describe('copy config', () => {
     it('copy fonts config can be updated', () => {
         // Arrange
         const fonts = {
-            'fonts': {
+            fonts: {
                 path: '/libs/**/*',
                 dest: '',
                 revision: false
