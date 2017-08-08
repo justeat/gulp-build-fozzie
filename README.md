@@ -537,8 +537,8 @@ Root dist directory for your assets.
   ```js
     copy:
       js: {
-        'prism': {
-            path: '/libs/prism.min.js',
+        prism: {
+            path: '/libs/**/*',
             dest: '/libs',
             revision: false
         }
