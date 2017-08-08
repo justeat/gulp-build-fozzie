@@ -517,6 +517,25 @@ describe('documentation config', () => {
     });
 });
 
+describe('fonts config', () => {
+
+    it('fonts directory should be set', () => {
+        expect(config.fonts.fontsDir).toBe('fonts');
+    });
+
+    it('fonts directory can be updated', () => {
+        // Arrange
+        const fontsDir = 'text';
+
+        // Act
+        config.update({ fonts: { fontsDir } });
+
+        // Assert
+        expect(config.fonts.fontsDir).toBe(fontsDir);
+    });
+
+});
+
 describe('miscellaneous config', () => {
 
     it('show file size should be true', () => {

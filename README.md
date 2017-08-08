@@ -307,6 +307,9 @@ Here is the outline of the configuration options, descriptions of each are below
         remoteBase,
         helpers
     },
+    fonts: {
+      fontsDir
+    },
     misc: {
         showFileSize,
         showFiles
@@ -641,6 +644,16 @@ Root dist directory for your assets.
   ```
 
   Will expose the helper `toLowercase` so that using `{{toLowercase name}}` within a handlebars template will convert the handlebars string `name` to lowercase.
+
+### `fonts`
+
+- #### `fontsDir`
+
+  Type: `string`
+
+  Default: `'fonts'`
+
+  Name of the directory where your font files are kept.
 
 ### `misc`
 

@@ -85,6 +85,10 @@ const ConfigOptions = () => {
             helpers: {}
         },
 
+        fonts: {
+            fontsDir: 'fonts'
+        },
+
         /**
          * Banners and info
          */
@@ -147,6 +151,7 @@ const ConfigOptions = () => {
                 sw: Object.assign(config.sw, options.sw),
                 copy: Object.assign(config.copy, options.copy),
                 docs: Object.assign(config.docs, options.docs),
+                fonts: Object.assign(config.fonts, options.fonts),
                 misc: Object.assign(config.misc, options.misc),
                 gulp: Object.assign(config.gulp, options.gulp)
             });
