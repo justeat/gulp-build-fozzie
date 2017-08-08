@@ -3,6 +3,27 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v4.2.0
+------------------------------
+*August 08, 2017*
+
+### Added
+- Added `config.fonts` object.
+- Added fonts paths to pathBuilder.
+- Added `copy.fonts` object.
+- Added `copy:fonts` task.
+- Unit tests added for new config and pathBuilder properties.
+- Unit tests added to test all `config.copy` properties are updated correctly.
+- The Readme *Fonts config* section was added.
+- The Readme *Fonts pathBuilder* section was added.
+
+### Changed
+- Updated copy task comments.
+- If no `dest` property is defined in the `copy` config then it will default to an empty string.
+- Improved logging for `copy` tasks.
+- The Readme `config.copy` and `copy` tasks sections were updated to include the new font additions.
+- Updated `copy` task comments.
+
 v4.1.1
 ------------------------------
 *August 08, 2017*

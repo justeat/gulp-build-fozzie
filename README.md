@@ -203,9 +203,11 @@ Copies the worker's internal scripts to the dist directory.
 
 Generates a service worker to pre-cache the assets defined in the config.
 
-### `copy:js`, `copy:css` & `copy:img`
+### `copy:js`, `copy:css`, `copy:img` & `copy:fonts`
 
-There are three separate copy tasks that can be called; `copy:js`, `copy:css` and `copy:img`.  Each of these copies the specified set of assets from the `src` to the `dist` asset folders.
+Each of these tasks copies the specified set of assets from the `src` to the `dist` asset folders.
+
+See the [config section](#js-css-img--fonts) for details on how to configure these tasks.
 
 ### `watch`
 
@@ -294,7 +296,8 @@ Here is the outline of the configuration options, descriptions of each are below
     copy: {
         js,
         css,
-        img
+        img,
+        fonts
     },
     docs: {
         rootDir,
@@ -306,6 +309,9 @@ Here is the outline of the configuration options, descriptions of each are below
         outputAssets,
         remoteBase,
         helpers
+    },
+    fonts: {
+      fontsDir
     },
     misc: {
         showFileSize,
@@ -398,7 +404,7 @@ Root dist directory for your assets.
 
   Default: `'js'`
 
-  Name of the directory that your JavaScript files are kept.
+  Name of the directory where your JavaScript files are kept.
 
   Compiled JavaScript files will be placed inside a directory with the same name.
 
@@ -437,7 +443,7 @@ Root dist directory for your assets.
 
   Default: `'img'`
 
-  Name of the directory that your image files are kept.
+  Name of the directory where your image files are kept.
 
   Processed image files will be placed inside a directory with the same name.
 
@@ -466,7 +472,7 @@ Root dist directory for your assets.
 
   Default: `'sw'`
 
-  Name of the directory that your service worker's custom internal scripts are kept in.
+  Name of the directory where your service worker's custom internal scripts are kept in.
 
   Scripts here will be placed inside a directory with the same name.
 
@@ -520,21 +526,21 @@ Root dist directory for your assets.
 
 ### `copy`
 
-- #### `js`, `css` & `img`
+- #### `js`, `css` `img` & `fonts`
 
   Type: `Object`
 
   Default: `{}`
 
-  Each of `copy.js`, `copy.css` and `copy.img` takes an object list of assets in the format:
+  `copy.js`, `copy.css`, `copy.img` and `copy.fonts` each take an object list of assets in the format:
 
   ```js
     copy:
       js: {
-        'prism': {
-            path: '/libs/prism.min.js',
+        prism: {
+            path: '/libs/**/*',
             dest: '/libs',
-            revision: false,
+            revision: false
         }
       }
     }
@@ -598,7 +604,7 @@ Root dist directory for your assets.
 
   Default: `'templates'`
 
-  The name of the directory that your documentation template files are kept.
+  The name of the directory where your documentation template files are kept.
 
 - #### `dataDir`
 
@@ -606,7 +612,7 @@ Root dist directory for your assets.
 
   Default: `'data'`
 
-  The name of the directory that your documentation data files are kept.
+  The name of the directory where your documentation data files are kept.
 
 - #### `outputAssets`
 
@@ -641,6 +647,16 @@ Root dist directory for your assets.
   ```
 
   Will expose the helper `toLowercase` so that using `{{toLowercase name}}` within a handlebars template will convert the handlebars string `name` to lowercase.
+
+### `fonts`
+
+- #### `fontsDir`
+
+  Type: `string`
+
+  Default: `'fonts'`
+
+  Name of the directory where your font files are kept.
 
 ### `misc`
 
@@ -787,3 +803,13 @@ These are the paths which the `pathBuilder` object provides.
 - #### `docsImgDistDir`
 
   Default: `'./docs/dist/assets/img'`
+
+
+- #### `fontsSrcDir`
+
+  Default: `'src/fonts'`
+
+
+- #### `fontsDistDir`
+
+  Default: `'dist/fonts'`

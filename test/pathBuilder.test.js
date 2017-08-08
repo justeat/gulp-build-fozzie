@@ -90,4 +90,20 @@ describe('documentation paths', () => {
         expect(pathBuilder.docsImgDistDir).toBe('./docs/dist/assets/img');
     });
 
+    it('fonts distribution directory path should be correct', () => {
+        expect(pathBuilder.docsFontsDistDir).toBe('./docs/dist/assets/fonts');
+    });
+
+});
+
+describe('font paths', () => {
+
+    it('src directory path should be correct', () => {
+        expect(pathBuilder.fontsSrcDir).toBe('src/fonts');
+    });
+
+    it('distribution directory path should be correct', () => {
+        expect(pathBuilder.fontsDistDir).toBe('dist/fonts');
+    });
+
 });
