@@ -72,4 +72,12 @@ gulp.task('copy:img', () => {
     copy('img');
 });
 
-
+/**
+ * `copy:fonts` Task
+ * ---------------------
+ * Copy the specified font assets over to the dist folder.
+ *
+ */
+gulp.task('copy:fonts', () => {
+    copy('fonts');
+});
