@@ -456,6 +456,17 @@ Root dist directory for your assets.
   Filename of the SVG sprite which is generated from any SVG assets found in the image directory.
 
 
+### `importedAssets`
+
+- #### `importedAssetsDir`
+
+  Type: `string`
+
+  Default: `'imported-assets'`
+
+  Name of the directory where assets from node_modules will be copied to.
+
+
 ### `sw`
 
 - #### `isEnabled`

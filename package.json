@@ -1,6 +1,6 @@
 {
   "name": "@justeat/gulp-build-fozzie",
-  "version": "4.2.0",
+  "version": "4.3.0",
   "description": "Gulp build tasks for use across Fozzie modules",
   "main": "index.js",
   "author": "Damian Mullins <damian.mullins@just-eat.com> (http://www.damianmullins.com)",
@@ -42,6 +42,7 @@
     "exorcist": "^0.4.0",
     "eyeglass": "^1.2.1",
     "filesizegzip": "^2.0.0",
+    "find-npm-assets": "^0.3.2",
     "gulp": "^3.9.1",
     "gulp-cached": "^1.1.1",
     "gulp-changed": "^3.1.0",

@@ -3,6 +3,23 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v4.3.0
+------------------------------
+*August 09, 2017*
+
+### Added
+- Added `config.importedAssets` object.
+- Added imported assets paths to pathBuilder.
+- Added `copy:assets` task.
+- Added `clean:assets` task.
+- Added `watch:assets` task.
+- Unit tests added for new config and pathBuilder properties.
+- The Readme *Imported Assets config* section was added.
+
+
+### Changed
+- Updated clean task comments.
+
 v4.2.0
 ------------------------------
 *August 08, 2017*
