@@ -32,6 +32,7 @@ gulp.task('css', callback => {
     runSequence(
         'scss:lint',
         'clean:css',
+        'copy:assets',
         'css:bundle',
         'copy:css',
         'css:lint',
@@ -116,7 +117,7 @@ gulp.task('css:bundle', () => gulp.src(`${pathBuilder.scssSrcDir}/**/*.scss`)
         postcss([
             // Converts any specified assets to data URIs
             assets({
-                loadPaths: [pathBuilder.imgSrcDir]
+                loadPaths: [pathBuilder.imgSrcDir, pathBuilder.importedAssetsDistDir]
             }),
 
             // Autoprefixes CSS properties for various browsers – browsers specified in package.json config

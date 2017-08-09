@@ -44,6 +44,14 @@ describe('image paths', () => {
 
 });
 
+describe('imported assets paths', () => {
+
+    it('dist directory path should be correct', () => {
+        expect(pathBuilder.importedAssetsDistDir).toBe('dist/imported-assets');
+    });
+
+});
+
 describe('service worker paths', () => {
 
     it('output path should be correct', () => {

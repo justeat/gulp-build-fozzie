@@ -48,6 +48,13 @@ const ConfigOptions = () => {
         },
 
         /**
+         * Imported assets related variables
+         */
+        importedAssets: {
+            importedAssetsDir: 'imported-assets'
+        },
+
+        /**
          * Service Worker related variables
          */
         sw: {

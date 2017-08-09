@@ -7,7 +7,7 @@ const pathBuilder = require('../pathBuilder');
 /**
  * `clean:css` Task
  * ---------------------
- * Removes all files form the CSS dist directory.
+ * Removes all files from the CSS dist directory.
  *
  */
 gulp.task('clean:css', () => del(
@@ -18,7 +18,7 @@ gulp.task('clean:css', () => del(
 /**
  * `clean:scripts` Task
  * ---------------------
- * Removes all files form the JavaScript dist directory.
+ * Removes all files from the JavaScript dist directory.
  *
  */
 gulp.task('clean:scripts', () => del(
@@ -29,7 +29,7 @@ gulp.task('clean:scripts', () => del(
 /**
  * `clean:images` Task
  * ---------------------
- * Removes all images form the images dist directory.
+ * Removes all images from the images dist directory.
  *
  */
 gulp.task('clean:images', () => del(
@@ -38,9 +38,20 @@ gulp.task('clean:images', () => del(
 
 
 /**
+ * `clean:assets` Task
+ * ---------------------
+ * Removes all imported assets from the imported assets dist directory.
+ *
+ */
+gulp.task('clean:assets', () => del(
+    `${pathBuilder.importedAssetsDistDir}/**/*`)
+);
+
+
+/**
  * `clean:docs` Task
  * -------------
- * Removes all files form the docs dist directory.
+ * Removes all files from the docs dist directory.
  *
  */
 gulp.task('clean:docs', () => del(
