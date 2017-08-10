@@ -90,7 +90,6 @@ gulp.task('copy:fonts', () => {
  *
  */
 gulp.task('copy:assets', () => {
-    // config.importedAssets.importedAssetsSrcGlob
     const packages = findAssets.load({ pkgDir: true });
     packages.forEach(pkg => {
         gutil.log(`❯❯ Copying assets from ${pkg.name} to ${pathBuilder.importedAssetsDistDir}/${pkg.name}`);
