@@ -140,7 +140,7 @@ Runs the following tasks
 
 - #### `copy:assets`
 
-  Copies assets from from node_modules to the imported assets directory.
+  Copies assets from packages to the imported assets directory.
 
 - #### `css:bundle`
 

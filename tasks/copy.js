@@ -2,8 +2,9 @@ const gulp = require('gulp');
 const gutil = require('gulp-util');
 const plumber = require('gulp-plumber');
 const gulpif = require('gulp-if');
-const findAssets = require('find-npm-assets');
+const copyAssets = require('npm-assets');
 const rev = require('gulp-rev');
+const glob = require('glob');
 
 const config = require('../config');
 const pathBuilder = require('../pathBuilder');
@@ -86,14 +87,32 @@ gulp.task('copy:fonts', () => {
 /**
  * `copy:assets` Task
  * ---------------------
- * Copy assets from from node_modules to the dist folder.
+ * Copy assets from from packages to the dist folder.
  *
  */
-gulp.task('copy:assets', () => {
-    const packages = findAssets.load({ pkgDir: true });
-    packages.forEach(pkg => {
-        gutil.log(`❯❯ Copying assets from ${pkg.name} to ${pathBuilder.importedAssetsDistDir}/${pkg.name}`);
-        gulp.src(pkg.assets)
-            .pipe(gulp.dest(`${pathBuilder.importedAssetsDistDir}/${pkg.name}`));
+gulp.task('copy:assets', cb => {
+
+    const ending = 'package.json';
+    const getPkg = filepath => {
+        const path = filepath.slice(0, -ending.length);
+        const split = path.split('/'); // e.g. [...'@justeat', '', 'fozzie', '']
+        return {
+            path,
+            name: split[split.length - 2]
+        };
+    };
+
+    glob(config.importedAssets.importedAssetsSrcGlob, (err, files) => {
+        if (err) config.gulp.onError(err);
+
+        files.forEach(file => {
+            if (file.endsWith(ending)) { // find all the packages within the glob
+                const pkg = getPkg(file);
+                gutil.log(`❯❯ Copying assets from ${pkg.path} to ${pathBuilder.importedAssetsDistDir}/${pkg.name}`);
+                copyAssets(pkg.path, `${pathBuilder.importedAssetsDistDir}/${pkg.name}`);
+            }
+        });
     });
+
+    cb();
 });
