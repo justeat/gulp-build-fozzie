@@ -233,6 +233,40 @@ describe('image config', () => {
     });
 });
 
+describe('imported assets config', () => {
+
+    it('imported assets directory should be set', () => {
+        expect(config.importedAssets.importedAssetsDir).toBe('imported-assets');
+    });
+
+    it('imported assets directory can be updated', () => {
+        // Arrange
+        const importedAssetsDir = 'imports';
+
+        // Act
+        config.update({ importedAssets: { importedAssetsDir } });
+
+        // Assert
+        expect(config.importedAssets.importedAssetsDir).toBe(importedAssetsDir);
+    });
+
+    it('imported assets source glob should be set', () => {
+        expect(config.importedAssets.importedAssetsSrcGlob).toBe('node_modules/@justeat/**/*');
+    });
+
+    it('imported assets source glob can be updated', () => {
+        // Arrange
+        const importedAssetsSrcGlob = 'node_modules/**/*';
+
+        // Act
+        config.update({ importedAssets: { importedAssetsSrcGlob } });
+
+        // Assert
+        expect(config.importedAssets.importedAssetsSrcGlob).toBe(importedAssetsSrcGlob);
+    });
+
+});
+
 describe('service worker config', () => {
 
     it('is enabled should be false', () => {

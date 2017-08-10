@@ -15,7 +15,7 @@ gulp.task('watch', callback => {
 
     runSequence(
         'default',
-        ['watch:css', 'watch:scripts', 'watch:scripts:test', 'watch:images'],
+        ['watch:css', 'watch:scripts', 'watch:scripts:test', 'watch:images', 'watch:assets'],
         callback
     );
 
@@ -78,6 +78,20 @@ gulp.task('watch:scripts:test', () => {
 gulp.task('watch:images', () => {
 
     gulp.watch(`${pathBuilder.imgSrcDir}/**/*.{png,jpg,jpeg,gif,svg}`, ['images'])
+        .on('change', config.gulp.changeEvent);
+
+});
+
+
+/**
+ * `watch:assets` Task
+ * -------------
+ * Runs the `copy:assets` task when there are changes in node modules.
+ *
+ */
+gulp.task('watch:assets', () => {
+
+    gulp.watch(config.importedAssets.importedAssetsSrcGlob, ['copy:assets'])
         .on('change', config.gulp.changeEvent);
 
 });

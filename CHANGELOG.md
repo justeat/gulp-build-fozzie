@@ -3,6 +3,25 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v4.3.0
+------------------------------
+*August 10, 2017*
+
+### Added
+- Added `config.importedAssets` object.
+- Added imported assets paths to pathBuilder.
+- Added `copy:assets` task.
+- Added `clean:assets` task.
+- Added `watch:assets` task.
+- Unit tests added for new config and pathBuilder properties.
+- The Readme *Imported Assets config* section was added.
+- The Readme *Imported Assets pathBuilder* section was added.
+- The Readme was updated to document the new tasks added.
+
+### Changed
+- Updated clean task comments.
+- The `css:bundle` task loads the `importedAssetsDistDir` into postcss, so that Fozzie modules can access assets copied there.
+
 v4.2.0
 ------------------------------
 *August 08, 2017*

@@ -134,6 +134,14 @@ Runs the following tasks
 
   Removes any CSS already in the dist directory.
 
+- #### `clean:assets`
+
+  Removes any imported assets in the imported assets directory.
+
+- #### `copy:assets`
+
+  Copies assets from packages to the imported assets directory.
+
 - #### `css:bundle`
 
   Performs a variety of tasks including;
@@ -229,6 +237,10 @@ Runs the [`scripts:lint`](#scriptslint) and [`scripts:test`](#scriptstest) tasks
 
 Runs the [`images`](#images) task when an image file is changed.
 
+- #### `watch:assets`
+
+Runs the [`copy:assets`](#copyassets) task when when there are changes in node modules.
+
 ### `watch:docs`
 
 Runs the same tasks as [`watch`](#watch) as well as the following watch tasks.
@@ -282,6 +294,10 @@ Here is the outline of the configuration options, descriptions of each are below
     img: {
         imgDir,
         svgSpriteFilename
+    },
+    importedAssets: {
+        importedAssetsDir,
+        importedAssetsSrcGlob
     },
     sw: {
         isEnabled,
@@ -454,6 +470,25 @@ Root dist directory for your assets.
   Default: `'sprite.svg'`
 
   Filename of the SVG sprite which is generated from any SVG assets found in the image directory.
+
+
+### `importedAssets`
+
+- #### `importedAssetsDir`
+
+  Type: `string`
+
+  Default: `'imported-assets'`
+
+  Name of the directory where assets from node_modules will be copied to.
+
+- #### `importedAssetsSrcGlob`
+
+  Type: `string`
+
+  Default: `'node_modules/@justeat/**/*'`
+
+  Glob of packages containing assets to be copied to `importedAssetsDir`. Watched by [`watch:assets`](#watchassets).
 
 
 ### `sw`
@@ -753,6 +788,11 @@ These are the paths which the `pathBuilder` object provides.
 - #### `imgDistDir`
 
   Default: `'dist/img'`
+
+
+- #### `importedAssetsDistDir`
+
+  Default: `'dist/imported-assets'`
 
 
 - #### `swOutputPath`
