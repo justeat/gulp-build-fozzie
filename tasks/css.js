@@ -31,7 +31,7 @@ const pathBuilder = require('../pathBuilder');
 gulp.task('css', callback => {
     runSequence(
         'scss:lint',
-        'clean:css',
+        ['clean:css', 'clean:assets'],
         'copy:assets',
         'css:bundle',
         'copy:css',
