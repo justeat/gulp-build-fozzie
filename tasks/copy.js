@@ -90,10 +90,11 @@ gulp.task('copy:fonts', () => {
  *
  */
 gulp.task('copy:assets', () => {
-    const packages = findAssets.load({pkgDir: true});
+    // config.importedAssets.importedAssetsSrcGlob
+    const packages = findAssets.load({ pkgDir: true });
     packages.forEach(pkg => {
-        gutil.log(`❯❯ Copying assets from ${pkg.name} to ${pathBuilder.importedAssetsDistDir}/${pkg.name}`)
+        gutil.log(`❯❯ Copying assets from ${pkg.name} to ${pathBuilder.importedAssetsDistDir}/${pkg.name}`);
         gulp.src(pkg.assets)
-            .pipe(gulp.dest(`${pathBuilder.importedAssetsDistDir}/${pkg.name}`))
-    })   
-})
+            .pipe(gulp.dest(`${pathBuilder.importedAssetsDistDir}/${pkg.name}`));
+    });
+});

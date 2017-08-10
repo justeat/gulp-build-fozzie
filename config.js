@@ -157,6 +157,7 @@ const ConfigOptions = () => {
                 css: Object.assign(config.css, options.css),
                 js: Object.assign(config.js, options.js),
                 img: Object.assign(config.img, options.img),
+                importedAssets: Object.assign(config.importedAssets, options.importedAssets),
                 sw: Object.assign(config.sw, options.sw),
                 copy: Object.assign(config.copy, options.copy),
                 docs: Object.assign(config.docs, options.docs),

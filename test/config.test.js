@@ -250,6 +250,21 @@ describe('imported assets config', () => {
         expect(config.importedAssets.importedAssetsDir).toBe(importedAssetsDir);
     });
 
+    it('imported assets source glob should be set', () => {
+        expect(config.importedAssets.importedAssetsSrcGlob).toBe('node_modules/@justeat/**/*');
+    });
+
+    it('imported assets source glob can be updated', () => {
+        // Arrange
+        const importedAssetsSrcGlob = 'node_modules/**/*';
+
+        // Act
+        config.update({ importedAssets: { importedAssetsSrcGlob } });
+
+        // Assert
+        expect(config.importedAssets.importedAssetsSrcGlob).toBe(importedAssetsSrcGlob);
+    });
+
 });
 
 describe('service worker config', () => {
