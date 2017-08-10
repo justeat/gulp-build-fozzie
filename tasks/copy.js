@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const gutil = require('gulp-util');
 const plumber = require('gulp-plumber');
 const gulpif = require('gulp-if');
-const findAssets = require('find-npm-assets')
+const findAssets = require('find-npm-assets');
 const rev = require('gulp-rev');
 
 const config = require('../config');
@@ -90,9 +90,8 @@ gulp.task('copy:fonts', () => {
  *
  */
 gulp.task('copy:assets', () => {
-    var packages = findAssets.load({pkgDir: true});
+    const packages = findAssets.load({pkgDir: true});
     packages.forEach(pkg => {
-        //if (pkg.name !== )
         gutil.log(`❯❯ Copying assets from ${pkg.name} to ${pathBuilder.importedAssetsDistDir}/${pkg.name}`)
         gulp.src(pkg.assets)
             .pipe(gulp.dest(`${pathBuilder.importedAssetsDistDir}/${pkg.name}`))

@@ -15,7 +15,7 @@ gulp.task('watch', callback => {
 
     runSequence(
         'default',
-        ['watch:css', 'watch:scripts', 'watch:scripts:test', 'watch:images','watch:assets'],
+        ['watch:css', 'watch:scripts', 'watch:scripts:test', 'watch:images', 'watch:assets'],
         callback
     );
 
@@ -91,7 +91,7 @@ gulp.task('watch:images', () => {
  */
 gulp.task('watch:assets', () => {
 
-    gulp.watch('node_modules/@justeat/**/*', ['copy:assets'])
+    gulp.watch(config.importedAssets.importedAssetsSrcGlob, ['copy:assets'])
         .on('change', config.gulp.changeEvent);
 
 });
