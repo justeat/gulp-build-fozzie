@@ -108,12 +108,11 @@ gulp.task('copy:assets', callback => {
         const process = file => new Promise((resolve, reject) => {
             const pkg = getPkg(file);
             gutil.log(`❯❯ Copying any assets in ${pkg.path} to ${pathBuilder.importedAssetsDistDir}/${pkg.name}`);
-            copyAssets(pkg.path, `${pathBuilder.importedAssetsDistDir}/${pkg.name}`, err => {
-                if (err) {
-                    config.gulp.onError(err);
+            copyAssets(pkg.path, `${pathBuilder.importedAssetsDistDir}/${pkg.name}`, e => {
+                if (e) {
+                    config.gulp.onError(e);
                     reject();
-                }
-                else resolve();
+                } else resolve();
             });
         });
 
