@@ -2,7 +2,7 @@
 
 const modifiedFiles = danger.git.modified_files;
 const bodyAndTitle = (danger.github.pr.body + danger.github.pr.title).toLowerCase();
-const isTrivial = bodyAndTitle.includes("#trivial");
+const isTrivial = bodyAndTitle.includes('#trivial');
 
 if (!isTrivial) {
     // Fail if there isn’t a CHANGELOG entry – should update for every PR
@@ -16,7 +16,7 @@ if (!isTrivial) {
     const hasPackageJsonChanged = danger.git.modified_files.includes('package.json');
     const packageDiff = danger.git.JSONDiffForFile('package.json');
 
-    packageDiff.then((result) => {
+    packageDiff.then(result => {
         if (!hasPackageJsonChanged || (hasPackageJsonChanged && !result.version)) {
             const semverLink = 'https://docs.npmjs.com/getting-started/semantic-versioning';
             /* eslint-disable no-console */console.log('Versioning Missing'); console.log(hasPackageJsonChanged, result);/* eslint-enable no-console */
