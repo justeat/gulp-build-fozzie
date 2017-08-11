@@ -52,7 +52,7 @@ const ConfigOptions = () => {
          */
         importedAssets: {
             importedAssetsDir: 'imported-assets',
-            importedAssetsSrcGlob: 'node_modules/@justeat/**/*'
+            importedAssetsSrcGlob: 'node_modules/@justeat/*/'
         },
 
         /**

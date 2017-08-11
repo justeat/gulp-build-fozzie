@@ -92,9 +92,7 @@ gulp.task('copy:fonts', () => {
  */
 gulp.task('copy:assets', callback => {
 
-    const ending = 'package.json';
-    const getPkg = filepath => {
-        const path = filepath.slice(0, -ending.length); // the parent directory that contains the package.json
+    const getPkg = path => {
         const split = path.split('/'); // e.g. [...'@justeat', '', 'fozzie', '']
         return {
             path,
@@ -102,25 +100,27 @@ gulp.task('copy:assets', callback => {
         };
     };
 
+    const copyFromPackage = pkg => new Promise((resolve, reject) => {
+        gutil.log(`❯❯ Copying any assets in ${pkg.path} to ${pathBuilder.importedAssetsDistDir}/${pkg.name}`);
+        copyAssets(pkg.path, `${pathBuilder.importedAssetsDistDir}/${pkg.name}`, err => {
+            if (err) {
+                config.gulp.onError(err);
+                reject();
+            } else resolve();
+        });
+    });
+
     glob(config.importedAssets.importedAssetsSrcGlob, (err, files) => {
         if (err) config.gulp.onError(err);
 
-        const process = file => new Promise((resolve, reject) => {
-            const pkg = getPkg(file);
-            gutil.log(`❯❯ Copying any assets in ${pkg.path} to ${pathBuilder.importedAssetsDistDir}/${pkg.name}`);
-            copyAssets(pkg.path, `${pathBuilder.importedAssetsDistDir}/${pkg.name}`, e => {
-                if (e) {
-                    config.gulp.onError(e);
-                    reject();
-                } else resolve();
-            });
-        });
-
         const promises = files
-            .filter(file => file.endsWith(ending)) // Only consider folders containing a package.json
-            .map(file => process(file));
+            .map(file => getPkg(file))
+            .map(pkg => copyFromPackage(pkg));
 
-        Promise.all(promises).then(callback);
+        Promise
+            .all(promises)
+            .catch(config.gulp.onError)
+            .then(() => callback());
     });
 
 });
