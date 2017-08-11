@@ -16,9 +16,10 @@ if (!isTrivial) {
     const hasPackageJsonChanged = danger.git.modified_files.includes('package.json');
     const packageDiff = danger.git.JSONDiffForFile('package.json');
 
-    packageDiff.then(() => {
-        if (!hasPackageJsonChanged || (hasPackageJsonChanged && !packageDiff.version)) {
+    packageDiff.then((result) => {
+        if (!hasPackageJsonChanged || (hasPackageJsonChanged && !result.version)) {
             const semverLink = 'https://docs.npmjs.com/getting-started/semantic-versioning';
+            /* eslint-disable no-console */console.log('Versioning Missing'); console.log(hasPackageJsonChanged, result);/* eslint-enable no-console */
             fail(`:exclamation: This PR should include a <a href="${semverLink}">SEMVER</a> version bump, so that it can be published once merged.`);
         }
     }, err => {

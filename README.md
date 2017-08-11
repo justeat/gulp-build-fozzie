@@ -237,10 +237,6 @@ Runs the [`scripts:lint`](#scriptslint) and [`scripts:test`](#scriptstest) tasks
 
 Runs the [`images`](#images) task when an image file is changed.
 
-- #### `watch:assets`
-
-Runs the [`copy:assets`](#copyassets) task when when there are changes in node modules.
-
 ### `watch:docs`
 
 Runs the same tasks as [`watch`](#watch) as well as the following watch tasks.
@@ -486,9 +482,9 @@ Root dist directory for your assets.
 
   Type: `string`
 
-  Default: `'node_modules/@justeat/**/*'`
+  Default: `'node_modules/@justeat/*/'`
 
-  Glob of packages containing assets to be copied to `importedAssetsDir`. Watched by [`watch:assets`](#watchassets).
+  Glob of packages containing assets to be copied to `importedAssetsDir`.
 
 
 ### `sw`

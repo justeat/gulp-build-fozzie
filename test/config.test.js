@@ -251,12 +251,12 @@ describe('imported assets config', () => {
     });
 
     it('imported assets source glob should be set', () => {
-        expect(config.importedAssets.importedAssetsSrcGlob).toBe('node_modules/@justeat/**/*');
+        expect(config.importedAssets.importedAssetsSrcGlob).toBe('node_modules/@justeat/*/');
     });
 
     it('imported assets source glob can be updated', () => {
         // Arrange
-        const importedAssetsSrcGlob = 'node_modules/**/*';
+        const importedAssetsSrcGlob = 'node_modules/*/';
 
         // Act
         config.update({ importedAssets: { importedAssetsSrcGlob } });
