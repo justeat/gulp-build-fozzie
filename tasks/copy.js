@@ -92,7 +92,7 @@ gulp.task('copy:fonts', () => {
  */
 gulp.task('copy:assets', callback => {
 
-    const getPkg = path => {
+    const getPackage = path => {
         const split = path.split('/'); // e.g. [...'@justeat', '', 'fozzie', '']
         return {
             path,
@@ -114,8 +114,8 @@ gulp.task('copy:assets', callback => {
         if (err) config.gulp.onError(err);
 
         const promises = files
-            .map(file => getPkg(file))
-            .map(pkg => copyFromPackage(pkg));
+            .map(getPackage)
+            .map(copyFromPackage);
 
         Promise
             .all(promises)
