@@ -10,7 +10,7 @@ v4.5.0
 ### Changed
 - `test:cover` task simplified.
 - `docs` task now copies fonts correctly.
-- `default` task refactored — now using the spread operator to conditionally add the `service-worker task to `runSequence`.
+- `default` task refactored — now using the spread operator to conditionally add the `service-worker` task to `runSequence`.
 
 v4.4.0
 ------------------------------
