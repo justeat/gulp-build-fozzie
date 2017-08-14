@@ -19,7 +19,7 @@
   "scripts": {
     "prepare": "yarn run lint && yarn test",
     "test": "jest",
-    "test:cover": "yarn run test -- --coverage",
+    "test:cover": "jest --coverage",
     "test:cover:CI": "cat coverage/lcov.info | coveralls",
     "lint": "eslint **/*.js",
     "release-patch": "release-it patch --non-interactive -p",
