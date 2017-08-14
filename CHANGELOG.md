@@ -3,6 +3,15 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v4.5.0
+------------------------------
+*August 15, 2017*
+
+### Changed
+- `test:cover` task simplified.
+- `docs` task now copies fonts correctly.
+- `default` task refactored — now using the spread operator to conditionally add the `service-worker task to `runSequence`.
+
 v4.4.0
 ------------------------------
 *August 11, 2017*
