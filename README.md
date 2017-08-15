@@ -3,6 +3,8 @@
 [![npm version](https://badge.fury.io/js/%40justeat%2Fgulp-build-fozzie.svg)](https://badge.fury.io/js/%40justeat%2Fgulp-build-fozzie)
 [![Build Status](https://travis-ci.org/justeat/gulp-build-fozzie.svg)](https://travis-ci.org/justeat/gulp-build-fozzie)
 [![Coverage Status](https://coveralls.io/repos/github/justeat/gulp-build-fozzie/badge.svg)](https://coveralls.io/github/justeat/gulp-build-fozzie)
+[![dependencies Status](https://david-dm.org/justeat/gulp-build-fozzie/status.svg)](https://david-dm.org/justeat/gulp-build-fozzie)
+[![devDependencies Status](https://david-dm.org/justeat/gulp-build-fozzie/dev-status.svg)](https://david-dm.org/justeat/gulp-build-fozzie?type=dev)
 
 Gulp build tasks for use across Fozzie modules.
 
