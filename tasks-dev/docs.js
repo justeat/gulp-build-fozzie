@@ -15,7 +15,7 @@ gulp.task('docs', callback => {
 
     runSequence(
         'clean:docs',
-        'watch:docs',
+        ['watch:docs', 'copy:fonts'],
         'browserSync:docs',
         callback
     );
