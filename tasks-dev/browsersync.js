@@ -8,7 +8,7 @@ const pathBuilder = require('../pathBuilder');
 /**
  * `browser-sync` Task
  * -------------
- * Watches for changes to files and reloads local .Net project.
+ * Watches for changes to files and reloads a local website instance.
  *
  */
 gulp.task('browser-sync', config.browserSync.tasksBefore, () => {

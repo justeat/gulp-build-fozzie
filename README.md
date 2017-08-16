@@ -257,6 +257,10 @@ This will build a fresh copy of any documentation found in the `docs` directory 
 
 Removes document files already in the docs dist directory.
 
+- #### `browser-sync`
+
+Watches for changes to files and reloads a local website instance.
+
 - #### `browser-sync:docs`
 
 Refreshes the browser when changes to the docs dist directory are detected.
