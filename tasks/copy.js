@@ -93,17 +93,17 @@ gulp.task('copy:fonts', () => {
  */
 gulp.task('copy:assets', callback => {
 
-    const getPackage = path => {
-        const split = path.split('/'); // e.g. [...'@justeat', '', 'fozzie', '']
+    const getPackage = filepath => {
+        const split = filepath.split('/'); // e.g. [...'@justeat', '', 'fozzie', '']
         return {
-            path,
+            filepath,
             name: split[split.length - 2]
         };
     };
 
     const copyFromPackage = pkg => new Promise((resolve, reject) => {
         gutil.log(`❯❯ Copying any assets from ${pkg.name} to ${path.dirname(config.assetDistDir)}`);
-        copyAssets(`${pkg.path}`, `${path.dirname(config.assetDistDir)}`, err => {
+        copyAssets(`${pkg.filepath}`, `${path.dirname(config.assetDistDir)}`, err => {
             if (err) {
                 err.plugin = 'copyAssets';
                 reject(err);
