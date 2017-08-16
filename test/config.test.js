@@ -625,10 +625,10 @@ describe('fonts config', () => {
 
 });
 
-describe('browsersync config', () => {
+describe('browserSync config', () => {
 
     it('tasks before should be set', () => {
-        expect(config.browsersync.tasksBefore).toEqual(['watch']);
+        expect(config.browserSync.tasksBefore).toEqual(['watch']);
     });
 
     it('tasks before can be updated', () => {
@@ -636,14 +636,14 @@ describe('browsersync config', () => {
         const tasksBefore = ['sync'];
 
         // Act
-        config.update({ browsersync: { tasksBefore } });
+        config.update({ browserSync: { tasksBefore } });
 
         // Assert
-        expect(config.browsersync.tasksBefore).toBe(tasksBefore);
+        expect(config.browserSync.tasksBefore).toBe(tasksBefore);
     });
 
     it('files should be set', () => {
-        expect(config.browsersync.files).toEqual([]);
+        expect(config.browserSync.files).toEqual([]);
     });
 
     it('files can be updated', () => {
@@ -651,14 +651,14 @@ describe('browsersync config', () => {
         const files = ['/**/*'];
 
         // Act
-        config.update({ browsersync: { files } });
+        config.update({ browserSync: { files } });
 
         // Assert
-        expect(config.browsersync.files).toBe(files);
+        expect(config.browserSync.files).toBe(files);
     });
 
     it('proxy should be set', () => {
-        expect(config.browsersync.proxy).toBe('');
+        expect(config.browserSync.proxy).toBe('');
     });
 
     it('proxy can be updated', () => {
@@ -666,14 +666,14 @@ describe('browsersync config', () => {
         const proxy = 'localhost';
 
         // Act
-        config.update({ browsersync: { proxy } });
+        config.update({ browserSync: { proxy } });
 
         // Assert
-        expect(config.browsersync.proxy).toBe(proxy);
+        expect(config.browserSync.proxy).toBe(proxy);
     });
 
     it('reload debounce should be set', () => {
-        expect(config.browsersync.reloadDebounce).toBe(1000);
+        expect(config.browserSync.reloadDebounce).toBe(1000);
     });
 
     it('reload debounce can be updated', () => {
@@ -681,10 +681,10 @@ describe('browsersync config', () => {
         const reloadDebounce = 9001;
 
         // Act
-        config.update({ browsersync: { reloadDebounce } });
+        config.update({ browserSync: { reloadDebounce } });
 
         // Assert
-        expect(config.browsersync.reloadDebounce).toBe(reloadDebounce);
+        expect(config.browserSync.reloadDebounce).toBe(reloadDebounce);
     });
 
 });

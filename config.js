@@ -102,7 +102,7 @@ const ConfigOptions = () => {
             fontsDir: 'fonts'
         },
 
-        browsersync: {
+        browserSync: {
             tasksBefore: ['watch'],
             files: [],
             proxy: '',
@@ -177,7 +177,7 @@ const ConfigOptions = () => {
                 copy: Object.assign(config.copy, options.copy),
                 docs: Object.assign(config.docs, options.docs),
                 fonts: Object.assign(config.fonts, options.fonts),
-                browsersync: Object.assign(config.browsersync, options.browsersync),
+                browserSync: Object.assign(config.browserSync, options.browserSync),
                 misc: Object.assign(config.misc, options.misc),
                 gulp: Object.assign(config.gulp, options.gulp)
             });

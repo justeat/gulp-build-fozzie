@@ -331,7 +331,7 @@ Here is the outline of the configuration options, descriptions of each are below
     fonts: {
       fontsDir
     },
-    browsersync: {
+    browserSync: {
         tasksBefore,
         files,
         proxy,
@@ -721,7 +721,7 @@ An Object, that takes one or more child objects each describing a JavaScript bun
 
   Name of the directory where your font files are kept.
 
-### `browsersync`
+### `browserSync`
 
 - #### `tasksBefore`
 
