@@ -1,6 +1,6 @@
 {
   "name": "@justeat/gulp-build-fozzie",
-  "version": "4.4.0",
+  "version": "4.5.0",
   "description": "Gulp build tasks for use across Fozzie modules",
   "main": "index.js",
   "author": "Damian Mullins <damian.mullins@just-eat.com> (http://www.damianmullins.com)",
@@ -19,7 +19,7 @@
   "scripts": {
     "prepare": "yarn run lint && yarn test",
     "test": "jest",
-    "test:cover": "yarn run test -- --coverage",
+    "test:cover": "jest --coverage",
     "test:cover:CI": "cat coverage/lcov.info | coveralls",
     "lint": "eslint **/*.js",
     "release-patch": "release-it patch --non-interactive -p",
