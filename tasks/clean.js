@@ -38,17 +38,6 @@ gulp.task('clean:images', () => del(
 
 
 /**
- * `clean:assets` Task
- * ---------------------
- * Removes all imported assets from the imported assets dist directory.
- *
- */
-gulp.task('clean:assets', () => del(
-    `${pathBuilder.importedAssetsDistDir}/**/*`)
-);
-
-
-/**
  * `clean:docs` Task
  * -------------
  * Removes all files from the docs dist directory.

@@ -16,8 +16,6 @@ const buildPaths = config => {
         imgSrcDir: `${config.assetSrcDir}/${config.img.imgDir}`,
         imgDistDir: `${config.assetDistDir}/${config.img.imgDir}`,
 
-        importedAssetsDistDir: `${config.assetDistDir}/${config.importedAssets.importedAssetsDir}`,
-
         swOutputPath: `${config.webRootDir}`,
         swSrcDir: `${config.assetSrcDir}/${config.sw.swDir}`,
         swDistDir: `${config.assetDistDir}/${config.sw.swDir}`,

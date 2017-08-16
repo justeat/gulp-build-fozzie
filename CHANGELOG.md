@@ -3,6 +3,22 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v4.6.0
+------------------------------
+*August 15, 2017*
+
+### Changed
+- `copy:assets` task copies to `config.assetDistDir` instead of the `pathBuilder.importedAssetsDistDir`.
+- `css:bundle` task loads the `config.DistDir` into postcss rather than `importedAssetsDistDir`
+- The Readme `copy:assets` and `config.importedAssets` sections were updated.
+
+### Removed
+- Removed `config.importedAssets.importedAssetsDir` .
+- Removed `pathBuilder.importedAssetsDistDir`.
+- Removed unit tests for above properties.
+- Removed `clean:assets` task.
+- The above properties and task were removed from the Readme.
+
 v4.5.0
 ------------------------------
 *August 15, 2017*

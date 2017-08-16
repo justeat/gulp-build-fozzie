@@ -4,6 +4,7 @@ const plumber = require('gulp-plumber');
 const gulpif = require('gulp-if');
 const copyAssets = require('npm-assets');
 const rev = require('gulp-rev');
+const path = require('path');
 const glob = require('glob');
 
 const config = require('../config');
@@ -101,8 +102,8 @@ gulp.task('copy:assets', callback => {
     };
 
     const copyFromPackage = pkg => new Promise((resolve, reject) => {
-        gutil.log(`❯❯ Copying any assets in ${pkg.path} to ${pathBuilder.importedAssetsDistDir}/${pkg.name}`);
-        copyAssets(pkg.path, `${pathBuilder.importedAssetsDistDir}/${pkg.name}`, err => {
+        gutil.log(`❯❯ Copying any assets from ${pkg.name} to ${path.dirname(config.assetDistDir)}`);
+        copyAssets(`${pkg.path}`, `${path.dirname(config.assetDistDir)}`, err => {
             if (err) {
                 config.gulp.onError(err);
                 reject();

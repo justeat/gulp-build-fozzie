@@ -235,21 +235,6 @@ describe('image config', () => {
 
 describe('imported assets config', () => {
 
-    it('imported assets directory should be set', () => {
-        expect(config.importedAssets.importedAssetsDir).toBe('imported-assets');
-    });
-
-    it('imported assets directory can be updated', () => {
-        // Arrange
-        const importedAssetsDir = 'imports';
-
-        // Act
-        config.update({ importedAssets: { importedAssetsDir } });
-
-        // Assert
-        expect(config.importedAssets.importedAssetsDir).toBe(importedAssetsDir);
-    });
-
     it('imported assets source glob should be set', () => {
         expect(config.importedAssets.importedAssetsSrcGlob).toBe('node_modules/@justeat/*/');
     });
