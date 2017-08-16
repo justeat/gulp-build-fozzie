@@ -102,6 +102,13 @@ const ConfigOptions = () => {
             fontsDir: 'fonts'
         },
 
+        browserSync: {
+            tasksBefore: ['watch'],
+            files: [],
+            proxy: 'ie-consumerweb.localhost.com',
+            reloadDebounce: 1000
+        },
+
         /**
          * Banners and info
          */

@@ -251,13 +251,13 @@ Runs the [`assemble`](#assemble) task when documentation files are changed.
 
 - #### `docs`
 
-This will build a fresh copy of any documentation found in the `docs` directory using Assemble, then call the [`watch`](#watch) task which will watch for any file changes, and finally call the [`browserSync:docs`](#browsersyncdocs) task which reloads the web page when changes are detected in the `docs/dist` directory.
+This will build a fresh copy of any documentation found in the `docs` directory using Assemble, then call the [`watch`](#watch) task which will watch for any file changes, and finally call the [`browser-sync:docs`](#browser-syncdocs) task which reloads the web page when changes are detected in the `docs/dist` directory.
 
 - #### `clean:docs`
 
 Removes document files already in the docs dist directory.
 
-- #### `browserSync:docs`
+- #### `browser-sync:docs`
 
 Refreshes the browser when changes to the docs dist directory are detected.
 
