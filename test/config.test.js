@@ -625,6 +625,70 @@ describe('fonts config', () => {
 
 });
 
+describe('browsersync config', () => {
+
+    it('tasks before should be set', () => {
+        expect(config.browsersync.tasksBefore).toEqual(['watch']);
+    });
+
+    it('tasks before can be updated', () => {
+        // Arrange
+        const tasksBefore = ['sync'];
+
+        // Act
+        config.update({ browsersync: { tasksBefore } });
+
+        // Assert
+        expect(config.browsersync.tasksBefore).toBe(tasksBefore);
+    });
+
+    it('files should be set', () => {
+        expect(config.browsersync.files).toEqual([]);
+    });
+
+    it('files can be updated', () => {
+        // Arrange
+        const files = ['/**/*'];
+
+        // Act
+        config.update({ browsersync: { files } });
+
+        // Assert
+        expect(config.browsersync.files).toBe(files);
+    });
+
+    it('proxy should be set', () => {
+        expect(config.browsersync.proxy).toBe('');
+    });
+
+    it('proxy can be updated', () => {
+        // Arrange
+        const proxy = 'localhost';
+
+        // Act
+        config.update({ browsersync: { proxy } });
+
+        // Assert
+        expect(config.browsersync.proxy).toBe(proxy);
+    });
+
+    it('reload debounce should be set', () => {
+        expect(config.browsersync.reloadDebounce).toBe(1000);
+    });
+
+    it('reload debounce can be updated', () => {
+        // Arrange
+        const reloadDebounce = 9001;
+
+        // Act
+        config.update({ browsersync: { reloadDebounce } });
+
+        // Assert
+        expect(config.browsersync.reloadDebounce).toBe(reloadDebounce);
+    });
+
+});
+
 describe('miscellaneous config', () => {
 
     it('show file size should be true', () => {

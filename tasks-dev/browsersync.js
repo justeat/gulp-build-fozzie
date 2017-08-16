@@ -1,5 +1,5 @@
 const gulp = require('gulp');
-const browserSync = require('browser-sync');
+const browsersync = require('browser-sync');
 
 const config = require('../config');
 const pathBuilder = require('../pathBuilder');
@@ -11,19 +11,19 @@ const pathBuilder = require('../pathBuilder');
  * Watches for changes to files and reloads local .Net project.
  *
  */
-gulp.task('browser-sync', config.browserSync.tasksBefore, () => {
+gulp.task('browser-sync', config.browsersync.tasksBefore, () => {
 
     const options = {
         files: [
             `./${pathBuilder.cssDistDir}/**/*.css`,
             `./${pathBuilder.jsDistDir}/**/*.js`,
-            ...config.browserSync.files
+            ...config.browsersync.files
         ],
-        proxy: config.browserSync.proxy,
-        reloadDebounce: config.browserSync.reloadDebounce
+        proxy: config.browsersync.proxy,
+        reloadDebounce: config.browsersync.reloadDebounce
     };
 
-    browserSync.init(options);
+    browsersync.init(options);
 
 });
 
@@ -48,9 +48,9 @@ gulp.task('browser-sync:docs', ['assemble'], () => {
                 extensions: ['html']
             }
         },
-        reloadDebounce: config.browserSync.reloadDebounce
+        reloadDebounce: config.browsersync.reloadDebounce
     };
 
-    browserSync.init(options);
+    browsersync.init(options);
 
 });

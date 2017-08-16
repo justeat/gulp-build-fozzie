@@ -102,10 +102,10 @@ const ConfigOptions = () => {
             fontsDir: 'fonts'
         },
 
-        browserSync: {
+        browsersync: {
             tasksBefore: ['watch'],
             files: [],
-            proxy: 'ie-consumerweb.localhost.com',
+            proxy: '',
             reloadDebounce: 1000
         },
 
@@ -177,6 +177,7 @@ const ConfigOptions = () => {
                 copy: Object.assign(config.copy, options.copy),
                 docs: Object.assign(config.docs, options.docs),
                 fonts: Object.assign(config.fonts, options.fonts),
+                browsersync: Object.assign(config.browsersync, options.browsersync),
                 misc: Object.assign(config.misc, options.misc),
                 gulp: Object.assign(config.gulp, options.gulp)
             });

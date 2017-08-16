@@ -331,6 +331,12 @@ Here is the outline of the configuration options, descriptions of each are below
     fonts: {
       fontsDir
     },
+    browsersync: {
+        tasksBefore,
+        files,
+        proxy,
+        reloadDebounce
+    },
     misc: {
         showFileSize,
         showFiles
@@ -714,6 +720,40 @@ An Object, that takes one or more child objects each describing a JavaScript bun
   Default: `'fonts'`
 
   Name of the directory where your font files are kept.
+
+### `browsersync`
+
+- #### `tasksBefore`
+
+  Type: `array`
+
+  Default: `['watch']`
+
+  Tasks to execute before starting the `tasksBefore` task.
+
+- #### `files`
+
+  Type: `array`
+
+  Default: `[]`
+
+  List of paths to watch for changes. Accepts globs.
+
+- #### `proxy`
+
+  Type: `string`
+
+  Default: `''`
+
+  URL of local website instance.
+
+- #### `reloadDebounce`
+
+  Type: `number`
+
+  Default: `1000`
+
+  Wait for a specified window of event-silence before sending any reload events.
 
 ### `misc`
 
