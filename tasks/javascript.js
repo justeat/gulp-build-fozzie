@@ -16,6 +16,7 @@ const browserify = require('browserify');
 const babelify = require('babelify');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
+const es = require('event-stream');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
@@ -82,78 +83,90 @@ gulp.task('scripts:test', callback => {
  * Bundle the JS modules together into a single file and and transpile es2015 features to es5.
  *
  */
-gulp.task('scripts:bundle', () => browserify(`${pathBuilder.jsSrcDir}/${config.js.srcFile}`, { debug: config.isDev })
-    .transform(babelify)
-    .bundle()
+gulp.task('scripts:bundle', () => {
 
-    .pipe(plumber({
-        errorHandler: config.gulp.onError
-    }))
+    const bundleTasks = Object.keys(config.js.files).map(fileId => {
 
-    // move the source map outisde of the JS file when not in prod
-    .pipe(gulpif(config.isDev,
-        exorcist(`${pathBuilder.jsDistDir}/${config.js.distFile}.map`)
-    ))
+        const { srcPath, distFile, applyRevision } = config.js.files[fileId];
+        const file = `${pathBuilder.jsSrcDir}/${srcPath}`;
 
-    // create unminified file
-    .pipe(source(config.js.distFile))
-    .pipe(buffer())
+        return browserify(file, { debug: config.isDev })
+            .transform(babelify)
+            .bundle()
+            .pipe(gulpif(config.isDev,
+                exorcist(`${pathBuilder.jsDistDir}/${distFile}.map`))
+            )
+            .pipe(source(file))
 
-    .pipe(gulp.dest(pathBuilder.jsDistDir))
+            // convert to buffer object as sourcemaps don’t work with streams
+            .pipe(buffer())
 
-    // output the size of the unminified JS
-    .pipe(gulpif(config.misc.showFileSize,
-        size({
-            title: 'Bundled JS Report – unminified build –',
-            showFiles: config.misc.showFiles
-        })
-    ))
+            .pipe(plumber({
+                errorHandler: config.gulp.onError
+            }))
 
-    // capture sourcemaps from transforms
-    .pipe(gulpif(config.isDev,
-        sourcemaps.init({ loadMaps: true })
-    ))
+            .pipe(rename(distFile))
 
-    // if production build, rip out our console logs
-    .pipe(gulpif(config.isProduction,
-        stripDebug()
-    ))
+            .pipe(gulp.dest(pathBuilder.jsDistDir))
 
-    // minify the bundle
-    .pipe(uglify({
-        output: {
-            /* eslint-disable camelcase */
-            // keeps IE support for quoted object literals
-            quote_keys: true
-            /* eslint-enable camelcase */
-        }
-    }))
+            // output the size of the unminified JS
+            .pipe(gulpif(config.misc.showFileSize,
+                size({
+                    title: 'Bundled JS Report – unminified build –',
+                    showFiles: config.misc.showFiles
+                })
+            ))
 
-    // Apply filename suffix
-    .pipe(rename({ suffix: '.min' }))
+            // capture sourcemaps from transforms
+            .pipe(gulpif(config.isDev,
+                sourcemaps.init({ loadMaps: true })
+            ))
 
-    // write the sourcemap to a separate file
-    .pipe(gulpif(config.isDev,
-        sourcemaps.write('.')
-    ))
+            // if production build, rip out our console logs
+            .pipe(gulpif(config.isProduction,
+                stripDebug()
+            ))
 
-    // output to docs assets folder
-    .pipe(gulpif(config.docs.outputAssets,
-        gulp.dest(pathBuilder.docsJsDistDir)
-    ))
+            // minify the bundle
+            .pipe(uglify({
+                output: {
+                    /* eslint-disable camelcase */
+                    // keeps IE support for quoted object literals
+                    quote_keys: true
+                    /* eslint-enable camelcase */
+                }
+            }))
 
-    // revision control for caching
-    .pipe(gulpif(config.js.applyRevision,
-        rev()
-    ))
+            // Apply filename suffix
+            .pipe(rename({ suffix: '.min' }))
 
-    // output the size of the minified JS
-    .pipe(gulpif(config.misc.showFileSize,
-        size({
-            title: 'Bundled JS Report – minified build –',
-            showFiles: config.misc.showFiles
-        })
-    ))
+            // write the sourcemap to a separate file
+            .pipe(gulpif(config.isDev,
+                sourcemaps.write('.')
+            ))
 
-    .pipe(gulp.dest(pathBuilder.jsDistDir))
-);
+            // output to docs assets folder
+            .pipe(gulpif(config.docs.outputAssets,
+                gulp.dest(pathBuilder.docsJsDistDir)
+            ))
+
+            // revision control for caching
+            .pipe(gulpif(applyRevision,
+                rev()
+            ))
+
+            // output the size of the minified JS
+            .pipe(gulpif(config.misc.showFileSize,
+                size({
+                    title: 'Bundled JS Report – minified build –',
+                    showFiles: config.misc.showFiles
+                })
+            ))
+
+            .pipe(gulp.dest(pathBuilder.jsDistDir));
+
+    });
+
+    return es.merge(...bundleTasks);
+
+});

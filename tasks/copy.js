@@ -104,8 +104,8 @@ gulp.task('copy:assets', callback => {
         gutil.log(`❯❯ Copying any assets in ${pkg.path} to ${pathBuilder.importedAssetsDistDir}/${pkg.name}`);
         copyAssets(pkg.path, `${pathBuilder.importedAssetsDistDir}/${pkg.name}`, err => {
             if (err) {
-                config.gulp.onError(err);
-                reject();
+                err.plugin = 'copyAssets';
+                reject(err);
             } else resolve();
         });
     });
@@ -119,8 +119,8 @@ gulp.task('copy:assets', callback => {
 
         Promise
             .all(promises)
-            .catch(config.gulp.onError)
-            .then(() => callback());
+            .then(() => callback())
+            .catch(config.gulp.onError);
     });
 
 });

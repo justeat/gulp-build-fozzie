@@ -123,19 +123,19 @@ describe('css config', () => {
 
 describe('javascript config', () => {
 
-    it('src file should be set', () => {
-        expect(config.js.srcFile).toBe('index.js');
+    it('src path for bundle should be set', () => {
+        expect(config.js.files.main.srcPath).toBe('index.js');
     });
 
-    it('src file can be updated', () => {
+    it('src path can be updated', () => {
         // Arrange
-        const srcFile = 'app.js';
+        const srcPath = 'app.js';
 
         // Act
-        config.update({ js: { srcFile } });
+        config.update({ js: { files: { main: { srcPath } } } });
 
         // Assert
-        expect(config.js.srcFile).toBe(srcFile);
+        expect(config.js.files.main.srcPath).toBe(srcPath);
     });
 
     it('javascript directory should be set', () => {
@@ -169,7 +169,7 @@ describe('javascript config', () => {
     });
 
     it('dist file should be set', () => {
-        expect(config.js.distFile).toBe('script.js');
+        expect(config.js.files.main.distFile).toBe('script.js');
     });
 
     it('dist file can be updated', () => {
@@ -177,14 +177,14 @@ describe('javascript config', () => {
         const distFile = 'app.js';
 
         // Act
-        config.update({ js: { distFile } });
+        config.update({ js: { files: { main: { distFile } } } });
 
         // Assert
-        expect(config.js.distFile).toBe(distFile);
+        expect(config.js.files.main.distFile).toBe(distFile);
     });
 
     it('apply revision should be true', () => {
-        expect(config.js.applyRevision).toBe(true);
+        expect(config.js.files.main.applyRevision).toBe(true);
     });
 
     it('apply revision can be updated', () => {
@@ -192,10 +192,10 @@ describe('javascript config', () => {
         const applyRevision = false;
 
         // Act
-        config.update({ js: { applyRevision } });
+        config.update({ js: { files: { main: { applyRevision } } } });
 
         // Assert
-        expect(config.js.applyRevision).toBe(applyRevision);
+        expect(config.js.files.main.applyRevision).toBe(applyRevision);
     });
 
 });
