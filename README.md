@@ -22,6 +22,7 @@ Gulp build tasks for use across Fozzie modules.
 - [Options](#options)
   - [Other options](#other-options)
 - [Path Builder](#path-builder)
+- [Running the unit tests](running-the-unit-tests)
 
 
 ## Setup
@@ -849,3 +850,8 @@ These are the paths which the `pathBuilder` object provides.
 - #### `fontsDistDir`
 
   Default: `'dist/fonts'`
+
+
+## Running the unit tests
+
+To run the unit tests for the project run the `yarn test` script. To see the test coverage run the `test:cover` script.
