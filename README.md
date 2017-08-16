@@ -278,11 +278,16 @@ Here is the outline of the configuration options, descriptions of each are below
         sourcemaps
     },
     js: {
-        srcFile,
+        files: {
+            main: {
+                srcPath,
+                distFile,
+                applyRevision
+            },
+            …
+        ],
         jsDir,
         lintPaths,
-        distFile,
-        applyRevision
     },
     img: {
         imgDir,
@@ -398,13 +403,48 @@ Root dist directory for your assets.
 
 ### `js`
 
-- #### `srcFile`
+#### `files`
+
+Type: `Object`
+
+Default:
+
+```
+{
+    main {
+        srcPath: 'index.js',
+        distFile: 'script.js',
+        applyRevision: true
+    }
+}
+```
+
+An Object, that takes one or more child objects each describing a JavaScript bundle entry point and destination.  Each of these objects can have the following properties:
+
+- ##### `srcPath`
 
   Type: `string`
 
   Default: `'index.js'`
 
-  The filename for the entry point to your es2015 code.
+  The file path to a bundle entry point in your JavaScript.
+
+- ##### `distFile`
+
+  Type: `string`
+
+  Default: `'script.js'`
+
+ The filename for the JavaScript bundle once compiled.
+
+- ##### `applyRevision`
+
+  Type: `boolean`
+
+  Default: true
+
+  Will add a content hash to the filename.
+
 
 - #### `jsDir`
 
@@ -412,7 +452,7 @@ Root dist directory for your assets.
 
   Default: `'js'`
 
-  Name of the directory where your JavaScript files are kept.
+  Name of the directory where all of your JavaScript files are kept.
 
   Compiled JavaScript files will be placed inside a directory with the same name.
 
@@ -426,21 +466,6 @@ Root dist directory for your assets.
 
   By default, the task will lint all files within the `jsDir` directory.
 
-- #### `distFile`
-
-  Type: `string`
-
-  Default: `'script.js'`
-
- The filename for the bundled JavaScript.
-
-- #### `applyRevision`
-
-  Type: `boolean`
-
-  Default: true
-
-  Will add a content hash to the filename.
 
 
 ### `img`
@@ -737,7 +762,7 @@ const { pathBuilder } = require('@justeat/gulp-build-fozzie');
 
 gulp.task('scss', () => gulp.src(`${pathBuilder.scssSrcDir}/**`)
 
-...
+…
 ```
 
 These are the paths which the `pathBuilder` object provides.

@@ -105,8 +105,8 @@ gulp.task('copy:assets', callback => {
         gutil.log(`❯❯ Copying any assets from ${pkg.name} to ${path.dirname(config.assetDistDir)}`);
         copyAssets(`${pkg.path}`, `${path.dirname(config.assetDistDir)}`, err => {
             if (err) {
-                config.gulp.onError(err);
-                reject();
+                err.plugin = 'copyAssets';
+                reject(err);
             } else resolve();
         });
     });
@@ -120,8 +120,8 @@ gulp.task('copy:assets', callback => {
 
         Promise
             .all(promises)
-            .catch(config.gulp.onError)
-            .then(() => callback());
+            .then(() => callback())
+            .catch(config.gulp.onError);
     });
 
 });

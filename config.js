@@ -32,11 +32,15 @@ const ConfigOptions = () => {
          * Javascript-related variables
          */
         js: {
-            srcFile: 'index.js',
+            files: {
+                main: {
+                    srcPath: 'index.js',
+                    distFile: 'script.js',
+                    applyRevision: true
+                }
+            },
             jsDir: 'js',
-            lintPaths: [''],
-            distFile: 'script.js',
-            applyRevision: true
+            lintPaths: ['']
         },
 
         /**
@@ -147,14 +151,18 @@ const ConfigOptions = () => {
                     process.exit(1);
                 }
 
-                this.emit('end');
+                if (this.emit) { this.emit('end'); }
             }
         },
 
         update (options = {}) {
             config = Object.assign(config, options, {
                 css: Object.assign(config.css, options.css),
-                js: Object.assign(config.js, options.js),
+                js: Object.assign(config.js, options.js, {
+                    files: Object.assign(config.js.files, (options.js ? options.js.files : {}), {
+                        main: Object.assign(config.js.files.main, (options.js && options.js.files ? options.js.files.main : {}))
+                    })
+                }),
                 img: Object.assign(config.img, options.img),
                 importedAssets: Object.assign(config.importedAssets, options.importedAssets),
                 sw: Object.assign(config.sw, options.sw),
