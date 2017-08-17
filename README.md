@@ -336,7 +336,6 @@ Here is the outline of the configuration options, descriptions of each are below
       fontsDir
     },
     browserSync: {
-        tasksBefore,
         files,
         proxy,
         reloadDebounce
@@ -726,14 +725,6 @@ An Object, that takes one or more child objects each describing a JavaScript bun
   Name of the directory where your font files are kept.
 
 ### `browserSync`
-
-- #### `tasksBefore`
-
-  Type: `array`
-
-  Default: `['watch']`
-
-  Tasks to execute before starting the `tasksBefore` task.
 
 - #### `files`
 

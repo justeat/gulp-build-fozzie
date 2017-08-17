@@ -103,7 +103,6 @@ const ConfigOptions = () => {
         },
 
         browserSync: {
-            tasksBefore: ['watch'],
             files: [],
             proxy: '',
             reloadDebounce: 1000

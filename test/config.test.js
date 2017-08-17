@@ -627,21 +627,6 @@ describe('fonts config', () => {
 
 describe('browserSync config', () => {
 
-    it('tasks before should be set', () => {
-        expect(config.browserSync.tasksBefore).toEqual(['watch']);
-    });
-
-    it('tasks before can be updated', () => {
-        // Arrange
-        const tasksBefore = ['sync'];
-
-        // Act
-        config.update({ browserSync: { tasksBefore } });
-
-        // Assert
-        expect(config.browserSync.tasksBefore).toBe(tasksBefore);
-    });
-
     it('files should be set', () => {
         expect(config.browserSync.files).toEqual([]);
     });

@@ -11,7 +11,7 @@ const pathBuilder = require('../pathBuilder');
  * Watches for changes to files and reloads a local website instance.
  *
  */
-gulp.task('browser-sync', config.browserSync.tasksBefore, () => {
+gulp.task('browser-sync', ['watch'], () => {
 
     const options = {
         files: [
