@@ -86,6 +86,10 @@ describe('documentation paths', () => {
         expect(pathBuilder.docsDataDir).toBe('./docs/src/data');
     });
 
+    it('asset distribution directory path should be correct', () => {
+        expect(pathBuilder.docsAssetsDistDir).toBe('./docs/dist/assets/');
+    });
+
     it('css distribution directory path should be correct', () => {
         expect(pathBuilder.docsCssDistDir).toBe('./docs/dist/assets/css');
     });

@@ -102,6 +102,12 @@ const ConfigOptions = () => {
             fontsDir: 'fonts'
         },
 
+        browserSync: {
+            files: [],
+            proxy: '',
+            reloadDebounce: 1000
+        },
+
         /**
          * Banners and info
          */
@@ -170,6 +176,7 @@ const ConfigOptions = () => {
                 copy: Object.assign(config.copy, options.copy),
                 docs: Object.assign(config.docs, options.docs),
                 fonts: Object.assign(config.fonts, options.fonts),
+                browserSync: Object.assign(config.browserSync, options.browserSync),
                 misc: Object.assign(config.misc, options.misc),
                 gulp: Object.assign(config.gulp, options.gulp)
             });

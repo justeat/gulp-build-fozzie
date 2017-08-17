@@ -3,9 +3,17 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v5.1.0
+------------------------------
+*August 16, 2017*
+
+### Added
+- Added `browser-sync` task along with config settings and tests.
+- Added `docsAssetsDistDir` path to `pathBuilder`.
+
 v5.0.0
 ------------------------------
-*August 14, 2017*
+*August 16, 2017*
 
 ### Changed
 - JavaScript task can now handle multiple files to be bundled via Browserify/Babel.  Check the README for updated config changes.

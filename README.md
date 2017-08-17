@@ -251,13 +251,17 @@ Runs the [`assemble`](#assemble) task when documentation files are changed.
 
 - #### `docs`
 
-This will build a fresh copy of any documentation found in the `docs` directory using Assemble, then call the [`watch`](#watch) task which will watch for any file changes, and finally call the [`browserSync:docs`](#browsersyncdocs) task which reloads the web page when changes are detected in the `docs/dist` directory.
+This will build a fresh copy of any documentation found in the `docs` directory using Assemble, then call the [`watch`](#watch) task which will watch for any file changes, and finally call the [`browser-sync:docs`](#browser-syncdocs) task which reloads the web page when changes are detected in the `docs/dist` directory.
 
 - #### `clean:docs`
 
 Removes document files already in the docs dist directory.
 
-- #### `browserSync:docs`
+- #### `browser-sync`
+
+Watches for changes to files and reloads a local website instance.
+
+- #### `browser-sync:docs`
 
 Refreshes the browser when changes to the docs dist directory are detected.
 
@@ -330,6 +334,11 @@ Here is the outline of the configuration options, descriptions of each are below
     },
     fonts: {
       fontsDir
+    },
+    browserSync: {
+        files,
+        proxy,
+        reloadDebounce
     },
     misc: {
         showFileSize,
@@ -715,6 +724,32 @@ An Object, that takes one or more child objects each describing a JavaScript bun
 
   Name of the directory where your font files are kept.
 
+### `browserSync`
+
+- #### `files`
+
+  Type: `array`
+
+  Default: `[]`
+
+  List of paths to watch for changes. Accepts globs.
+
+- #### `proxy`
+
+  Type: `string`
+
+  Default: `''`
+
+  URL of local website instance.
+
+- #### `reloadDebounce`
+
+  Type: `number`
+
+  Default: `1000`
+
+  Wait for a specified window of event-silence before sending any reload events.
+
 ### `misc`
 
 - #### `showFileSize`
@@ -850,6 +885,11 @@ These are the paths which the `pathBuilder` object provides.
 - #### `docsDataDir`
 
   Default: `'./docs/src/data'`
+
+
+- #### `docsAssetsDistDir`
+
+  Default: `'./docs/dist/assets/'`
 
 
 - #### `docsCssDistDir`

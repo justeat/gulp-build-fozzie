@@ -625,6 +625,55 @@ describe('fonts config', () => {
 
 });
 
+describe('browserSync config', () => {
+
+    it('files should be set', () => {
+        expect(config.browserSync.files).toEqual([]);
+    });
+
+    it('files can be updated', () => {
+        // Arrange
+        const files = ['/**/*'];
+
+        // Act
+        config.update({ browserSync: { files } });
+
+        // Assert
+        expect(config.browserSync.files).toBe(files);
+    });
+
+    it('proxy should be set', () => {
+        expect(config.browserSync.proxy).toBe('');
+    });
+
+    it('proxy can be updated', () => {
+        // Arrange
+        const proxy = 'localhost';
+
+        // Act
+        config.update({ browserSync: { proxy } });
+
+        // Assert
+        expect(config.browserSync.proxy).toBe(proxy);
+    });
+
+    it('reload debounce should be set', () => {
+        expect(config.browserSync.reloadDebounce).toBe(1000);
+    });
+
+    it('reload debounce can be updated', () => {
+        // Arrange
+        const reloadDebounce = 9001;
+
+        // Act
+        config.update({ browserSync: { reloadDebounce } });
+
+        // Assert
+        expect(config.browserSync.reloadDebounce).toBe(reloadDebounce);
+    });
+
+});
+
 describe('miscellaneous config', () => {
 
     it('show file size should be true', () => {

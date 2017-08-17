@@ -5,6 +5,7 @@ const buildPaths = config => {
 
     const docsSrcDir = `${config.docs.rootDir}/${config.docs.srcDir}`;
     const docsDistDir = `${config.docs.rootDir}/${config.docs.distDir}`;
+    const docsAssetsDistDir = `${docsDistDir}/${config.docs.assetDir}`;
 
     return {
         scssSrcDir: `${config.assetSrcDir}/${config.css.scssDir}`,
@@ -26,10 +27,11 @@ const buildPaths = config => {
         docsDistDir,
         docsTemplateDir: `${docsSrcDir}/${config.docs.templDir}`,
         docsDataDir: `${docsSrcDir}/${config.docs.dataDir}`,
-        docsCssDistDir: `${docsDistDir}/${config.docs.assetDir}${config.css.cssDir}`,
-        docsJsDistDir: `${docsDistDir}/${config.docs.assetDir}${config.js.jsDir}`,
-        docsImgDistDir: `${docsDistDir}/${config.docs.assetDir}${config.img.imgDir}`,
-        docsFontsDistDir: `${docsDistDir}/${config.docs.assetDir}${config.fonts.fontsDir}`,
+        docsAssetsDistDir,
+        docsCssDistDir: `${docsAssetsDistDir}${config.css.cssDir}`,
+        docsJsDistDir: `${docsAssetsDistDir}${config.js.jsDir}`,
+        docsImgDistDir: `${docsAssetsDistDir}${config.img.imgDir}`,
+        docsFontsDistDir: `${docsAssetsDistDir}${config.fonts.fontsDir}`,
 
         fontsSrcDir: `${config.assetSrcDir}/${config.fonts.fontsDir}`,
         fontsDistDir: `${config.assetDistDir}/${config.fonts.fontsDir}`
