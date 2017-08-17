@@ -9,6 +9,7 @@ v5.1.0
 
 ### Added
 - Added `browser-sync` task along with config settings and tests.
+- Added `docsAssetsDistDir` path to `pathBuilder`.
 
 v5.0.0
 ------------------------------

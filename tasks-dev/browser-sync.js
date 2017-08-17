@@ -39,8 +39,8 @@ gulp.task('browser-sync:docs', ['assemble'], () => {
     const options = {
         files: [
             `${pathBuilder.docsDistDir}/**/*.html`,
-            `${pathBuilder.docsDistDir}/assets/**/*.css`,
-            `${pathBuilder.docsDistDir}/assets/**/*.js`
+            `${pathBuilder.docsAssetsDistDir}**/*.css`,
+            `${pathBuilder.docsAssetsDistDir}**/*.js`
         ],
         server: {
             baseDir: pathBuilder.docsDistDir,

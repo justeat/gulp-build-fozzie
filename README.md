@@ -887,6 +887,11 @@ These are the paths which the `pathBuilder` object provides.
   Default: `'./docs/src/data'`
 
 
+- #### `docsAssetsDistDir`
+
+  Default: `'./docs/dist/assets/'`
+
+
 - #### `docsCssDistDir`
 
   Default: `'./docs/dist/assets/css'`
