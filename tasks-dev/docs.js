@@ -1,7 +1,10 @@
 const gulp = require('gulp');
 const runSequence = require('run-sequence');
+const ghPages = require('gulp-gh-pages');
 
 const config = require('../config');
+const pathBuilder = require('../pathBuilder');
+
 
 /**
  * `docs` Task
@@ -20,3 +23,33 @@ gulp.task('docs', callback => {
         callback
     );
 });
+
+
+/**
+ *  `docs:deploy` Task
+ *  ------------
+ *
+ */
+gulp.task('docs:deploy', callback => {
+
+    config.isProduction = true;
+    config.docs.outputAssets = true;
+
+    runSequence(
+        'clean:docs',
+        ['default', 'assemble'],
+        'docs:release',
+        callback
+    );
+
+});
+
+
+/**
+ *  `docs:release` Task
+ *  ------------
+ *
+ */
+gulp.task('docs:release', () => gulp.src(`${pathBuilder.docsDistDir}/**/*`)
+    .pipe(ghPages())
+);
