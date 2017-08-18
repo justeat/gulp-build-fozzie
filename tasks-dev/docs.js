@@ -9,7 +9,9 @@ const pathBuilder = require('../pathBuilder');
 /**
  * `docs` Task
  * -------------
- * Removes all files form the docs dist directory.
+ * Builds a fresh copy of any documentation found in the docs root directory
+ * using Assemble, then watch for any file changes and reload the web page
+ * when changes are detected in the docs dist directory.
  *
  */
 gulp.task('docs', callback => {
@@ -26,8 +28,9 @@ gulp.task('docs', callback => {
 
 
 /**
- *  `docs:deploy` Task
- *  ------------
+ * `docs:deploy` Task
+ * -------------
+ * Build the documentation and then pushes the dist directory to the gh-pages branch.
  *
  */
 gulp.task('docs:deploy', callback => {
@@ -46,8 +49,9 @@ gulp.task('docs:deploy', callback => {
 
 
 /**
- *  `docs:release` Task
- *  ------------
+ * `docs:release` Task
+ * -------------
+ * Pushes the documentation dist directory to the gh-pages branch.
  *
  */
 gulp.task('docs:release', () => gulp.src(`${pathBuilder.docsDistDir}/**/*`)

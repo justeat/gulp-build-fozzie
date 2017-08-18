@@ -251,7 +251,15 @@ Runs the [`assemble`](#assemble) task when documentation files are changed.
 
 - #### `docs`
 
-This will build a fresh copy of any documentation found in the `docs` directory using Assemble, then call the [`watch`](#watch) task which will watch for any file changes, and finally call the [`browser-sync:docs`](#browser-syncdocs) task which reloads the web page when changes are detected in the `docs/dist` directory.
+Builds a fresh copy of any documentation found in the [`config.docs.rootDir`](#rootdir) directory using Assemble, then watch for any file changes and reload the web page when changes are detected in the [`config.docs.distDir`](#distdir) directory.
+
+- #### `docs:deploy`
+
+Build the documentation and then pushes the dist directory to the gh-pages branch.
+
+- #### `docs:release`
+
+Pushes the documentation dist directory to the gh-pages branch.
 
 - #### `clean:docs`
 
@@ -263,7 +271,7 @@ Watches for changes to files and reloads a local website instance.
 
 - #### `browser-sync:docs`
 
-Refreshes the browser when changes to the docs dist directory are detected.
+Generates the documentation files then opens the docs in a local server.
 
 - #### `assemble`
 
