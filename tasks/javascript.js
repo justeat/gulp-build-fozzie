@@ -78,6 +78,21 @@ gulp.task('scripts:test', callback => {
 
 
 /**
+ * `scripts:test:coverage` Task
+ * -------------
+ * Runs the JS unit tests and display a coverage report once complete.
+ *
+ */
+gulp.task('scripts:test:coverage', callback => {
+    jest.runCLI(
+        { coverage: true },
+        [path.resolve(process.cwd())],
+        () => callback()
+    );
+});
+
+
+/**
  * `scripts:bundle` Task
  * -------------
  * Bundle the JS modules together into a single file and and transpile es2015 features to es5.

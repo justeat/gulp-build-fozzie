@@ -165,6 +165,10 @@ Runs the following tasks
 
   Runs any unit tests found in the JavaScript source directory using Jest.
 
+- #### `scripts:test:coverage`
+
+  Runs the JS unit tests and display a coverage report once complete.
+
 - #### `clean:scripts`
 
   Removes any JavaScript already in the dist directory.
