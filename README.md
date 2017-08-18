@@ -19,8 +19,8 @@ Gulp build tasks for use across Fozzie modules.
     - [pathBuilder object](#pathbuilder-object)
 - [The Gulp Tasks](#the-gulp-tasks)
   - [Development only tasks](#development-only-tasks)
-- [Options](#options)
-  - [Other options](#other-options)
+- [Config](#config)
+  - [Other config](#other-config)
 - [Path Builder](#path-builder)
 - [Running the unit tests](running-the-unit-tests)
 
@@ -278,7 +278,7 @@ Generates the documentation files then opens the docs in a local server.
 Generates the documentation files.
 
 
-## Options
+## Config
 
 Here is the outline of the configuration options, descriptions of each are below.
 
@@ -792,7 +792,7 @@ An Object, that takes one or more child objects each describing a JavaScript bun
   Event which fires when an error occurs.
 
 
-### Other options
+### Other config
 
 The following options are also present in the config but cannot be overridden.
 
