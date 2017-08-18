@@ -251,15 +251,15 @@ Runs the [`assemble`](#assemble) task when documentation files are changed.
 
 - #### `docs`
 
-Builds a fresh copy of any documentation found in the [`config.docs.rootDir`](#rootdir) directory using Assemble, then watch for any file changes and reload the web page when changes are detected in the [`config.docs.distDir`](#distdir) directory.
+Builds a fresh copy of any documentation found in the [`config.docs.rootDir`](#rootdir) directory using Assemble, then watches for any file changes and reloads the web page when changes are detected in the [`config.docs.distDir`](#distdir) directory.
 
 - #### `docs:deploy`
 
-Build the documentation and then pushes the dist directory to the gh-pages branch.
+Builds the documentation and then pushes the dist directory to the gh-pages branch.
 
 - #### `docs:release`
 
-Pushes the documentation dist directory to the gh-pages branch.
+Pushes the documentation dist directory to the `gh-pages` branch.
 
 - #### `clean:docs`
 
