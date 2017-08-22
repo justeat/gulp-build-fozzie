@@ -3,9 +3,9 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-v5.1.0
+v5.4.0
 ------------------------------
-*August 16, 2017*
+*August 22, 2017*
 
 ### Changed
 - `copy:assets` task copies to `config.assetDistDir` instead of the `pathBuilder.importedAssetsDistDir`.
@@ -19,9 +19,46 @@ v5.1.0
 - Removed `clean:assets` task.
 - The above properties and task were removed from the Readme.
 
+v5.3.1
+------------------------------
+*August 21, 2017*
+
+### Changed
+- License update
+
+v5.3.0
+------------------------------
+*August 18, 2017*
+
+### Added
+- Added the `scripts:test:coverage` task.
+
+v5.2.0
+------------------------------
+*August 18, 2017*
+
+### Added
+- Added `docs:deploy` and `docs:release` tasks.
+- Added documentation for the new `docs` tasks.
+
+### Removed
+- Removed `debug` from assemble task.
+- Removed `copy:fonts` task from `docs` as it's called later in the `default` task.
+
+### Changed
+- Renamed the `Options` section to `Config` in the README.
+
+v5.1.0
+------------------------------
+*August 16, 2017*
+
+### Added
+- Added `browser-sync` task along with config settings and tests.
+- Added `docsAssetsDistDir` path to `pathBuilder`.
+
 v5.0.0
 ------------------------------
-*August 14, 2017*
+*August 16, 2017*
 
 ### Changed
 - JavaScript task can now handle multiple files to be bundled via Browserify/Babel.  Check the README for updated config changes.

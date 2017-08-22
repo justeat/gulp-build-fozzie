@@ -19,8 +19,8 @@ Gulp build tasks for use across Fozzie modules.
     - [pathBuilder object](#pathbuilder-object)
 - [The Gulp Tasks](#the-gulp-tasks)
   - [Development only tasks](#development-only-tasks)
-- [Options](#options)
-  - [Other options](#other-options)
+- [Config](#config)
+  - [Other config](#other-config)
 - [Path Builder](#path-builder)
 - [Running the unit tests](running-the-unit-tests)
 
@@ -161,6 +161,10 @@ Runs the following tasks
 
   Runs any unit tests found in the JavaScript source directory using Jest.
 
+- #### `scripts:test:coverage`
+
+  Runs the JS unit tests and display a coverage report once complete.
+
 - #### `clean:scripts`
 
   Removes any JavaScript already in the dist directory.
@@ -247,22 +251,34 @@ Runs the [`assemble`](#assemble) task when documentation files are changed.
 
 - #### `docs`
 
-This will build a fresh copy of any documentation found in the `docs` directory using Assemble, then call the [`watch`](#watch) task which will watch for any file changes, and finally call the [`browserSync:docs`](#browsersyncdocs) task which reloads the web page when changes are detected in the `docs/dist` directory.
+Builds a fresh copy of any documentation found in the [`config.docs.rootDir`](#rootdir) directory using Assemble, then watches for any file changes and reloads the web page when changes are detected in the [`config.docs.distDir`](#distdir) directory.
+
+- #### `docs:deploy`
+
+Builds the documentation and then pushes the dist directory to the gh-pages branch.
+
+- #### `docs:release`
+
+Pushes the documentation dist directory to the `gh-pages` branch.
 
 - #### `clean:docs`
 
 Removes document files already in the docs dist directory.
 
-- #### `browserSync:docs`
+- #### `browser-sync`
 
-Refreshes the browser when changes to the docs dist directory are detected.
+Watches for changes to files and reloads a local website instance.
+
+- #### `browser-sync:docs`
+
+Generates the documentation files then opens the docs in a local server.
 
 - #### `assemble`
 
 Generates the documentation files.
 
 
-## Options
+## Config
 
 Here is the outline of the configuration options, descriptions of each are below.
 
@@ -325,6 +341,11 @@ Here is the outline of the configuration options, descriptions of each are below
     },
     fonts: {
       fontsDir
+    },
+    browserSync: {
+        files,
+        proxy,
+        reloadDebounce
     },
     misc: {
         showFileSize,
@@ -702,6 +723,32 @@ An Object, that takes one or more child objects each describing a JavaScript bun
 
   Name of the directory where your font files are kept.
 
+### `browserSync`
+
+- #### `files`
+
+  Type: `array`
+
+  Default: `[]`
+
+  List of paths to watch for changes. Accepts globs.
+
+- #### `proxy`
+
+  Type: `string`
+
+  Default: `''`
+
+  URL of local website instance.
+
+- #### `reloadDebounce`
+
+  Type: `number`
+
+  Default: `1000`
+
+  Wait for a specified window of event-silence before sending any reload events.
+
 ### `misc`
 
 - #### `showFileSize`
@@ -736,7 +783,7 @@ An Object, that takes one or more child objects each describing a JavaScript bun
   Event which fires when an error occurs.
 
 
-### Other options
+### Other config
 
 The following options are also present in the config but cannot be overridden.
 
@@ -837,6 +884,11 @@ These are the paths which the `pathBuilder` object provides.
 - #### `docsDataDir`
 
   Default: `'./docs/src/data'`
+
+
+- #### `docsAssetsDistDir`
+
+  Default: `'./docs/dist/assets/'`
 
 
 - #### `docsCssDistDir`

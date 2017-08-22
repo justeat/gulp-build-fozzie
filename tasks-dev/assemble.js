@@ -1,7 +1,6 @@
 const gulp = require('gulp');
 const assemble = require('assemble');
 const helpers = require('handlebars-helpers');
-const debug = require('gulp-debug');
 const plumber = require('gulp-plumber');
 // const newer = require('gulp-newer');
 const extname = require('gulp-extname');
@@ -53,7 +52,6 @@ gulp.task('assemble', () => {
         //     ext: '.html'
         // }))
 
-        .pipe(debug())
         .pipe(app.renderFile())
         .pipe(extname())
         .pipe(app.dest(pathBuilder.docsDistDir));
