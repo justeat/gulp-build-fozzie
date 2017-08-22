@@ -55,7 +55,6 @@ const ConfigOptions = () => {
          * Imported assets related variables
          */
         importedAssets: {
-            importedAssetsDir: 'imported-assets',
             importedAssetsSrcGlob: 'node_modules/@justeat/*/'
         },
 

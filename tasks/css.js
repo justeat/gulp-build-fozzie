@@ -18,6 +18,7 @@ const assets = require('postcss-assets');
 const stylelint = require('stylelint');
 const reporter = require('postcss-reporter');
 const autoprefixer = require('autoprefixer');
+const path = require('path');
 
 const config = require('../config');
 const pathBuilder = require('../pathBuilder');
@@ -31,7 +32,7 @@ const pathBuilder = require('../pathBuilder');
 gulp.task('css', callback => {
     runSequence(
         'scss:lint',
-        ['clean:css', 'clean:assets'],
+        'clean:css',
         'copy:assets',
         'css:bundle',
         'copy:css',
@@ -117,7 +118,7 @@ gulp.task('css:bundle', () => gulp.src(`${pathBuilder.scssSrcDir}/**/*.scss`)
         postcss([
             // Converts any specified assets to data URIs
             assets({
-                loadPaths: [pathBuilder.imgSrcDir, pathBuilder.importedAssetsDistDir]
+                loadPaths: [pathBuilder.imgSrcDir, path.dirname(config.assetDistDir)]
             }),
 
             // Autoprefixes CSS properties for various browsers – browsers specified in package.json config

@@ -135,13 +135,9 @@ Runs the following tasks
 
   Removes any CSS already in the dist directory.
 
-- #### `clean:assets`
-
-  Removes any imported assets in the imported assets directory.
-
 - #### `copy:assets`
 
-  Copies assets from packages to the imported assets directory.
+  Copies assets from packages to the dist directory.
 
 - #### `css:bundle`
 
@@ -314,7 +310,6 @@ Here is the outline of the configuration options, descriptions of each are below
         svgSpriteFilename
     },
     importedAssets: {
-        importedAssetsDir,
         importedAssetsSrcGlob
     },
     sw: {
@@ -517,21 +512,13 @@ An Object, that takes one or more child objects each describing a JavaScript bun
 
 ### `importedAssets`
 
-- #### `importedAssetsDir`
-
-  Type: `string`
-
-  Default: `'imported-assets'`
-
-  Name of the directory where assets from node_modules will be copied to.
-
 - #### `importedAssetsSrcGlob`
 
   Type: `string`
 
   Default: `'node_modules/@justeat/*/'`
 
-  Glob of packages containing assets to be copied to `importedAssetsDir`.
+  Glob of packages containing assets to be copied to `assetDistDir`.
 
 
 ### `sw`
