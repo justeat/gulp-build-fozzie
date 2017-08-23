@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@justeat/eslint-config-fozzie": "^1.2.0",
+    "@justeat/f-copy-assets": "^0.1.0",
     "@justeat/stylelint-config-fozzie": "^1.1.0",
     "assemble": "^0.24.3",
     "autoprefixer": "^7.1.2",
@@ -43,7 +44,6 @@
     "exorcist": "^0.4.0",
     "eyeglass": "^1.2.1",
     "filesizegzip": "^2.0.0",
-    "glob": "^7.1.2",
     "gulp": "^3.9.1",
     "gulp-cached": "^1.1.1",
     "gulp-changed": "^3.1.0",
