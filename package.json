@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@justeat/eslint-config-fozzie": "^1.2.0",
-    "@justeat/f-copy-assets": "^0.1.0",
+    "@justeat/f-copy-assets": "^0.3.0",
     "@justeat/stylelint-config-fozzie": "^1.1.0",
     "assemble": "^0.24.3",
     "autoprefixer": "^7.1.2",
@@ -71,7 +71,6 @@
     "helper-markdown": "^1.0.0",
     "helper-md": "^0.2.2",
     "jest-cli": "^20.0.0",
-    "npm-assets": "^0.1.2",
     "postcss-assets": "^4.2.0",
     "postcss-reporter": "^5.0.0",
     "postcss-scss": "^1.0.2",
