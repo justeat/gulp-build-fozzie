@@ -11,4 +11,5 @@
 *            @justeat/ui-admins
 
 # When someone opens a pull request that only modifies JS unit test files
-*.test.js    @damianmullins
+# Disabled for now to prevent blocking the merging of PRs if owner is not available.
+#*.test.js    @damianmullins
