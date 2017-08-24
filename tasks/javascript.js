@@ -108,6 +108,8 @@ gulp.task('scripts:bundle', () => {
         return browserify(file, { debug: config.isDev })
             .transform(babelify)
             .bundle()
+            .on('error', config.gulp.onError)
+
             .pipe(gulpif(config.isDev,
                 exorcist(`${pathBuilder.jsDistDir}/${distFile}.map`))
             )
