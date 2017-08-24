@@ -3,6 +3,18 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v5.5.0
+------------------------------
+*August 24, 2017*
+
+### Added
+- Added `config.importedAssets.verbose` option.
+- Added unit tests for `config.importedAssets.verbose` option.
+
+### Changed
+- `copy:assets` task uses the `f-copy-assets` module rather than `npm-assets`
+- The Readme `config.importedAssets` section was updated.
+
 v5.4.0
 ------------------------------
 *August 22, 2017*

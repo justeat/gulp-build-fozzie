@@ -1,11 +1,9 @@
+const copyAssets = require('@justeat/f-copy-assets');
 const gulp = require('gulp');
 const gutil = require('gulp-util');
 const plumber = require('gulp-plumber');
 const gulpif = require('gulp-if');
-const copyAssets = require('npm-assets');
 const rev = require('gulp-rev');
-const path = require('path');
-const glob = require('glob');
 
 const config = require('../config');
 const pathBuilder = require('../pathBuilder');
@@ -91,37 +89,13 @@ gulp.task('copy:fonts', () => {
  * Copy assets from from packages to the dist folder.
  *
  */
-gulp.task('copy:assets', callback => {
-
-    const getPackage = filepath => {
-        const split = filepath.split('/'); // e.g. [...'@justeat', '', 'fozzie', '']
-        return {
-            filepath,
-            name: split[split.length - 2]
-        };
-    };
-
-    const copyFromPackage = pkg => new Promise((resolve, reject) => {
-        gutil.log(`❯❯ Copying any assets from ${pkg.name} to ${path.dirname(config.assetDistDir)}`);
-        copyAssets(`${pkg.filepath}`, `${path.dirname(config.assetDistDir)}`, err => {
-            if (err) {
-                err.plugin = 'copyAssets';
-                reject(err);
-            } else resolve();
-        });
-    });
-
-    glob(config.importedAssets.importedAssetsSrcGlob, (err, files) => {
-        if (err) config.gulp.onError(err);
-
-        const promises = files
-            .map(getPackage)
-            .map(copyFromPackage);
-
-        Promise
-            .all(promises)
-            .then(() => callback())
-            .catch(config.gulp.onError);
-    });
-
-});
+gulp.task('copy:assets', callback =>
+    copyAssets({
+        pkgSrcGlob: config.importedAssets.importedAssetsSrcGlob,
+        dest: config.assetDistDir,
+        verbose: config.importedAssets.verbose,
+        logger: gutil.log
+    })
+        .then(() => callback())
+        .catch(config.gulp.onError)
+);
