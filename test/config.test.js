@@ -250,6 +250,21 @@ describe('imported assets config', () => {
         expect(config.importedAssets.importedAssetsSrcGlob).toBe(importedAssetsSrcGlob);
     });
 
+    it('verbose should be true', () => {
+        expect(config.importedAssets.verbose).toBe(true);
+    });
+
+    it('verbose can be updated', () => {
+        // Arrange
+        const verbose = false;
+
+        // Act
+        config.update({ importedAssets: { verbose } });
+
+        // Assert
+        expect(config.importedAssets.verbose).toBe(verbose);
+    });
+
 });
 
 describe('service worker config', () => {

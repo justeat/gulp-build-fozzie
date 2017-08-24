@@ -310,7 +310,8 @@ Here is the outline of the configuration options, descriptions of each are below
         svgSpriteFilename
     },
     importedAssets: {
-        importedAssetsSrcGlob
+        importedAssetsSrcGlob,
+        verbose
     },
     sw: {
         isEnabled,
@@ -519,6 +520,14 @@ An Object, that takes one or more child objects each describing a JavaScript bun
   Default: `'node_modules/@justeat/*/'`
 
   Glob of packages containing assets to be copied to `assetDistDir`.
+
+- #### `verbose`
+
+  Type: `boolean`
+
+  Default: `'true'`
+
+  Whether to log the names of all assets being copied. Passed on to [f-copy-assets](https://github.com/justeat/f-copy-assets).
 
 
 ### `sw`
