@@ -50,7 +50,9 @@ gulp.task('css', callback => {
  */
 gulp.task('scss:lint', () => gulp.src([`${pathBuilder.scssSrcDir}/**/*.scss`, ...config.css.lintPaths], { follow: config.isDev })
     // stops watch from breaking on error
-    .pipe(plumber(config.gulp.onError))
+    .pipe(gulpif(config.isDev,
+        plumber(config.gulp.onError))
+    )
 
     .pipe(
         postcss([
