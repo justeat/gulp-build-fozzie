@@ -89,13 +89,11 @@ gulp.task('copy:fonts', () => {
  * Copy assets from from packages to the dist folder.
  *
  */
-gulp.task('copy:assets', callback =>
+gulp.task('copy:assets', () =>
     copyAssets({
         pkgSrcGlob: config.importedAssets.importedAssetsSrcGlob,
         dest: config.assetDistDir,
         verbose: config.importedAssets.verbose,
         logger: gutil.log
-    })
-        .then(() => callback())
-        .catch(config.gulp.onError)
+    }).catch(config.gulp.onError)
 );

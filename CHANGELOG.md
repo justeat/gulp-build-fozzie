@@ -3,6 +3,13 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v5.5.1
+------------------------------
+*August 24, 2017*
+
+### Changed
+- Fixed a bug in `copy:assets` where the task callback was called too many times.
+
 v5.5.0
 ------------------------------
 *August 24, 2017*
