@@ -425,47 +425,47 @@ Root dist directory for your assets.
 
 ### `js`
 
-#### `files`
+- #### `files`
 
-Type: `Object`
+  Type: `Object`
 
-Default:
+  Default:
 
-```
-{
-    main {
-        srcPath: 'index.js',
-        distFile: 'script.js',
-        applyRevision: true
-    }
-}
-```
+  ```
+  {
+      main: {
+          srcPath: 'index.js',
+          distFile: 'script.js',
+          applyRevision: true
+      }
+  }
+  ```
 
-An Object, that takes one or more child objects each describing a JavaScript bundle entry point and destination.  Each of these objects can have the following properties:
+  An Object, that takes one or more child objects each describing a JavaScript bundle entry point and destination.  Each of these objects can have the following properties:
 
-- ##### `srcPath`
+  - ##### `srcPath`
 
-  Type: `string`
+    Type: `string`
 
-  Default: `'index.js'`
+    Default: `'index.js'`
 
-  The file path to a bundle entry point in your JavaScript.
+    The file path to a bundle entry point in your JavaScript.
 
-- ##### `distFile`
+  - ##### `distFile`
 
-  Type: `string`
+    Type: `string`
 
-  Default: `'script.js'`
+    Default: `'script.js'`
 
- The filename for the JavaScript bundle once compiled.
+    The filename for the JavaScript bundle once compiled.
 
-- ##### `applyRevision`
+  - ##### `applyRevision`
 
-  Type: `boolean`
+    Type: `boolean`
 
-  Default: true
+    Default: true
 
-  Will add a content hash to the filename.
+    Will add a content hash to the filename.
 
 
 - #### `jsDir`
