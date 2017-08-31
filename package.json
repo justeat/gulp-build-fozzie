@@ -71,7 +71,7 @@
     "helper-markdown": "^1.0.0",
     "helper-md": "^0.2.2",
     "jest-cli": "^20.0.0",
-    "postcss-assets": "^4.2.0",
+    "postcss-assets": "^5.0.0",
     "postcss-reporter": "^5.0.0",
     "postcss-scss": "^1.0.2",
     "require-dir": "^0.3.1",
