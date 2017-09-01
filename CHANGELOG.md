@@ -4,6 +4,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v6.0.0
+------------------------------
+*September 01, 2017*
+
+### Changed
+- `copy:assets` task has moved from the `css` task to the `images` task.
+- Changed the order in which the `images` tasks run — images are now copied, optimised, and then the SVG sprite is created.
+- SVG sprite is created from assets found in the `dist` directory rather than `src`.
+
+
 v5.5.3
 ------------------------------
 *August 25, 2017*
@@ -27,6 +37,7 @@ v5.5.1
 ### Changed
 - Fixed a bug in `copy:assets` where the task callback was called too many times.
 
+
 v5.5.0
 ------------------------------
 *August 24, 2017*
@@ -38,6 +49,7 @@ v5.5.0
 ### Changed
 - `copy:assets` task uses the `f-copy-assets` module rather than `npm-assets`
 - The Readme `config.importedAssets` section was updated.
+
 
 v5.4.0
 ------------------------------
@@ -55,6 +67,7 @@ v5.4.0
 - Removed `clean:assets` task.
 - The above properties and task were removed from the Readme.
 
+
 v5.3.1
 ------------------------------
 *August 21, 2017*
@@ -62,12 +75,14 @@ v5.3.1
 ### Changed
 - License update
 
+
 v5.3.0
 ------------------------------
 *August 18, 2017*
 
 ### Added
 - Added the `scripts:test:coverage` task.
+
 
 v5.2.0
 ------------------------------
@@ -84,6 +99,7 @@ v5.2.0
 ### Changed
 - Renamed the `Options` section to `Config` in the README.
 
+
 v5.1.0
 ------------------------------
 *August 16, 2017*
@@ -91,6 +107,7 @@ v5.1.0
 ### Added
 - Added `browser-sync` task along with config settings and tests.
 - Added `docsAssetsDistDir` path to `pathBuilder`.
+
 
 v5.0.0
 ------------------------------
@@ -100,6 +117,7 @@ v5.0.0
 - JavaScript task can now handle multiple files to be bundled via Browserify/Babel.  Check the README for updated config changes.
 - Updatd `copy` task error handling
 
+
 v4.5.0
 ------------------------------
 *August 15, 2017*
@@ -108,6 +126,7 @@ v4.5.0
 - `test:cover` task simplified.
 - `docs` task now copies fonts correctly.
 - `default` task refactored — now using the spread operator to conditionally add the `service-worker` task to `runSequence`.
+
 
 v4.4.0
 ------------------------------
@@ -121,6 +140,7 @@ v4.4.0
 
 ### Removed
 - Removed `watch:assets` task.
+
 
 v4.3.0
 ------------------------------
@@ -140,6 +160,7 @@ v4.3.0
 ### Changed
 - Updated clean task comments.
 - The `css:bundle` task loads the `importedAssetsDistDir` into postcss, so that Fozzie modules can access assets copied there.
+
 
 v4.2.0
 ------------------------------
@@ -162,12 +183,14 @@ v4.2.0
 - The Readme `config.copy` and `copy` tasks sections were updated to include the new font additions.
 - Updated `copy` task comments.
 
+
 v4.1.1
 ------------------------------
 *August 08, 2017*
 
 ### Fixed
 - Fixed lint errors in `danger.js`.
+
 
 v4.1.0
 ------------------------------

@@ -33,7 +33,6 @@ gulp.task('css', callback => {
     runSequence(
         'scss:lint',
         'clean:css',
-        'copy:assets',
         'css:bundle',
         'copy:css',
         'css:lint',
