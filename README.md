@@ -136,10 +136,6 @@ Runs the following tasks
 
   Removes any CSS already in the dist directory.
 
-- #### `copy:assets`
-
-  Copies assets from packages to the dist directory.
-
 - #### `css:bundle`
 
   Performs a variety of tasks including;
@@ -629,6 +625,10 @@ Root dist directory for your assets.
   `path` and `dest` must always be defined for each asset you wish to copy.
 
   The object key (which in the above example is `prism`) of each asset is simply for your own use to identify each asset in your config.
+
+- #### `copy:assets`
+
+  Copies assets from packages to the dist directory.
 
 
 ### `docs`

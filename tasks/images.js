@@ -20,8 +20,9 @@ const pathBuilder = require('../pathBuilder');
 gulp.task('images', callback => {
     runSequence(
         'clean:images',
-        ['images:optimise', 'images:svg-sprite'],
-        'copy:img',
+        ['copy:img', 'copy:assets'],
+        'images:optimise',
+        'images:svg-sprite',
         callback
     );
 });
@@ -66,8 +67,8 @@ gulp.task('images:optimise', () => gulp.src(`${pathBuilder.imgSrcDir}/**`)
  *
  */
 gulp.task('images:svg-sprite', () =>
-    gulp.src(`${pathBuilder.imgSrcDir}/**/*.svg`, {
-        base: pathBuilder.imgSrcDir
+    gulp.src(`${pathBuilder.imgDistDir}/**/*.svg`, {
+        base: pathBuilder.imgDistDir
     })
         .pipe(rename(file => {
             // Builds an ID containing the path and filename joined with dashes
