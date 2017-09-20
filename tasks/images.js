@@ -85,7 +85,18 @@ gulp.task('images:svg-sprite', () =>
             file.basename = name.join('-');
         }))
 
-        .pipe(svgmin())
+        .pipe(svgmin(file => {
+            const prefix = path.basename(file.relative, path.extname(file.relative));
+
+            return {
+                plugins: [{
+                    cleanupIDs: {
+                        prefix: `${prefix}-`,
+                        minify: true
+                    }
+                }]
+            };
+        }))
         .pipe(svgstore())
         .pipe(rename(config.img.svgSpriteFilename))
 
