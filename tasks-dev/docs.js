@@ -55,5 +55,7 @@ gulp.task('docs:deploy', callback => {
  *
  */
 gulp.task('docs:release', () => gulp.src(`${pathBuilder.docsDistDir}/**/*`)
-    .pipe(ghPages())
+    .pipe(ghPages({
+        message: `Minor : Documentation Update ${new Date().toISOString()}`
+    }))
 );
