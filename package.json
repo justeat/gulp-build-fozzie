@@ -1,6 +1,6 @@
 {
   "name": "@justeat/gulp-build-fozzie",
-  "version": "6.1.1",
+  "version": "6.2.0",
   "description": "Gulp build tasks for use across Fozzie modules",
   "main": "index.js",
   "author": "Damian Mullins <damian.mullins@just-eat.com> (http://www.damianmullins.com)",
@@ -47,6 +47,7 @@
     "gulp": "^3.9.1",
     "gulp-cached": "^1.1.1",
     "gulp-changed": "^3.1.0",
+    "gulp-clone": "^1.0.0",
     "gulp-eslint": "^4.0.0",
     "gulp-extname": "^0.2.2",
     "gulp-filenames": "^4.0.1",
@@ -71,6 +72,7 @@
     "helper-markdown": "^1.0.0",
     "helper-md": "^0.2.2",
     "jest-cli": "^20.0.0",
+    "merge-stream": "^1.0.1",
     "postcss-assets": "^4.2.0",
     "postcss-reporter": "^5.0.0",
     "postcss-scss": "^1.0.2",

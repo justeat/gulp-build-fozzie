@@ -36,6 +36,7 @@ gulp.task('browser-sync', ['watch'], () => {
  */
 gulp.task('browser-sync:docs', ['assemble'], () => {
 
+    // TODO : SORT OUT PATHS AS NOT WORKING ON INTERNATIONAL CONSUMERWEB PROPERLY
     const options = {
         files: [
             `${pathBuilder.docsDistDir}/**/*.html`,

@@ -6,6 +6,8 @@ const gulpif = require('gulp-if');
 const rename = require('gulp-rename');
 const filesizegzip = require('filesizegzip');
 const tap = require('gulp-tap');
+const clone = require('gulp-clone');
+const merge = require('merge-stream');
 const rev = require('gulp-rev');
 
 const sass = require('gulp-sass');
@@ -102,71 +104,81 @@ gulp.task('css:lint', () => gulp.src(`${pathBuilder.cssDistDir}/**/*.css`)
  *  ---------
  *
  */
-gulp.task('css:bundle', () => gulp.src(`${pathBuilder.scssSrcDir}/**/*.scss`)
-    // stops watch from breaking on error
-    .pipe(plumber(config.gulp.onError))
+gulp.task('css:bundle', () => {
 
-    .pipe(gulpif(config.isDev,
-        sourcemaps.init()
-    ))
+    const source = gulp.src(`${pathBuilder.scssSrcDir}/**/*.scss`)
+        // stops watch from breaking on error
+        .pipe(plumber(config.gulp.onError))
 
-    // compile using Sass & pulling int any Eyeglass modules (SCSS NPM modules)
-    .pipe(
-        sass(eyeglass())
-    )
+        .pipe(gulpif(config.isDev,
+            sourcemaps.init()
+        ))
 
-    .pipe(
-        postcss([
-            // Converts any specified assets to data URIs
-            assets({
-                loadPaths: [pathBuilder.imgSrcDir, path.dirname(config.assetDistDir)]
-            }),
+        // compile using Sass & pulling int any Eyeglass modules (SCSS NPM modules)
+        .pipe(
+            sass(eyeglass())
+        )
 
-            // Autoprefixes CSS properties for various browsers – browsers specified in package.json config
-            autoprefixer()
-        ])
-    )
+        .pipe(
+            postcss([
+                // Converts any specified assets to data URIs
+                assets({
+                    loadPaths: [pathBuilder.imgSrcDir, path.dirname(config.assetDistDir)]
+                }),
 
-    // output our unminified files – not for use in prod but useful to be able to debug from
-    .pipe(gulp.dest(pathBuilder.cssDistDir))
+                // Autoprefixes CSS properties for various browsers – browsers specified in package.json config
+                autoprefixer()
+            ])
+        );
 
-    // Output file-size
-    .pipe(gulpif(config.misc.showFileSize,
-        tap(file => {
-            gutil.log(`❯❯ CSS ${file.relative}`, filesizegzip(file.contents, true));
-        })
-    ))
+    const unminified = source.pipe(clone())
+        // export sourcemaps (as a separate file)
+        .pipe(gulpif(config.isDev,
+            sourcemaps.write('.')
+        ))
+        // output our unminified files – not for use in prod but useful to be able to debug from
+        .pipe(gulp.dest(pathBuilder.cssDistDir))
 
-    .pipe(
-        postcss([
-            // run CSSO – a CSS minifier
-            cssnano()
-        ])
-    )
+        // Output file-size
+        .pipe(gulpif(config.misc.showFileSize,
+            tap(file => {
+                gutil.log(`❯❯ CSS ${file.relative}`, filesizegzip(file.contents, true));
+            })
+        ));
 
-    // add .min suffix to CSS files
-    .pipe(rename({ suffix: '.min' }))
+    const minified = source.pipe(clone())
+        .pipe(
+            postcss([
+                // run CSSO – a CSS minifier
+                cssnano()
+            ])
+        )
 
-    // export sourcemaps (as a separate file)
-    .pipe(gulpif(config.isDev,
-        sourcemaps.write('.')
-    ))
+        // add .min suffix to CSS files
+        .pipe(rename({ suffix: '.min' }))
 
-    // output to docs assets folder
-    .pipe(gulpif(config.docs.outputAssets,
-        gulp.dest(pathBuilder.docsCssDistDir)
-    ))
+        // export sourcemaps (as a separate file)
+        .pipe(gulpif(config.isDev,
+            sourcemaps.write('.')
+        ))
 
-    // revision control for caching
-    .pipe(rev())
+        // output to docs assets folder
+        .pipe(gulpif(config.docs.outputAssets,
+            gulp.dest(pathBuilder.docsCssDistDir)
+        ))
 
-    // Output file-size
-    .pipe(gulpif(config.misc.showFileSize,
-        tap(file => {
-            gutil.log(`❯❯ Minified CSS ${file.relative}`, filesizegzip(file.contents, true));
-        })
-    ))
+        // revision control for caching
+        .pipe(rev())
 
-    // output to destination CSS folder
-    .pipe(gulp.dest(pathBuilder.cssDistDir))
-);
+        // Output file-size
+        .pipe(gulpif(config.misc.showFileSize,
+            tap(file => {
+                gutil.log(`❯❯ Minified CSS ${file.relative}`, filesizegzip(file.contents, true));
+            })
+        ))
+
+        // output to destination CSS folder
+        .pipe(gulp.dest(pathBuilder.cssDistDir));
+
+    return merge(unminified, minified);
+});
