@@ -3,6 +3,15 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+
+v6.2.1
+------------------------------
+*October 04, 2017*
+
+### Changed
+- Changed the log message to display the consuming package name and gulp-build-fozzie version.
+
+
 v6.2.0
 ------------------------------
 *October 03, 2017*
