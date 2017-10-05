@@ -11,7 +11,7 @@ const ConfigOptions = () => {
     const isDev = !isProduction;
     const envLog = isProduction ? 'production' : 'development';
 
-    gutil.log(gutil.colors.yellow(`${gutil.colors.gray(`(v${packageConfig.version})`)} Running Gulp Build Fozzie in ${envLog} mode for ${consumingPackageConfig.name}`));
+    gutil.log(gutil.colors.yellow(`Running Gulp task for ${consumingPackageConfig.name}@${consumingPackageConfig.version} in ${gutil.colors.bold(envLog)} mode ${gutil.colors.gray(`(v${packageConfig.version})`)}`));
 
     let config = {
         isProduction,
