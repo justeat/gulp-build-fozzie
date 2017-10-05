@@ -1,14 +1,17 @@
 const gutil = require('gulp-util');
 const path = require('path');
+const packageConfig = require('./package.json');
+
+const consumingPackageConfig = require(`${process.cwd()}/package.json`); // eslint-disable-line import/no-dynamic-require
+
 
 const ConfigOptions = () => {
 
-    const projectName = 'Gulp Build Fozzie';
     const isProduction = !!gutil.env.prod;
     const isDev = !isProduction;
-    const envLog = isProduction ? 'Production' : 'Development';
+    const envLog = isProduction ? 'production' : 'development';
 
-    gutil.log(gutil.colors.yellow(`❯❯❯❯ Running ${projectName} task in ${gutil.colors.bold(`${envLog}`)}`));
+    gutil.log(gutil.colors.yellow(`Running Gulp task for ${consumingPackageConfig.name}@${consumingPackageConfig.version} in ${gutil.colors.bold(envLog)} mode ${gutil.colors.gray(`(v${packageConfig.version})`)}`));
 
     let config = {
         isProduction,
