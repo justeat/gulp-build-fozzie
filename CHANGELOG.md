@@ -4,6 +4,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v6.3.0
+------------------------------
+*October 18, 2017*
+
+### Changed
+- Updated dependencies.
+- Updated `jest.runCLI` to match new signature.
+- Moved duplicate jest calls out into a single function.
+- Updated code formatting in `css:bundle` task.
+
+
 v6.2.1
 ------------------------------
 *October 04, 2017*

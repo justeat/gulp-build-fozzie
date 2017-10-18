@@ -123,7 +123,10 @@ gulp.task('css:bundle', () => {
             postcss([
                 // Converts any specified assets to data URIs
                 assets({
-                    loadPaths: [pathBuilder.imgSrcDir, path.dirname(config.assetDistDir)]
+                    loadPaths: [
+                        pathBuilder.imgSrcDir,
+                        path.dirname(config.assetDistDir)
+                    ]
                 }),
 
                 // Autoprefixes CSS properties for various browsers – browsers specified in package.json config

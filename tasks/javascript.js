@@ -62,19 +62,18 @@ gulp.task('scripts:lint', () => gulp.src([`${pathBuilder.jsSrcDir}/**/*.js`, ...
 );
 
 
+const jestTestRun = (args = {}) => jest.runCLI(
+    args,
+    [path.resolve(process.cwd())]
+);
+
 /**
  * `scripts:test` Task
  * -------------
  * Runs the JS unit tests.
  *
  */
-gulp.task('scripts:test', callback => {
-    jest.runCLI(
-        {},
-        [path.resolve(process.cwd())],
-        () => callback()
-    );
-});
+gulp.task('scripts:test', () => jestTestRun());
 
 
 /**
@@ -83,13 +82,7 @@ gulp.task('scripts:test', callback => {
  * Runs the JS unit tests and display a coverage report once complete.
  *
  */
-gulp.task('scripts:test:coverage', callback => {
-    jest.runCLI(
-        { coverage: true },
-        [path.resolve(process.cwd())],
-        () => callback()
-    );
-});
+gulp.task('scripts:test:coverage', () => jestTestRun({ coverage: true }));
 
 
 /**
