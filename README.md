@@ -284,6 +284,7 @@ Here is the outline of the configuration options, descriptions of each are below
     webRootDir,
     assetSrcDir,
     assetDistDir,
+    applyRevision,
     css: {
         scssDir,
         cssDir,
@@ -294,8 +295,7 @@ Here is the outline of the configuration options, descriptions of each are below
         files: {
             main: {
                 srcPath,
-                distFile,
-                applyRevision
+                distFile                
             },
             …
         ],
@@ -383,6 +383,14 @@ Default: `'dist'`
 
 Root dist directory for your assets.
 
+### `applyRevision`
+
+Type: `boolean`
+
+Default: true
+
+Will add a content hash to the JS and CSS filenames, generating a new filename if any of the file's contents have changed. This can be utilised to force the clients to get the latest version of an updated asset.
+
 ### `css`
 
 - #### `scssDir`
@@ -455,15 +463,6 @@ Root dist directory for your assets.
     Default: `'script.js'`
 
     The filename for the JavaScript bundle once compiled.
-
-  - ##### `applyRevision`
-
-    Type: `boolean`
-
-    Default: true
-
-    Will add a content hash to the filename.
-
 
 - #### `jsDir`
 

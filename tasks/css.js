@@ -106,6 +106,8 @@ gulp.task('css:lint', () => gulp.src(`${pathBuilder.cssDistDir}/**/*.css`)
  */
 gulp.task('css:bundle', () => {
 
+    const { applyRevision } = config;
+
     const source = gulp.src(`${pathBuilder.scssSrcDir}/**/*.scss`)
         // stops watch from breaking on error
         .pipe(plumber(config.gulp.onError))
@@ -169,9 +171,14 @@ gulp.task('css:bundle', () => {
         .pipe(gulpif(config.docs.outputAssets,
             gulp.dest(pathBuilder.docsCssDistDir)
         ))
+        
+        // output minified file to destination CSS folder
+        .pipe(gulp.dest(pathBuilder.cssDistDir))
 
         // revision control for caching
-        .pipe(rev())
+        .pipe(gulpif(applyRevision,
+            rev()
+        ))
 
         // Output file-size
         .pipe(gulpif(config.misc.showFileSize,

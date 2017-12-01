@@ -20,6 +20,7 @@ const ConfigOptions = () => {
         webRootDir: '.',
         assetSrcDir: 'src',
         assetDistDir: 'dist',
+        applyRevision: true,
 
         /**
          * CSS-related variables
@@ -38,8 +39,7 @@ const ConfigOptions = () => {
             files: {
                 main: {
                     srcPath: 'index.js',
-                    distFile: 'script.js',
-                    applyRevision: true
+                    distFile: 'script.js'
                 }
             },
             jsDir: 'js',
