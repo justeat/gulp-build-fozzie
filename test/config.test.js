@@ -197,6 +197,7 @@ describe('javascript config', () => {
         // Assert
         expect(config.js.files.main.distFile).toBe(distFile);
     });
+
 });
 
 describe('image config', () => {

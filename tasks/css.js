@@ -106,8 +106,6 @@ gulp.task('css:lint', () => gulp.src(`${pathBuilder.cssDistDir}/**/*.css`)
  */
 gulp.task('css:bundle', () => {
 
-    const { applyRevision } = config;
-
     const source = gulp.src(`${pathBuilder.scssSrcDir}/**/*.scss`)
         // stops watch from breaking on error
         .pipe(plumber(config.gulp.onError))
@@ -176,7 +174,7 @@ gulp.task('css:bundle', () => {
         .pipe(gulp.dest(pathBuilder.cssDistDir))
 
         // revision control for caching
-        .pipe(gulpif(applyRevision,
+        .pipe(gulpif(config.applyRevision,
             rev()
         ))
 
