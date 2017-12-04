@@ -171,7 +171,7 @@ gulp.task('css:bundle', () => {
         .pipe(gulpif(config.docs.outputAssets,
             gulp.dest(pathBuilder.docsCssDistDir)
         ))
-        
+
         // output minified file to destination CSS folder
         .pipe(gulp.dest(pathBuilder.cssDistDir))
 

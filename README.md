@@ -440,8 +440,7 @@ Will add a content hash to the JS and CSS filenames, generating a new filename i
   {
       main: {
           srcPath: 'index.js',
-          distFile: 'script.js',
-          applyRevision: true
+          distFile: 'script.js'
       }
   }
   ```
