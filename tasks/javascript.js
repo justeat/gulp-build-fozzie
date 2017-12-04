@@ -161,6 +161,9 @@ gulp.task('scripts:bundle', () => {
                 gulp.dest(pathBuilder.docsJsDistDir)
             ))
 
+            // output minified file to destination JS folder
+            .pipe(gulp.dest(pathBuilder.jsDistDir))
+
             // revision control for caching
             .pipe(gulpif(config.applyRevision,
                 rev()
