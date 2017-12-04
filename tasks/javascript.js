@@ -95,7 +95,7 @@ gulp.task('scripts:bundle', () => {
 
     const bundleTasks = Object.keys(config.js.files).map(fileId => {
 
-        const { srcPath, distFile, applyRevision } = config.js.files[fileId];
+        const { srcPath, distFile } = config.js.files[fileId];
         const file = `${pathBuilder.jsSrcDir}/${srcPath}`;
 
         return browserify(file, { debug: config.isDev })
@@ -117,6 +117,7 @@ gulp.task('scripts:bundle', () => {
 
             .pipe(rename(distFile))
 
+            // output the unminified JS files
             .pipe(gulp.dest(pathBuilder.jsDistDir))
 
             // output the size of the unminified JS
@@ -161,7 +162,7 @@ gulp.task('scripts:bundle', () => {
             ))
 
             // revision control for caching
-            .pipe(gulpif(applyRevision,
+            .pipe(gulpif(config.applyRevision,
                 rev()
             ))
 

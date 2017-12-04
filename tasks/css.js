@@ -170,8 +170,13 @@ gulp.task('css:bundle', () => {
             gulp.dest(pathBuilder.docsCssDistDir)
         ))
 
+        // output minified file to destination CSS folder
+        .pipe(gulp.dest(pathBuilder.cssDistDir))
+
         // revision control for caching
-        .pipe(rev())
+        .pipe(gulpif(config.applyRevision,
+            rev()
+        ))
 
         // Output file-size
         .pipe(gulpif(config.misc.showFileSize,

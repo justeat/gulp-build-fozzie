@@ -3,6 +3,15 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v6.4.0
+------------------------------
+*December 4, 2017*
+
+### Changed
+- Move `applyRevision` variable out of the JS-only config so that it can be used for applying revision identifiers to the CSS files as well.
+- Updated readme to reflect new config structure.
+- Updated unit tests.
+
 
 v6.3.0
 ------------------------------

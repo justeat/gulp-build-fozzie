@@ -55,6 +55,21 @@ describe('environment config', () => {
         expect(config.assetDistDir).toBe(assetDistDir);
     });
 
+    it('apply revision should be true', () => {
+        expect(config.applyRevision).toBe(true);
+    });
+
+    it('apply revision can be updated', () => {
+        // Arrange
+        const applyRevision = false;
+
+        // Act
+        config.update({ applyRevision });
+
+        // Assert
+        expect(config.applyRevision).toBe(applyRevision);
+    });
+
 });
 
 describe('css config', () => {
@@ -183,21 +198,6 @@ describe('javascript config', () => {
         expect(config.js.files.main.distFile).toBe(distFile);
     });
 
-    it('apply revision should be true', () => {
-        expect(config.js.files.main.applyRevision).toBe(true);
-    });
-
-    it('apply revision can be updated', () => {
-        // Arrange
-        const applyRevision = false;
-
-        // Act
-        config.update({ js: { files: { main: { applyRevision } } } });
-
-        // Assert
-        expect(config.js.files.main.applyRevision).toBe(applyRevision);
-    });
-
 });
 
 describe('image config', () => {
@@ -231,6 +231,7 @@ describe('image config', () => {
         // Assert
         expect(config.img.svgSpriteFilename).toBe(svgSpriteFilename);
     });
+
 });
 
 describe('imported assets config', () => {
