@@ -231,6 +231,7 @@ describe('image config', () => {
         // Assert
         expect(config.img.svgSpriteFilename).toBe(svgSpriteFilename);
     });
+
 });
 
 describe('imported assets config', () => {
