@@ -11,7 +11,7 @@ before_script:
 
 script:
   - yarn test:cover
-  - yarn danger
+  - yarn danger ci
 
 after_success:
   - yarn run test:cover:CI
