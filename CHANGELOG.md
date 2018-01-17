@@ -3,6 +3,17 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+
+v7.0.0
+------------------------------
+*January 17, 2018*
+
+### Changed
+- Whole host of packages updated.  Main ones to know about are:
+  - [stylelint-config-fozzie](https://github.com/justeat/stylelint-config-fozzie) updated to v2.0.0
+  - Babelify and Browserify major version bumps to v8 and v15 respectively
+- Updated the Danger config in Travis, as the call is now `yarn danger ci` to run the checks
+
 v6.5.0
 ------------------------------
 *December 4, 2017*
