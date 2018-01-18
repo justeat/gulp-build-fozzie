@@ -63,7 +63,7 @@ gulp.task('scripts:lint', () => gulp.src([`${pathBuilder.jsSrcDir}/**/*.js`, ...
 
 
 const jestTestRun = (args = {}) => jest.runCLI(
-    args,
+    Object.assign({ bail: true }, args),
     [path.resolve(process.cwd())]
 );
 
