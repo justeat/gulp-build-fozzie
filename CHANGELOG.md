@@ -4,6 +4,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v7.1.0
+------------------------------
+*January 18, 2018*
+
+### Changed
+- Set `bail` argument to `true` for all Jest test runs so that it returns the correct exit code when a test run fails.
+
+
 v7.0.0
 ------------------------------
 *January 17, 2018*
