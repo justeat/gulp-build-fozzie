@@ -16,11 +16,19 @@ const ConfigOptions = () => {
     let config = {
         isProduction,
         isDev,
-
         webRootDir: '.',
         assetSrcDir: 'src',
         assetDistDir: 'dist',
         applyRevision: true,
+
+        /**
+         * Fozzie-related variables
+         */
+        fozzieSettings: {
+            useFozziePackageVersion: false,
+            getFozziePackageVersion: consumingPackageConfig && consumingPackageConfig.version,
+            fozzieBaseName: 'fozzie-'
+        },
 
         /**
          * CSS-related variables

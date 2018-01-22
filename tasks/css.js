@@ -139,6 +139,13 @@ gulp.task('css:bundle', () => {
         .pipe(gulpif(config.isDev,
             sourcemaps.write('.')
         ))
+
+        // If the Fozzie package version name is set to `true`, version the css file name with the package number.
+        .pipe(gulpif(config.fozzieSettings.useFozziePackageVersion,
+            rename(cssBasePath => {
+                cssBasePath.basename = config.fozzieSettings.fozzieBaseName + config.fozzieSettings.getFozziePackageVersion;
+            })
+        ))
         // output our unminified files – not for use in prod but useful to be able to debug from
         .pipe(gulp.dest(pathBuilder.cssDistDir))
 
@@ -156,6 +163,13 @@ gulp.task('css:bundle', () => {
                 cssnano()
             ])
         )
+
+        // If the Fozzie package version name is set to `true`, version the css file name with the package number.
+        .pipe(gulpif(config.fozzieSettings.useFozziePackageVersion,
+            rename(cssPath => {
+                cssPath.basename = config.fozzieSettings.fozzieBaseName + config.fozzieSettings.getFozziePackageVersion;
+            })
+        ))
 
         // add .min suffix to CSS files
         .pipe(rename({ suffix: '.min' }))

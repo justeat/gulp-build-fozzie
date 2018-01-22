@@ -295,7 +295,7 @@ Here is the outline of the configuration options, descriptions of each are below
         files: {
             main: {
                 srcPath,
-                distFile                
+                distFile
             },
             …
         ],
@@ -352,6 +352,11 @@ Here is the outline of the configuration options, descriptions of each are below
     gulp: {
         changeEvent,
         onError
+    },
+    fozzieSettings: {
+        useFozziePackageVersion,
+        getFozziePackageVersion,
+        fozzieBaseName
     },
     isProduction,
     isDev
@@ -790,6 +795,27 @@ Will add a content hash to the JS and CSS filenames, generating a new filename i
 
   Event which fires when an error occurs.
 
+
+### `fozzieSettings`
+
+- #### `useFozziePackageVersion`
+
+  Type: `boolean`
+
+  Default is set to false, when set to true this will bundle a versioned css file e.g `'fozzie-[version].css'`. The default boolean should be overwritten within Fozzie's own config.
+
+- #### `getFozziePackageVersion`
+
+  Type: `string`
+
+  Returns the current Fozzie package version e.g `'0.0.2'`.
+
+- #### `fozzieBaseName`
+
+  Type: `string`
+  Default: `'fozzie-'`
+
+  Used as part of the final bundled css file name.
 
 ### Other config
 

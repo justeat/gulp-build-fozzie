@@ -10,6 +10,50 @@ describe('environment config', () => {
         expect(config.isDev).toBe(true);
     });
 
+    describe('`fozzieSettings` object', () => {
+        const useFozziePackageVersion = false;
+        const getFozziePackageVersion = '0.0.0';
+        const fozzieBaseName = 'fozzie-';
+
+        beforeEach(() => {
+            config.update({ fozzieSettings: { getFozziePackageVersion, fozzieBaseName, useFozziePackageVersion } });
+        });
+
+        it('should exist', () => {
+            expect(config.fozzieSettings).toBeDefined();
+        });
+
+        describe('`useFozziePackageVersion`', () => {
+            it('should exist', () => {
+                expect(config.fozzieSettings.useFozziePackageVersion).toBeDefined();
+            });
+
+            it('should be set to false by default, overwrite it within Fozzie\'s config when required', () => {
+                expect(config.fozzieSettings.useFozziePackageVersion).toBe(false);
+            });
+        });
+
+        describe('`getFozziePackageVersion`', () => {
+            it('should exist', () => {
+                expect(config.fozzieSettings.getFozziePackageVersion).toBeDefined();
+            });
+
+            it('should return a `Fozzie` package version', () => {
+                expect(config.fozzieSettings.getFozziePackageVersion).toBe(getFozziePackageVersion);
+            });
+        });
+
+        describe('`fozzieBaseName`', () => {
+            it('should exist', () => {
+                expect(config.fozzieSettings.fozzieBaseName).toBeDefined();
+            });
+
+            it('should contain the correct name space', () => {
+                expect(config.fozzieSettings.fozzieBaseName).toEqual(fozzieBaseName);
+            });
+        });
+    });
+
     it('web root directory should be true', () => {
         expect(config.webRootDir).toBe('.');
     });

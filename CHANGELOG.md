@@ -3,6 +3,16 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v7.1.0
+------------------------------
+*January 22, 2018*
+
+### Changed
+- Added `useFozziePackageVersion` to config file to handle the css versioning, default value is set to `false`.
+- Added `getFozziePackageVersion` to config file which returns the current Fozzie package version.
+- Added `fozzieBaseName` to config file as a namespace for the final outputted css file.
+- Updated `config.test` tests to cover the above changes.
+
 
 v7.1.0
 ------------------------------
