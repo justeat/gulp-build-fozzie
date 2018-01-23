@@ -140,7 +140,7 @@ gulp.task('css:bundle', () => {
             sourcemaps.write('.')
         ))
 
-        // If the Fozzie package version name is set to `true`, version the css file name with the package number.
+        // If the package version name is set to `true`, version the css file name with the package number.
         .pipe(gulpif(config.css.usePackageVersion,
             rename({ suffix: `-${config.packageVersion}` })
         ))
@@ -162,7 +162,7 @@ gulp.task('css:bundle', () => {
             ])
         )
 
-        // If the Fozzie package version name is set to `true`, version the css file name with the package number.
+        // If the package version name is set to `true`, version the css file name with the package number.
         // Additionally add .min to CSS files
         .pipe(gulpif(config.css.usePackageVersion,
             rename({ suffix: `-${config.packageVersion}.min` })
