@@ -285,11 +285,13 @@ Here is the outline of the configuration options, descriptions of each are below
     assetSrcDir,
     assetDistDir,
     applyRevision,
+    packageVersion,
     css: {
         scssDir,
         cssDir,
         lintPaths,
-        sourcemaps
+        sourcemaps,
+        usePackageVersion
     },
     js: {
         files: {
@@ -301,6 +303,7 @@ Here is the outline of the configuration options, descriptions of each are below
         ],
         jsDir,
         lintPaths,
+        usePackageVersion
     },
     img: {
         imgDir,
@@ -352,11 +355,6 @@ Here is the outline of the configuration options, descriptions of each are below
     gulp: {
         changeEvent,
         onError
-    },
-    fozzieSettings: {
-        useFozziePackageVersion,
-        getFozziePackageVersion,
-        fozzieBaseName
     },
     isProduction,
     isDev
