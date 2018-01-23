@@ -396,6 +396,14 @@ Default: true
 
 Will add a content hash to the JS and CSS filenames, generating a new filename if any of the file's contents have changed. This can be utilised to force the clients to get the latest version of an updated asset.
 
+
+### `packageVersion`
+
+  Type: `String`
+
+  Returns the current package version.
+  
+  
 ### `css`
 
 - #### `scssDir`
@@ -431,6 +439,12 @@ Will add a content hash to the JS and CSS filenames, generating a new filename i
   Default: [`isDev`](#other-options)
 
   Turns sourcemaps on or off.
+
+- #### `usePackageVersion`
+
+  Type: `boolean`
+
+  Default is set to false, when set to true this will bundle a versioned css file e.g `'filename-[version].css'`.
 
 
 ### `js`
@@ -488,6 +502,12 @@ Will add a content hash to the JS and CSS filenames, generating a new filename i
 
   By default, the task will lint all files within the `jsDir` directory.
 
+
+- #### `usePackageVersion`
+
+  Type: `boolean`
+
+  Default is set to false, when set to true this will bundle a versioned JS file e.g `'filename-[version].js'`.
 
 
 ### `img`
@@ -795,27 +815,6 @@ Will add a content hash to the JS and CSS filenames, generating a new filename i
 
   Event which fires when an error occurs.
 
-
-### `fozzieSettings`
-
-- #### `useFozziePackageVersion`
-
-  Type: `boolean`
-
-  Default is set to false, when set to true this will bundle a versioned css file e.g `'fozzie-[version].css'`. The default boolean should be overwritten within Fozzie's own config.
-
-- #### `getFozziePackageVersion`
-
-  Type: `string`
-
-  Returns the current Fozzie package version e.g `'0.0.2'`.
-
-- #### `fozzieBaseName`
-
-  Type: `string`
-  Default: `'fozzie-'`
-
-  Used as part of the final bundled css file name.
 
 ### Other config
 

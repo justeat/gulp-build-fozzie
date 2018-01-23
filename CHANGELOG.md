@@ -5,12 +5,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 v7.1.0
 ------------------------------
-*January 22, 2018*
+*January 23, 2018*
 
 ### Changed
-- Added `useFozziePackageVersion` to config file to handle the css versioning, default value is set to `false`.
-- Added `getFozziePackageVersion` to config file which returns the current Fozzie package version.
-- Added `fozzieBaseName` to config file as a namespace for the final outputted css file.
+- Added `usePackageVersion` to config file to handle the css versioning, default value is set to `false`.
+- Added `packageVersion` to config file which returns the current scoped package version.
 - Updated `config.test` tests to cover the above changes.
 
 

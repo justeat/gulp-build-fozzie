@@ -70,49 +70,19 @@ describe('environment config', () => {
         expect(config.applyRevision).toBe(applyRevision);
     });
 
-});
-
-describe('`fozzieSettings` config', () => {
-    const settings = config.fozzieSettings;
-
-    it('should exist', () => {
-        expect(settings).toBeDefined();
+    it('`packageVersion` should exist', () => {
+        expect(config.packageVersion).toBeDefined();
     });
 
-    describe('`useFozziePackageVersion`', () => {
-        it('should exist', () => {
-            expect(settings.useFozziePackageVersion).toBeDefined();
-        });
+    it('`packageVersion` should return a package version', () => {
+        // Arrange
+        const packageVersion = 'Some package version';
 
-        it('should be set to false by default, overwrite it within Fozzie\'s config when required', () => {
-            expect(settings.useFozziePackageVersion).toBe(false);
-        });
-    });
+        // Act
+        config.update({ packageVersion });
 
-    describe('`getFozziePackageVersion`', () => {
-        it('should exist', () => {
-            expect(settings.getFozziePackageVersion).toBeDefined();
-        });
-
-        it('should return a `Fozzie` package version', () => {
-            const getFozziePackageVersion = '0.0.0';
-
-            config.update({ fozzieSettings: { getFozziePackageVersion } });
-
-            expect(config.fozzieSettings.getFozziePackageVersion).toBe(getFozziePackageVersion);
-        });
-    });
-
-    describe('`fozzieBaseName`', () => {
-        it('should exist', () => {
-            expect(settings.fozzieBaseName).toBeDefined();
-        });
-
-        it('should contain the correct name space', () => {
-            const fozzieBaseName = 'fozzie-';
-
-            expect(settings.fozzieBaseName).toEqual(fozzieBaseName);
-        });
+        // Assert
+        expect(config.packageVersion).toBe(packageVersion);
     });
 });
 
@@ -178,6 +148,13 @@ describe('css config', () => {
         expect(config.css.sourcemaps).toBe(sourcemaps);
     });
 
+    it('`usePackageVersion` should exist', () => {
+        expect(config.css.usePackageVersion).toBeDefined();
+    });
+
+    it('`usePackageVersion` should be set to `false` by default', () => {
+        expect(config.css.usePackageVersion).toBe(false);
+    });
 });
 
 describe('javascript config', () => {
@@ -240,6 +217,14 @@ describe('javascript config', () => {
 
         // Assert
         expect(config.js.files.main.distFile).toBe(distFile);
+    });
+
+    it('`usePackageVersion` should exist', () => {
+        expect(config.js.usePackageVersion).toBeDefined();
+    });
+
+    it('`usePackageVersion` should be set to `false` by default', () => {
+        expect(config.js.usePackageVersion).toBe(false);
     });
 
 });
