@@ -163,9 +163,9 @@ gulp.task('css:bundle', () => {
         )
 
         // If the package version name is set to `true`, version the css file name with the package number.
-        // Additionally add .min to CSS files
+        // Additionally adds .min suffix in both `true` or `false` cases.
         .pipe(gulpif(config.css.usePackageVersion,
-            rename({ suffix: `-${config.packageVersion}.min` })
+            rename({ suffix: `-${config.packageVersion}.min` }), rename({ suffix: '.min' })
         ))
 
         // export sourcemaps (as a separate file)

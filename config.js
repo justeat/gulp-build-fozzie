@@ -20,7 +20,7 @@ const ConfigOptions = () => {
         assetSrcDir: 'src',
         assetDistDir: 'dist',
         applyRevision: true,
-        packageVersion: consumingPackageConfig && consumingPackageConfig.version,
+        packageVersion: consumingPackageConfig.version,
 
         /**
          * CSS-related variables
