@@ -3,6 +3,15 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v7.2.0
+------------------------------
+*January 23, 2018*
+
+### Changed
+- Added `usePackageVersion` to config file to handle the css versioning, default value is set to `false`.
+- Added `packageVersion` to config file which returns the current scoped package version.
+- Updated `config.test` tests to cover the above changes.
+
 
 v7.1.0
 ------------------------------

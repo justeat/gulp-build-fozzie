@@ -139,6 +139,11 @@ gulp.task('css:bundle', () => {
         .pipe(gulpif(config.isDev,
             sourcemaps.write('.')
         ))
+
+        // If the package version name is set to `true`, version the css file name with the package number.
+        .pipe(gulpif(config.css.usePackageVersion,
+            rename({ suffix: `-${config.packageVersion}` })
+        ))
         // output our unminified files – not for use in prod but useful to be able to debug from
         .pipe(gulp.dest(pathBuilder.cssDistDir))
 
@@ -157,8 +162,11 @@ gulp.task('css:bundle', () => {
             ])
         )
 
-        // add .min suffix to CSS files
-        .pipe(rename({ suffix: '.min' }))
+        // If the package version name is set to `true`, version the css file name with the package number.
+        // Additionally adds .min suffix in both `true` or `false` cases.
+        .pipe(gulpif(config.css.usePackageVersion,
+            rename({ suffix: `-${config.packageVersion}.min` }), rename({ suffix: '.min' })
+        ))
 
         // export sourcemaps (as a separate file)
         .pipe(gulpif(config.isDev,

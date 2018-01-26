@@ -70,6 +70,20 @@ describe('environment config', () => {
         expect(config.applyRevision).toBe(applyRevision);
     });
 
+    it('`packageVersion` should exist', () => {
+        expect(config.packageVersion).toBeDefined();
+    });
+
+    it('`packageVersion` should return a package version', () => {
+        // Arrange
+        const packageVersion = 'Some package version';
+
+        // Act
+        config.update({ packageVersion });
+
+        // Assert
+        expect(config.packageVersion).toBe(packageVersion);
+    });
 });
 
 describe('css config', () => {
@@ -134,6 +148,13 @@ describe('css config', () => {
         expect(config.css.sourcemaps).toBe(sourcemaps);
     });
 
+    it('`usePackageVersion` should exist', () => {
+        expect(config.css.usePackageVersion).toBeDefined();
+    });
+
+    it('`usePackageVersion` should be set to `false` by default', () => {
+        expect(config.css.usePackageVersion).toBe(false);
+    });
 });
 
 describe('javascript config', () => {
@@ -196,6 +217,14 @@ describe('javascript config', () => {
 
         // Assert
         expect(config.js.files.main.distFile).toBe(distFile);
+    });
+
+    it('`usePackageVersion` should exist', () => {
+        expect(config.js.usePackageVersion).toBeDefined();
+    });
+
+    it('`usePackageVersion` should be set to `false` by default', () => {
+        expect(config.js.usePackageVersion).toBe(false);
     });
 
 });

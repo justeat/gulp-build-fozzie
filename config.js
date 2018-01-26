@@ -16,11 +16,11 @@ const ConfigOptions = () => {
     let config = {
         isProduction,
         isDev,
-
         webRootDir: '.',
         assetSrcDir: 'src',
         assetDistDir: 'dist',
         applyRevision: true,
+        packageVersion: consumingPackageConfig.version,
 
         /**
          * CSS-related variables
@@ -29,7 +29,8 @@ const ConfigOptions = () => {
             scssDir: 'scss',
             cssDir: 'css',
             lintPaths: [''],
-            sourcemaps: isDev
+            sourcemaps: isDev,
+            usePackageVersion: false
         },
 
         /**
@@ -43,7 +44,8 @@ const ConfigOptions = () => {
                 }
             },
             jsDir: 'js',
-            lintPaths: ['']
+            lintPaths: [''],
+            usePackageVersion: false
         },
 
         /**
