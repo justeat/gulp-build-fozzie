@@ -4,6 +4,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v7.6.0
+------------------------------
+*January 30, 2018*
+
+### Changed
+- Updated `f-copy-assets` module.
+
+
 v7.5.0
 ------------------------------
 *January 30, 2018*

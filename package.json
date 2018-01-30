@@ -1,6 +1,6 @@
 {
   "name": "@justeat/gulp-build-fozzie",
-  "version": "7.5.0",
+  "version": "7.6.0",
   "description": "Gulp build tasks for use across Fozzie modules",
   "main": "index.js",
   "author": "Damian Mullins <damian.mullins@just-eat.com> (http://www.damianmullins.com)",
@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@justeat/eslint-config-fozzie": "^1.3.0",
-    "@justeat/f-copy-assets": "^0.4.0",
+    "@justeat/f-copy-assets": "^0.6.0",
     "@justeat/stylelint-config-fozzie": "^2.0.1",
     "assemble": "^0.24.3",
     "autoprefixer": "^7.2.5",
