@@ -4,6 +4,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v7.7.0
+------------------------------
+*January 30, 2018*
+
+### Added
+- Run npm scripts concurrently.
+
+### Changed
+- Updated eslint module versions.
+- Updated jest version.
+- Using `Object.assign` in jest task as object spread is only supported in node v8.6.0 and up.
+
+### Remove
+- Removed eslint jest module as Jest is already specified within `eslint-config-fozzie`.
+
+
 v7.6.0
 ------------------------------
 *January 30, 2018*
