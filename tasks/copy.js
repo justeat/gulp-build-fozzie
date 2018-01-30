@@ -95,5 +95,6 @@ gulp.task('copy:assets', () =>
         dest: config.assetDistDir,
         verbose: config.importedAssets.verbose,
         logger: gutil.log
-    }).catch(config.gulp.onError)
+    })
+        .catch(config.gulp.onError)
 );
