@@ -1,6 +1,6 @@
 {
   "name": "@justeat/gulp-build-fozzie",
-  "version": "7.6.0",
+  "version": "7.7.0",
   "description": "Gulp build tasks for use across Fozzie modules",
   "main": "index.js",
   "author": "Damian Mullins <damian.mullins@just-eat.com> (http://www.damianmullins.com)",
@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/justeat/gulp-build-fozzie#readme",
   "scripts": {
-    "prepare": "yarn run lint && yarn test",
+    "prepare": "concurrently -n \"lint,test\" -c \"blue,green\" \"yarn lint\" \"yarn test\" --kill-others-on-fail",
     "test": "jest",
     "test:cover": "jest --coverage",
     "test:cover:CI": "cat coverage/lcov.info | coveralls",
@@ -27,7 +27,7 @@
     "release-major": "release-it major --non-interactive -p"
   },
   "dependencies": {
-    "@justeat/eslint-config-fozzie": "^1.3.0",
+    "@justeat/eslint-config-fozzie": "^1.4.0",
     "@justeat/f-copy-assets": "^0.6.0",
     "@justeat/stylelint-config-fozzie": "^2.0.1",
     "assemble": "^0.24.3",
@@ -37,9 +37,8 @@
     "browserify": "^15.2.0",
     "cssnano": "^3.10.0",
     "del": "^3.0.0",
-    "eslint": "^4.15.0",
+    "eslint": "^4.16.0",
     "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jest": "^21.6.2",
     "event-stream": "^3.3.4",
     "exorcist": "^1.0.0",
     "eyeglass": "^1.3.0",
@@ -71,7 +70,7 @@
     "handlebars-helpers": "^0.10.0",
     "helper-markdown": "^1.0.0",
     "helper-md": "^0.2.2",
-    "jest-cli": "^22.1.2",
+    "jest-cli": "^22.1.4",
     "merge-stream": "^1.0.1",
     "postcss-assets": "^5.0.0",
     "postcss-reporter": "^5.0.0",
@@ -85,6 +84,7 @@
     "vinyl-source-stream": "^2.0.0"
   },
   "devDependencies": {
+    "concurrently": "^3.5.1",
     "coveralls": "^3.0.0",
     "danger": "3.0.5",
     "release-it": "^5.2.0"
