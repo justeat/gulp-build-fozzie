@@ -4,6 +4,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v7.4.0
+------------------------------
+*January 30, 2018*
+
+### Changed
+- Set `passWithNoTests` argument to `true` for all Jest test runs to prevent error when there are no tests in the project.
+
+
 v7.3.0
 ------------------------------
 *January 30, 2018*
