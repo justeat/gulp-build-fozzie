@@ -135,7 +135,9 @@ gulp.task('scripts:bundle', () => {
 
             // if production build, rip out our console logs
             .pipe(gulpif(config.isProduction,
-                stripDebug()
+                () => {
+                    gulpif(config.js.stripDebug, stripDebug());
+                }
             ))
 
             // minify the bundle

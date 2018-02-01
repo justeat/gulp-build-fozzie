@@ -45,7 +45,8 @@ const ConfigOptions = () => {
             },
             jsDir: 'js',
             lintPaths: [''],
-            usePackageVersion: false
+            usePackageVersion: false,
+            stripDebug: true
         },
 
         /**
