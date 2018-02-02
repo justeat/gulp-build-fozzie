@@ -304,7 +304,8 @@ Here is the outline of the configuration options, descriptions of each are below
         ],
         jsDir,
         lintPaths,
-        usePackageVersion
+        usePackageVersion,
+        stripDebug
     },
     img: {
         imgDir,
@@ -443,7 +444,7 @@ Will add a content hash to the JS and CSS filenames, generating a new filename i
 
   Type: `boolean`
 
-  Default is set to false, when set to true this will bundle a versioned css file e.g `'filename-[version].css'`.
+  Default is set to `false`, when set to true this will bundle a versioned css file e.g `'filename-[version].css'`.
 
 
 ### `js`
@@ -506,7 +507,13 @@ Will add a content hash to the JS and CSS filenames, generating a new filename i
 
   Type: `boolean`
 
-  Default is set to false, when set to true this will bundle a versioned JS file e.g `'filename-[version].js'`.
+  Default is set to `false`, when set to true this will bundle a versioned JS file e.g `'filename-[version].js'`.
+
+- #### `stripDebug`
+
+  Type: `boolean`
+
+  Default is set to `true`. When set to false, this will prevent `console.log()` statements from being removed for production builds. **For non-production builds, this has no effect: you will still get debug statements even if you've set this to `true`.**
 
 
 ### `img`
