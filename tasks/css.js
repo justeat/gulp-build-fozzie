@@ -11,6 +11,7 @@ const merge = require('merge-stream');
 const rev = require('gulp-rev');
 
 const sass = require('gulp-sass');
+const sassVariables = require('gulp-sass-variables');
 const eyeglass = require('eyeglass');
 const cssnano = require('cssnano');
 const sourcemaps = require('gulp-sourcemaps');
@@ -113,6 +114,14 @@ gulp.task('css:bundle', () => {
         .pipe(gulpif(config.isDev,
             sourcemaps.init()
         ))
+
+        // add custom environment variables into sass
+        .pipe(sassVariables({
+            $isDev: config.isDev,
+            $isProd: config.isProduction,
+            $env: config.envLog,
+            $server: gutil.env.server
+        }))
 
         // compile using Sass & pulling int any Eyeglass modules (SCSS NPM modules)
         .pipe(

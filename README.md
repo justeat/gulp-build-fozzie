@@ -140,6 +140,7 @@ Runs the following tasks
 
   Performs a variety of tasks including;
 
+  - Makes environment variables available to Sass
   - Pull in Eyeglass modules
   - Run postcss plugins
   - Minify the CSS
@@ -400,8 +401,8 @@ Will add a content hash to the JS and CSS filenames, generating a new filename i
   Type: `String`
 
   Returns the current package version.
-  
-  
+
+
 ### `css`
 
 - #### `scssDir`
