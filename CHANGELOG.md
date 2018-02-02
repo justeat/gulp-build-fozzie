@@ -4,6 +4,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v7.8.0
+------------------------------
+*February 2, 2018*
+
+### Added
+- `stripDebug` option to `config.js` to allow the inclusion of console statements in production builds.
+
+### Changed
+- Jest rollback from v22.1.4 to v21.2.1.
+
 v7.7.0
 ------------------------------
 *January 30, 2018*
