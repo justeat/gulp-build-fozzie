@@ -1,6 +1,6 @@
 {
   "name": "@justeat/gulp-build-fozzie",
-  "version": "7.8.0",
+  "version": "7.9.0",
   "description": "Gulp build tasks for use across Fozzie modules",
   "main": "index.js",
   "author": "Damian Mullins <damian.mullins@just-eat.com> (http://www.damianmullins.com)",
@@ -71,7 +71,7 @@
     "handlebars-helpers": "^0.10.0",
     "helper-markdown": "^1.0.0",
     "helper-md": "^0.2.2",
-    "jest-cli": "^22.1.4",
+    "jest-cli": "^21.2.1",
     "merge-stream": "^1.0.1",
     "postcss-assets": "^5.0.0",
     "postcss-reporter": "^5.0.0",

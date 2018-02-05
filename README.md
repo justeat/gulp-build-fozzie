@@ -19,11 +19,11 @@ Gulp build tasks for use across Fozzie modules.
     - [Config object](#config-object)
     - [pathBuilder object](#pathbuilder-object)
 - [The Gulp Tasks](#the-gulp-tasks)
-  - [Development only tasks](#development-only-tasks)
+  - [Development-only tasks](#development-only-tasks)
 - [Config](#config)
   - [Other config](#other-config)
 - [Path Builder](#path-builder)
-- [Running the unit tests](running-the-unit-tests)
+- [Running the unit tests](#running-the-unit-tests)
 
 
 ## Setup
@@ -245,7 +245,7 @@ Runs the same tasks as [`watch`](#watch) as well as the following watch tasks.
 Runs the [`assemble`](#assemble) task when documentation files are changed.
 
 
-### Development only tasks
+### Development-only tasks
 
 - #### `docs`
 
@@ -304,7 +304,8 @@ Here is the outline of the configuration options, descriptions of each are below
         ],
         jsDir,
         lintPaths,
-        usePackageVersion
+        usePackageVersion,
+        stripDebug
     },
     img: {
         imgDir,
@@ -391,7 +392,7 @@ Root dist directory for your assets.
 
 Type: `boolean`
 
-Default: true
+Default: `true`
 
 Will add a content hash to the JS and CSS filenames, generating a new filename if any of the file's contents have changed. This can be utilised to force the clients to get the latest version of an updated asset.
 
@@ -443,7 +444,9 @@ Will add a content hash to the JS and CSS filenames, generating a new filename i
 
   Type: `boolean`
 
-  Default is set to false, when set to true this will bundle a versioned css file e.g `'filename-[version].css'`.
+  Default: `false`
+
+  When set to `true` this will bundle a versioned css file e.g `'filename-[version].css'`.
 
 
 ### `js`
@@ -506,8 +509,31 @@ Will add a content hash to the JS and CSS filenames, generating a new filename i
 
   Type: `boolean`
 
-  Default is set to false, when set to true this will bundle a versioned JS file e.g `'filename-[version].js'`.
+  Default: `false`
 
+  When set to `true` this will bundle a versioned JS file e.g `'filename-[version].js'`.
+
+- #### `stripDebug`
+
+  Type: `boolean`
+
+  Default: `true`
+
+  This can also be controlled using the `--noStripDebug` flag. When this flag is added, `console.log()` statements will not be removed for production builds.
+
+  #### Examples:
+
+  `gulp scripts:bundle --prod --noStripDebug`
+
+  This would generate the JS files as part of a production build, but would still include `console.log()` statements. Intended for QA releases.
+
+  `gulp scripts:bundle --prod`
+
+  This is a normal production build and would not include `console.log()` statements.
+
+  `gulp scripts:bundle --noStripDebug`
+
+  **For non-production builds, the flag has no effect: you will still get debug statements even if include the flag.**
 
 ### `img`
 
@@ -642,7 +668,7 @@ Will add a content hash to the JS and CSS filenames, generating a new filename i
   In which:
   - `path` is a string specifying the path within the relevant asset `src` folder of the asset to be copied.
   - `dest` is a string specifying that destination folder for the asset to be copied to, within the relevant asset `dist` folder.
-  - `revision` is a boolean such that if it is true, the asset will be [revision hashed](https://www.npmjs.com/package/gulp-rev) when copied to it’s destination.
+  - `revision` is a boolean such that if it is `true`, the asset will be [revision hashed](https://www.npmjs.com/package/gulp-rev) when copied to its destination.
 
   `path` and `dest` must always be defined for each asset you wish to copy.
 
@@ -725,13 +751,13 @@ Will add a content hash to the JS and CSS filenames, generating a new filename i
 
   Default: `''`
 
-  Applies a base path to asset URLs when publishing documentation to Github pages.  By default this is set to be an empty string.
+  Applies a base path to asset URLs when publishing documentation to Github pages. By default this is set to be an empty string.
 
 - #### `helpers`
 
   Type: `object`
 
-  Default: `{ }`
+  Default: `{}`
 
   Can pass in an object set of functions, which will be exposed in handlebars as helper functions in the documentation tasks when called using their object key.
 
@@ -779,7 +805,7 @@ Will add a content hash to the JS and CSS filenames, generating a new filename i
 
   Default: `1000`
 
-  Wait for a specified window of event-silence before sending any reload events.
+  Wait for a specified window of event-silence (in milliseconds) before sending any reload events.
 
 ### `misc`
 
@@ -829,7 +855,7 @@ The following options are also present in the config but cannot be overridden.
 
   Type: `boolean`
 
-  Set to the opposite value of `isProduction`
+  Set to the opposite value of `isProduction`.
 
 
 ## Path Builder
