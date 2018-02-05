@@ -519,8 +519,21 @@ Will add a content hash to the JS and CSS filenames, generating a new filename i
 
   Default: `true`
 
-  When set to `false`, this will prevent `console.log()` statements from being removed for production builds. **For non-production builds, this has no effect: you will still get debug statements even if you've set this to `true`.**
+  This can also be controlled using the `--noStripDebug` flag. When this flag is added, `console.log()` statements will not be removed for production builds.
 
+  #### Examples:
+
+  `gulp scripts:bundle --prod --noStripDebug`
+
+  This would generate the JS files as part of a production build, but would still include `console.log()` statements. Intended for QA releases.
+
+  `gulp scripts:bundle --prod`
+
+  This is a normal production build and would not include `console.log()` statements.
+
+  `gulp scripts:bundle --noStripDebug`
+
+  **For non-production builds, the flag has no effect: you will still get debug statements even if include the flag.**
 
 ### `img`
 

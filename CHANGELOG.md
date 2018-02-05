@@ -10,6 +10,7 @@ v7.9.0
 
 ### Added
 - `stripDebug` option to `config.js` to allow the inclusion of console statements in production builds.
+- `--noStripDebug` command line flag.
 
 ### Changed
 - Jest rollback from v22.1.4 to v21.2.1.

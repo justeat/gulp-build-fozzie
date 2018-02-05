@@ -10,6 +10,7 @@ const ConfigOptions = () => {
     const isProduction = !!gutil.env.prod;
     const isDev = !isProduction;
     const envLog = isProduction ? 'production' : 'development';
+    const stripDebug = !gutil.env.noStripDebug;
 
     gutil.log(gutil.colors.yellow(`🐻  Running Gulp task for ${consumingPackageConfig.name}@${consumingPackageConfig.version} in ${gutil.colors.bold(envLog)} mode ${gutil.colors.gray(`(v${packageConfig.version})`)}`));
 
@@ -46,7 +47,7 @@ const ConfigOptions = () => {
             jsDir: 'js',
             lintPaths: [''],
             usePackageVersion: false,
-            stripDebug: true
+            stripDebug
         },
 
         /**
