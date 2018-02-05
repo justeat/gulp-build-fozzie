@@ -2,19 +2,19 @@ const config = require('../config');
 
 describe('environment config', () => {
 
-    it('is production should be false', () => {
+    it('`isProduction` should be false', () => {
         expect(config.isProduction).toBe(false);
     });
 
-    it('is dev should be true', () => {
+    it('`isDev` should be true', () => {
         expect(config.isDev).toBe(true);
     });
 
-    it('web root directory should be true', () => {
+    it('`webRootDir` should be `.`', () => {
         expect(config.webRootDir).toBe('.');
     });
 
-    it('web root directory can be updated', () => {
+    it('`webRootDir` can be updated', () => {
         // Arrange
         const webRootDir = './';
 
@@ -25,11 +25,11 @@ describe('environment config', () => {
         expect(config.webRootDir).toBe(webRootDir);
     });
 
-    it('asset src directory should be set', () => {
+    it('`assetSrcDir` should be set', () => {
         expect(config.assetSrcDir).toBe('src');
     });
 
-    it('asset src directory can be updated', () => {
+    it('`assetSrcDir` can be updated', () => {
         // Arrange
         const assetSrcDir = 'source';
 
@@ -40,11 +40,11 @@ describe('environment config', () => {
         expect(config.assetSrcDir).toBe(assetSrcDir);
     });
 
-    it('asset dist directory should be set', () => {
+    it('`assetDistDir` should be set', () => {
         expect(config.assetDistDir).toBe('dist');
     });
 
-    it('asset dist directory can be updated', () => {
+    it('`assetDistDir` can be updated', () => {
         // Arrange
         const assetDistDir = 'distribution';
 
@@ -55,11 +55,11 @@ describe('environment config', () => {
         expect(config.assetDistDir).toBe(assetDistDir);
     });
 
-    it('apply revision should be true', () => {
+    it('`applyRevision` should be true', () => {
         expect(config.applyRevision).toBe(true);
     });
 
-    it('apply revision can be updated', () => {
+    it('`applyRevision` can be updated', () => {
         // Arrange
         const applyRevision = false;
 
@@ -88,11 +88,11 @@ describe('environment config', () => {
 
 describe('css config', () => {
 
-    it('scss directory should be set', () => {
+    it('`scssDir` should be set', () => {
         expect(config.css.scssDir).toBe('scss');
     });
 
-    it('scss directory can be updated', () => {
+    it('`scssDir` can be updated', () => {
         // Arrange
         const scssDir = 'sass';
 
@@ -103,11 +103,11 @@ describe('css config', () => {
         expect(config.css.scssDir).toBe(scssDir);
     });
 
-    it('css directory should be set', () => {
+    it('`cssDir` should be set', () => {
         expect(config.css.cssDir).toBe('css');
     });
 
-    it('css directory can be updated', () => {
+    it('`cssDir` can be updated', () => {
         // Arrange
         const cssDir = 'styles';
 
@@ -118,11 +118,11 @@ describe('css config', () => {
         expect(config.css.cssDir).toBe(cssDir);
     });
 
-    it('lint paths should be set', () => {
+    it('`lintPaths` should be set', () => {
         expect(config.css.lintPaths).toEqual(['']);
     });
 
-    it('lint paths can be updated', () => {
+    it('`lintPaths` can be updated', () => {
         // Arrange
         const lintPaths = ['./lint-me', '🦄'];
 
@@ -133,11 +133,11 @@ describe('css config', () => {
         expect(config.css.lintPaths).toEqual(lintPaths);
     });
 
-    it('sourcemaps should be true', () => {
+    it('`sourcemaps` should be true', () => {
         expect(config.css.sourcemaps).toBe(true);
     });
 
-    it('sourcemaps can be updated', () => {
+    it('`sourcemaps` can be updated', () => {
         // Arrange
         const sourcemaps = false;
 
@@ -156,7 +156,7 @@ describe('css config', () => {
         expect(config.css.usePackageVersion).toBe(false);
     });
 
-    it('usePackageVersion can be updated', () => {
+    it('`usePackageVersion` can be updated', () => {
         // Arrange
         const usePackageVersion = true;
 
@@ -170,11 +170,11 @@ describe('css config', () => {
 
 describe('javascript config', () => {
 
-    it('src path for bundle should be set', () => {
+    it('`srcPath` for bundle should be set', () => {
         expect(config.js.files.main.srcPath).toBe('index.js');
     });
 
-    it('src path can be updated', () => {
+    it('`srcPath` can be updated', () => {
         // Arrange
         const srcPath = 'app.js';
 
@@ -185,11 +185,11 @@ describe('javascript config', () => {
         expect(config.js.files.main.srcPath).toBe(srcPath);
     });
 
-    it('dist file should be set', () => {
+    it('`distFile` should be set', () => {
         expect(config.js.files.main.distFile).toBe('script.js');
     });
 
-    it('dist file can be updated', () => {
+    it('`distFile` can be updated', () => {
         // Arrange
         const distFile = 'app.js';
 
@@ -200,11 +200,11 @@ describe('javascript config', () => {
         expect(config.js.files.main.distFile).toBe(distFile);
     });
 
-    it('javascript directory should be set', () => {
+    it('`jsDir` should be set', () => {
         expect(config.js.jsDir).toBe('js');
     });
 
-    it('javascript directory can be updated', () => {
+    it('`jsDir` can be updated', () => {
         // Arrange
         const jsDir = 'scripts';
 
@@ -215,11 +215,11 @@ describe('javascript config', () => {
         expect(config.js.jsDir).toBe(jsDir);
     });
 
-    it('lint paths should be set', () => {
+    it('`lintPaths` should be set', () => {
         expect(config.js.lintPaths).toEqual(['']);
     });
 
-    it('lint paths can be updated', () => {
+    it('`lintPaths` can be updated', () => {
         // Arrange
         const lintPaths = ['./lint-me', '🐝'];
 
@@ -238,7 +238,7 @@ describe('javascript config', () => {
         expect(config.js.usePackageVersion).toBe(false);
     });
 
-    it('usePackageVersion can be updated', () => {
+    it('`usePackageVersion` can be updated', () => {
         // Arrange
         const usePackageVersion = true;
 
@@ -257,7 +257,7 @@ describe('javascript config', () => {
         expect(config.js.stripDebug).toBe(true);
     });
 
-    it('strip debug can be updated', () => {
+    it('`stripDebug` can be updated', () => {
         // Arrange
         const stripDebug = false;
 
@@ -272,11 +272,11 @@ describe('javascript config', () => {
 
 describe('image config', () => {
 
-    it('image directory should be set', () => {
+    it('`imgDir` should be set', () => {
         expect(config.img.imgDir).toBe('img');
     });
 
-    it('image directory can be updated', () => {
+    it('`imgDir` can be updated', () => {
         // Arrange
         const imgDir = 'images';
 
@@ -287,11 +287,11 @@ describe('image config', () => {
         expect(config.img.imgDir).toBe(imgDir);
     });
 
-    it('svg sprite filename should be set', () => {
+    it('`svgSpriteFilename` should be set', () => {
         expect(config.img.svgSpriteFilename).toBe('sprite.svg');
     });
 
-    it('svg sprite filename can be updated', () => {
+    it('`svgSpriteFilename` can be updated', () => {
         // Arrange
         const svgSpriteFilename = 'fairy.svg';
 
@@ -306,11 +306,11 @@ describe('image config', () => {
 
 describe('imported assets config', () => {
 
-    it('imported assets source glob should be set', () => {
+    it('`importedAssetsSrcGlob` should be set', () => {
         expect(config.importedAssets.importedAssetsSrcGlob).toBe('node_modules/@justeat/*/');
     });
 
-    it('imported assets source glob can be updated', () => {
+    it('`importedAssetsSrcGlob` can be updated', () => {
         // Arrange
         const importedAssetsSrcGlob = 'node_modules/*/';
 
@@ -321,11 +321,11 @@ describe('imported assets config', () => {
         expect(config.importedAssets.importedAssetsSrcGlob).toBe(importedAssetsSrcGlob);
     });
 
-    it('verbose should be true', () => {
+    it('`verbose` should be true', () => {
         expect(config.importedAssets.verbose).toBe(true);
     });
 
-    it('verbose can be updated', () => {
+    it('`verbose` can be updated', () => {
         // Arrange
         const verbose = false;
 
@@ -340,11 +340,11 @@ describe('imported assets config', () => {
 
 describe('service worker config', () => {
 
-    it('is enabled should be false', () => {
+    it('`isEnabled` should be false', () => {
         expect(config.sw.isEnabled).toBe(false);
     });
 
-    it('is enabled can be updated', () => {
+    it('`isEnabled` can be updated', () => {
         // Arrange
         const isEnabled = true;
 
@@ -355,11 +355,11 @@ describe('service worker config', () => {
         expect(config.sw.isEnabled).toBe(isEnabled);
     });
 
-    it('service worker directory should be set', () => {
+    it('`swDir` should be set', () => {
         expect(config.sw.swDir).toBe('sw');
     });
 
-    it('service worker directory can be updated', () => {
+    it('`swDir` can be updated', () => {
         // Arrange
         const swDir = 'service-worker';
 
@@ -370,11 +370,11 @@ describe('service worker config', () => {
         expect(config.sw.swDir).toBe(swDir);
     });
 
-    it('output filename should be set', () => {
+    it('`outputFile` should be set', () => {
         expect(config.sw.outputFile).toBe('service-worker.js');
     });
 
-    it('output filename can be updated', () => {
+    it('`outputFile` can be updated', () => {
         // Arrange
         const outputFile = 'sw.js';
 
@@ -385,11 +385,11 @@ describe('service worker config', () => {
         expect(config.sw.outputFile).toBe(outputFile);
     });
 
-    it('static file globs should be set', () => {
+    it('`staticFileGlobs` should be set', () => {
         expect(config.sw.staticFileGlobs).toEqual([]);
     });
 
-    it('static file globs can be updated', () => {
+    it('`staticFileGlobs` can be updated', () => {
         // Arrange
         const staticFileGlobs = ['./glob', '🛰'];
 
@@ -400,11 +400,11 @@ describe('service worker config', () => {
         expect(config.sw.staticFileGlobs).toEqual(staticFileGlobs);
     });
 
-    it('dynamic file regex should be set', () => {
+    it('`dynamicFileRegex` should be set', () => {
         expect(config.sw.dynamicFileRegex).toEqual([]);
     });
 
-    it('dynamic file regex can be updated', () => {
+    it('`dynamicFileRegex` can be updated', () => {
         // Arrange
         const dynamicFileRegex = ['regex', '🗡'];
 
@@ -415,11 +415,11 @@ describe('service worker config', () => {
         expect(config.sw.dynamicFileRegex).toEqual(dynamicFileRegex);
     });
 
-    it('dynamic file strategy should be set', () => {
+    it('`dynamicFileStrategy` should be set', () => {
         expect(config.sw.dynamicFileStrategy).toBe('cacheFirst');
     });
 
-    it('dynamic file strategy can be updated', () => {
+    it('`dynamicFileStrategy` can be updated', () => {
         // Arrange
         const dynamicFileStrategy = 'networkFirst';
 
@@ -430,11 +430,11 @@ describe('service worker config', () => {
         expect(config.sw.dynamicFileStrategy).toBe(dynamicFileStrategy);
     });
 
-    it('import scripts should be set', () => {
+    it('`importScripts` should be set', () => {
         expect(config.sw.importScripts).toEqual([]);
     });
 
-    it('import scripts can be updated', () => {
+    it('`importScripts` can be updated', () => {
         // Arrange
         const importScripts = ['script.js'];
 
@@ -445,11 +445,11 @@ describe('service worker config', () => {
         expect(config.sw.importScripts).toEqual(importScripts);
     });
 
-    it('cache id should be set', () => {
+    it('`cacheId` should be set', () => {
         expect(config.sw.cacheId).toBe('');
     });
 
-    it('cache id can be updated', () => {
+    it('`cacheId` can be updated', () => {
         // Arrange
         const cacheId = 'id-1';
 
@@ -463,11 +463,11 @@ describe('service worker config', () => {
 
 describe('copy config', () => {
 
-    it('copy javascript config should be set', () => {
+    it('copy js config should be set', () => {
         expect(config.copy.js).toEqual({});
     });
 
-    it('copy javascript config can be updated', () => {
+    it('copy js config can be updated', () => {
         // Arrange
         const js = {
             scripts: {
@@ -505,11 +505,11 @@ describe('copy config', () => {
         expect(config.copy.css).toEqual(css);
     });
 
-    it('copy image config should be set', () => {
+    it('copy img config should be set', () => {
         expect(config.copy.img).toEqual({});
     });
 
-    it('copy image config can be updated', () => {
+    it('copy img config can be updated', () => {
         // Arrange
         const img = {
             images: {
@@ -551,11 +551,11 @@ describe('copy config', () => {
 
 describe('documentation config', () => {
 
-    it('root directory should be set', () => {
+    it('`rootDir` should be set', () => {
         expect(config.docs.rootDir).toBe('./docs');
     });
 
-    it('root directory can be updated', () => {
+    it('`rootDir` can be updated', () => {
         // Arrange
         const rootDir = 'documentation';
 
@@ -566,11 +566,11 @@ describe('documentation config', () => {
         expect(config.docs.rootDir).toBe(rootDir);
     });
 
-    it('src directory should be set', () => {
+    it('`srcDir` should be set', () => {
         expect(config.docs.srcDir).toBe('src');
     });
 
-    it('src directory can be updated', () => {
+    it('`srcDir` can be updated', () => {
         // Arrange
         const srcDir = 'source';
 
@@ -581,11 +581,11 @@ describe('documentation config', () => {
         expect(config.docs.srcDir).toBe(srcDir);
     });
 
-    it('dist directory should be set', () => {
+    it('`distDir` should be set', () => {
         expect(config.docs.distDir).toBe('dist');
     });
 
-    it('dist directory can be updated', () => {
+    it('`distDir` can be updated', () => {
         // Arrange
         const distDir = 'distribution';
 
@@ -596,11 +596,11 @@ describe('documentation config', () => {
         expect(config.docs.distDir).toBe(distDir);
     });
 
-    it('asset directory should be set', () => {
+    it('`assetDir` should be set', () => {
         expect(config.docs.assetDir).toBe('assets/');
     });
 
-    it('asset directory can be updated', () => {
+    it('`assetDir` can be updated', () => {
         // Arrange
         const assetDir = 'assets-dir';
 
@@ -611,11 +611,11 @@ describe('documentation config', () => {
         expect(config.docs.assetDir).toBe(assetDir);
     });
 
-    it('template directory should be set', () => {
+    it('`templDir` should be set', () => {
         expect(config.docs.templDir).toBe('templates');
     });
 
-    it('template directory can be updated', () => {
+    it('`templDir` can be updated', () => {
         // Arrange
         const templDir = 'tmpl';
 
@@ -626,11 +626,11 @@ describe('documentation config', () => {
         expect(config.docs.templDir).toBe(templDir);
     });
 
-    it('data directory should be set', () => {
+    it('`dataDir` should be set', () => {
         expect(config.docs.dataDir).toBe('data');
     });
 
-    it('data directory can be updated', () => {
+    it('`dataDir` can be updated', () => {
         // Arrange
         const dataDir = 'data-dir';
 
@@ -641,11 +641,11 @@ describe('documentation config', () => {
         expect(config.docs.dataDir).toBe(dataDir);
     });
 
-    it('output assets should be false', () => {
+    it('`outputAssets` should be false', () => {
         expect(config.docs.outputAssets).toBe(false);
     });
 
-    it('output assets can be updated', () => {
+    it('`outputAssets` can be updated', () => {
         // Arrange
         const outputAssets = true;
 
@@ -656,11 +656,11 @@ describe('documentation config', () => {
         expect(config.docs.outputAssets).toBe(outputAssets);
     });
 
-    it('remote base should be set', () => {
+    it('`remoteBase` should be set', () => {
         expect(config.docs.remoteBase).toBe('');
     });
 
-    it('remote base can be updated', () => {
+    it('`remoteBase` can be updated', () => {
         // Arrange
         const remoteBase = 'remote';
 
@@ -672,18 +672,18 @@ describe('documentation config', () => {
     });
 
 
-    it('helpers should be an object', () => {
+    it('`helpers` should be an object', () => {
         expect(typeof config.docs.helpers).toBe('object');
     });
 });
 
 describe('fonts config', () => {
 
-    it('fonts directory should be set', () => {
+    it('`fontsDir` should be set', () => {
         expect(config.fonts.fontsDir).toBe('fonts');
     });
 
-    it('fonts directory can be updated', () => {
+    it('`fontsDir` can be updated', () => {
         // Arrange
         const fontsDir = 'text';
 
@@ -698,11 +698,11 @@ describe('fonts config', () => {
 
 describe('browserSync config', () => {
 
-    it('files should be set', () => {
+    it('`files` should be set', () => {
         expect(config.browserSync.files).toEqual([]);
     });
 
-    it('files can be updated', () => {
+    it('`files` can be updated', () => {
         // Arrange
         const files = ['/**/*'];
 
@@ -713,11 +713,11 @@ describe('browserSync config', () => {
         expect(config.browserSync.files).toBe(files);
     });
 
-    it('proxy should be set', () => {
+    it('`proxy` should be set', () => {
         expect(config.browserSync.proxy).toBe('');
     });
 
-    it('proxy can be updated', () => {
+    it('`proxy` can be updated', () => {
         // Arrange
         const proxy = 'localhost';
 
@@ -728,11 +728,11 @@ describe('browserSync config', () => {
         expect(config.browserSync.proxy).toBe(proxy);
     });
 
-    it('reload debounce should be set', () => {
+    it('`reloadDebounce` should be set', () => {
         expect(config.browserSync.reloadDebounce).toBe(1000);
     });
 
-    it('reload debounce can be updated', () => {
+    it('`reloadDebounce` can be updated', () => {
         // Arrange
         const reloadDebounce = 9001;
 
@@ -747,11 +747,11 @@ describe('browserSync config', () => {
 
 describe('miscellaneous config', () => {
 
-    it('show file size should be true', () => {
+    it('`showFileSize` should be true', () => {
         expect(config.misc.showFileSize).toBe(true);
     });
 
-    it('show file size can be updated', () => {
+    it('`showFileSize`can be updated', () => {
         // Arrange
         const showFileSize = false;
 
@@ -762,11 +762,11 @@ describe('miscellaneous config', () => {
         expect(config.misc.showFileSize).toBe(showFileSize);
     });
 
-    it('show files should be true', () => {
+    it('`showFiles` should be true', () => {
         expect(config.misc.showFiles).toBe(true);
     });
 
-    it('show files can be updated', () => {
+    it('`showFiles` can be updated', () => {
         // Arrange
         const showFiles = false;
 
@@ -780,11 +780,11 @@ describe('miscellaneous config', () => {
 
 describe('gulp config', () => {
 
-    it('change event should be a function', () => {
+    it('`changeEvent` should be a function', () => {
         expect(typeof config.gulp.changeEvent).toBe('function');
     });
 
-    it('change event can be updated', () => {
+    it('`changeEvent` can be updated', () => {
         // Arrange
         const changeEvent = () => 'changed!';
 
@@ -795,11 +795,11 @@ describe('gulp config', () => {
         expect(config.gulp.changeEvent).toBe(changeEvent);
     });
 
-    it('on error should be a function', () => {
+    it('`onError` should be a function', () => {
         expect(typeof config.gulp.onError).toBe('function');
     });
 
-    it('on error can be updated', () => {
+    it('`onError` can be updated', () => {
         // Arrange
         const onError = () => 'error!';
 
