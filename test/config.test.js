@@ -155,6 +155,17 @@ describe('css config', () => {
     it('`usePackageVersion` should be set to `false` by default', () => {
         expect(config.css.usePackageVersion).toBe(false);
     });
+
+    it('usePackageVersion can be updated', () => {
+        // Arrange
+        const usePackageVersion = true;
+
+        // Act
+        config.update({ css: { usePackageVersion } });
+
+        // Assert
+        expect(config.css.usePackageVersion).toBe(usePackageVersion);
+    });
 });
 
 describe('javascript config', () => {
@@ -172,6 +183,21 @@ describe('javascript config', () => {
 
         // Assert
         expect(config.js.files.main.srcPath).toBe(srcPath);
+    });
+
+    it('dist file should be set', () => {
+        expect(config.js.files.main.distFile).toBe('script.js');
+    });
+
+    it('dist file can be updated', () => {
+        // Arrange
+        const distFile = 'app.js';
+
+        // Act
+        config.update({ js: { files: { main: { distFile } } } });
+
+        // Assert
+        expect(config.js.files.main.distFile).toBe(distFile);
     });
 
     it('javascript directory should be set', () => {
@@ -204,27 +230,42 @@ describe('javascript config', () => {
         expect(config.js.lintPaths).toEqual(lintPaths);
     });
 
-    it('dist file should be set', () => {
-        expect(config.js.files.main.distFile).toBe('script.js');
-    });
-
-    it('dist file can be updated', () => {
-        // Arrange
-        const distFile = 'app.js';
-
-        // Act
-        config.update({ js: { files: { main: { distFile } } } });
-
-        // Assert
-        expect(config.js.files.main.distFile).toBe(distFile);
-    });
-
     it('`usePackageVersion` should exist', () => {
         expect(config.js.usePackageVersion).toBeDefined();
     });
 
     it('`usePackageVersion` should be set to `false` by default', () => {
         expect(config.js.usePackageVersion).toBe(false);
+    });
+
+    it('usePackageVersion can be updated', () => {
+        // Arrange
+        const usePackageVersion = true;
+
+        // Act
+        config.update({ js: { usePackageVersion } });
+
+        // Assert
+        expect(config.js.usePackageVersion).toBe(usePackageVersion);
+    });
+
+    it('`stripDebug` should exist', () => {
+        expect(config.js.stripDebug).toBeDefined();
+    });
+
+    it('`stripDebug` should be set to `true` by default', () => {
+        expect(config.js.stripDebug).toBe(true);
+    });
+
+    it('strip debug can be updated', () => {
+        // Arrange
+        const stripDebug = false;
+
+        // Act
+        config.update({ js: { stripDebug } });
+
+        // Assert
+        expect(config.js.stripDebug).toBe(stripDebug);
     });
 
 });
