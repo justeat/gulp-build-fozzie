@@ -46,7 +46,7 @@ gulp.task('images:optimise', () => gulp.src(`${pathBuilder.imgSrcDir}/**`)
         imagemin.optipng({ optimizationLevel: 5 }),
         imagemin.svgo({
             plugins: [
-                {removeViewBox: false}
+                { removeViewBox: false }
             ]
         })
     ], { verbose: config.isDev }))
