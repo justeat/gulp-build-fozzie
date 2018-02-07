@@ -117,6 +117,11 @@ gulp.task('scripts:bundle', () => {
 
             .pipe(rename(distFile))
 
+            // If the package version name is set to `true`, version the js file name with the package number.
+            .pipe(gulpif(config.js.usePackageVersion,
+                rename({ suffix: `-${config.packageVersion}` })
+            ))
+
             // output the unminified JS files
             .pipe(gulp.dest(pathBuilder.jsDistDir))
 
