@@ -177,6 +177,13 @@ Runs the following tasks
   - Minify the JavaScript
   - Add hashed version to file name
   - Output bundle to the dist directory
+  
+### `logger-file`
+  
+Runs the following tasks
+
+- #### `logger-file:logger-file-create`
+  Add the server-side file required for the errorLogger to be inserted into the filesystem.
 
 ### `images`
 
@@ -306,6 +313,11 @@ Here is the outline of the configuration options, descriptions of each are below
         lintPaths,
         usePackageVersion,
         stripDebug
+    },
+    logger: {
+        dir,
+        subDir,
+        file
     },
     img: {
         imgDir,

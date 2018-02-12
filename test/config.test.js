@@ -270,6 +270,37 @@ describe('javascript config', () => {
 
 });
 
+
+describe('`logger` config', () => {
+    it('should exist', () => {
+        expect(config.logger).toBeDefined();
+    });
+
+    describe('`dir` it should exist', () => {
+        expect(config.logger.dir).toBeDefined();
+
+        it('should set the correct directory', () => {
+            expect(config.logger.dir).toBe('JavaScript');
+        });
+    });
+
+    describe('`subDir` it should exist', () => {
+        expect(config.logger.subDir).toBeDefined();
+
+        it('should set the correct subdirectory', () => {
+            expect(config.logger.subDir).toBe('Shared');
+        });
+    });
+
+    describe('`file` it should exist', () => {
+        expect(config.logger.file).toBeDefined();
+
+        it('should set the correct file', () => {
+            expect(config.logger.file).toBe('js-error.js');
+        });
+    });
+});
+
 describe('image config', () => {
 
     it('`imgDir` should be set', () => {
