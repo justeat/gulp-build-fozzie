@@ -276,28 +276,52 @@ describe('`logger` config', () => {
         expect(config.logger).toBeDefined();
     });
 
-    describe('`dir` it should exist', () => {
+    // `logger.dir`
+    it('`logger.dir` should exist', () => {
         expect(config.logger.dir).toBeDefined();
-
-        it('should set the correct directory', () => {
-            expect(config.logger.dir).toBe('JavaScript');
-        });
     });
 
-    describe('`subDir` it should exist', () => {
+    it('`logger.dir` can be updated', () => {
+        // Arrange
+        const dir = 'Some other directory';
+
+        // Act
+        config.update({ flogger: { dir } });
+
+        // Assert
+        expect(config.logger.dir).toBe(dir);
+    });
+
+    // `logger.subDir`
+    it('`logger.subDir` should exist', () => {
         expect(config.logger.subDir).toBeDefined();
-
-        it('should set the correct subdirectory', () => {
-            expect(config.logger.subDir).toBe('Shared');
-        });
     });
 
-    describe('`file` it should exist', () => {
-        expect(config.logger.file).toBeDefined();
+    it('`logger.subDir` can be updated', () => {
+        // Arrange
+        const subDir = 'Some other sub directory';
 
-        it('should set the correct file', () => {
-            expect(config.logger.file).toBe('js-error.js');
-        });
+        // Act
+        config.update({ flogger: { subDir } });
+
+        // Assert
+        expect(config.logger.subDir).toBe(subDir);
+    });
+
+    // `logger.file`
+    it('`logger.file` should exist', () => {
+        expect(config.logger.subDir).toBeDefined();
+    });
+
+    it('`logger.file` can be updated', () => {
+        // Arrange
+        const file = 'Some new file';
+
+        // Act
+        config.update({ flogger: { file } });
+
+        // Assert
+        expect(config.logger.file).toBe(file);
     });
 });
 

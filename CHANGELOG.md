@@ -5,13 +5,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 v7.12.0
 ------------------------------
-*February 12, 2018*
+*February 13, 2018*
+
+### Added
+- `gulp-file` to dependencies
 
 ### Changed
 - Add `logger-file.js` to tasks - this will add the server-side file required for the errorLogger to be inserted into the filesystem
 - Add logger paths to config
 - Add logger paths to pathbuilder
 - Updated unit tests
+- Added `.idea` to `gitignore`
 
 v7.11.0
 ------------------------------

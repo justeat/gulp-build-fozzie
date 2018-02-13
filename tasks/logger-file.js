@@ -1,7 +1,9 @@
 const gulp = require('gulp');
 const pathBuilder = require('../pathBuilder');
 const config = require('../config');
+const file = require('gulp-file');
 const fs = require('fs');
+const gulpif = require('gulp-if');
 
 /**
  *  `logger-file-create` Task
@@ -9,11 +11,7 @@ const fs = require('fs');
  *
  */
 
-gulp.task('logger-file-create', () => {
-    const fullFilePath = `${pathBuilder.jsErrorLoggerSubDir}/${config.logger.file}`;
-    if (!fs.existsSync(fullFilePath)) {
-        fs.mkdirSync(`${pathBuilder.jsErrorLoggerDir}`);
-        fs.mkdirSync(`${pathBuilder.jsErrorLoggerSubDir}`);
-        fs.writeFileSync(fullFilePath, '//empty file');
-    }
-});
+gulp.task('logger:createFile', () => file(config.logger.file, '', { src: true })
+    .pipe(gulpif(!fs.existsSync(`${pathBuilder.jsErrorLoggerSubDir}/${config.logger.file}`),
+        gulp.dest(pathBuilder.jsErrorLoggerSubDir)))
+);
