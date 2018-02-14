@@ -276,12 +276,12 @@ describe('`logger` config', () => {
     const dir = 'A directory';
     const subDir = 'A sub directory';
     const file = 'A file';
-    
+
     beforeEach(() => {
         // Act
-        config.update({ logger: { dir,  subDir, file } });
+        config.update({ logger: { dir, subDir, file } });
     });
-    
+
     it('should exist', () => {
         // Assert
         expect(config.logger).toBeDefined();
