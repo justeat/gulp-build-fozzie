@@ -283,11 +283,13 @@ describe('`logger` config', () => {
     });
     
     it('should exist', () => {
+        // Assert
         expect(config.logger).toBeDefined();
     });
 
     // `logger.dir`
     it('`dir` should exist', () => {
+        // Assert
         expect(config.logger.dir).toBeDefined();
     });
 
@@ -298,6 +300,7 @@ describe('`logger` config', () => {
 
     // `logger.subDir`
     it('`subDir` should exist', () => {
+        // Assert
         expect(config.logger.subDir).toBeDefined();
     });
 
@@ -308,6 +311,7 @@ describe('`logger` config', () => {
 
     // `logger.file`
     it('`file` should exist', () => {
+        // Assert
         expect(config.logger.subDir).toBeDefined();
     });
 
