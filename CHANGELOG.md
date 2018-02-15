@@ -5,7 +5,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 v7.12.0
 ------------------------------
-*February 13, 2018*
+*February 15, 2018*
 
 ### Added
 - `gulp-file` to dependencies
@@ -16,6 +16,10 @@ v7.12.0
 - Add logger paths to pathbuilder
 - Updated unit tests
 - Added `.idea` to `gitignore`
+- Updated `config.dir` to be `js`
+
+### Remove
+- Removed `jsErrorLoggerDir` from `pathBuilder.js`
 
 v7.11.0
 ------------------------------
