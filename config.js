@@ -55,7 +55,7 @@ const ConfigOptions = () => {
          */
         logger: {
             dir: 'js',
-            subDir: 'Shared',
+            subDir: 'shared',
             file: 'js-error.js'
         },
 

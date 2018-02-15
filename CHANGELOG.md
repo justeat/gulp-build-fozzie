@@ -16,7 +16,8 @@ v7.12.0
 - Add logger paths to pathbuilder
 - Updated unit tests
 - Added `.idea` to `gitignore`
-- Updated `config.dir` to be `js`
+- Updated `config.logger.dir` to be `js`
+- Updated `config.logger.subDir` to be `shared`
 
 ### Remove
 - Removed `jsErrorLoggerDir` from `pathBuilder.js`

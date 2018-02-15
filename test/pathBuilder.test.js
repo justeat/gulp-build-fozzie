@@ -34,7 +34,7 @@ describe('javascript paths', () => {
 
 describe('`logger` path', () => {
     it('`jsErrorLoggerSubDir` path should be correct', () => {
-        expect(pathBuilder.jsErrorLoggerSubDir).toBe('./js/Shared');
+        expect(pathBuilder.jsErrorLoggerSubDir).toBe('./js/shared');
     });
 });
 
