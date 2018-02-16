@@ -18,6 +18,7 @@ v7.12.0
 - Added `.idea` to `gitignore`
 - Updated `config.logger.dir` to be `js`
 - Updated `config.logger.subDir` to be `shared`
+- Updated `readme` docs
 
 ### Remove
 - Removed `jsErrorLoggerDir` from `pathBuilder.js`

@@ -316,7 +316,6 @@ Here is the outline of the configuration options, descriptions of each are below
     },
     logger: {
         dir,
-        subDir,
         file
     },
     img: {
@@ -546,6 +545,24 @@ Will add a content hash to the JS and CSS filenames, generating a new filename i
   `gulp scripts:bundle --noStripDebug`
 
   **For non-production builds, the flag has no effect: you will still get debug statements even if include the flag.**
+
+### `logger`
+
+- #### `dir`
+
+  Type: `string`
+
+  Default: `'js/shared'`
+
+  Name of the directory where your js error logger file will live.
+  
+- #### `file`
+
+  Type: `string`
+
+  Default: `'js-error.js'`
+
+  Name of the error logger file.
 
 ### `img`
 
