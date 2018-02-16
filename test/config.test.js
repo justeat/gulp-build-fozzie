@@ -272,50 +272,36 @@ describe('javascript config', () => {
 
 
 describe('`logger` config', () => {
-    // Arrange
-    const dir = 'A directory';
-    const subDir = 'A sub directory';
-    const file = 'A file';
-
-    beforeEach(() => {
-        // Act
-        config.update({ logger: { dir, subDir, file } });
-    });
-
     it('should exist', () => {
-        // Assert
         expect(config.logger).toBeDefined();
     });
 
-    // `logger.dir`
-    it('`dir` should exist', () => {
-        // Assert
-        expect(config.logger.dir).toBeDefined();
+    it('`dir` should be set', () => {
+        expect(config.logger.dir).toBe('js');
     });
 
     it('`dir` can be updated', () => {
+        // Arrange
+        const dir = 'logger/dir';
+
+        // Act
+        config.update({ logger: { dir } });
+
         // Assert
         expect(config.logger.dir).toBe(dir);
     });
 
-    // `logger.subDir`
-    it('`subDir` should exist', () => {
-        // Assert
-        expect(config.logger.subDir).toBeDefined();
-    });
-
-    it('`subDir` can be updated', () => {
-        // Assert
-        expect(config.logger.subDir).toBe(subDir);
-    });
-
-    // `logger.file`
-    it('`file` should exist', () => {
-        // Assert
-        expect(config.logger.subDir).toBeDefined();
+    it('`file` should be set', () => {
+        expect(config.logger.file).toBe('js-error.js');
     });
 
     it('`file` can be updated', () => {
+        // Arrange
+        const file = 'logger.js';
+
+        // Act
+        config.update({ logger: { file } });
+
         // Assert
         expect(config.logger.file).toBe(file);
     });

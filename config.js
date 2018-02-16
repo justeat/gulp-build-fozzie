@@ -186,6 +186,7 @@ const ConfigOptions = () => {
                         main: Object.assign(config.js.files.main, (options.js && options.js.files ? options.js.files.main : {}))
                     })
                 }),
+                logger: Object.assign(config.logger, options.logger),
                 img: Object.assign(config.img, options.img),
                 importedAssets: Object.assign(config.importedAssets, options.importedAssets),
                 sw: Object.assign(config.sw, options.sw),
