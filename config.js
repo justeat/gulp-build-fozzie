@@ -54,8 +54,7 @@ const ConfigOptions = () => {
          * f-logger-related variables
          */
         logger: {
-            dir: 'js',
-            subDir: 'shared',
+            dir: 'js/shared',
             file: 'js-error.js'
         },
 

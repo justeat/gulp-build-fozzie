@@ -12,6 +12,6 @@ const gulpif = require('gulp-if');
  */
 
 gulp.task('logger:createFile', () => file(config.logger.file, '', { src: true })
-    .pipe(gulpif(!fs.existsSync(`${pathBuilder.jsErrorLoggerSubDir}/${config.logger.file}`),
-        gulp.dest(pathBuilder.jsErrorLoggerSubDir)))
+    .pipe(gulpif(!fs.existsSync(`${pathBuilder.jsErrorLoggerDir}/${config.logger.file}`),
+        gulp.dest(pathBuilder.jsErrorLoggerDir)))
 );

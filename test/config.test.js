@@ -277,7 +277,7 @@ describe('`logger` config', () => {
     });
 
     it('`dir` should be set', () => {
-        expect(config.logger.dir).toBe('js');
+        expect(config.logger.dir).toBe('js/shared');
     });
 
     it('`dir` can be updated', () => {

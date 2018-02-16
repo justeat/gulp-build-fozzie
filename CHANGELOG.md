@@ -5,7 +5,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 v7.12.0
 ------------------------------
-*February 15, 2018*
+*February 16, 2018*
 
 ### Added
 - `gulp-file` to dependencies
