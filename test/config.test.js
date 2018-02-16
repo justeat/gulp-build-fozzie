@@ -270,6 +270,43 @@ describe('javascript config', () => {
 
 });
 
+
+describe('`logger` config', () => {
+    it('should exist', () => {
+        expect(config.logger).toBeDefined();
+    });
+
+    it('`dir` should be set', () => {
+        expect(config.logger.dir).toBe('js/shared');
+    });
+
+    it('`dir` can be updated', () => {
+        // Arrange
+        const dir = 'logger/dir';
+
+        // Act
+        config.update({ logger: { dir } });
+
+        // Assert
+        expect(config.logger.dir).toBe(dir);
+    });
+
+    it('`file` should be set', () => {
+        expect(config.logger.file).toBe('js-error.js');
+    });
+
+    it('`file` can be updated', () => {
+        // Arrange
+        const file = 'logger.js';
+
+        // Act
+        config.update({ logger: { file } });
+
+        // Assert
+        expect(config.logger.file).toBe(file);
+    });
+});
+
 describe('image config', () => {
 
     it('`imgDir` should be set', () => {

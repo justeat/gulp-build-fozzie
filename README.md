@@ -177,6 +177,13 @@ Runs the following tasks
   - Minify the JavaScript
   - Add hashed version to file name
   - Output bundle to the dist directory
+  
+### `logger-file`
+  
+Runs the following tasks
+
+- #### `logger-file:logger-file-create`
+  Add the server-side file required for the errorLogger to be inserted into the filesystem.
 
 ### `images`
 
@@ -306,6 +313,10 @@ Here is the outline of the configuration options, descriptions of each are below
         lintPaths,
         usePackageVersion,
         stripDebug
+    },
+    logger: {
+        dir,
+        file
     },
     img: {
         imgDir,
@@ -534,6 +545,24 @@ Will add a content hash to the JS and CSS filenames, generating a new filename i
   `gulp scripts:bundle --noStripDebug`
 
   **For non-production builds, the flag has no effect: you will still get debug statements even if include the flag.**
+
+### `logger`
+
+- #### `dir`
+
+  Type: `string`
+
+  Default: `'js/shared'`
+
+  Name of the directory where your js error logger file will live.
+  
+- #### `file`
+
+  Type: `string`
+
+  Default: `'js-error.js'`
+
+  Name of the error logger file.
 
 ### `img`
 

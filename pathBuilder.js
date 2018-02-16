@@ -14,6 +14,8 @@ const buildPaths = config => {
         jsSrcDir: `${config.assetSrcDir}/${config.js.jsDir}`,
         jsDistDir: `${config.assetDistDir}/${config.js.jsDir}`,
 
+        jsErrorLoggerDir: `${config.webRootDir}/${config.logger.dir}`,
+
         imgSrcDir: `${config.assetSrcDir}/${config.img.imgDir}`,
         imgDistDir: `${config.assetDistDir}/${config.img.imgDir}`,
 

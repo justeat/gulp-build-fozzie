@@ -3,6 +3,26 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v7.12.0
+------------------------------
+*February 16, 2018*
+
+### Added
+- `gulp-file` to dependencies
+
+### Changed
+- Add `logger-file.js` to tasks - this will add the server-side file required for the errorLogger to be inserted into the filesystem
+- Add logger paths to config
+- Add logger paths to pathbuilder
+- Updated unit tests
+- Added `.idea` to `gitignore`
+- Updated `config.logger.dir` to be `js`
+- Updated `config.logger.subDir` to be `shared`
+- Updated `readme` docs
+
+### Remove
+- Removed `jsErrorLoggerDir` from `pathBuilder.js`
+
 v7.11.0
 ------------------------------
 *February 7, 2018*

@@ -51,6 +51,14 @@ const ConfigOptions = () => {
         },
 
         /**
+         * f-logger-related variables
+         */
+        logger: {
+            dir: 'js/shared',
+            file: 'js-error.js'
+        },
+
+        /**
          * Image-related variables
          */
         img: {
@@ -177,6 +185,7 @@ const ConfigOptions = () => {
                         main: Object.assign(config.js.files.main, (options.js && options.js.files ? options.js.files.main : {}))
                     })
                 }),
+                logger: Object.assign(config.logger, options.logger),
                 img: Object.assign(config.img, options.img),
                 importedAssets: Object.assign(config.importedAssets, options.importedAssets),
                 sw: Object.assign(config.sw, options.sw),
