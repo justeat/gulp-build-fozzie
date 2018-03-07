@@ -10,6 +10,7 @@ v7.13.0
 ### Changed
 - Default gulp tasks so that the logger file is created when gulp is run.
 - Updated the pathBuilder `jsErrorLoggerDir` property to `assetDistDir` so it outputs in the correct directory.
+- Updated `pathBuilder` unit tests.
 
 v7.12.0
 ------------------------------
