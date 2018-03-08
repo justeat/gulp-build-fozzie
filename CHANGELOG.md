@@ -5,7 +5,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 v7.13.0
 ------------------------------
-*March 7, 2018*
+*March 8, 2018*
 
 ### Changed
 - Default gulp tasks so that the logger file is created when gulp is run.
