@@ -178,12 +178,9 @@ Runs the following tasks
   - Add hashed version to file name
   - Output bundle to the dist directory
   
-### `logger-file`
+### `logger:createFile`
   
-Runs the following tasks
-
-- #### `logger-file:logger-file-create`
-  Add the server-side file required for the errorLogger to be inserted into the filesystem.
+Adds the server-side file required for the errorLogger to be inserted into the filesystem.
 
 ### `images`
 
