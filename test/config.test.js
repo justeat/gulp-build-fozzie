@@ -1,7 +1,12 @@
+const gutil = require('gulp-util');
+
+// Mock the log function
+const logMock = jest.fn();
+gutil.log = logMock;
+
 const config = require('../config');
 
 describe('environment config', () => {
-
     it('`isProduction` should be false', () => {
         expect(config.isProduction).toBe(false);
     });
@@ -86,8 +91,8 @@ describe('environment config', () => {
     });
 });
 
-describe('css config', () => {
 
+describe('css config', () => {
     it('`scssDir` should be set', () => {
         expect(config.css.scssDir).toBe('scss');
     });
@@ -169,7 +174,6 @@ describe('css config', () => {
 });
 
 describe('javascript config', () => {
-
     it('`srcPath` for bundle should be set', () => {
         expect(config.js.files.main.srcPath).toBe('index.js');
     });
@@ -267,7 +271,6 @@ describe('javascript config', () => {
         // Assert
         expect(config.js.stripDebug).toBe(stripDebug);
     });
-
 });
 
 
@@ -375,8 +378,8 @@ describe('imported assets config', () => {
 
 });
 
-describe('service worker config', () => {
 
+describe('service worker config', () => {
     it('`isEnabled` should be false', () => {
         expect(config.sw.isEnabled).toBe(false);
     });
@@ -498,8 +501,8 @@ describe('service worker config', () => {
     });
 });
 
-describe('copy config', () => {
 
+describe('copy config', () => {
     it('copy js config should be set', () => {
         expect(config.copy.js).toEqual({});
     });
@@ -583,11 +586,10 @@ describe('copy config', () => {
         // Assert
         expect(config.copy.fonts).toEqual(fonts);
     });
-
 });
 
-describe('documentation config', () => {
 
+describe('documentation config', () => {
     it('`rootDir` should be set', () => {
         expect(config.docs.rootDir).toBe('./docs');
     });
@@ -730,11 +732,10 @@ describe('fonts config', () => {
         // Assert
         expect(config.fonts.fontsDir).toBe(fontsDir);
     });
-
 });
 
-describe('browserSync config', () => {
 
+describe('browserSync config', () => {
     it('`files` should be set', () => {
         expect(config.browserSync.files).toEqual([]);
     });
@@ -779,11 +780,10 @@ describe('browserSync config', () => {
         // Assert
         expect(config.browserSync.reloadDebounce).toBe(reloadDebounce);
     });
-
 });
 
-describe('miscellaneous config', () => {
 
+describe('miscellaneous config', () => {
     it('`showFileSize` should be true', () => {
         expect(config.misc.showFileSize).toBe(true);
     });
@@ -813,53 +813,4 @@ describe('miscellaneous config', () => {
         // Assert
         expect(config.misc.showFiles).toBe(showFiles);
     });
-});
-
-describe('gulp config', () => {
-
-    it('`changeEvent` should be a function', () => {
-        expect(typeof config.gulp.changeEvent).toBe('function');
-    });
-
-    it('`changeEvent` can be updated', () => {
-        // Arrange
-        const changeEvent = () => 'changed!';
-
-        // Act
-        config.update({ gulp: { changeEvent } });
-
-        // Assert
-        expect(config.gulp.changeEvent).toBe(changeEvent);
-    });
-
-    it('`onError` should be a function', () => {
-        expect(typeof config.gulp.onError).toBe('function');
-    });
-
-    it('`onError` can be updated', () => {
-        // Arrange
-        const onError = () => 'error!';
-
-        // Act
-        config.update({ gulp: { onError } });
-
-        // Assert
-        expect(config.gulp.onError).toBe(onError);
-    });
-
-});
-
-describe('config update', () => {
-
-    it('passing empty object should not override entire config', () => {
-        // Arrange
-        const newConfig = {};
-
-        // Act
-        config.update(newConfig);
-
-        // Assert
-        expect(config).not.toEqual({});
-    });
-
 });

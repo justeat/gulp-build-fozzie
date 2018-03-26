@@ -125,6 +125,11 @@ gulp.task('scripts:bundle', () => {
             // output the unminified JS files
             .pipe(gulp.dest(pathBuilder.jsDistDir))
 
+            // output the unminified JS files to docs assets folder
+            .pipe(gulpif(config.docs.outputAssets,
+                gulp.dest(pathBuilder.docsJsDistDir)
+            ))
+
             // output the size of the unminified JS
             .pipe(gulpif(config.misc.showFileSize,
                 size({
