@@ -1,15 +1,39 @@
+const gutil = require('gulp-util');
+const cloneDeep = require('lodash.clonedeep');
+
+// Mock the log function to capture log outputs
+const logMock = jest.fn();
+gutil.log = logMock;
+
 const pathBuilder = require('../pathBuilder');
+const config = require('../config');
 
-describe('path builder', () => {
+const resetConfig = cloneDeep(config); // take exact copy of object, not a reference
 
+afterEach(() => {
+    // Reset paths to the default config paths
+    pathBuilder.update(resetConfig);
+});
+
+
+describe('`pathBuilder`', () => {
     it('is an object', () => {
         expect(typeof pathBuilder).toBe('object');
     });
 
+    it('is updated if new config options are set', () => {
+        // Arrange
+        config.css.scssDir = 'myNewPath';
+
+        // Act
+        pathBuilder.update(config);
+
+        // Assert
+        expect(pathBuilder.scssSrcDir).toBe('src/myNewPath');
+    });
 });
 
 describe('css paths', () => {
-
     it('scss src directory path should be correct', () => {
         expect(pathBuilder.scssSrcDir).toBe('src/scss');
     });
@@ -17,11 +41,9 @@ describe('css paths', () => {
     it('css distribution directory path should be correct', () => {
         expect(pathBuilder.cssDistDir).toBe('dist/css');
     });
-
 });
 
 describe('javascript paths', () => {
-
     it('src directory path should be correct', () => {
         expect(pathBuilder.jsSrcDir).toBe('src/js');
     });
@@ -29,7 +51,6 @@ describe('javascript paths', () => {
     it('distribution directory path should be correct', () => {
         expect(pathBuilder.jsDistDir).toBe('dist/js');
     });
-
 });
 
 describe('`logger` path', () => {
@@ -39,7 +60,6 @@ describe('`logger` path', () => {
 });
 
 describe('image paths', () => {
-
     it('src directory path should be correct', () => {
         expect(pathBuilder.imgSrcDir).toBe('src/img');
     });
@@ -47,11 +67,9 @@ describe('image paths', () => {
     it('distribution directory path should be correct', () => {
         expect(pathBuilder.imgDistDir).toBe('dist/img');
     });
-
 });
 
 describe('service worker paths', () => {
-
     it('output path should be correct', () => {
         expect(pathBuilder.swOutputPath).toBe('.');
     });
@@ -63,11 +81,9 @@ describe('service worker paths', () => {
     it('distribution directory path should be correct', () => {
         expect(pathBuilder.swDistDir).toBe('dist/sw');
     });
-
 });
 
 describe('documentation paths', () => {
-
     it('src directory path should be correct', () => {
         expect(pathBuilder.docsSrcDir).toBe('./docs/src');
     });
@@ -103,11 +119,9 @@ describe('documentation paths', () => {
     it('fonts distribution directory path should be correct', () => {
         expect(pathBuilder.docsFontsDistDir).toBe('./docs/dist/assets/fonts');
     });
-
 });
 
 describe('font paths', () => {
-
     it('src directory path should be correct', () => {
         expect(pathBuilder.fontsSrcDir).toBe('src/fonts');
     });
@@ -115,5 +129,4 @@ describe('font paths', () => {
     it('distribution directory path should be correct', () => {
         expect(pathBuilder.fontsDistDir).toBe('dist/fonts');
     });
-
 });

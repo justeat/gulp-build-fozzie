@@ -3,6 +3,19 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v7.14.0
+------------------------------
+*March 26, 2018*
+
+### Added
+- Tests added to take coverage to 100%
+- Unminified JS files compiled to docs folder
+- Lodash clonedeep added for deep cloning objects in tests
+
+### Updated
+- Split out the tests into more manageable chunks
+
+
 v7.13.0
 ------------------------------
 *March 8, 2018*
@@ -11,6 +24,7 @@ v7.13.0
 - Default gulp tasks so that the logger file is created when gulp is run.
 - Updated the pathBuilder `jsErrorLoggerDir` property to `assetDistDir` so it outputs in the correct directory.
 - Updated `pathBuilder` unit tests.
+
 
 v7.12.0
 ------------------------------
@@ -32,6 +46,7 @@ v7.12.0
 ### Remove
 - Removed `jsErrorLoggerDir` from `pathBuilder.js`
 
+
 v7.11.0
 ------------------------------
 *February 7, 2018*
@@ -47,6 +62,7 @@ v7.10.0
 ### Changed
 - Changed `imagemin` config to maintain svg `viewBox`.
 
+
 v7.9.0
 ------------------------------
 *February 2, 2018*
@@ -57,6 +73,7 @@ v7.9.0
 
 ### Changed
 - Jest rollback from v22.1.4 to v21.2.1.
+
 
 v7.8.0
 ------------------------------
@@ -69,6 +86,7 @@ v7.8.0
 
 ### Changed
 - Minor package updates
+
 
 v7.7.0
 ------------------------------
