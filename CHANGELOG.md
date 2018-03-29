@@ -3,6 +3,18 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v7.16.0
+------------------------------
+*April 4, 2018*
+
+### Added
+- Added `f-templates-loader` module which handles locating and registering shared templates.
+- Added `config.docs.excludeTemplateDirs` property to allow directories to be ignored when adding shared templates.
+
+### Updated
+- `.gitignore` updated to exclude yalc config files
+
+
 v7.15.0
 ------------------------------
 *April 3, 2018*

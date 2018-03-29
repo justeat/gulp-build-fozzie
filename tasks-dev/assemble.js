@@ -1,6 +1,10 @@
 const gulp = require('gulp');
 const assemble = require('assemble');
+
 const helpers = require('handlebars-helpers');
+const { getCompiledTemplate, getTemplateNames } = require('@justeat/f-templates-loader');
+const { i18n } = require('handlebars-helper-i18n');
+
 const plumber = require('gulp-plumber');
 // const newer = require('gulp-newer');
 const extname = require('gulp-extname');
@@ -8,12 +12,24 @@ const extname = require('gulp-extname');
 const config = require('../config');
 const pathBuilder = require('../pathBuilder');
 
-
 const app = assemble();
 
 app.helper('is', helpers.comparison().is);
+app.helper('i18n', i18n);
 app.helper('markdown', require('helper-markdown'));
 app.helper('md', require('helper-md'));
+
+
+/**
+ * Looping through directories in './templates' and registering a helper for each module found
+ */
+const registerSharedTemplates = () => {
+    const templateNames = getTemplateNames(config.docs.excludeTemplateDirs);
+
+    templateNames.forEach(templateName => {
+        app.helper(`f-${templateName}`, () => getCompiledTemplate(templateName));
+    });
+};
 
 
 // Loops through the helpers object and initialises handlebars helpers
@@ -41,6 +57,8 @@ gulp.task('assemble', () => {
         baseUrl: config.isProduction ? config.docs.remoteBase : '',
         jsFilename: config.js.distFile
     });
+
+    registerSharedTemplates();
 
     return app.src(`${pathBuilder.docsTemplateDir}/pages/**/*.{md,hbs}`)
         // stops watch from breaking on error

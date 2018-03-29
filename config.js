@@ -110,7 +110,8 @@ const ConfigOptions = () => {
             dataDir: 'data',
             outputAssets: false,
             remoteBase: '',
-            helpers: {}
+            helpers: {},
+            excludeTemplateDirs: ['resources']
         },
 
         fonts: {
