@@ -38,3 +38,6 @@ jspm_packages
 
 # OS or Editor folders
 .idea
+
+.yalc
+yalc.lock

@@ -56,7 +56,8 @@ gulp.task('scripts:lint', () => gulp.src([`${pathBuilder.jsSrcDir}/**/*.js`, ...
     // stops watch from breaking on error
     .pipe(plumber(config.gulp.onError))
 
-    .pipe(eslint())
+    .pipe(eslint({ fix: true }))
+    .pipe(gulp.dest(file => file.base))
     .pipe(eslint.format())
     .pipe(eslint.failAfterError())
 );

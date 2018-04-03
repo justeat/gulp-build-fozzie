@@ -3,6 +3,18 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v7.15.0
+------------------------------
+*April 3, 2018*
+
+### Added
+- ESLint flag for automatically fixing ESLint rule violations.  Will now fix a number of issues in-line when the lint task is run.
+  For more info, check out the [fix rule in the ESLint docs](https://eslint.org/docs/user-guide/command-line-interface#--fix) and to see a list of the rules this will auto-fix, [see the ESLint rule list](https://eslint.org/docs/rules/).
+
+### Updated
+- `.gitignore` updated to exclude yalc config files
+
+
 v7.14.0
 ------------------------------
 *March 26, 2018*

@@ -153,7 +153,7 @@ Runs the following tasks
 
 - #### `scripts:lint`
 
-  Lint all JavaScript in the source directory.
+  Lint all JavaScript in the source directory.  This task will also attempt to automatically fix any rules via the [ESLint `--fix` flag](https://eslint.org/docs/user-guide/command-line-interface#--fix).
 
 - #### `scripts:test`
 
@@ -177,9 +177,9 @@ Runs the following tasks
   - Minify the JavaScript
   - Add hashed version to file name
   - Output bundle to the dist directory
-  
+
 ### `logger:createFile`
-  
+
 Adds the server-side file required for the errorLogger to be inserted into the filesystem.
 
 ### `images`
@@ -552,7 +552,7 @@ Will add a content hash to the JS and CSS filenames, generating a new filename i
   Default: `'js/shared'`
 
   Name of the directory where your js error logger file will live.
-  
+
 - #### `file`
 
   Type: `string`
