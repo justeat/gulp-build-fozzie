@@ -91,7 +91,6 @@ describe('environment config', () => {
     });
 });
 
-
 describe('css config', () => {
     it('`scssDir` should be set', () => {
         expect(config.css.scssDir).toBe('scss');
@@ -273,7 +272,6 @@ describe('javascript config', () => {
     });
 });
 
-
 describe('`logger` config', () => {
     it('should exist', () => {
         expect(config.logger).toBeDefined();
@@ -377,7 +375,6 @@ describe('imported assets config', () => {
     });
 
 });
-
 
 describe('service worker config', () => {
     it('`isEnabled` should be false', () => {
@@ -501,7 +498,6 @@ describe('service worker config', () => {
     });
 });
 
-
 describe('copy config', () => {
     it('copy js config should be set', () => {
         expect(config.copy.js).toEqual({});
@@ -587,7 +583,6 @@ describe('copy config', () => {
         expect(config.copy.fonts).toEqual(fonts);
     });
 });
-
 
 describe('documentation config', () => {
     it('`rootDir` should be set', () => {
@@ -710,9 +705,34 @@ describe('documentation config', () => {
         expect(config.docs.remoteBase).toBe(remoteBase);
     });
 
+    it('`helpers` should be set', () => {
+        expect(config.docs.helpers).toEqual({});
+    });
 
-    it('`helpers` should be an object', () => {
-        expect(typeof config.docs.helpers).toBe('object');
+    it('`helpers` can be updated', () => {
+        // Arrange
+        const helpers = () => 'Hi';
+
+        // Act
+        config.update({ docs: { helpers } });
+
+        // Assert
+        expect(config.docs.helpers).toBe(helpers);
+    });
+
+    it('`excludeTemplateDirs` should be set', () => {
+        expect(config.docs.excludeTemplateDirs).toEqual(['resources']);
+    });
+
+    it('`excludeTemplateDirs` can be updated', () => {
+        // Arrange
+        const excludeTemplateDirs = ['ignore-me', 'and-me'];
+
+        // Act
+        config.update({ docs: { excludeTemplateDirs } });
+
+        // Assert
+        expect(config.docs.excludeTemplateDirs).toBe(excludeTemplateDirs);
     });
 });
 
@@ -733,7 +753,6 @@ describe('fonts config', () => {
         expect(config.fonts.fontsDir).toBe(fontsDir);
     });
 });
-
 
 describe('browserSync config', () => {
     it('`files` should be set', () => {
@@ -781,7 +800,6 @@ describe('browserSync config', () => {
         expect(config.browserSync.reloadDebounce).toBe(reloadDebounce);
     });
 });
-
 
 describe('miscellaneous config', () => {
     it('`showFileSize` should be true', () => {

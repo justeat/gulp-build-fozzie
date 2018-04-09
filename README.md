@@ -348,7 +348,8 @@ Here is the outline of the configuration options, descriptions of each are below
         dataDir,
         outputAssets,
         remoteBase,
-        helpers
+        helpers,
+        excludeTemplateDirs
     },
     fonts: {
       fontsDir
@@ -796,6 +797,14 @@ Will add a content hash to the JS and CSS filenames, generating a new filename i
   ```
 
   Will expose the helper `toLowercase` so that using `{{toLowercase name}}` within a handlebars template will convert the handlebars string `name` to lowercase.
+
+- #### `excludeTemplateDirs`
+
+  Type: `array`
+
+  Default: `['resources']`
+
+  Directory names which should be ignored when adding any shared templates to the documentation. By default the array contains known directory names which should be ignored.
 
 ### `fonts`
 

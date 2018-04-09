@@ -1,6 +1,6 @@
 {
   "name": "@justeat/gulp-build-fozzie",
-  "version": "7.15.0",
+  "version": "7.16.0",
   "description": "Gulp build tasks for use across Fozzie modules",
   "main": "index.js",
   "author": "Damian Mullins <damian.mullins@just-eat.com> (http://www.damianmullins.com)",
@@ -29,6 +29,7 @@
   "dependencies": {
     "@justeat/eslint-config-fozzie": "^1.4.0",
     "@justeat/f-copy-assets": "^0.6.0",
+    "@justeat/f-templates-loader": "0.0.3",
     "@justeat/stylelint-config-fozzie": "^2.0.1",
     "assemble": "^0.24.3",
     "autoprefixer": "^8.2.0",
@@ -69,6 +70,7 @@
     "gulp-tap": "^1.0.1",
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
+    "handlebars-helper-i18n": "^0.1.0",
     "handlebars-helpers": "^0.10.0",
     "helper-markdown": "^1.0.0",
     "helper-md": "^0.2.2",
