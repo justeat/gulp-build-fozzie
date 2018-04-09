@@ -5,7 +5,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 v7.16.0
 ------------------------------
-*April 4, 2018*
+*April 9, 2018*
 
 ### Added
 - Added `f-templates-loader` module which handles locating and registering shared templates.
