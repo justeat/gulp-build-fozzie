@@ -3,6 +3,15 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+
+v7.17.0
+------------------------------
+*April 10, 2018*
+
+### Changed
+- Updated `f-templates-loader` module.
+
+
 v7.16.0
 ------------------------------
 *April 9, 2018*
@@ -11,7 +20,7 @@ v7.16.0
 - Added `f-templates-loader` module which handles locating and registering shared templates.
 - Added `config.docs.excludeTemplateDirs` property to allow directories to be ignored when adding shared templates.
 
-### Updated
+### Changed
 - `.gitignore` updated to exclude yalc config files
 
 
@@ -23,7 +32,7 @@ v7.15.0
 - ESLint flag for automatically fixing ESLint rule violations.  Will now fix a number of issues in-line when the lint task is run.
   For more info, check out the [fix rule in the ESLint docs](https://eslint.org/docs/user-guide/command-line-interface#--fix) and to see a list of the rules this will auto-fix, [see the ESLint rule list](https://eslint.org/docs/rules/).
 
-### Updated
+### Changed
 - `.gitignore` updated to exclude yalc config files
 
 
@@ -36,7 +45,7 @@ v7.14.0
 - Unminified JS files compiled to docs folder
 - Lodash clonedeep added for deep cloning objects in tests
 
-### Updated
+### Changed
 - Split out the tests into more manageable chunks
 
 
