@@ -27,7 +27,9 @@ const registerSharedTemplates = () => {
     const templateNames = getTemplateNames(config.docs.excludeTemplateDirs);
 
     templateNames.forEach(templateName => {
-        app.helper(`f-${templateName}`, () => getCompiledTemplate(templateName));
+        const template = getCompiledTemplate(templateName);
+
+        app.partial(`f-${templateName}`, template);
     });
 };
 
