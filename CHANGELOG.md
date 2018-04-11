@@ -4,6 +4,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v7.19.0
+------------------------------
+*April 11, 2018*
+
+### Added
+- Added `copy:img:docs` task and documentation.
+
+### Changed
+- The `images:optimise` no longer copies images into the docs asset dist folder.
+- The `images` task will now copies all of the images in the assets dist folder over to the docs dist folder if running a docs task.
+
+
 v7.18.0
 ------------------------------
 *April 11, 2018*

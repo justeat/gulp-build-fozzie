@@ -196,7 +196,9 @@ Runs the following tasks
 
 - #### `images:svg-sprite`
 
-Generate an SVG sprite and copy into the dist directory
+  Generate an SVG sprite and copy into the dist directory
+
+It also runs the [`copy:img`](#copyjs-copycss-copyimg--copyfonts) and [`copy:assets`](#copyassets) tasks.
 
 ### `service-worker`
 
@@ -266,6 +268,10 @@ Pushes the documentation dist directory to the `gh-pages` branch.
 - #### `clean:docs`
 
 Removes document files already in the docs dist directory.
+
+- #### `copy:img:docs`
+
+Copies all of the images in the assets dist folder over to the docs dist folder.
 
 - #### `browser-sync`
 
