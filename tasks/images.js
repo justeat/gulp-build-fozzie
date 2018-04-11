@@ -22,6 +22,7 @@ gulp.task('images', callback => {
         'clean:images',
         ['copy:img', 'copy:assets'],
         'images:optimise',
+        ...(config.docs.outputAssets ? ['copy:img:docs'] : []),
         'images:svg-sprite',
         callback
     );
@@ -50,13 +51,6 @@ gulp.task('images:optimise', () => gulp.src(`${pathBuilder.imgSrcDir}/**`)
             ]
         })
     ], { verbose: config.isDev }))
-
-    .pipe(
-        gulpif(config.docs.outputAssets,
-            // write the files to the docs directory
-            gulp.dest(pathBuilder.docsImgDistDir)
-        )
-    )
 
     // write the files to disk
     .pipe(gulp.dest(`${pathBuilder.imgDistDir}`))

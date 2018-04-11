@@ -15,7 +15,7 @@ gulp.task('default', callback => {
         ['copy:fonts', 'images'],
         ['css', 'scripts'],
         ['logger:createFile'],
-        ...config.sw.isEnabled ? ['service-worker'] : [],
+        ...(config.sw.isEnabled ? ['service-worker'] : []),
         callback
     );
 

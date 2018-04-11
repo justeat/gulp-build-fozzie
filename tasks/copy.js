@@ -74,6 +74,17 @@ gulp.task('copy:img', () => {
 });
 
 /**
+ * `copy:img:docs` Task
+ * ---------------------
+ * Copy all of the images in the assets dist folder over to the docs dist folder.
+ *
+ */
+gulp.task('copy:img:docs', () => gulp.src(`${pathBuilder.imgDistDir}/**/*`)
+    .pipe(plumber(config.gulp.onError))
+    .pipe(gulp.dest(pathBuilder.docsImgDistDir))
+);
+
+/**
  * `copy:fonts` Task
  * ---------------------
  * Copy the specified font assets over to the dist folder.
