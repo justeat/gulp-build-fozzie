@@ -22,7 +22,7 @@ gulp.task('images', callback => {
         'clean:images',
         ['copy:img', 'copy:assets'],
         'images:optimise',
-        ...config.docs.outputAssets ? ['copy:img:docs'] : [],
+        ...(config.docs.outputAssets ? ['copy:img:docs'] : []),
         'images:svg-sprite',
         callback
     );
