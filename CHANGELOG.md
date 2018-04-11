@@ -13,7 +13,7 @@ v7.19.0
 
 ### Changed
 - The `images:optimise` no longer copies images into the docs asset dist folder.
-- The `images` task will now copies all of the images in the assets dist folder over to the docs dist folder if running a docs task.
+- The `images` task now copies all of the images in the assets dist folder over to the docs dist folder if running a docs task.
 
 
 v7.18.0
