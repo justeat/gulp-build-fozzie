@@ -392,110 +392,137 @@ describe('service worker config', () => {
         expect(config.sw.isEnabled).toBe(isEnabled);
     });
 
-    it('`swDir` should be set', () => {
-        expect(config.sw.swDir).toBe('sw');
+    it('`workboxConfig` should be an object', () => {
+        expect(typeof config.sw.workboxConfig).toBe('object');
     });
 
-    it('`swDir` can be updated', () => {
+    it('`workboxConfig.swSrc` should be set', () => {
+        expect(config.sw.workboxConfig.swSrc).toBe('/src/assets/sw/sw.js');
+    });
+
+    it('`workboxConfig.swSrc` can be updated', () => {
         // Arrange
-        const swDir = 'service-worker';
+        const swSrc = 'assets/sw/sw.js';
 
         // Act
-        config.update({ sw: { swDir } });
+        config.update({ sw: { workboxConfig: { swSrc } } });
 
         // Assert
-        expect(config.sw.swDir).toBe(swDir);
+        expect(config.sw.workboxConfig.swSrc).toBe(swSrc);
     });
 
-    it('`outputFile` should be set', () => {
-        expect(config.sw.outputFile).toBe('service-worker.js');
+    it('`workboxConfig.swDest` should be set', () => {
+        expect(config.sw.workboxConfig.swDest).toBe('sw.js');
     });
 
-    it('`outputFile` can be updated', () => {
+    it('`workboxConfig.swDest` can be updated', () => {
         // Arrange
-        const outputFile = 'sw.js';
+        const swDest = 'mySW.js';
 
         // Act
-        config.update({ sw: { outputFile } });
+        config.update({ sw: { workboxConfig: { swDest } } });
 
         // Assert
-        expect(config.sw.outputFile).toBe(outputFile);
+        expect(config.sw.workboxConfig.swDest).toBe(swDest);
     });
 
-    it('`staticFileGlobs` should be set', () => {
-        expect(config.sw.staticFileGlobs).toEqual([]);
+    it('`workboxConfig.globDirectory` should be set', () => {
+        expect(config.sw.workboxConfig.globDirectory).toBe('src/assets');
     });
 
-    it('`staticFileGlobs` can be updated', () => {
+    it('`workboxConfig.globDirectory` can be updated', () => {
         // Arrange
-        const staticFileGlobs = ['./glob', '🛰'];
+        const globDirectory = 'myAssets';
 
         // Act
-        config.update({ sw: { staticFileGlobs } });
+        config.update({ sw: { workboxConfig: { globDirectory } } });
 
         // Assert
-        expect(config.sw.staticFileGlobs).toEqual(staticFileGlobs);
+        expect(config.sw.workboxConfig.globDirectory).toBe(globDirectory);
     });
 
-    it('`dynamicFileRegex` should be set', () => {
-        expect(config.sw.dynamicFileRegex).toEqual([]);
-    });
-
-    it('`dynamicFileRegex` can be updated', () => {
+    it('`workboxConfig` can be replaced', () => {
         // Arrange
-        const dynamicFileRegex = ['regex', '🗡'];
+        const workboxConfig = {
+            swSrc: 'src/sw.js',
+            swDest: 'build/sw.js',
+            globDirectory: 'build',
+            globPatterns: [
+                '**/*.css',
+                'index.html',
+                'js/animation.js',
+                'images/home/*.jpg'
+            ]
+        };
 
         // Act
-        config.update({ sw: { dynamicFileRegex } });
+        config.update({ sw: { workboxConfig } });
 
         // Assert
-        expect(config.sw.dynamicFileRegex).toEqual(dynamicFileRegex);
+        expect(config.sw.workboxConfig).toEqual(workboxConfig);
     });
 
-    it('`dynamicFileStrategy` should be set', () => {
-        expect(config.sw.dynamicFileStrategy).toBe('cacheFirst');
-    });
-
-    it('`dynamicFileStrategy` can be updated', () => {
+    it('`workboxConfig` can be extended', () => {
         // Arrange
-        const dynamicFileStrategy = 'networkFirst';
+        const workboxConfig = {
+            globPatterns: [
+                '**/*.css',
+                'index.html',
+                'js/animation.js',
+                'images/home/*.jpg'
+            ]
+        };
+        const workboxExtendedResult = {
+            swSrc: 'src/sw.js',
+            swDest: 'build/sw.js',
+            globDirectory: 'build',
+            globPatterns: [
+                '**/*.css',
+                'index.html',
+                'js/animation.js',
+                'images/home/*.jpg'
+            ]
+        };
+
 
         // Act
-        config.update({ sw: { dynamicFileStrategy } });
+        config.update({ sw: { workboxConfig } });
 
         // Assert
-        expect(config.sw.dynamicFileStrategy).toBe(dynamicFileStrategy);
+        expect(config.sw.workboxConfig).toEqual(workboxExtendedResult);
     });
 
-    it('`importScripts` should be set', () => {
-        expect(config.sw.importScripts).toEqual([]);
-    });
 
-    it('`importScripts` can be updated', () => {
-        // Arrange
-        const importScripts = ['script.js'];
+    // it('`swDir` should be set', () => {
+    //     expect(config.sw.swDir).toBe('sw');
+    // });
 
-        // Act
-        config.update({ sw: { importScripts } });
+    // it('`swDir` can be updated', () => {
+    //     // Arrange
+    //     const swDir = 'service-worker';
 
-        // Assert
-        expect(config.sw.importScripts).toEqual(importScripts);
-    });
+    //     // Act
+    //     config.update({ sw: { swDir } });
 
-    it('`cacheId` should be set', () => {
-        expect(config.sw.cacheId).toBe('');
-    });
+    //     // Assert
+    //     expect(config.sw.swDir).toBe(swDir);
+    // });
 
-    it('`cacheId` can be updated', () => {
-        // Arrange
-        const cacheId = 'id-1';
+    // it('`outputFile` should be set', () => {
+    //     expect(config.sw.outputFile).toBe('service-worker.js');
+    // });
 
-        // Act
-        config.update({ sw: { cacheId } });
+    // it('`outputFile` can be updated', () => {
+    //     // Arrange
+    //     const outputFile = 'sw.js';
 
-        // Assert
-        expect(config.sw.cacheId).toBe(cacheId);
-    });
+    //     // Act
+    //     config.update({ sw: { outputFile } });
+
+    //     // Assert
+    //     expect(config.sw.outputFile).toBe(outputFile);
+    // });
+
 });
 
 describe('copy config', () => {

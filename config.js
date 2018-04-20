@@ -79,13 +79,11 @@ const ConfigOptions = () => {
          */
         sw: {
             isEnabled: false,
-            swDir: 'sw',
-            outputFile: 'service-worker.js',
-            staticFileGlobs: [],
-            dynamicFileRegex: [],
-            dynamicFileStrategy: 'cacheFirst',
-            importScripts: [],
-            cacheId: ''
+            workboxConfig: {
+                swSrc: '/src/assets/sw/sw.js',
+                swDest: 'sw.js',
+                globDirectory: 'src/assets'
+            }
         },
 
         /**
@@ -189,7 +187,9 @@ const ConfigOptions = () => {
                 logger: Object.assign(config.logger, options.logger),
                 img: Object.assign(config.img, options.img),
                 importedAssets: Object.assign(config.importedAssets, options.importedAssets),
-                sw: Object.assign(config.sw, options.sw),
+                sw: Object.assign(config.sw, options.sw, {
+                    workboxConfig: Object.assign(config.sw.workboxConfig, (options.sw ? options.sw.workboxConfig : {}))
+                }),
                 copy: Object.assign(config.copy, options.copy),
                 docs: Object.assign(config.docs, options.docs),
                 fonts: Object.assign(config.fonts, options.fonts),

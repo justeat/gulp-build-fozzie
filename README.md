@@ -331,13 +331,11 @@ Here is the outline of the configuration options, descriptions of each are below
     },
     sw: {
         isEnabled,
-        swDir,
-        outputFile,
-        staticFileGlobs,
-        dynamicFileRegex,
-        dynamicFileStrategy,
-        importScripts,
-        cacheId
+        workboxConfig: {
+          swSrc,
+          swDest,
+          globDirectory
+        }
     },
     copy: {
         js,
@@ -618,63 +616,38 @@ Will add a content hash to the JS and CSS filenames, generating a new filename i
 
   Determines whether the service worker is generated or not.
 
-- #### `swDir`
+- #### `workboxConfig`
+
+  Type: `object`
+
+  Config that is passed into workbox – the tool that is used to help compile the serviceworker.  This can be extended with [any option available to the injectManifest method](https://developers.google.com/web/tools/workbox/reference-docs/latest/module-workbox-build#.injectManifest) in `workbox-build`.
+
+- #### `swSrc`
 
   Type: `string`
 
-  Default: `'sw'`
+  Default: `'/src/assets/sw/sw.js'`
 
-  Name of the directory where your service worker's custom internal scripts are kept in.
+  The path to the source service worker file that can contain your own customized code.
 
-  Scripts here will be placed inside a directory with the same name.
-
-- #### `outputFile`
+- #### `swDest`
 
   Type: `string`
 
-  Default: `'service-worker.js'`
+  Default: `'sw.js'`
 
-  The name of the generated service worker file, to be placed in the root of your application.
+  The path and filename of the service worker file that will be created by the build process.
 
-- #### `staticFileGlobs`
-
-  Type: `array`
-
-  Default: `[]`
-
-  The static files in your application to be cached by the service worker.
-
-- #### `dynamicFileRegex`
-
-  Type: `array`
-
-  Default: `[]`
-
-  An array of regex to match the dynamic content or API calls to cache e.g. `[/^https:\/\/example\.com\/api/, /^https:\/\/fonts.googleapis.com\/css/]`.
-
-- #### `dynamicFileStrategy`
+- #### `globDirectory`
 
   Type: `string`
 
-  Default: `cacheFirst`
+  Default: `'src/assets'`
 
-  The cache strategy to be used for content matched by `dynamicFileRegex` - these correspond to the [sw-toolbox handlers](https://googlechrome.github.io/sw-toolbox/api.html#handlers).
+  The base directory you wish to match globPatterns against, relative to the current working directory.
 
-- #### `importScripts`
+  To include files as part of the precache manifest, make sure to also configure globPatterns.
 
-  Type: `array`
-
-  Default: `[]`
-
-  Any additional internal scripts to include, aside from those in `swDir`.
-
-- #### `cacheId`
-
-  Type: `string`
-
-  Default: `''`
-
-  An optional string used to differentiate caches on the same origin during local development.
 
 ### `copy`
 
@@ -948,21 +921,6 @@ These are the paths which the `pathBuilder` object provides.
 - #### `importedAssetsDistDir`
 
   Default: `'dist/imported-assets'`
-
-
-- #### `swOutputPath`
-
-  Default: `'.'`
-
-
-- #### `swSrcDir`
-
-  Default: `'src/sw'`
-
-
-- #### `swDistDir`
-
-  Default: `'dist/sw'`
 
 
 - #### `docsSrcDir`
