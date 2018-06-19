@@ -17,14 +17,15 @@
   },
   "homepage": "https://github.com/justeat/gulp-build-fozzie#readme",
   "scripts": {
-    "prepare": "concurrently -n \"lint,test\" -c \"blue,green\" \"yarn lint\" \"yarn test\" --kill-others-on-fail",
+    "prepare": "npm run snyk-protect; concurrently -n \"lint,test\" -c \"blue,green\" \"yarn lint\" \"yarn test\" --kill-others-on-fail",
     "test": "jest",
     "test:cover": "jest --coverage",
     "test:cover:CI": "cat coverage/lcov.info | coveralls",
     "lint": "eslint **/*.js --fix",
     "release-patch": "release-it patch --non-interactive -p",
     "release-minor": "release-it minor --non-interactive -p",
-    "release-major": "release-it major --non-interactive -p"
+    "release-major": "release-it major --non-interactive -p",
+    "snyk-protect": "snyk protect"
   },
   "dependencies": {
     "@justeat/eslint-config-fozzie": "^1.4.0",
@@ -85,7 +86,8 @@
     "stylelint-scss": "^2.5.0",
     "sw-precache": "^5.2.1",
     "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0"
+    "vinyl-source-stream": "^2.0.0",
+    "snyk": "^1.83.0"
   },
   "devDependencies": {
     "concurrently": "^3.5.1",
@@ -96,5 +98,6 @@
   },
   "peerDependencies": {
     "gulp": "^3.9.1"
-  }
+  },
+  "snyk": true
 }
