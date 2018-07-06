@@ -216,7 +216,7 @@ Copies the worker's internal scripts to the dist directory.
 
 Generates a service worker to pre-cache the assets defined in the config.
 
-### `copy:js`, `copy:css`, `copy:img` & `copy:fonts`
+### `copy:js`, `copy:css`, `copy:img`, `copy:fonts` & `copy:docs`
 
 Each of these tasks copies the specified set of assets from the `src` to the `dist` asset folders.
 
@@ -343,7 +343,8 @@ Here is the outline of the configuration options, descriptions of each are below
         js,
         css,
         img,
-        fonts
+        fonts,
+        docs
     },
     docs: {
         rootDir,
@@ -678,13 +679,13 @@ Will add a content hash to the JS and CSS filenames, generating a new filename i
 
 ### `copy`
 
-- #### `js`, `css` `img` & `fonts`
+- #### `js`, `css` `img`, `fonts` & `docs`
 
   Type: `Object`
 
   Default: `{}`
 
-  `copy.js`, `copy.css`, `copy.img` and `copy.fonts` each take an object list of assets in the format:
+  `copy.js`, `copy.css`, `copy.img`, `copy.fonts` and `copy.docs` each take an object list of assets in the format:
 
   ```js
     copy:
@@ -703,7 +704,7 @@ Will add a content hash to the JS and CSS filenames, generating a new filename i
   - `dest` is a string specifying that destination folder for the asset to be copied to, within the relevant asset `dist` folder.
   - `revision` is a boolean such that if it is `true`, the asset will be [revision hashed](https://www.npmjs.com/package/gulp-rev) when copied to its destination.
 
-  `path` and `dest` must always be defined for each asset you wish to copy.
+  `path` and `dest` must always be defined for each asset you wish to copy (except for `copy:docs` which uses the root `docsDist` path for the `dest`).
 
   The object key (which in the above example is `prism`) of each asset is simply for your own use to identify each asset in your config.
 

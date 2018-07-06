@@ -95,7 +95,8 @@ const ConfigOptions = () => {
             js: {},
             css: {},
             img: {},
-            fonts: {}
+            fonts: {},
+            docs: {}
         },
 
         /**

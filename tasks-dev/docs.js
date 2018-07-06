@@ -40,7 +40,7 @@ gulp.task('docs:deploy', callback => {
 
     runSequence(
         'clean:docs',
-        ['default', 'assemble'],
+        ['default', 'assemble', 'copy:docs'],
         'docs:release',
         callback
     );
