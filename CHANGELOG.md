@@ -3,6 +3,13 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v7.20.1
+------------------------------
+*July 10, 2018*
+
+### Fixed
+- Added resolutions value for `gift`, as `gulp-gh-pages` was using an old version of this package which was stopping the `docs:deploy` task from running.
+
 
 v7.20.0
 ------------------------------
