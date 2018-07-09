@@ -95,6 +95,16 @@ gulp.task('copy:fonts', () => {
 });
 
 /**
+ * `copy:docs` Task
+ * ---------------------
+ * Copy any specific files needed for the docs site (i.e. CNAME records)
+ *
+ */
+gulp.task('copy:docs', () => {
+    copy('docs');
+});
+
+/**
  * `copy:assets` Task
  * ---------------------
  * Copy assets from from packages to the dist folder.

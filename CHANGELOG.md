@@ -4,6 +4,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v7.20.0
+------------------------------
+*July 6, 2018*
+
+### Added
+- Adding `copy:docs` task for copying docs sites specific files (such as CNAME records)
+
+
 v7.19.0
 ------------------------------
 *April 11, 2018*

@@ -582,6 +582,25 @@ describe('copy config', () => {
         // Assert
         expect(config.copy.fonts).toEqual(fonts);
     });
+
+    it('copy docs config should be set', () => {
+        expect(config.copy.docs).toEqual({});
+    });
+
+    it('copy docs config can be updated', () => {
+        // Arrange
+        const docs = {
+            docs: {
+                path: '/templates/pages/CNAME'
+            }
+        };
+
+        // Act
+        config.update({ copy: { docs } });
+
+        // Assert
+        expect(config.copy.docs).toEqual(docs);
+    });
 });
 
 describe('documentation config', () => {
