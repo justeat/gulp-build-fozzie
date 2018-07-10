@@ -1,6 +1,6 @@
 {
   "name": "@justeat/gulp-build-fozzie",
-  "version": "7.20.0",
+  "version": "7.20.1",
   "description": "Gulp build tasks for use across Fozzie modules",
   "main": "index.js",
   "author": "Damian Mullins <damian.mullins@just-eat.com> (http://www.damianmullins.com)",
@@ -96,5 +96,8 @@
   },
   "peerDependencies": {
     "gulp": "^3.9.1"
+  },
+  "resolutions": {
+    "gulp-gh-pages/gift": "0.10.2"
   }
 }
