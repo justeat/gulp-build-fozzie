@@ -15,7 +15,6 @@ const pathBuilder = require('../pathBuilder');
  *
  */
 gulp.task('docs', callback => {
-
     config.docs.outputAssets = true;
 
     runSequence(
@@ -34,7 +33,6 @@ gulp.task('docs', callback => {
  *
  */
 gulp.task('docs:deploy', callback => {
-
     config.isProduction = true;
     config.docs.outputAssets = true;
 
@@ -44,7 +42,6 @@ gulp.task('docs:deploy', callback => {
         'docs:release',
         callback
     );
-
 });
 
 
@@ -57,5 +54,4 @@ gulp.task('docs:deploy', callback => {
 gulp.task('docs:release', () => gulp.src(`${pathBuilder.docsDistDir}/**/*`)
     .pipe(ghPages({
         message: `Minor : Documentation Update ${new Date().toISOString()}`
-    }))
-);
+    })));

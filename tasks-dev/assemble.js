@@ -47,7 +47,6 @@ Object.keys(config.docs.helpers).forEach(helper => {
  *
  */
 gulp.task('assemble', () => {
-
     app.enable('debugEngine');
     app.layouts(`${pathBuilder.docsTemplateDir}/layouts/*.{md,hbs}`);
     app.partials(`${pathBuilder.docsTemplateDir}/includes/**/*.{md,hbs}`);
@@ -75,5 +74,4 @@ gulp.task('assemble', () => {
         .pipe(app.renderFile())
         .pipe(extname())
         .pipe(app.dest(pathBuilder.docsDistDir));
-
 });

@@ -10,7 +10,6 @@ const pathBuilder = require('../pathBuilder');
 
 
 const copy = fileType => {
-
     Object.keys(config.copy[fileType]).forEach(assetId => {
         const asset = config.copy[fileType][assetId];
         const fileTypeCapitalised = fileType.charAt(0).toUpperCase() + fileType.slice(1);
@@ -21,20 +20,21 @@ const copy = fileType => {
         const assetDocsDist = pathBuilder[`docs${fileTypeCapitalised}DistDir`] + dest;
 
         if (asset.path !== undefined) {
-
             gutil.log(`❯❯ Copying ${assetSrc} to ${assetDist} ${config.docs.outputAssets ? `and ${assetDocsDist}` : ''}`);
 
             gulp.src(assetSrc)
                 .pipe(plumber(config.gulp.onError))
 
-                .pipe(gulpif(asset.revision,
+                .pipe(gulpif(
+                    asset.revision,
                     rev()
                 ))
 
                 .pipe(gulp.dest(assetDist))
 
                 // output to docs assets folder
-                .pipe(gulpif(config.docs.outputAssets,
+                .pipe(gulpif(
+                    config.docs.outputAssets,
                     gulp.dest(assetDocsDist)
                 ));
         } else {
@@ -81,8 +81,7 @@ gulp.task('copy:img', () => {
  */
 gulp.task('copy:img:docs', () => gulp.src(`${pathBuilder.imgDistDir}/**/*`)
     .pipe(plumber(config.gulp.onError))
-    .pipe(gulp.dest(pathBuilder.docsImgDistDir))
-);
+    .pipe(gulp.dest(pathBuilder.docsImgDistDir)));
 
 /**
  * `copy:fonts` Task
@@ -110,12 +109,10 @@ gulp.task('copy:docs', () => {
  * Copy assets from from packages to the dist folder.
  *
  */
-gulp.task('copy:assets', () =>
-    copyAssets({
-        pkgSrcGlob: config.importedAssets.importedAssetsSrcGlob,
-        dest: config.assetDistDir,
-        verbose: config.importedAssets.verbose,
-        logger: gutil.log
-    })
-        .catch(config.gulp.onError)
-);
+gulp.task('copy:assets', () => copyAssets({
+    pkgSrcGlob: config.importedAssets.importedAssetsSrcGlob,
+    dest: config.assetDistDir,
+    verbose: config.importedAssets.verbose,
+    logger: gutil.log
+})
+    .catch(config.gulp.onError));

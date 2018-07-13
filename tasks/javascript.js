@@ -59,12 +59,11 @@ gulp.task('scripts:lint', () => gulp.src([`${pathBuilder.jsSrcDir}/**/*.js`, ...
     .pipe(eslint({ fix: true }))
     .pipe(gulp.dest(file => file.base))
     .pipe(eslint.format())
-    .pipe(eslint.failAfterError())
-);
+    .pipe(eslint.failAfterError()));
 
 
 const jestTestRun = (args = {}) => jest.runCLI(
-    Object.assign({ bail: config.isProduction, passWithNoTests: true }, args),
+    { bail: config.isProduction, passWithNoTests: true, ...args },
     [path.resolve(process.cwd())]
 );
 
@@ -93,9 +92,7 @@ gulp.task('scripts:test:coverage', () => jestTestRun({ coverage: true }));
  *
  */
 gulp.task('scripts:bundle', () => {
-
     const bundleTasks = Object.keys(config.js.files).map(fileId => {
-
         const { srcPath, distFile } = config.js.files[fileId];
         const file = `${pathBuilder.jsSrcDir}/${srcPath}`;
 
@@ -104,9 +101,10 @@ gulp.task('scripts:bundle', () => {
             .bundle()
             .on('error', config.gulp.onError)
 
-            .pipe(gulpif(config.isDev,
-                exorcist(`${pathBuilder.jsDistDir}/${distFile}.map`))
-            )
+            .pipe(gulpif(
+                config.isDev,
+                exorcist(`${pathBuilder.jsDistDir}/${distFile}.map`)
+            ))
             .pipe(source(file))
 
             // convert to buffer object as sourcemaps don’t work with streams
@@ -119,7 +117,8 @@ gulp.task('scripts:bundle', () => {
             .pipe(rename(distFile))
 
             // If the package version name is set to `true`, version the js file name with the package number.
-            .pipe(gulpif(config.js.usePackageVersion,
+            .pipe(gulpif(
+                config.js.usePackageVersion,
                 rename({ suffix: `-${config.packageVersion}` })
             ))
 
@@ -127,12 +126,14 @@ gulp.task('scripts:bundle', () => {
             .pipe(gulp.dest(pathBuilder.jsDistDir))
 
             // output the unminified JS files to docs assets folder
-            .pipe(gulpif(config.docs.outputAssets,
+            .pipe(gulpif(
+                config.docs.outputAssets,
                 gulp.dest(pathBuilder.docsJsDistDir)
             ))
 
             // output the size of the unminified JS
-            .pipe(gulpif(config.misc.showFileSize,
+            .pipe(gulpif(
+                config.misc.showFileSize,
                 size({
                     title: 'Bundled JS Report – unminified build –',
                     showFiles: config.misc.showFiles
@@ -140,12 +141,14 @@ gulp.task('scripts:bundle', () => {
             ))
 
             // capture sourcemaps from transforms
-            .pipe(gulpif(config.isDev,
+            .pipe(gulpif(
+                config.isDev,
                 sourcemaps.init({ loadMaps: true })
             ))
 
             // if production build, rip out our console logs
-            .pipe(gulpif(config.isProduction && config.js.stripDebug,
+            .pipe(gulpif(
+                config.isProduction && config.js.stripDebug,
                 stripDebug()
             ))
 
@@ -163,12 +166,14 @@ gulp.task('scripts:bundle', () => {
             .pipe(rename({ suffix: '.min' }))
 
             // write the sourcemap to a separate file
-            .pipe(gulpif(config.isDev,
+            .pipe(gulpif(
+                config.isDev,
                 sourcemaps.write('.')
             ))
 
             // output to docs assets folder
-            .pipe(gulpif(config.docs.outputAssets,
+            .pipe(gulpif(
+                config.docs.outputAssets,
                 gulp.dest(pathBuilder.docsJsDistDir)
             ))
 
@@ -176,12 +181,14 @@ gulp.task('scripts:bundle', () => {
             .pipe(gulp.dest(pathBuilder.jsDistDir))
 
             // revision control for caching
-            .pipe(gulpif(config.applyRevision,
+            .pipe(gulpif(
+                config.applyRevision,
                 rev()
             ))
 
             // output the size of the minified JS
-            .pipe(gulpif(config.misc.showFileSize,
+            .pipe(gulpif(
+                config.misc.showFileSize,
                 size({
                     title: 'Bundled JS Report – minified build –',
                     showFiles: config.misc.showFiles
@@ -189,9 +196,7 @@ gulp.task('scripts:bundle', () => {
             ))
 
             .pipe(gulp.dest(pathBuilder.jsDistDir));
-
     });
 
     return es.merge(...bundleTasks);
-
 });

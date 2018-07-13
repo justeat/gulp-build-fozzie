@@ -309,7 +309,6 @@ describe('`logger` config', () => {
 });
 
 describe('image config', () => {
-
     it('`imgDir` should be set', () => {
         expect(config.img.imgDir).toBe('img');
     });
@@ -339,11 +338,9 @@ describe('image config', () => {
         // Assert
         expect(config.img.svgSpriteFilename).toBe(svgSpriteFilename);
     });
-
 });
 
 describe('imported assets config', () => {
-
     it('`importedAssetsSrcGlob` should be set', () => {
         expect(config.importedAssets.importedAssetsSrcGlob).toBe('node_modules/@justeat/*/');
     });
@@ -373,7 +370,6 @@ describe('imported assets config', () => {
         // Assert
         expect(config.importedAssets.verbose).toBe(verbose);
     });
-
 });
 
 describe('service worker config', () => {
@@ -756,7 +752,6 @@ describe('documentation config', () => {
 });
 
 describe('fonts config', () => {
-
     it('`fontsDir` should be set', () => {
         expect(config.fonts.fontsDir).toBe('fonts');
     });

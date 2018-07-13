@@ -52,21 +52,21 @@ gulp.task('css', callback => {
  */
 gulp.task('scss:lint', () => gulp.src([`${pathBuilder.scssSrcDir}/**/*.scss`, ...config.css.lintPaths], { follow: config.isDev })
     // stops watch from breaking on error
-    .pipe(gulpif(config.isDev,
-        plumber(config.gulp.onError))
-    )
+    .pipe(gulpif(
+        config.isDev,
+        plumber(config.gulp.onError)
+    ))
 
-    .pipe(
-        postcss([
+    .pipe(postcss(
+        [
             stylelint(),
             reporter({
                 clearMessages: true,
                 throwError: true
             })
         ],
-        { syntax: scss })
-    )
-);
+        { syntax: scss }
+    )));
 
 
 /**
@@ -79,25 +79,22 @@ gulp.task('css:lint', () => gulp.src(`${pathBuilder.cssDistDir}/**/*.css`)
     // stops watch from breaking on error
     .pipe(plumber(config.gulp.onError))
 
-    .pipe(
-        postcss([
-            stylelint({
-                config: {
-                    rules: {
-                        'property-no-unknown': true,
-                        'selector-pseudo-element-no-unknown': true,
-                        'selector-type-no-unknown': true,
-                        'unit-no-unknown': true
-                    }
+    .pipe(postcss([
+        stylelint({
+            config: {
+                rules: {
+                    'property-no-unknown': true,
+                    'selector-pseudo-element-no-unknown': true,
+                    'selector-type-no-unknown': true,
+                    'unit-no-unknown': true
                 }
-            }),
-            reporter({
-                clearMessages: true,
-                throwError: true
-            })
-        ])
-    )
-);
+            }
+        }),
+        reporter({
+            clearMessages: true,
+            throwError: true
+        })
+    ])));
 
 
 /**
@@ -106,12 +103,12 @@ gulp.task('css:lint', () => gulp.src(`${pathBuilder.cssDistDir}/**/*.css`)
  *
  */
 gulp.task('css:bundle', () => {
-
     const source = gulp.src(`${pathBuilder.scssSrcDir}/**/*.scss`)
         // stops watch from breaking on error
         .pipe(plumber(config.gulp.onError))
 
-        .pipe(gulpif(config.isDev,
+        .pipe(gulpif(
+            config.isDev,
             sourcemaps.init()
         ))
 
@@ -124,66 +121,66 @@ gulp.task('css:bundle', () => {
         }))
 
         // compile using Sass & pulling int any Eyeglass modules (SCSS NPM modules)
-        .pipe(
-            sass(eyeglass())
-        )
+        .pipe(sass(eyeglass()))
 
-        .pipe(
-            postcss([
-                // Converts any specified assets to data URIs
-                assets({
-                    loadPaths: [
-                        pathBuilder.imgSrcDir,
-                        path.dirname(config.assetDistDir)
-                    ]
-                }),
+        .pipe(postcss([
+            // Converts any specified assets to data URIs
+            assets({
+                loadPaths: [
+                    pathBuilder.imgSrcDir,
+                    path.dirname(config.assetDistDir)
+                ]
+            }),
 
-                // Autoprefixes CSS properties for various browsers – browsers specified in package.json config
-                autoprefixer()
-            ])
-        );
+            // Autoprefixes CSS properties for various browsers – browsers specified in package.json config
+            autoprefixer()
+        ]));
 
     const unminified = source.pipe(clone())
         // export sourcemaps (as a separate file)
-        .pipe(gulpif(config.isDev,
+        .pipe(gulpif(
+            config.isDev,
             sourcemaps.write('.')
         ))
 
         // If the package version name is set to `true`, version the css file name with the package number.
-        .pipe(gulpif(config.css.usePackageVersion,
+        .pipe(gulpif(
+            config.css.usePackageVersion,
             rename({ suffix: `-${config.packageVersion}` })
         ))
         // output our unminified files – not for use in prod but useful to be able to debug from
         .pipe(gulp.dest(pathBuilder.cssDistDir))
 
         // Output file-size
-        .pipe(gulpif(config.misc.showFileSize,
+        .pipe(gulpif(
+            config.misc.showFileSize,
             tap(file => {
                 gutil.log(`❯❯ CSS ${file.relative}`, filesizegzip(file.contents, true));
             })
         ));
 
     const minified = source.pipe(clone())
-        .pipe(
-            postcss([
-                // run CSSO – a CSS minifier
-                cssnano()
-            ])
-        )
+        .pipe(postcss([
+            // run CSSO – a CSS minifier
+            cssnano()
+        ]))
 
         // If the package version name is set to `true`, version the css file name with the package number.
         // Additionally adds .min suffix in both `true` or `false` cases.
-        .pipe(gulpif(config.css.usePackageVersion,
+        .pipe(gulpif(
+            config.css.usePackageVersion,
             rename({ suffix: `-${config.packageVersion}.min` }), rename({ suffix: '.min' })
         ))
 
         // export sourcemaps (as a separate file)
-        .pipe(gulpif(config.isDev,
+        .pipe(gulpif(
+            config.isDev,
             sourcemaps.write('.')
         ))
 
         // output to docs assets folder
-        .pipe(gulpif(config.docs.outputAssets,
+        .pipe(gulpif(
+            config.docs.outputAssets,
             gulp.dest(pathBuilder.docsCssDistDir)
         ))
 
@@ -191,12 +188,14 @@ gulp.task('css:bundle', () => {
         .pipe(gulp.dest(pathBuilder.cssDistDir))
 
         // revision control for caching
-        .pipe(gulpif(config.applyRevision,
+        .pipe(gulpif(
+            config.applyRevision,
             rev()
         ))
 
         // Output file-size
-        .pipe(gulpif(config.misc.showFileSize,
+        .pipe(gulpif(
+            config.misc.showFileSize,
             tap(file => {
                 gutil.log(`❯❯ Minified CSS ${file.relative}`, filesizegzip(file.contents, true));
             })

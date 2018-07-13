@@ -10,7 +10,6 @@ const config = require('../config');
  *
  */
 gulp.task('default', callback => {
-
     runSequence(
         ['copy:fonts', 'images'],
         ['css', 'scripts'],
@@ -18,5 +17,4 @@ gulp.task('default', callback => {
         ...(config.sw.isEnabled ? ['service-worker'] : []),
         callback
     );
-
 });

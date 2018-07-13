@@ -6,7 +6,6 @@ const consumingPackageConfig = require(`${process.cwd()}/package.json`); // esli
 
 
 const ConfigOptions = () => {
-
     const isProduction = !!gutil.env.prod;
     const isDev = !isProduction;
     const envLog = isProduction ? 'production' : 'development';
@@ -158,7 +157,9 @@ const ConfigOptions = () => {
              * status,file,line,column,message,formatted,messageFormatted,messageOriginal,relativePath,name,stack,showStack,showProperties,plugin
              */
             onError (err) {
-                const { line, column, relativePath, plugin, message } = err;
+                const {
+                    line, column, relativePath, plugin, message
+                } = err;
 
                 gutil.beep();
                 gutil.log(gutil.colors.red.bold('-----------------------------------------------------------------------'));

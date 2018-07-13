@@ -12,7 +12,6 @@ const pathBuilder = require('../pathBuilder');
  *
  */
 gulp.task('browser-sync', ['watch'], () => {
-
     const options = {
         files: [
             `./${pathBuilder.cssDistDir}/**/*.css`,
@@ -24,7 +23,6 @@ gulp.task('browser-sync', ['watch'], () => {
     };
 
     browserSync.init(options);
-
 });
 
 
@@ -35,7 +33,6 @@ gulp.task('browser-sync', ['watch'], () => {
  *
  */
 gulp.task('browser-sync:docs', ['assemble'], () => {
-
     // TODO : SORT OUT PATHS AS NOT WORKING ON INTERNATIONAL CONSUMERWEB PROPERLY
     const options = {
         files: [
@@ -53,5 +50,4 @@ gulp.task('browser-sync:docs', ['assemble'], () => {
     };
 
     browserSync.init(options);
-
 });
