@@ -17,7 +17,6 @@ const config = require('./config');
 const pathBuilder = require('./pathBuilder');
 
 const build = (srcGulp, options) => {
-
     if (options) {
         // Update config & pathBuilder with custom values — these values will
         // persist across all further requires in other files.

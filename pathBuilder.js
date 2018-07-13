@@ -2,7 +2,6 @@ const baseConfig = require('./config');
 
 
 const buildPaths = config => {
-
     const docsSrcDir = `${config.docs.rootDir}/${config.docs.srcDir}`;
     const docsDistDir = `${config.docs.rootDir}/${config.docs.distDir}`;
     const docsAssetsDistDir = `${docsDistDir}/${config.docs.assetDir}`;
@@ -39,7 +38,6 @@ const buildPaths = config => {
 };
 
 const pathBuilder = () => {
-
     let paths = buildPaths(baseConfig);
 
     paths.update = config => {

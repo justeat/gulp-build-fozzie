@@ -12,13 +12,11 @@ const pathBuilder = require('../pathBuilder');
  *
  */
 gulp.task('watch', callback => {
-
     runSequence(
         'default',
         ['watch:css', 'watch:scripts', 'watch:scripts:test', 'watch:images'],
         callback
     );
-
 });
 
 
@@ -29,14 +27,12 @@ gulp.task('watch', callback => {
  *
  */
 gulp.task('watch:css', () => {
-
     gulp
         .watch([
             `${pathBuilder.scssSrcDir}/**/*.scss`,
             'node_modules/@justeat/**/*.scss'
         ], ['css'])
         .on('change', config.gulp.changeEvent);
-
 });
 
 
@@ -47,10 +43,8 @@ gulp.task('watch:css', () => {
  *
  */
 gulp.task('watch:scripts', () => {
-
     gulp.watch(`${pathBuilder.jsSrcDir}/**/!(*.test).js`, ['scripts'])
         .on('change', config.gulp.changeEvent);
-
 });
 
 
@@ -62,10 +56,8 @@ gulp.task('watch:scripts', () => {
  *
  */
 gulp.task('watch:scripts:test', () => {
-
     gulp.watch(`${pathBuilder.jsSrcDir}/**/*.test.js`, ['scripts:lint', 'scripts:test'])
         .on('change', config.gulp.changeEvent);
-
 });
 
 
@@ -76,10 +68,8 @@ gulp.task('watch:scripts:test', () => {
  *
  */
 gulp.task('watch:images', () => {
-
     gulp.watch(`${pathBuilder.imgSrcDir}/**/*.{png,jpg,jpeg,gif,svg}`, ['images'])
         .on('change', config.gulp.changeEvent);
-
 });
 
 
@@ -91,7 +81,6 @@ gulp.task('watch:images', () => {
  *
  */
 gulp.task('watch:docs', callback => {
-
     config.docs.outputAssets = true;
 
     runSequence(
@@ -99,7 +88,6 @@ gulp.task('watch:docs', callback => {
         ['watch:css', 'watch:scripts', 'watch:scripts:test', 'watch:images', 'watch:docs:templates'],
         callback
     );
-
 });
 
 
@@ -110,14 +98,13 @@ gulp.task('watch:docs', callback => {
  *
  */
 gulp.task('watch:docs:templates', () => {
-
     // be careful with the paths here – must be relative, using 'cwd' attribute
     // to specify root otherwise it won’t recompile when newly created files
     // are added to a directory while running the watch
-    gulp.watch('**/*.{md,hbs}',
+    gulp.watch(
+        '**/*.{md,hbs}',
         { cwd: `./${config.docs.rootDir}` },
         ['assemble']
     )
         .on('change', config.gulp.changeEvent);
-
 });

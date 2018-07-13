@@ -54,8 +54,7 @@ gulp.task('service-worker:write', () => {
  */
 gulp.task('service-worker:copy', () => gulp.src([`${pathBuilder.swSrcDir}/**/*`, ...config.sw.importScripts])
     .pipe(changed(pathBuilder.swDistDir)) // only let through changed files
-    .pipe(gulp.dest(pathBuilder.swDistDir))
-);
+    .pipe(gulp.dest(pathBuilder.swDistDir)));
 
 
 /**
@@ -65,5 +64,4 @@ gulp.task('service-worker:copy', () => gulp.src([`${pathBuilder.swSrcDir}/**/*`,
  *
  */
 gulp.task('service-worker:locate', () => gulp.src(`${pathBuilder.swSrcDir}/**/*`)
-    .pipe(filenames('service-worker-scripts'))
-);
+    .pipe(filenames('service-worker-scripts')));

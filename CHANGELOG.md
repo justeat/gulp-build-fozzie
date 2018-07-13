@@ -3,6 +3,19 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v7.21.0
+------------------------------
+*July 13, 2018*
+
+### Changed
+- Package versions updated (including `gulp-gh-pages` after contacting package owner).
+- Updated to v2 of `eslint-config-fozzie`
+- Quoted glob pattern in `scripts lint` config, as was picking up package names such as `asn1.js` incorrectly for linting.
+
+### Fixed
+- New eslint config updates reflected in `--fix` of task js files
+
+
 v7.20.1
 ------------------------------
 *July 10, 2018*
