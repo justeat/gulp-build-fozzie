@@ -3,6 +3,21 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v7.23.0
+------------------------------
+*August 20, 2018*
+
+### Added
+Can now lint sub-modules Sass (for local development) by using the `--lintModules` flag.
+
+### Changed
+- Dependency on gulp-gh-pages removed in favour of our own forked version (as the maintainer had moved it to Gulp 4, which hasn't been released).
+- Tests updated in line with config changes to CSS lintPaths
+
+### Removed
+- Gemnasium removed from README
+
+
 v7.22.0
 ------------------------------
 *August 3, 2018*

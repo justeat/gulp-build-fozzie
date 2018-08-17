@@ -1,6 +1,6 @@
 const gulp = require('gulp');
 const runSequence = require('run-sequence');
-const ghPages = require('gulp-gh-pages');
+const ghPages = require('@justeat/gulp-gh-pages');
 
 const config = require('../config');
 const pathBuilder = require('../pathBuilder');
