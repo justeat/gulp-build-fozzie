@@ -1,5 +1,6 @@
 const gutil = require('gulp-util');
 const path = require('path');
+const union = require('lodash.union');
 const packageConfig = require('./package.json');
 
 const consumingPackageConfig = require(`${process.cwd()}/package.json`); // eslint-disable-line import/no-dynamic-require
@@ -9,6 +10,7 @@ const ConfigOptions = () => {
     const isProduction = !!gutil.env.prod;
     const isDev = !isProduction;
     const envLog = isProduction ? 'production' : 'development';
+    const { lintModules } = gutil.env;
     const stripDebug = !gutil.env.noStripDebug;
 
     gutil.log(gutil.colors.yellow(`🐻  Running Gulp task for ${consumingPackageConfig.name}@${consumingPackageConfig.version} in ${gutil.colors.bold(envLog)} mode ${gutil.colors.gray(`(v${packageConfig.version})`)}`));
@@ -28,7 +30,7 @@ const ConfigOptions = () => {
         css: {
             scssDir: 'scss',
             cssDir: 'css',
-            lintPaths: [''],
+            lintPaths: [...lintModules ? ['node_modules/@justeat/**/*.scss', '!node_modules/@justeat/**/node_modules/**/*.scss'] : []],
             sourcemaps: isDev,
             usePackageVersion: false
         },
@@ -182,7 +184,9 @@ const ConfigOptions = () => {
 
         update (options = {}) {
             config = Object.assign(config, options, {
-                css: Object.assign(config.css, options.css),
+                css: Object.assign(config.css, options.css, {
+                    lintPaths: union(config.css.lintPaths, (options.css ? options.css.lintPaths : []))
+                }),
                 js: Object.assign(config.js, options.js, {
                     files: Object.assign(config.js.files, (options.js ? options.js.files : {}), {
                         main: Object.assign(config.js.files.main, (options.js && options.js.files ? options.js.files.main : {}))

@@ -123,7 +123,7 @@ describe('css config', () => {
     });
 
     it('`lintPaths` should be set', () => {
-        expect(config.css.lintPaths).toEqual(['']);
+        expect(config.css.lintPaths).toEqual([]);
     });
 
     it('`lintPaths` can be updated', () => {
