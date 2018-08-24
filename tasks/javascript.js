@@ -18,7 +18,7 @@ const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
 const es = require('event-stream');
 const sourcemaps = require('gulp-sourcemaps');
-const uglify = require('gulp-uglify');
+const uglify = require('gulp-uglify-es').default;
 const rename = require('gulp-rename');
 const rev = require('gulp-rev');
 const stripDebug = require('gulp-strip-debug');
@@ -42,7 +42,6 @@ gulp.task('scripts', callback => {
         callback
     );
 });
-
 
 /**
  * `scripts:lint` Task
