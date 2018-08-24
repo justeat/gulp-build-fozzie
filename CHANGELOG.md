@@ -3,6 +3,15 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+
+v7.25.0
+------------------------------
+*August 24, 2018*
+
+### Changed
+- Updated `eslint-config-fozzie` dependency.
+
+
 v7.24.0
 ------------------------------
 *August 23, 2018*

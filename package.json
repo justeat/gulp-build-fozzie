@@ -1,6 +1,6 @@
 {
   "name": "@justeat/gulp-build-fozzie",
-  "version": "7.24.0",
+  "version": "7.25.0",
   "description": "Gulp build tasks for use across Fozzie modules",
   "main": "index.js",
   "author": "Damian Mullins <damian.mullins@just-eat.com> (http://www.damianmullins.com)",
@@ -27,7 +27,7 @@
     "release-major": "release-it major --non-interactive -p"
   },
   "dependencies": {
-    "@justeat/eslint-config-fozzie": "^2.0.1",
+    "@justeat/eslint-config-fozzie": "2.1.0",
     "@justeat/f-copy-assets": "^0.6.0",
     "@justeat/f-templates-loader": "0.1.0",
     "@justeat/gulp-gh-pages": "^1.0.3",
