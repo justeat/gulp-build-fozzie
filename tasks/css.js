@@ -16,9 +16,9 @@ const eyeglass = require('eyeglass');
 const cssnano = require('cssnano');
 const sourcemaps = require('gulp-sourcemaps');
 const postcss = require('gulp-postcss');
-const scss = require('postcss-scss');
 const assets = require('postcss-assets');
 const stylelint = require('stylelint');
+const gulpStylelint = require('gulp-stylelint');
 const reporter = require('postcss-reporter');
 const autoprefixer = require('autoprefixer');
 const path = require('path');
@@ -57,16 +57,16 @@ gulp.task('scss:lint', () => gulp.src([`${pathBuilder.scssSrcDir}/**/*.scss`, ..
         plumber(config.gulp.onError)
     ))
 
-    .pipe(postcss(
-        [
-            stylelint(),
-            reporter({
-                clearMessages: true,
-                throwError: true
-            })
-        ],
-        { syntax: scss }
-    )));
+    .pipe(gulpStylelint({
+        fix: true,
+        reporters: [
+            {
+                formatter: 'string',
+                console: true
+            }
+        ]
+    }))
+    .pipe(gulp.dest(file => file.base)));
 
 
 /**

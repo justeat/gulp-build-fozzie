@@ -127,6 +127,8 @@ Runs the following tasks
 
   Lint all SCSS files in the source directory — this runs before the [`css:bundle`](#cssbundle) task.
 
+  This task will also automatically fix any errors that it can (through stylelint's autofix setting).
+
 - #### `css:lint`
 
   Lint all CSS files in the dist directory — this runs after the [`css:bundle`](#cssbundle) task.

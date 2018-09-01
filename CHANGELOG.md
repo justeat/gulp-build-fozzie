@@ -4,6 +4,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v7.26.0
+------------------------------
+*September 1, 2018*
+
+### Added
+- `gulp-stylelint` plugin replaces postcss for the SCSS compilation so that the task can autofix any issues (as the postcss plugin isn't capable of doing this).
+
+### Changed
+- Updated `eslint-config-fozzie` dependency to remove warnings coming from airbnb-base config.
+- Update a bunch of minor dependencies.
+
+
 v7.25.0
 ------------------------------
 *August 24, 2018*
