@@ -4,6 +4,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v8.0.0
+------------------------------
+*October 3, 2018*
+
+### Changed
+- Package dependency updates.  Using the package will now require an upgrade to Babel 7.
+
+
 v7.26.0
 ------------------------------
 *September 1, 2018*
