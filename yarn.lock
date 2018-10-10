@@ -165,13 +165,13 @@
     glob "7.1.2"
     mkdirp "0.5.1"
 
-"@justeat/f-templates-loader@0.1.0":
-  version "0.1.0"
-  resolved "https://registry.npmjs.org/@justeat/f-templates-loader/-/f-templates-loader-0.1.0.tgz#5b4138b949ae99f070b215ba4add917d6a082d92"
+"@justeat/f-templates-loader@0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@justeat/f-templates-loader/-/f-templates-loader-0.1.1.tgz#48f5184322fc2353e9cffbe3608328823ce1ed9d"
   dependencies:
-    handlebars "^4.0.11"
+    handlebars "^4.0.12"
     handlebars-helper-i18n "^0.1.0"
-    handlebars-helper-inlinesvg "^1.0.2"
+    handlebars-helper-inlinesvg "^1.0.4"
 
 "@justeat/gulp-gh-pages@^1.0.3":
   version "1.0.3"
@@ -2913,6 +2913,10 @@ commander@^2.18.0:
 commander@^2.2.0, commander@~2.16.0:
   version "2.16.0"
   resolved "https://registry.npmjs.org/commander/-/commander-2.16.0.tgz#f16390593996ceb4f3eeb020b31d78528f7f8a50"
+
+commander@~2.17.1:
+  version "2.17.1"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.17.1.tgz#bd77ab7de6de94205ceacc72f1716d29f20a77bf"
 
 commander@~2.8.1:
   version "2.8.1"
@@ -6105,9 +6109,9 @@ handlebars-helper-i18n@^0.1.0:
   version "0.1.0"
   resolved "https://registry.npmjs.org/handlebars-helper-i18n/-/handlebars-helper-i18n-0.1.0.tgz#6329b2c63264b2451eea5f9e26faf7b656af9ed5"
 
-handlebars-helper-inlinesvg@^1.0.2:
+handlebars-helper-inlinesvg@^1.0.4:
   version "1.0.4"
-  resolved "https://registry.npmjs.org/handlebars-helper-inlinesvg/-/handlebars-helper-inlinesvg-1.0.4.tgz#7835c64cf4ce77f589fd29916dffbdfdd57fe3ef"
+  resolved "https://registry.yarnpkg.com/handlebars-helper-inlinesvg/-/handlebars-helper-inlinesvg-1.0.4.tgz#7835c64cf4ce77f589fd29916dffbdfdd57fe3ef"
   dependencies:
     handlebars "^4.0.11"
     ltx "^2.7.1"
@@ -6162,6 +6166,16 @@ handlebars@^4.0.11, handlebars@^4.0.2, handlebars@^4.0.3, handlebars@^4.0.6:
     source-map "^0.4.4"
   optionalDependencies:
     uglify-js "^2.6"
+
+handlebars@^4.0.12:
+  version "4.0.12"
+  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.0.12.tgz#2c15c8a96d46da5e266700518ba8cb8d919d5bc5"
+  dependencies:
+    async "^2.5.0"
+    optimist "^0.6.1"
+    source-map "^0.6.1"
+  optionalDependencies:
+    uglify-js "^3.1.4"
 
 har-schema@^1.0.5:
   version "1.0.5"
@@ -12934,6 +12948,13 @@ uglify-js@^2.6:
     yargs "~3.10.0"
   optionalDependencies:
     uglify-to-browserify "~1.0.0"
+
+uglify-js@^3.1.4:
+  version "3.4.9"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.4.9.tgz#af02f180c1207d76432e473ed24a28f4a782bae3"
+  dependencies:
+    commander "~2.17.1"
+    source-map "~0.6.1"
 
 uglify-to-browserify@~1.0.0:
   version "1.0.2"
