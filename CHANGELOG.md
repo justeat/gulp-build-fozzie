@@ -5,7 +5,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 v8.1.0
 ------------------------------
-*October 9, 2018*
+*October 10, 2018*
 
 ### Changed
 - Updated `f-templates-loader` dependency.
