@@ -3,12 +3,21 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v8.1.1
+------------------------------
+*October 10, 2018*
+
+### Fixed
+- README updated with Babel 7 config changes.  Also includes note about adding Espree v3.5.4 as a resolution when adding linting with ESLint v6.
+
+
 v8.1.0
 ------------------------------
 *October 10, 2018*
 
 ### Changed
 - Updated `f-templates-loader` dependency.
+
 
 v8.0.0
 ------------------------------
