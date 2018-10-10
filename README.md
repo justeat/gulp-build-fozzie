@@ -50,17 +50,17 @@ That's it! You can now run any of [the Gulp tasks](#the-gulp-tasks).
 
 #### Transpile es2015 code
 
-To ensure that the [`scripts:bundle`](#scriptsbundle) task can transpile es2015 code, add the `babel-preset-es2015` preset to the project:
+To ensure that the [`scripts:bundle`](#scriptsbundle) task can transpile es2015 code, add the `@babel/preset-env` preset to the project:
 
 ```bash
-yarn add babel-preset-es2015
+yarn add @babel/preset-env
 ```
 
-Then add a `.babelrc` file, with the `babel-preset-es2015` preset, to the root of your project:
+Then add a `.babelrc` file, with the `@babel/preset-env` preset, to the root of your project:
 
 ```json
 {
-    "presets": ["es2015"]
+    "presets": ["@babel/preset-env"]
 }
 ```
 
@@ -79,6 +79,18 @@ Add an `.eslintrc` file to the root of your project with the following content t
 If you wish to extend or override these rules you can simply add them after the `extends` line in the `.eslintrc` file.
 
 [For more information on how you can configure eslint check out the documentation](http://eslint.org/docs/user-guide/configuring).
+
+**N.b.** You may also find that you get an error when adding eslint which reads `Parsing error: Cannot read property 'ecmaFeatures' of undefined`.  If you see this message, then add this to your `package.json` followed by running `yarn install`:
+
+```
+"resolutions": {
+  "espree": "3.5.4"
+}
+```
+
+This is a temporary fix dependent on the progress of [this issue open on ESLint](https://github.com/eslint/eslint/issues/10623).
+
+
 
 #### CSS Linting
 
