@@ -1,6 +1,6 @@
 {
   "name": "@justeat/gulp-build-fozzie",
-  "version": "8.1.1",
+  "version": "8.2.0",
   "description": "Gulp build tasks for use across Fozzie modules",
   "main": "index.js",
   "author": "Damian Mullins <damian.mullins@just-eat.com> (http://www.damianmullins.com)",
@@ -27,6 +27,9 @@
     "release-major": "release-it major --non-interactive -p"
   },
   "dependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
     "@justeat/eslint-config-fozzie": "2.2.0",
     "@justeat/f-copy-assets": "^1.1.0",
     "@justeat/f-templates-loader": "0.1.1",
@@ -94,6 +97,10 @@
     "danger": "4.3.0",
     "lodash.clonedeep": "^4.5.0",
     "release-it": "^7.6.1"
+  },
+  "resolutions": {
+    "babel-core": "7.0.0-bridge.0",
+    "espree": "^3.5.4"
   },
   "peerDependencies": {
     "gulp": "^3.9.1"
