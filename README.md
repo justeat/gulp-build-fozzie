@@ -50,13 +50,7 @@ That's it! You can now run any of [the Gulp tasks](#the-gulp-tasks).
 
 #### Transpile es2015 code
 
-To ensure that the [`scripts:bundle`](#scriptsbundle) task can transpile es2015 code, add the `@babel/preset-env` preset to the project:
-
-```bash
-yarn add @babel/preset-env
-```
-
-Then add a `.babelrc` file, with the `@babel/preset-env` preset, to the root of your project:
+To ensure that the [`scripts:bundle`](#scriptsbundle) task can transpile es2015 code, add a `.babelrc` file, with the `@babel/preset-env` preset, to the root of your project:
 
 ```json
 {
