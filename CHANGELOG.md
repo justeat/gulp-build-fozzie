@@ -4,6 +4,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v8.3.0
+------------------------------
+*November 27, 2018*
+
+### Fixed
+- Downgrading `event-stream` due to security vulnerability
+
+### Changed
+- Updating package dependencies
+
+
 v8.2.1
 ------------------------------
 *October 12, 2018*
