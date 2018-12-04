@@ -60,6 +60,14 @@ const ConfigOptions = () => {
         },
 
         /**
+         * f-searchbox-related variables
+         */
+        searchbox: {
+            isEnabled: false,
+            dir: 'js/searchbox'
+        },
+
+        /**
          * Image-related variables
          */
         img: {

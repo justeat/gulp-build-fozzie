@@ -14,6 +14,7 @@ gulp.task('default', callback => {
         ['copy:fonts', 'images'],
         ['css', 'scripts'],
         ['logger:createFile'],
+        ...(config.searchbox.isEnabled ? ['searchbox:copyFiles'] : []),
         ...(config.sw.isEnabled ? ['service-worker'] : []),
         callback
     );
