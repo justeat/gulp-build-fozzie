@@ -5,6 +5,7 @@ const packageConfig = require('./package.json');
 
 const consumingPackageConfig = require(`${process.cwd()}/package.json`); // eslint-disable-line import/no-dynamic-require
 
+
 const ConfigOptions = () => {
     const isProduction = !!gutil.env.prod;
     const isDev = !isProduction;
