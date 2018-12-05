@@ -9,7 +9,7 @@ v8.4.0
 *December 5, 2018*
 
 ### Added
-- Task and config for f-searchbox file copies
+- Task for f-searchbox file copies
 
 
 v8.3.0
