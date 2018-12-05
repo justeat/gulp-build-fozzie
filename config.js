@@ -5,7 +5,6 @@ const packageConfig = require('./package.json');
 
 const consumingPackageConfig = require(`${process.cwd()}/package.json`); // eslint-disable-line import/no-dynamic-require
 
-
 const ConfigOptions = () => {
     const isProduction = !!gutil.env.prod;
     const isDev = !isProduction;
@@ -23,7 +22,6 @@ const ConfigOptions = () => {
         assetDistDir: 'dist',
         applyRevision: true,
         packageVersion: consumingPackageConfig.version,
-        searchboxVersion: consumingPackageConfig && consumingPackageConfig.dependencies['@justeat/f-searchbox'],
 
         /**
          * CSS-related variables
@@ -58,14 +56,6 @@ const ConfigOptions = () => {
         logger: {
             dir: 'js/shared',
             file: 'js-error.js'
-        },
-
-        /**
-         * f-searchbox-related variables
-         */
-        searchbox: {
-            isEnabled: false,
-            dir: 'js/searchbox'
         },
 
         /**
