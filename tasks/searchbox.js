@@ -1,9 +1,8 @@
 const gulp = require('gulp');
-const file = require('gulp-file');
-const fs = require('fs');
-const gulpif = require('gulp-if');
 const config = require('../config');
 const pathBuilder = require('../pathBuilder');
+const rename = require('gulp-rename');
+const version = config.searchboxVersion ? config.searchboxVersion : "";
 
 /**
  *  `searchbox-file-copy` Task
@@ -11,8 +10,6 @@ const pathBuilder = require('../pathBuilder');
  *
  */
 
-gulp.task('searchbox:copyFiles', () => file(config.searchbox.file, '', { src: true })
-    .pipe(gulpif(
-        !fs.existsSync(`${pathBuilder.searchboxDir}/${config.searchbox.file}`),
-        gulp.dest(pathBuilder.searchboxDir)
-    )));
+gulp.task('searchbox:copyFiles', () => {
+    return gulp.src('./node_modules/@justeat/f-searchbox/dist/*.js').pipe(rename({ suffix: `-${version}` })).pipe(gulp.dest(pathBuilder.searchboxDir));
+});

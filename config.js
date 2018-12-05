@@ -23,6 +23,7 @@ const ConfigOptions = () => {
         assetDistDir: 'dist',
         applyRevision: true,
         packageVersion: consumingPackageConfig.version,
+        searchboxVersion: consumingPackageConfig && consumingPackageConfig.dependencies['@justeat/f-searchbox'],
 
         /**
          * CSS-related variables
