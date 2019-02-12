@@ -4,6 +4,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v8.4.0
+------------------------------
+*February 12, 2019*
+
+### Fixed
+- Adjusted `copy:assets` task so that it copies the assets over to the relevant docs folder when running in docs mode.
+
+
 v8.3.0
 ------------------------------
 *November 27, 2018*
