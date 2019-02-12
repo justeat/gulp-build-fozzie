@@ -109,10 +109,24 @@ gulp.task('copy:docs', () => {
  * Copy assets from from packages to the dist folder.
  *
  */
-gulp.task('copy:assets', () => copyAssets({
-    pkgSrcGlob: config.importedAssets.importedAssetsSrcGlob,
-    dest: config.assetDistDir,
-    verbose: config.importedAssets.verbose,
-    logger: gutil.log
-})
-    .catch(config.gulp.onError));
+gulp.task('copy:assets', cb => {
+    copyAssets({
+        pkgSrcGlob: config.importedAssets.importedAssetsSrcGlob,
+        dest: config.assetDistDir,
+        verbose: config.importedAssets.verbose,
+        logger: gutil.log
+    })
+    .catch(config.gulp.onError)
+    .then(() => {
+        if (config.docs.outputAssets) {
+            copyAssets({
+                pkgSrcGlob: config.importedAssets.importedAssetsSrcGlob,
+                dest: pathBuilder.docsAssetsDistDir,
+                verbose: config.importedAssets.verbose,
+                logger: gutil.log
+            })
+            .catch(config.gulp.onError);
+        }
+    });
+    cb();
+});
