@@ -30,6 +30,10 @@ gulp.task('service-worker', callback => {
  *
  */
 gulp.task('service-worker:write', () => {
+    const importScripts = config.sw.importScripts.concat(
+        filenames.get('service-worker-scripts'),
+        'https://js.appboycdn.com/web-sdk/2.2/service-worker.js'
+    );
     const runtimeCaching = config.sw.dynamicFileRegex.map(urlPattern => ({
         urlPattern,
         handler: config.sw.dynamicFileStrategy
@@ -38,7 +42,7 @@ gulp.task('service-worker:write', () => {
     swPrecache.write(`${pathBuilder.swOutputPath}/${config.sw.outputFile}`, {
         // Used to avoid cache conflicts when serving on localhost.
         cacheId: config.sw.cacheId,
-        importScripts: config.sw.importScripts.concat(filenames.get('service-worker-scripts')),
+        importScripts,
         staticFileGlobs: config.sw.staticFileGlobs,
         runtimeCaching,
         logger: gutil.log
