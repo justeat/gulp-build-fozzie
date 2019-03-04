@@ -4,6 +4,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v8.5.0
+------------------------------
+*March 1, 2019*
+
+### Added
+- Service worker import scripts contains Braze Service Worker by default
+
 v8.4.0
 ------------------------------
 *February 12, 2019*
