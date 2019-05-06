@@ -24,7 +24,9 @@
     "lint": "eslint '**/*.js' --fix",
     "release-patch": "release-it patch --non-interactive -p",
     "release-minor": "release-it minor --non-interactive -p",
-    "release-major": "release-it major --non-interactive -p"
+    "release-major": "release-it major --non-interactive -p",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "@babel/cli": "^7.1.5",
@@ -89,7 +91,8 @@
     "stylelint-scss": "^3.4.0",
     "sw-precache": "^5.2.1",
     "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0"
+    "vinyl-source-stream": "^2.0.0",
+    "snyk": "^1.161.1"
   },
   "devDependencies": {
     "concurrently": "^4.1.0",
@@ -104,5 +107,6 @@
   },
   "peerDependencies": {
     "gulp": "^3.9.1"
-  }
+  },
+  "snyk": true
 }
