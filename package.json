@@ -85,7 +85,7 @@
     "postcss-reporter": "^6.0.0",
     "require-dir": "^1.2.0",
     "run-sequence": "^2.2.1",
-    "stylelint": "^9.8.0",
+    "stylelint": "^10.0.0",
     "stylelint-scss": "^3.4.0",
     "sw-precache": "^5.2.1",
     "vinyl-buffer": "^1.0.1",
