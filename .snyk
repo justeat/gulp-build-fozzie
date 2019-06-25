@@ -1,0 +1,86 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.5
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:extend:20180424':
+    - gulp-imagemin > imagemin-jpegtran > jpegtran-bin > bin-build > download > vinyl-fs > glob-stream > extend:
+        patched: '2019-06-25T13:22:47.531Z'
+    - gulp-imagemin > imagemin-gifsicle > gifsicle > bin-build > download > vinyl-fs > glob-stream > extend:
+        patched: '2019-06-25T13:22:47.531Z'
+    - gulp-imagemin > imagemin-jpegtran > jpegtran-bin > bin-build > decompress > vinyl-fs > glob-stream > extend:
+        patched: '2019-06-25T13:22:47.531Z'
+    - gulp-imagemin > imagemin-optipng > optipng-bin > bin-build > decompress > vinyl-fs > glob-stream > extend:
+        patched: '2019-06-25T13:22:47.531Z'
+    - gulp-imagemin > imagemin-optipng > optipng-bin > bin-wrapper > download > vinyl-fs > glob-stream > extend:
+        patched: '2019-06-25T13:22:47.531Z'
+    - gulp-imagemin > imagemin-jpegtran > jpegtran-bin > bin-wrapper > download > vinyl-fs > glob-stream > extend:
+        patched: '2019-06-25T13:22:47.531Z'
+    - gulp-imagemin > imagemin-gifsicle > gifsicle > bin-wrapper > download > vinyl-fs > glob-stream > extend:
+        patched: '2019-06-25T13:22:47.531Z'
+    - gulp-imagemin > imagemin-gifsicle > gifsicle > bin-build > decompress > vinyl-fs > glob-stream > extend:
+        patched: '2019-06-25T13:22:47.531Z'
+    - jest-cli > jest-runtime > jest-config > jest-environment-jsdom > jsdom > request > extend:
+        patched: '2019-06-25T13:22:47.531Z'
+    - jest-cli > jest-runner > jest-config > jest-environment-jsdom > jsdom > request > extend:
+        patched: '2019-06-25T13:22:47.531Z'
+    - gulp-imagemin > imagemin-optipng > optipng-bin > bin-build > download > vinyl-fs > glob-stream > extend:
+        patched: '2019-06-25T13:22:47.531Z'
+    - assemble > assemble-core > assemble-fs > vinyl-fs > glob-stream > extend:
+        patched: '2019-06-25T13:22:47.531Z'
+    - eyeglass > node-sass > node-gyp > request > extend:
+        patched: '2019-06-25T13:22:47.531Z'
+    - gulp-sass > node-sass > node-gyp > request > extend:
+        patched: '2019-06-25T13:22:47.531Z'
+    - jest-cli > jest-environment-jsdom > jsdom > request > extend:
+        patched: '2019-06-25T13:22:47.531Z'
+    - stylelint > postcss-markdown > remark > unified > extend:
+        patched: '2019-06-25T13:22:47.531Z'
+    - eyeglass > node-sass > request > extend:
+        patched: '2019-06-25T13:22:47.531Z'
+    - gulp-sass > node-sass > request > extend:
+        patched: '2019-06-25T13:22:47.531Z'
+    - '@justeat/gulp-gh-pages > vinyl-fs > glob-stream > extend':
+        patched: '2019-06-25T13:22:47.531Z'
+    - gulp > liftoff > extend:
+        patched: '2019-06-25T13:22:47.531Z'
+    - gulp-imagemin > imagemin-jpegtran > jpegtran-bin > bin-wrapper > download > gulp-decompress > decompress > vinyl-fs > glob-stream > extend:
+        patched: '2019-06-25T13:22:47.531Z'
+    - gulp-imagemin > imagemin-gifsicle > gifsicle > bin-build > download > gulp-decompress > decompress > vinyl-fs > glob-stream > extend:
+        patched: '2019-06-25T13:22:47.531Z'
+    - gulp-imagemin > imagemin-jpegtran > jpegtran-bin > bin-build > download > gulp-decompress > decompress > vinyl-fs > glob-stream > extend:
+        patched: '2019-06-25T13:22:47.531Z'
+    - gulp-imagemin > imagemin-optipng > optipng-bin > bin-wrapper > download > gulp-decompress > decompress > vinyl-fs > glob-stream > extend:
+        patched: '2019-06-25T13:22:47.531Z'
+    - gulp-imagemin > imagemin-gifsicle > gifsicle > bin-wrapper > download > gulp-decompress > decompress > vinyl-fs > glob-stream > extend:
+        patched: '2019-06-25T13:22:47.531Z'
+    - gulp-imagemin > imagemin-optipng > optipng-bin > bin-build > download > gulp-decompress > decompress > vinyl-fs > glob-stream > extend:
+        patched: '2019-06-25T13:22:47.531Z'
+    - jest-cli > jest-runner > jest-runtime > jest-config > jest-environment-jsdom > jsdom > request > extend:
+        patched: '2019-06-25T13:22:47.531Z'
+    - jest-cli > jest-config > jest-environment-jsdom > jsdom > request > extend:
+        patched: '2019-06-25T13:22:47.531Z'
+  'npm:hoek:20180212':
+    - gulp-sass > node-sass > node-gyp > request > hawk > hoek:
+        patched: '2019-06-25T13:22:47.531Z'
+    - eyeglass > node-sass > node-gyp > request > hawk > boom > hoek:
+        patched: '2019-06-25T13:22:47.531Z'
+    - gulp-sass > node-sass > node-gyp > request > hawk > boom > hoek:
+        patched: '2019-06-25T13:22:47.531Z'
+    - eyeglass > node-sass > node-gyp > request > hawk > sntp > hoek:
+        patched: '2019-06-25T13:22:47.531Z'
+    - gulp-sass > node-sass > node-gyp > request > hawk > sntp > hoek:
+        patched: '2019-06-25T13:22:47.531Z'
+    - eyeglass > node-sass > node-gyp > request > hawk > cryptiles > boom > hoek:
+        patched: '2019-06-25T13:22:47.531Z'
+    - gulp-sass > node-sass > node-gyp > request > hawk > cryptiles > boom > hoek:
+        patched: '2019-06-25T13:22:47.531Z'
+    - eyeglass > node-sass > node-gyp > request > hawk > hoek:
+        patched: '2019-06-25T13:22:47.531Z'
+  'npm:minimatch:20160620':
+    - gulp > vinyl-fs > glob-stream > minimatch:
+        patched: '2019-06-25T13:22:47.531Z'
+    - gulp > vinyl-fs > glob-watcher > gaze > globule > glob > minimatch:
+        patched: '2019-06-25T13:22:47.531Z'
+    - gulp > vinyl-fs > glob-watcher > gaze > globule > minimatch:
+        patched: '2019-06-25T13:22:47.531Z'

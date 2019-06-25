@@ -24,7 +24,9 @@
     "lint": "eslint '**/*.js' --fix",
     "release-patch": "release-it patch --non-interactive -p",
     "release-minor": "release-it minor --non-interactive -p",
-    "release-major": "release-it major --non-interactive -p"
+    "release-major": "release-it major --non-interactive -p",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "@babel/cli": "^7.1.5",
@@ -38,7 +40,7 @@
     "assemble": "^0.24.3",
     "autoprefixer": "^9.3.1",
     "babelify": "^10.0.0",
-    "browser-sync": "^2.26.3",
+    "browser-sync": "^2.26.6",
     "browserify": "^16.2.3",
     "cssnano": "^4.1.7",
     "del": "^3.0.0",
@@ -48,7 +50,7 @@
     "exorcist": "^1.0.1",
     "eyeglass": "^1.4.1",
     "filesizegzip": "^2.0.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-cached": "^1.1.1",
     "gulp-changed": "^3.2.0",
     "gulp-clone": "^2.0.1",
@@ -57,7 +59,7 @@
     "gulp-file": "^0.4.0",
     "gulp-filenames": "^4.0.1",
     "gulp-if": "^2.0.2",
-    "gulp-imagemin": "^4.1.0",
+    "gulp-imagemin": "^5.0.0",
     "gulp-newer": "^1.4.0",
     "gulp-plumber": "^1.2.0",
     "gulp-postcss": "^8.0.0",
@@ -69,7 +71,7 @@
     "gulp-sourcemaps": "^2.6.4",
     "gulp-strip-debug": "^3.0.0",
     "gulp-stylelint": "^8.0.0",
-    "gulp-svgmin": "^1.2.4",
+    "gulp-svgmin": "^2.0.0",
     "gulp-svgstore": "^7.0.0",
     "gulp-tap": "^1.0.1",
     "gulp-uglify-es": "^1.0.4",
@@ -78,18 +80,19 @@
     "handlebars-helpers": "^0.10.0",
     "helper-markdown": "^1.0.0",
     "helper-md": "^0.2.2",
-    "jest-cli": "^23.6.0",
+    "jest-cli": "^24.0.0",
     "lodash.union": "^4.6.0",
     "merge-stream": "^1.0.1",
     "postcss-assets": "^5.0.0",
     "postcss-reporter": "^6.0.0",
     "require-dir": "^1.2.0",
     "run-sequence": "^2.2.1",
-    "stylelint": "^9.8.0",
+    "stylelint": "^10.0.0",
     "stylelint-scss": "^3.4.0",
     "sw-precache": "^5.2.1",
     "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0"
+    "vinyl-source-stream": "^2.0.0",
+    "snyk": "^1.184.0"
   },
   "devDependencies": {
     "concurrently": "^4.1.0",
@@ -104,5 +107,6 @@
   },
   "peerDependencies": {
     "gulp": "^3.9.1"
-  }
+  },
+  "snyk": true
 }
