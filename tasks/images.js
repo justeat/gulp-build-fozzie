@@ -21,9 +21,9 @@ gulp.task('images', callback => {
     runSequence(
         'clean:images',
         ['copy:img', 'copy:assets'],
-        'images:optimise',
+        // 'images:optimise',
         ...(config.docs.outputAssets ? ['copy:img:docs'] : []),
-        'images:svg-sprite',
+        // 'images:svg-sprite',
         callback
     );
 });
