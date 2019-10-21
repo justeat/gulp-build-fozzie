@@ -13,7 +13,6 @@ v8.5.0
 
 ### Fixed
 - Linting in `assemble.js`.
-- File pattern in lint task.
 
 
 v8.4.0
