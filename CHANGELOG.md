@@ -4,6 +4,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v8.5.0
+------------------------------
+*October 21, 2019*
+
+### Removed
+- `images:optimise` and `images:svg-sprite` from images task.
+
+### Fixed
+- Linting in `assemble.js`.
+- File pattern in lint task.
+
+
 v8.4.0
 ------------------------------
 *February 12, 2019*
