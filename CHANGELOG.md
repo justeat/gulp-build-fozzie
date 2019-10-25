@@ -8,8 +8,8 @@ v8.5.0
 ------------------------------
 *October 25, 2019*
 
-### Removed
-- `images:optimise` and `images:svg-sprite` from images task.
+## Changed
+- problematic `images:optimise` and `images:svg-sprite` from images task can now be toggled on/off in config. default is off.
 
 ### Fixed
 - Linting in `assemble.js`.
