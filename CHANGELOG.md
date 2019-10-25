@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 v8.5.0
 ------------------------------
-*October 21, 2019*
+*October 25, 2019*
 
 ### Removed
 - `images:optimise` and `images:svg-sprite` from images task.
