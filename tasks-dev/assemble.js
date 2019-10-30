@@ -64,13 +64,6 @@ gulp.task('assemble', () => {
     return app.src(`${pathBuilder.docsTemplateDir}/pages/**/*.{md,hbs}`)
         // stops watch from breaking on error
         .pipe(plumber(config.gulp.onError))
-
-        // can’t get newer to work with page includes: such that a many > 1 relationship.  Commenting out so just recompiles all for now
-        // .pipe(newer({
-        //     dest: pathBuilder.docsDistDir,
-        //     ext: '.html'
-        // }))
-
         .pipe(app.renderFile())
         .pipe(extname())
         .pipe(app.dest(pathBuilder.docsDistDir));
