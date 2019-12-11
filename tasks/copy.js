@@ -30,13 +30,21 @@ const copy = fileType => {
                     rev()
                 ))
 
-                .pipe(gulp.dest(assetDist))
+                .pipe(gulp.dest(assetDist));
 
-                // output to docs assets folder
-                .pipe(gulpif(
-                    config.docs.outputAssets,
-                    gulp.dest(assetDocsDist)
-                ));
+            // this docs copy is separate as the gulpif() was terminating the previous stream before all files had copied
+            if (config.docs.outputAssets) {
+                gulp.src(assetSrc)
+                    .pipe(plumber(config.gulp.onError))
+
+                    .pipe(gulpif(
+                        asset.revision,
+                        rev()
+                    ))
+
+                    // output to docs assets folder
+                    .pipe(gulp.dest(assetDocsDist));
+            }
         } else {
             gutil.log(gutil.colors.red.bold('Error copying file - path not defined'));
         }
@@ -116,17 +124,17 @@ gulp.task('copy:assets', cb => {
         verbose: config.importedAssets.verbose,
         logger: gutil.log
     })
-    .catch(config.gulp.onError)
-    .then(() => {
-        if (config.docs.outputAssets) {
-            copyAssets({
-                pkgSrcGlob: config.importedAssets.importedAssetsSrcGlob,
-                dest: pathBuilder.docsAssetsDistDir,
-                verbose: config.importedAssets.verbose,
-                logger: gutil.log
-            })
-            .catch(config.gulp.onError);
-        }
-    });
+        .catch(config.gulp.onError)
+        .then(() => {
+            if (config.docs.outputAssets) {
+                copyAssets({
+                    pkgSrcGlob: config.importedAssets.importedAssetsSrcGlob,
+                    dest: pathBuilder.docsAssetsDistDir,
+                    verbose: config.importedAssets.verbose,
+                    logger: gutil.log
+                })
+                    .catch(config.gulp.onError);
+            }
+        });
     cb();
 });
