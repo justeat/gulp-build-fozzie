@@ -4,6 +4,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v9.0.1
+------------------------------
+*December 11, 2019*
+
+## Fixed
+- Copy issue where for some reason the `gulpif` package was incorrectly stopping all images being copied over when `gulp.dest` was run. Have split out the base copy and the docs copy streams so they don't impact one another.
+
+
 v9.0.0
 ------------------------------
 *November 12, 2019*
