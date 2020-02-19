@@ -8,16 +8,16 @@ const exorcist = require('exorcist');
 const eslint = require('gulp-eslint');
 
 // jest packages
-const jest = require('jest-cli');
-const path = require('path');
+const { runCLI } = require('jest');
+const { resolve } = require('path');
 
 // bundle packages
 const browserify = require('browserify');
 const babelify = require('babelify');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
-const es = require('event-stream');
-const sourcemaps = require('gulp-sourcemaps');
+const { merge } = require('event-stream');
+const { init, write } = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify-es').default;
 const rename = require('gulp-rename');
 const rev = require('gulp-rev');
@@ -61,9 +61,9 @@ gulp.task('scripts:lint', () => gulp.src([`${pathBuilder.jsSrcDir}/**/*.js`, ...
     .pipe(eslint.failAfterError()));
 
 
-const jestTestRun = (args = {}) => jest.runCLI(
+const jestTestRun = (args = {}) => runCLI(
     { bail: config.isProduction, passWithNoTests: true, ...args },
-    [path.resolve(process.cwd())]
+    [resolve(process.cwd())]
 );
 
 /**
@@ -142,7 +142,7 @@ gulp.task('scripts:bundle', () => {
             // capture sourcemaps from transforms
             .pipe(gulpif(
                 config.isDev,
-                sourcemaps.init({ loadMaps: true })
+                init({ loadMaps: true })
             ))
 
             // if production build, rip out our console logs
@@ -167,7 +167,7 @@ gulp.task('scripts:bundle', () => {
             // write the sourcemap to a separate file
             .pipe(gulpif(
                 config.isDev,
-                sourcemaps.write('.')
+                write('.')
             ))
 
             // output to docs assets folder
@@ -197,5 +197,5 @@ gulp.task('scripts:bundle', () => {
             .pipe(gulp.dest(pathBuilder.jsDistDir));
     });
 
-    return es.merge(...bundleTasks);
+    return merge(...bundleTasks);
 });
