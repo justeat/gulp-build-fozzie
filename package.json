@@ -21,7 +21,7 @@
     "test": "jest",
     "test:cover": "jest --coverage",
     "test:cover:CI": "cat coverage/lcov.info | coveralls",
-    "lint": "eslint **/*.js --fix",
+    "lint": "eslint \"**/*.js\" --fix",
     "release-patch": "release-it patch --non-interactive -p",
     "release-minor": "release-it minor --non-interactive -p",
     "release-major": "release-it major --non-interactive -p"
