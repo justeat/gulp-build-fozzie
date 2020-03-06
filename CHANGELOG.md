@@ -4,6 +4,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v10.0.0
+------------------------------
+*March 6, 2020*
+
+## Changed
+- Upgrade `gulp` to v4 (so that it's now compatible with Node v12)
+
+
 v9.1.0
 ------------------------------
 *February 19, 2020*

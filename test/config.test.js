@@ -219,7 +219,7 @@ describe('javascript config', () => {
     });
 
     it('`lintPaths` should be set', () => {
-        expect(config.js.lintPaths).toEqual(['']);
+        expect(config.js.lintPaths).toEqual([]);
     });
 
     it('`lintPaths` can be updated', () => {
