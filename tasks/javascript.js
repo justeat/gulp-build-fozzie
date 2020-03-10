@@ -3,7 +3,6 @@ const cache = require('gulp-cached');
 const plumber = require('gulp-plumber');
 const gulpif = require('gulp-if');
 const size = require('gulp-size');
-const runSequence = require('run-sequence');
 const exorcist = require('exorcist');
 const eslint = require('gulp-eslint');
 
@@ -26,22 +25,6 @@ const stripDebug = require('gulp-strip-debug');
 const config = require('../config');
 const pathBuilder = require('../pathBuilder');
 
-
-/**
- *  `scripts` Task
- *  ---------------
- *
- */
-gulp.task('scripts', callback => {
-    runSequence(
-        'scripts:lint',
-        'scripts:test',
-        'clean:scripts',
-        'scripts:bundle',
-        'copy:js',
-        callback
-    );
-});
 
 /**
  * `scripts:lint` Task
@@ -72,7 +55,7 @@ const jestTestRun = (args = {}) => runCLI(
  * Runs the JS unit tests.
  *
  */
-gulp.task('scripts:test', () => jestTestRun());
+gulp.task('scripts:test', async () => jestTestRun());
 
 
 /**
@@ -81,7 +64,7 @@ gulp.task('scripts:test', () => jestTestRun());
  * Runs the JS unit tests and display a coverage report once complete.
  *
  */
-gulp.task('scripts:test:coverage', () => jestTestRun({ coverage: true }));
+gulp.task('scripts:test:coverage', async () => jestTestRun({ coverage: true }));
 
 
 /**
@@ -90,7 +73,7 @@ gulp.task('scripts:test:coverage', () => jestTestRun({ coverage: true }));
  * Bundle the JS modules together into a single file and and transpile es2015 features to es5.
  *
  */
-gulp.task('scripts:bundle', () => {
+gulp.task('scripts:bundle', async () => {
     const bundleTasks = Object.keys(config.js.files).map(fileId => {
         const { srcPath, distFile } = config.js.files[fileId];
         const file = `${pathBuilder.jsSrcDir}/${srcPath}`;
@@ -199,3 +182,21 @@ gulp.task('scripts:bundle', () => {
 
     return merge(...bundleTasks);
 });
+
+
+/**
+ *  `scripts` Task
+ *  ---------------
+ *  This needs to be at the end of this file, because no forward references in Gulp v4
+ *
+ */
+gulp.task('scripts', gulp.series(
+    'scripts:lint',
+    'scripts:test',
+    'clean:scripts',
+    'scripts:bundle',
+    'copy:js',
+    done => {
+        done();
+    }
+));

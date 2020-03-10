@@ -1,5 +1,4 @@
 const gulp = require('gulp');
-const runSequence = require('run-sequence');
 const gutil = require('gulp-util');
 const plumber = require('gulp-plumber');
 const gulpif = require('gulp-if');
@@ -25,23 +24,6 @@ const path = require('path');
 
 const config = require('../config');
 const pathBuilder = require('../pathBuilder');
-
-
-/**
- *  `css` Task
- *  ---------------
- *
- */
-gulp.task('css', callback => {
-    runSequence(
-        'scss:lint',
-        'clean:css',
-        'css:bundle',
-        'copy:css',
-        'css:lint',
-        callback
-    );
-});
 
 
 /**
@@ -206,3 +188,20 @@ gulp.task('css:bundle', () => {
 
     return merge(unminified, minified);
 });
+
+/**
+ *  `css` Task
+ *  ---------------
+ *  This needs to be at the end of this file, because no forward references in Gulp v4
+ *
+ */
+gulp.task('css', gulp.series(
+    'scss:lint',
+    'clean:css',
+    'css:bundle',
+    'copy:css',
+    'css:lint',
+    done => {
+        done();
+    }
+));

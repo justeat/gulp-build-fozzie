@@ -1,6 +1,6 @@
 {
   "name": "@justeat/gulp-build-fozzie",
-  "version": "10.0.0",
+  "version": "10.1.0",
   "description": "Gulp build tasks for use across Fozzie modules",
   "main": "index.js",
   "contributors": [
@@ -85,7 +85,6 @@
     "postcss-assets": "5.0.0",
     "postcss-reporter": "6.0.1",
     "require-dir": "1.2.0",
-    "run-sequence": "2.2.1",
     "stylelint": "13.2.0",
     "stylelint-scss": "3.14.2",
     "sw-precache": "5.2.1",

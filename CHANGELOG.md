@@ -4,6 +4,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v10.1.0
+------------------------------
+*March 10, 2020*
+
+## Changed
+- Turns out there were more changes needed for Gulp v4 😆
+  Specifically, regarding `runSequence` (which no longer works in Gulp v4). Have converted these tasks to use `gulp.series` and `gulp.parallel` instead. This ahs been tested with how  HomeWeb uses its default task – this is likely to need more specific testing/updates if/when we migrate this into other applications that use this package).
+
+
 v10.0.0
 ------------------------------
 *March 6, 2020*

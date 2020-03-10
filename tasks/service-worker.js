@@ -2,25 +2,10 @@ const gulp = require('gulp');
 const changed = require('gulp-changed');
 const swPrecache = require('sw-precache');
 const filenames = require('gulp-filenames');
-const runSequence = require('run-sequence');
 const gutil = require('gulp-util');
 
 const pathBuilder = require('../pathBuilder');
 const config = require('../config');
-
-
-/**
- *  `service-worker` Task
- *  ---------------
- *
- */
-gulp.task('service-worker', callback => {
-    runSequence(
-        ['service-worker:copy', 'service-worker:locate'],
-        'service-worker:write',
-        callback
-    );
-});
 
 
 /**
@@ -65,3 +50,17 @@ gulp.task('service-worker:copy', () => gulp.src([`${pathBuilder.swSrcDir}/**/*`,
  */
 gulp.task('service-worker:locate', () => gulp.src(`${pathBuilder.swSrcDir}/**/*`)
     .pipe(filenames('service-worker-scripts')));
+
+
+/**
+ *  `service-worker` Task
+ *  ---------------
+ *
+ */
+gulp.task('service-worker', gulp.series(
+    gulp.parallel('service-worker:copy', 'service-worker:locate'),
+    'service-worker:write',
+    done => {
+        done();
+    }
+));
