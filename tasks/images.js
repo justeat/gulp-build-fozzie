@@ -1,6 +1,5 @@
 const gulp = require('gulp');
 const path = require('path');
-const runSequence = require('run-sequence');
 const changed = require('gulp-changed');
 const gulpif = require('gulp-if');
 const imagemin = require('gulp-imagemin');
@@ -10,23 +9,6 @@ const svgstore = require('gulp-svgstore');
 
 const config = require('../config');
 const pathBuilder = require('../pathBuilder');
-
-
-/**
- * `images` Task
- * -------------
- *
- */
-gulp.task('images', callback => {
-    runSequence(
-        'clean:images',
-        ['copy:img', 'copy:assets'],
-        ...(config.img.optimiseImages ? ['images:optimise'] : []),
-        ...(config.docs.outputAssets ? ['copy:img:docs'] : []),
-        ...(config.img.spriteSvgs ? ['images:svg-sprite'] : []),
-        callback
-    );
-});
 
 
 /**
@@ -101,5 +83,23 @@ gulp.task('images:svg-sprite', () => gulp.src(`${pathBuilder.imgDistDir}/**/*.sv
         gulp.dest(pathBuilder.docsImgDistDir)
     ))
 
-// write the files to disk
+    // write the files to disk
     .pipe(gulp.dest(`${pathBuilder.imgDistDir}`)));
+
+
+/**
+ * `images` Task
+ * -------------
+ * This needs to be at the end of this file, because no forward references in Gulp v4
+ *
+ */
+gulp.task('images', gulp.series(
+    'clean:images',
+    gulp.parallel('copy:img', 'copy:assets'),
+    ...(config.img.optimiseImages ? 'images:optimise' : ''),
+    ...(config.docs.outputAssets ? 'copy:img:docs' : ''),
+    ...(config.img.spriteSvgs ? 'images:svg-sprite' : ''),
+    done => {
+        done();
+    }
+));

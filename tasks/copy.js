@@ -57,7 +57,7 @@ const copy = fileType => {
  * Copy the specified JavaScript assets over to the dist folder.
  *
  */
-gulp.task('copy:js', () => {
+gulp.task('copy:js', async () => {
     copy('js');
 });
 
@@ -67,7 +67,7 @@ gulp.task('copy:js', () => {
  * Copy the specified CSS assets over to the dist folder.
  *
  */
-gulp.task('copy:css', () => {
+gulp.task('copy:css', async () => {
     copy('css');
 });
 
@@ -77,7 +77,7 @@ gulp.task('copy:css', () => {
  * Copy the specified image assets over to the dist folder.
  *
  */
-gulp.task('copy:img', () => {
+gulp.task('copy:img', async () => {
     copy('img');
 });
 
@@ -87,7 +87,7 @@ gulp.task('copy:img', () => {
  * Copy all of the images in the assets dist folder over to the docs dist folder.
  *
  */
-gulp.task('copy:img:docs', () => gulp.src(`${pathBuilder.imgDistDir}/**/*`)
+gulp.task('copy:img:docs', async () => gulp.src(`${pathBuilder.imgDistDir}/**/*`)
     .pipe(plumber(config.gulp.onError))
     .pipe(gulp.dest(pathBuilder.docsImgDistDir)));
 
@@ -97,7 +97,7 @@ gulp.task('copy:img:docs', () => gulp.src(`${pathBuilder.imgDistDir}/**/*`)
  * Copy the specified font assets over to the dist folder.
  *
  */
-gulp.task('copy:fonts', () => {
+gulp.task('copy:fonts', async () => {
     copy('fonts');
 });
 
@@ -107,7 +107,7 @@ gulp.task('copy:fonts', () => {
  * Copy any specific files needed for the docs site (i.e. CNAME records)
  *
  */
-gulp.task('copy:docs', () => {
+gulp.task('copy:docs', async () => {
     copy('docs');
 });
 

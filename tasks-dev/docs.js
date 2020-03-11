@@ -1,5 +1,4 @@
 const gulp = require('gulp');
-const runSequence = require('run-sequence');
 const ghPages = require('@justeat/gulp-gh-pages');
 
 const config = require('../config');
@@ -17,7 +16,7 @@ const pathBuilder = require('../pathBuilder');
 gulp.task('docs', callback => {
     config.docs.outputAssets = true;
 
-    runSequence(
+    gulp.series(
         'clean:docs',
         'watch:docs',
         'browser-sync:docs',
@@ -36,9 +35,9 @@ gulp.task('docs:deploy', callback => {
     config.isProduction = true;
     config.docs.outputAssets = true;
 
-    runSequence(
+    gulp.series(
         'clean:docs',
-        ['default', 'assemble', 'copy:docs'],
+        gulp.parallel('default', 'assemble', 'copy:docs'),
         'docs:release',
         callback
     );

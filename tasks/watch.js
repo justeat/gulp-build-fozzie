@@ -1,23 +1,7 @@
 const gulp = require('gulp');
-const runSequence = require('run-sequence');
 
 const config = require('../config');
 const pathBuilder = require('../pathBuilder');
-
-/**
- * `watch` Task
- * -------------
- * Watches for changes to JavaScript, CSS, and image file changes, running
- * relevant build tasks on change for each type.
- *
- */
-gulp.task('watch', callback => {
-    runSequence(
-        'default',
-        ['watch:css', 'watch:scripts', 'watch:scripts:test', 'watch:images'],
-        callback
-    );
-});
 
 
 /**
@@ -80,13 +64,13 @@ gulp.task('watch:images', () => {
  * changes, running relevant build tasks on change for each type.
  *
  */
-gulp.task('watch:docs', callback => {
+gulp.task('watch:docs', done => {
     config.docs.outputAssets = true;
 
-    runSequence(
+    gulp.series(
         'default',
-        ['watch:css', 'watch:scripts', 'watch:scripts:test', 'watch:images', 'watch:docs:templates'],
-        callback
+        gulp.parallel('watch:css', 'watch:scripts', 'watch:scripts:test', 'watch:images', 'watch:docs:templates'),
+        done
     );
 });
 
@@ -108,3 +92,19 @@ gulp.task('watch:docs:templates', () => {
     )
         .on('change', config.gulp.changeEvent);
 });
+
+
+/**
+ * `watch` Task
+ * -------------
+ * Watches for changes to JavaScript, CSS, and image file changes, running
+ * relevant build tasks on change for each type.
+ *
+ */
+gulp.task('watch', gulp.series(
+    'default',
+    gulp.parallel('watch:css', 'watch:scripts', 'watch:scripts:test', 'watch:images'),
+    done => {
+        done();
+    }
+));
