@@ -321,6 +321,7 @@ Here is the outline of the configuration options, descriptions of each are below
         ],
         jsDir,
         lintPaths,
+        allowEmpty
         usePackageVersion,
         stripDebug
     },
@@ -527,6 +528,13 @@ Will add a content hash to the JS and CSS filenames, generating a new filename i
 
   By default, the task will lint all files within the `jsDir` directory.
 
+- #### `allowEmpty`
+
+  Type: `boolean`
+
+  Default: `true`
+
+  When set to `true`, it will allow the globbing patterns not to return any files without failing. If set to `false`, no files will result in an exception.
 
 - #### `usePackageVersion`
 
