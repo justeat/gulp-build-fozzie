@@ -14,7 +14,7 @@ const config = require('../config');
  * Generates a service worker to pre-cache the assets defined in the config.
  *
  */
-gulp.task('service-worker:write', () => {
+gulp.task('service-worker:write', async () => {
     const runtimeCaching = config.sw.dynamicFileRegex.map(urlPattern => ({
         urlPattern,
         handler: config.sw.dynamicFileStrategy

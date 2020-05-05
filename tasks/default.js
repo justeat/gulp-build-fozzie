@@ -10,12 +10,13 @@ const config = require('../config');
  * TODO: As this is legacy, this hasn't been done currently
  *
  */
-gulp.task('default', callback => {
-    gulp.series(
-        gulp.parallel('copy:fonts', 'images'),
-        gulp.series('css', 'scripts'),
-        'logger:createFile',
-        ...(config.sw.isEnabled ? 'service-worker' : ''),
-        callback
-    );
-});
+
+gulp.task('default', gulp.series(
+    gulp.parallel('copy:fonts', 'images'),
+    gulp.series('css', 'scripts'),
+    'logger:createFile',
+    ...(config.sw.isEnabled ? 'service-worker' : ''),
+    done => {
+        done();
+    }
+));

@@ -32,7 +32,7 @@ const pathBuilder = require('../pathBuilder');
  * Uses config rules to test for valid JS.
  *
  */
-gulp.task('scripts:lint', () => gulp.src([`${pathBuilder.jsSrcDir}/**/*.js`, ...config.js.lintPaths])
+gulp.task('scripts:lint', () => gulp.src([`${pathBuilder.jsSrcDir}/**/*.js`, ...config.js.lintPaths], { allowEmpty: config.js.allowEmpty })
     .pipe(cache('scripts-lint'))
 
     // stops watch from breaking on error
