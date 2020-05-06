@@ -83,9 +83,7 @@ gulp.task('watch:docs:templates', () => gulp.watch(
     '**/*.{md,hbs}',
     { cwd: `./${config.docs.rootDir}` },
     gulp.series(['assemble'])
-).on('change', (eventType, fileName) => {
-    config.gulp.changeEvent({ type: eventType, path: fileName });
-}));
+).on('change', config.gulp.changeEvent));
 
 
 /**
