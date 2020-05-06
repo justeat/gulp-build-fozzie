@@ -15,7 +15,7 @@ gulp.task('watch:css', () => {
         .watch([
             `${pathBuilder.scssSrcDir}/**/*.scss`,
             'node_modules/@justeat/**/*.scss'
-        ], ['css'])
+        ], gulp.series(['css']))
         .on('change', config.gulp.changeEvent);
 });
 
@@ -26,10 +26,8 @@ gulp.task('watch:css', () => {
  * Runs the `scripts` task when a JavaScript file is changed.
  *
  */
-gulp.task('watch:scripts', () => {
-    gulp.watch(`${pathBuilder.jsSrcDir}/**/!(*.test).js`, ['scripts'])
-        .on('change', config.gulp.changeEvent);
-});
+gulp.task('watch:scripts', () => gulp.watch(`${pathBuilder.jsSrcDir}/**/!(*.test).js`, gulp.series(['scripts']))
+    .on('change', config.gulp.changeEvent));
 
 
 /**
@@ -39,10 +37,8 @@ gulp.task('watch:scripts', () => {
  * test file is changed.
  *
  */
-gulp.task('watch:scripts:test', () => {
-    gulp.watch(`${pathBuilder.jsSrcDir}/**/*.test.js`, ['scripts:lint', 'scripts:test'])
-        .on('change', config.gulp.changeEvent);
-});
+gulp.task('watch:scripts:test', () => gulp.watch(`${pathBuilder.jsSrcDir}/**/*.test.js`, gulp.series(['scripts:lint', 'scripts:test']))
+    .on('change', config.gulp.changeEvent));
 
 
 /**
@@ -51,10 +47,8 @@ gulp.task('watch:scripts:test', () => {
  * Runs the `images` task when an image file is changed.
  *
  */
-gulp.task('watch:images', () => {
-    gulp.watch(`${pathBuilder.imgSrcDir}/**/*.{png,jpg,jpeg,gif,svg}`, ['images'])
-        .on('change', config.gulp.changeEvent);
-});
+gulp.task('watch:images', () => gulp.watch(`${pathBuilder.imgSrcDir}/**/*.{png,jpg,jpeg,gif,svg}`, gulp.series(['images']))
+    .on('change', config.gulp.changeEvent));
 
 
 /**
@@ -81,17 +75,17 @@ gulp.task('watch:docs', done => {
  * Runs the `assemble` task when any documentation files change.
  *
  */
-gulp.task('watch:docs:templates', () => {
-    // be careful with the paths here – must be relative, using 'cwd' attribute
-    // to specify root otherwise it won’t recompile when newly created files
-    // are added to a directory while running the watch
-    gulp.watch(
-        '**/*.{md,hbs}',
-        { cwd: `./${config.docs.rootDir}` },
-        ['assemble']
-    )
-        .on('change', config.gulp.changeEvent);
-});
+
+// be careful with the paths here – must be relative, using 'cwd' attribute
+// to specify root otherwise it won’t recompile when newly created files
+// are added to a directory while running the watch
+gulp.task('watch:docs:templates', () => gulp.watch(
+    '**/*.{md,hbs}',
+    { cwd: `./${config.docs.rootDir}` },
+    gulp.series(['assemble'])
+).on('change', (eventType, fileName) => {
+    config.gulp.changeEvent({ type: eventType, path: fileName });
+}));
 
 
 /**
