@@ -19,13 +19,10 @@ describe('gulp config', () => {
 
         it('should call gutil.log when called', () => {
             // Arrange
-            const event = {
-                path: '/myCSSFile.css',
-                type: 'changed'
-            };
+            const filePath = '/myCSSFile.css';
 
             // Act
-            config.gulp.changeEvent(event);
+            config.gulp.changeEvent(filePath);
 
             // Assert
             expect(logMock).toHaveBeenCalled();
@@ -33,14 +30,12 @@ describe('gulp config', () => {
 
         it('should output a log message in the expected format', () => {
             // Arrange
-            const event = {
-                path: '/myCSSFile.css',
-                type: 'changed'
-            };
+            const filePath = '/myCSSFile.css';
+
             const message = `${gutil.colors.cyan.bold('❯❯ File: myCSSFile.css')} was ${gutil.colors.magenta('changed')}`;
 
             // Act
-            config.gulp.changeEvent(event);
+            config.gulp.changeEvent(filePath);
             const logOutput = logMock.mock.calls[1].join(' ');
 
             // Assert

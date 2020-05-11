@@ -150,9 +150,9 @@ const ConfigOptions = () => {
             /**
              * Reports which file was changed
              */
-            changeEvent (evt) {
+            changeEvent (filePath) {
                 gutil.log();
-                gutil.log(gutil.colors.cyan.bold(`❯❯ File: ${path.basename(evt.path)}`), 'was', gutil.colors.magenta(evt.type));
+                gutil.log(gutil.colors.cyan.bold(`❯❯ File: ${path.basename(filePath)}`), 'was', gutil.colors.magenta('changed'));
             },
 
             /**
