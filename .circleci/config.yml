@@ -36,10 +36,7 @@ jobs:
                 command: yarn lint
             - run: # run tests
                 name: Unit tests
-                command: yarn test:cover
-            - run: # coveralls
-                name: Test coverage with Coveralls
-                command: yarn test:cover:CI
+                command: yarn test
             - run: # run PR checks
                 name: PR Checks (Dangerfile)
                 command: yarn danger ci

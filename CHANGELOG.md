@@ -12,7 +12,11 @@ v10.3.0
 - Use circleci instead of Travis for CI
 
 ### Fixed
-- Use of spread operator for `service-worker` task.
+- Use of spread operator for tasks:
+  - `service-worker`
+  - `images:optimise`
+  - `copy:img:docs`
+  - `images:svg-sprite`
 
 
 v10.2.1
@@ -467,7 +471,7 @@ v6.3.0
 
 v6.2.1
 ------------------------------
-*October 04, 2017*
+*October 4, 2017*
 
 ### Changed
 - Changed the log message to display the consuming package name and gulp-build-fozzie version.
@@ -475,7 +479,7 @@ v6.2.1
 
 v6.2.0
 ------------------------------
-*October 03, 2017*
+*October 3, 2017*
 
 ### Changed
 - Updated the CSS task so that it produces map files for both the concatenated and the minified files produced
@@ -499,7 +503,7 @@ v6.1.0
 
 v6.0.0
 ------------------------------
-*September 01, 2017*
+*September 1, 2017*
 
 ### Changed
 - `copy:assets` task has moved from the `css` task to the `images` task.
@@ -657,7 +661,7 @@ v4.3.0
 
 v4.2.0
 ------------------------------
-*August 08, 2017*
+*August 8, 2017*
 
 ### Added
 - Added `config.fonts` object.
@@ -679,7 +683,7 @@ v4.2.0
 
 v4.1.1
 ------------------------------
-*August 08, 2017*
+*August 8, 2017*
 
 ### Fixed
 - Fixed lint errors in `danger.js`.
@@ -687,7 +691,7 @@ v4.1.1
 
 v4.1.0
 ------------------------------
-*August 07, 2017*
+*August 7, 2017*
 
 ### Added
 - Danger.js has been added to do basic PR checks.  This will leave comments on the PR when the `changelog` hasn’t been updated, the version needs incrementing or if it thinks the `README` might need an update.
@@ -695,7 +699,7 @@ v4.1.0
 
 v4.0.0
 ------------------------------
-*August 04, 2017*
+*August 4, 2017*
 
 ### Changed
 - The return value is now an object containing the `build`, `config`, and `pathBuilder` objects instead of the `build` function.
@@ -708,7 +712,7 @@ v4.0.0
 
 v3.8.0
 ------------------------------
-*August 03, 2017*
+*August 3, 2017*
 
 ### Added
 - Added `copy:js`, `copy:css` and `copy:img` tasks to copy over separate files without bundling.  See README for more information.
@@ -716,7 +720,7 @@ v3.8.0
 
 v3.7.0
 ------------------------------
-*August 03, 2017*
+*August 3, 2017*
 
 ### Added
 - Added `lint` task which uses eslint to lint all of the JavaScript files in the project. The task is run — along with the `test` task — [_both BEFORE the package is packed and published, and on local npm install_](https://docs.npmjs.com/misc/scripts).
@@ -727,7 +731,7 @@ v3.7.0
 
 v3.6.0
 ------------------------------
-*August 02, 2017*
+*August 2, 2017*
 
 ### Added
 - `config.docs.helpers` object added for passing through helper function for handlebars to use
@@ -735,7 +739,7 @@ v3.6.0
 
 v3.5.0
 ------------------------------
-*August 02, 2017*
+*August 2, 2017*
 
 ### Changed
 - Updating numerous package dependencies in `package.json` and `yarn.lock`
@@ -743,7 +747,7 @@ v3.5.0
 
 v3.4.1
 ------------------------------
-*August 02, 2017*
+*August 2, 2017*
 
 ### Fixed
 - Fixed `isProduction` check for docs base URL.
@@ -751,7 +755,7 @@ v3.4.1
 
 v3.4.0
 ------------------------------
-*August 02, 2017*
+*August 2, 2017*
 
 ### Changed
 - Consistent formatting of `gulp-if` statements.
