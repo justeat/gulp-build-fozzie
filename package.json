@@ -1,6 +1,6 @@
 {
   "name": "@justeat/gulp-build-fozzie",
-  "version": "10.2.2",
+  "version": "10.3.0",
   "description": "Gulp build tasks for use across Fozzie modules",
   "main": "index.js",
   "contributors": [
