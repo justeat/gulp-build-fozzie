@@ -3,11 +3,20 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+
+v10.2.2
+------------------------------
+*May 19, 2022*
+
+### Fixed
+- Use of spread operator for `service-worker` task.
+
+
 v10.2.1
 ------------------------------
 *May 6, 2020*
 
-## Fixed
+### Fixed
 - `watch` tasks so they work with Gulp v4.
 
 
@@ -15,7 +24,7 @@ v10.2.0
 ------------------------------
 *May 5, 2020*
 
-## Changed
+### Changed
 - Adapted the `default` task so that it works with Gulp v4.
 
 
@@ -23,7 +32,7 @@ v10.1.0
 ------------------------------
 *March 10, 2020*
 
-## Changed
+### Changed
 - Turns out there were more changes needed for Gulp v4 😆
   Specifically, regarding `runSequence` (which no longer works in Gulp v4). Have converted these tasks to use `gulp.series` and `gulp.parallel` instead. This ahs been tested with how  HomeWeb uses its default task – this is likely to need more specific testing/updates if/when we migrate this into other applications that use this package).
 
@@ -32,7 +41,7 @@ v10.0.0
 ------------------------------
 *March 6, 2020*
 
-## Changed
+### Changed
 - Upgrade `gulp` to v4 (so that it's now compatible with Node v12)
 
 
@@ -40,7 +49,7 @@ v9.1.0
 ------------------------------
 *February 19, 2020*
 
-## Changed
+### Changed
 - Upgrade `jest-cli` to v25, and use `jest` package instead to support `runCLI` command
 - Minor package updates
 - Destructure some imports
@@ -50,7 +59,7 @@ v9.0.1
 ------------------------------
 *December 11, 2019*
 
-## Fixed
+### Fixed
 - Copy issue where for some reason the `gulpif` package was incorrectly stopping all images being copied over when `gulp.dest` was run. Have split out the base copy and the docs copy streams so they don't impact one another.
 
 
@@ -58,7 +67,7 @@ v9.0.0
 ------------------------------
 *November 12, 2019*
 
-## Changed
+### Changed
 - Updating dependencies. ESLint to v6, Eslint config updated to latest, and a host of other smaller dependency changes
 
 
@@ -66,7 +75,7 @@ v8.5.0
 ------------------------------
 *October 25, 2019*
 
-## Changed
+### Changed
 - problematic `images:optimise` and `images:svg-sprite` from images task can now be toggled on/off in config. default is off.
 
 ### Fixed
