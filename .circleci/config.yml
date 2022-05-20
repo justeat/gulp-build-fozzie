@@ -1,0 +1,42 @@
+# version: 2.1 # use CircleCI 2.1
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2.1
+
+workflows:
+    build-checks:
+        jobs:
+            - build:
+                context: web-core
+jobs:
+    build:
+        docker:
+        # specify the version you desire here
+        - image: circleci/node:14.17.1-browsers # For latest available images check – https://circleci.com/docs/2.0/docker-image-tags.json
+
+        working_directory: ~/repo
+
+        steps: # a collection of executable commands
+            - checkout # special step to check out source code to working directory
+            - restore_cache:
+                name: Restore Yarn Package Cache
+                keys:
+                    - yarn-packages-{{ checksum "yarn.lock" }}
+            - run:
+                name: Install Dependencies
+                command: yarn install --frozen-lockfile
+            - save_cache:
+                name: Save Yarn Package Cache
+                key: yarn-packages-{{ checksum "yarn.lock" }}
+                paths:
+                    - ~/.cache/yarn
+            - run: # run linter
+                name: Linting Checks
+                command: yarn lint
+            - run: # run tests
+                name: Unit tests
+                command: yarn test
+            - run: # run PR checks
+                name: PR Checks (Dangerfile)
+                command: yarn danger ci

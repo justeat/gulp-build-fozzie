@@ -1,7 +1,7 @@
 # gulp-build-fozzie :bear:
 
 [![npm version](https://badge.fury.io/js/%40justeat%2Fgulp-build-fozzie.svg)](https://badge.fury.io/js/%40justeat%2Fgulp-build-fozzie)
-[![Build Status](https://travis-ci.org/justeat/gulp-build-fozzie.svg)](https://travis-ci.org/justeat/gulp-build-fozzie)
+[![CircleCI build status](https://circleci.com/gh/justeat/gulp-build-fozzie/tree/master.svg?style=svg)](https://circleci.com/gh/justeat/gulp-build-fozzie/tree/master)
 [![Coverage Status](https://coveralls.io/repos/github/justeat/gulp-build-fozzie/badge.svg)](https://coveralls.io/github/justeat/gulp-build-fozzie)
 
 Gulp build tasks for use across Fozzie modules.
@@ -814,7 +814,7 @@ Will add a content hash to the JS and CSS filenames, generating a new filename i
 
   ```js
   {
-    'toLowercase': (input) => { return input.toLowerCase(); }
+    'toLowercase': input => input.toLowerCase()
   }
   ```
 

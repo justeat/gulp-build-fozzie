@@ -96,9 +96,9 @@ gulp.task('images:svg-sprite', () => gulp.src(`${pathBuilder.imgDistDir}/**/*.sv
 gulp.task('images', gulp.series(
     'clean:images',
     gulp.parallel('copy:img', 'copy:assets'),
-    ...(config.img.optimiseImages ? 'images:optimise' : ''),
-    ...(config.docs.outputAssets ? 'copy:img:docs' : ''),
-    ...(config.img.spriteSvgs ? 'images:svg-sprite' : ''),
+    ...(config.img.optimiseImages ? ['images:optimise'] : []),
+    ...(config.docs.outputAssets ? ['copy:img:docs'] : []),
+    ...(config.img.spriteSvgs ? ['images:svg-sprite'] : []),
     done => {
         done();
     }
