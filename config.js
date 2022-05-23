@@ -66,8 +66,8 @@ const ConfigOptions = () => {
         img: {
             imgDir: 'img',
             svgSpriteFilename: 'sprite.svg',
-            optimiseImages: false,
-            spriteSvgs: false
+            optimiseImages: true,
+            spriteSvgs: true
         },
 
         /**
@@ -152,7 +152,7 @@ const ConfigOptions = () => {
              */
             changeEvent (filePath) {
                 gutil.log();
-                gutil.log(gutil.colors.cyan.bold(`❯❯ File: ${path.basename(filePath)}`), 'was', gutil.colors.magenta('changed'));
+                gutil.log(gutil.colors.cyan.bold(`>> File: ${path.basename(filePath)}`), 'was', gutil.colors.magenta('changed'));
             },
 
             /**

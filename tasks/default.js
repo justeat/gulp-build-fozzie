@@ -12,11 +12,11 @@ const config = require('../config');
  */
 
 gulp.task('default', gulp.series(
-    gulp.parallel('copy:fonts', 'images'),
+    gulp.parallel(
+        'copy:fonts',
+        'images'
+    ),
     gulp.series('css', 'scripts'),
     'logger:createFile',
-    ...(config.sw.isEnabled ? ['service-worker'] : []),
-    done => {
-        done();
-    }
+    ...(config.sw.isEnabled ? ['service-worker'] : [])
 ));

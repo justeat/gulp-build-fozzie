@@ -32,7 +32,7 @@ describe('gulp config', () => {
             // Arrange
             const filePath = '/myCSSFile.css';
 
-            const message = `${gutil.colors.cyan.bold('❯❯ File: myCSSFile.css')} was ${gutil.colors.magenta('changed')}`;
+            const message = `${gutil.colors.cyan.bold('>> File: myCSSFile.css')} was ${gutil.colors.magenta('changed')}`;
 
             // Act
             config.gulp.changeEvent(filePath);
@@ -40,7 +40,7 @@ describe('gulp config', () => {
 
             // Assert
             // This string is crazy weird because of the weird ansi colour wrapping on the output
-            // String should be in format "❯❯ File: ${path} was ${eventType}"
+            // String should be in format ">> File: ${path} was ${eventType}"
             expect(logOutput).toBe(message);
         });
 

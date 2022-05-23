@@ -4,6 +4,21 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v10.4.0
+------------------------------
+*May 23, 2022*
+
+### Fixed
+- Failing `images` tasks.
+- Character warnings, e.g., `❯❯` -> `>>`.
+
+### Changed
+- Re-enable `optimiseImages` and `spriteSvgs` by default now that they're working again.
+
+### Removed
+- Some unnecessary callbacks (they were showing as `<anonymous>` in the output).
+
+
 v10.3.0
 ------------------------------
 *May 19, 2022*

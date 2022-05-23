@@ -137,7 +137,7 @@ gulp.task('css:bundle', () => {
         .pipe(gulpif(
             config.misc.showFileSize,
             tap(file => {
-                gutil.log(`❯❯ CSS ${file.relative}`, filesizegzip(file.contents, true));
+                gutil.log(`>> CSS ${file.relative}`, filesizegzip(file.contents, true));
             })
         ));
 
@@ -179,7 +179,7 @@ gulp.task('css:bundle', () => {
         .pipe(gulpif(
             config.misc.showFileSize,
             tap(file => {
-                gutil.log(`❯❯ Minified CSS ${file.relative}`, filesizegzip(file.contents, true));
+                gutil.log(`>> Minified CSS ${file.relative}`, filesizegzip(file.contents, true));
             })
         ))
 
@@ -200,8 +200,5 @@ gulp.task('css', gulp.series(
     'clean:css',
     'css:bundle',
     'copy:css',
-    'css:lint',
-    done => {
-        done();
-    }
+    'css:lint'
 ));
