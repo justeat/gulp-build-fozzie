@@ -20,7 +20,7 @@ const copy = fileType => {
         const assetDocsDist = pathBuilder[`docs${fileTypeCapitalised}DistDir`] + dest;
 
         if (asset.path !== undefined) {
-            gutil.log(`❯❯ Copying ${assetSrc} to ${assetDist} ${config.docs.outputAssets ? `and ${assetDocsDist}` : ''}`);
+            gutil.log(`>> Copying ${assetSrc} to ${assetDist} ${config.docs.outputAssets ? `and ${assetDocsDist}` : ''}`);
 
             gulp.src(assetSrc)
                 .pipe(plumber(config.gulp.onError))

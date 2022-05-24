@@ -195,8 +195,5 @@ gulp.task('scripts', gulp.series(
     'scripts:test',
     'clean:scripts',
     'scripts:bundle',
-    'copy:js',
-    done => {
-        done();
-    }
+    'copy:js'
 ));

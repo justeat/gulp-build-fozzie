@@ -58,9 +58,9 @@ gulp.task('service-worker:locate', () => gulp.src(`${pathBuilder.swSrcDir}/**/*`
  *
  */
 gulp.task('service-worker', gulp.series(
-    gulp.parallel('service-worker:copy', 'service-worker:locate'),
-    'service-worker:write',
-    done => {
-        done();
-    }
+    gulp.parallel(
+        'service-worker:copy',
+        'service-worker:locate'
+    ),
+    'service-worker:write'
 ));

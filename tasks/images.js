@@ -25,7 +25,7 @@ gulp.task('images:optimise', () => gulp.src(`${pathBuilder.imgSrcDir}/**`)
     // optimize
     .pipe(imagemin([
         imagemin.gifsicle({ optimizationLevel: 3 }),
-        imagemin.jpegtran(),
+        imagemin.mozjpeg(),
         imagemin.optipng({ optimizationLevel: 5 }),
         imagemin.svgo({
             plugins: [
@@ -95,11 +95,11 @@ gulp.task('images:svg-sprite', () => gulp.src(`${pathBuilder.imgDistDir}/**/*.sv
  */
 gulp.task('images', gulp.series(
     'clean:images',
-    gulp.parallel('copy:img', 'copy:assets'),
+    gulp.parallel(
+        'copy:img',
+        'copy:assets'
+    ),
     ...(config.img.optimiseImages ? ['images:optimise'] : []),
     ...(config.docs.outputAssets ? ['copy:img:docs'] : []),
-    ...(config.img.spriteSvgs ? ['images:svg-sprite'] : []),
-    done => {
-        done();
-    }
+    ...(config.img.spriteSvgs ? ['images:svg-sprite'] : [])
 ));
