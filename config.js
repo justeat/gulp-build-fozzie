@@ -45,6 +45,7 @@ const ConfigOptions = () => {
                     distFile: 'script.js'
                 }
             },
+            customTasks: [],
             jsDir: 'js',
             lintPaths: [],
             allowEmpty: true,

@@ -117,7 +117,7 @@ gulp.task('scripts:bundle', async () => {
             .pipe(gulpif(
                 config.misc.showFileSize,
                 size({
-                    title: 'Bundled JS Report – unminified build –',
+                    title: 'Bundled JS Report - unminified build -',
                     showFiles: config.misc.showFiles
                 })
             ))
@@ -172,7 +172,7 @@ gulp.task('scripts:bundle', async () => {
             .pipe(gulpif(
                 config.misc.showFileSize,
                 size({
-                    title: 'Bundled JS Report – minified build –',
+                    title: 'Bundled JS Report - minified build -',
                     showFiles: config.misc.showFiles
                 })
             ))
@@ -182,7 +182,6 @@ gulp.task('scripts:bundle', async () => {
 
     return merge(...bundleTasks);
 });
-
 
 /**
  *  `scripts` Task
@@ -194,6 +193,9 @@ gulp.task('scripts', gulp.series(
     'scripts:lint',
     'scripts:test',
     'clean:scripts',
-    'scripts:bundle',
+    gulp.parallel(
+        ...config.js.customScripts,
+        'scripts:bundle'
+    ),
     'copy:js'
 ));
