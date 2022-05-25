@@ -174,6 +174,11 @@ Runs the following tasks
 
   Removes any JavaScript already in the dist directory.
 
+- #### Custom Tasks
+
+  The names of custom tasks can be passed into the config object to be run here. See [`customTasks`](#customtasks) for more details.
+
+
 - #### `scripts:bundle`
 
   Performs a variety of tasks including;
@@ -319,6 +324,7 @@ Here is the outline of the configuration options, descriptions of each are below
             },
             …
         ],
+        customTasks,
         jsDir,
         lintPaths,
         allowEmpty
@@ -507,6 +513,18 @@ Will add a content hash to the JS and CSS filenames, generating a new filename i
     Default: `'script.js'`
 
     The filename for the JavaScript bundle once compiled.
+
+- #### `customTasks`
+
+  Type: `array<string>`
+
+  Default: `[]`
+
+  Array of strings, containing the names of the custom tasks to be run as part of the `gulp:scripts` command, in parallel with `scripts:bundle`.
+
+  These should be defined by (or made available within) the consuming application, e.g., compiling third-party libraries within a `scripts:libs` task.
+
+  Gulp 4 does not easily allow for the entire default `gulp:scripts` implementation to be overridden, so any extra JS-related tasks that you need to run should be passed in here.
 
 - #### `jsDir`
 

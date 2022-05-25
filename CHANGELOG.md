@@ -4,6 +4,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v10.5.0
+------------------------------
+*May 25, 2022*
+
+### Added
+- `customTasks` property to JavaScript config.
+  - This allows tasks (provided by the consuming application) to be run as part of the `gulp:scripts` command, in parallel with `scripts:bundle`.
+
+
 v10.4.0
 ------------------------------
 *May 23, 2022*
