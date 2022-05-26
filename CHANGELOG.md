@@ -4,6 +4,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v10.6.0
+------------------------------
+*May 26, 2020*
+
+### Changed
+- "gulp-sass" package update
+
 v10.5.0
 ------------------------------
 *May 25, 2022*
