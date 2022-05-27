@@ -194,7 +194,7 @@ gulp.task('scripts', gulp.series(
     'scripts:test',
     'clean:scripts',
     gulp.parallel(
-        ...config.js.customScripts,
+        ...config.js.customTasks,
         'scripts:bundle'
     ),
     'copy:js'
