@@ -9,9 +9,11 @@ const clone = require('gulp-clone');
 const merge = require('merge-stream');
 const rev = require('gulp-rev');
 
-const sass = require('gulp-sass');
+const dartSass = require('sass');
+const gulpSass = require('gulp-sass');
+
+const sass = gulpSass(dartSass);
 const sassVariables = require('gulp-sass-variables');
-const eyeglass = require('eyeglass');
 const cssnano = require('cssnano');
 const sourcemaps = require('gulp-sourcemaps');
 const postcss = require('gulp-postcss');
@@ -102,8 +104,10 @@ gulp.task('css:bundle', () => {
             $server: gutil.env.server
         }))
 
-        // compile using Sass & pulling int any Eyeglass modules (SCSS NPM modules)
-        .pipe(sass(eyeglass()))
+        // compile using Sass
+        .pipe(sass({
+            includePaths: ['./node_modules']
+        }).on('error', sass.logError))
 
         .pipe(postcss([
             // Converts any specified assets to data URIs
