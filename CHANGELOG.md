@@ -3,9 +3,18 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+
+v11.0.1
+------------------------------
+*October 4, 2022*
+
+### Fixed
+- Assorted security updates via dependabot.
+
+
 v11.0.0
 ------------------------------
-*August 01, 2022*
+*August 1, 2022*
 
 ### Removed
 - `eyeglass` package. Consuming applications will need to specify the path to modules correctly.
@@ -489,12 +498,14 @@ v7.0.0
   - Babelify and Browserify major version bumps to v8 and v15 respectively
 - Updated the Danger config in Travis, as the call is now `yarn danger ci` to run the checks
 
+
 v6.5.0
 ------------------------------
 *December 4, 2017*
 
 ### Changed
 - Output unhashed, minified JS file
+
 
 v6.4.0
 ------------------------------

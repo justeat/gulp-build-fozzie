@@ -1,11 +1,12 @@
 {
   "name": "@justeat/gulp-build-fozzie",
-  "version": "11.0.0",
+  "version": "11.0.1",
   "description": "Gulp build tasks for use across Fozzie modules",
   "main": "index.js",
   "contributors": [
-    "Ashley Nolan <ashley.nolan@just-eat.com> (https://ashleynolan.co.uk)",
-    "Damian Mullins <damian.mullins@just-eat.com> (http://www.damianmullins.com)",
+    "Ashley Watson-Nolan <ashley.watson-nolan@justeattakeaway.com> (https://ashleynolan.co.uk)",
+    "Xander Marjoram <xander.marjoram@justeattakeaway.com>",
+    "Damian Mullins <damian.mullins@justeattakeaway.com> (http://www.damianmullins.com)",
     "Github contributors <https://github.com/justeat/fozzie/graphs/contributors>"
   ],
   "license": "Apache-2.0",
