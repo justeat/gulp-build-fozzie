@@ -27,15 +27,15 @@ const build = (srcGulp, options) => {
 
     // In gulp 4, tasks need to be included in a specific order, unless declared as functions.
     // We require each of the files individually rather than the whole directory so we can decide on the order.
-    require('./tasks/clean.js');
-    require('./tasks/copy.js');
-    require('./tasks/css.js');
-    require('./tasks/images.js');
-    require('./tasks/javascript.js');
-    require('./tasks/logger-file.js');
-    require('./tasks/service-worker.js');
-    require('./tasks/default.js');
-    require('./tasks/watch.js');
+    require('./tasks/clean');
+    require('./tasks/copy');
+    require('./tasks/css');
+    require('./tasks/images');
+    require('./tasks/javascript');
+    require('./tasks/logger-file');
+    require('./tasks/service-worker');
+    require('./tasks/default');
+    require('./tasks/watch');
 
     // Assign existing gulp tasks so that they are not lost.
     gulp.tasks = srcGulp.tasks;
