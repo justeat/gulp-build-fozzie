@@ -337,7 +337,10 @@ Here is the outline of the configuration options, descriptions of each are below
     },
     img: {
         imgDir,
-        svgSpriteFilename
+        optimiseImages,
+        optimiseSVGs,
+        spriteSvgs,
+        svgSpriteFilename,
     },
     importedAssets: {
         importedAssetsSrcGlob,
@@ -613,6 +616,30 @@ Will add a content hash to the JS and CSS filenames, generating a new filename i
   Name of the directory where your image files are kept.
 
   Processed image files will be placed inside a directory with the same name.
+
+- #### `optimiseImages`
+
+  Type: `boolean`
+
+  Default: `'true'`
+
+  Controls whether or not all image typesare optimised as part of the image tasks.
+
+- #### `optimiseSVGs`
+
+  Type: `boolean`
+
+  Default: `'true'`
+
+  Controls whether or not SVGs are optimised as part of the image tasks.
+
+- #### `spriteSvgs`
+
+  Type: `boolean`
+
+  Default: `'true'`
+
+  Controls whether or not SVGs are turned into an SVG Sprite as part of the image tasks
 
 - #### `svgSpriteFilename`
 
