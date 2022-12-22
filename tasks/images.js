@@ -27,11 +27,13 @@ gulp.task('images:optimise', () => gulp.src(`${pathBuilder.imgSrcDir}/**`)
         imagemin.gifsicle({ optimizationLevel: 3 }),
         imagemin.mozjpeg(),
         imagemin.optipng({ optimizationLevel: 5 }),
-        imagemin.svgo({
-            plugins: [
-                { removeViewBox: false }
-            ]
-        })
+        ...(config.img.optimiseSVGs ?
+            [imagemin.svgo({
+                plugins: [
+                    { removeViewBox: false }
+                ]
+            })] : []
+        )
     ], { verbose: config.isDev }))
 
     // write the files to disk

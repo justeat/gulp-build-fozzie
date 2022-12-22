@@ -68,6 +68,7 @@ const ConfigOptions = () => {
             imgDir: 'img',
             svgSpriteFilename: 'sprite.svg',
             optimiseImages: true,
+            optimiseSVGs: true,
             spriteSvgs: true
         },
 
