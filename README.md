@@ -339,6 +339,7 @@ Here is the outline of the configuration options, descriptions of each are below
         imgDir,
         optimiseImages,
         optimiseSVGs,
+        optimiseJPEGs,
         spriteSvgs,
         svgSpriteFilename,
     },
@@ -632,6 +633,14 @@ Will add a content hash to the JS and CSS filenames, generating a new filename i
   Default: `'true'`
 
   Controls whether or not SVGs are optimised as part of the image tasks.
+
+- #### `optimiseJPEGs`
+
+  Type: `boolean`
+
+  Default: `'true'`
+
+  Controls whether or not JPEGs are optimised as part of the image tasks.
 
 - #### `spriteSvgs`
 

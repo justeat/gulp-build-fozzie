@@ -25,7 +25,7 @@ gulp.task('images:optimise', () => gulp.src(`${pathBuilder.imgSrcDir}/**`)
     // optimize
     .pipe(imagemin([
         imagemin.gifsicle({ optimizationLevel: 3 }),
-        imagemin.mozjpeg(),
+        ...(config.img.optimiseJPEGs ? [imagemin.mozjpeg()] : []),
         imagemin.optipng({ optimizationLevel: 5 }),
         ...(config.img.optimiseSVGs ?
             [imagemin.svgo({
