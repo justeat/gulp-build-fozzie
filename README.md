@@ -634,6 +634,14 @@ Will add a content hash to the JS and CSS filenames, generating a new filename i
 
   Controls whether or not SVGs are optimised as part of the image tasks.
 
+- #### `optimiseGIFs`
+
+  Type: `boolean`
+
+  Default: `'true'`
+
+  Controls whether or not GIFs are optimised as part of the image tasks.
+
 - #### `optimiseJPEGs`
 
   Type: `boolean`
@@ -641,6 +649,14 @@ Will add a content hash to the JS and CSS filenames, generating a new filename i
   Default: `'true'`
 
   Controls whether or not JPEGs are optimised as part of the image tasks.
+
+- #### `optimisePNGs`
+
+  Type: `boolean`
+
+  Default: `'true'`
+
+  Controls whether or not PNGs are optimised as part of the image tasks.
 
 - #### `spriteSvgs`
 
