@@ -3,6 +3,15 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v11.3.0
+------------------------------
+*January 27, 2023*
+
+### Changed
+- `config.img.optimiseGIFs` which allows more granular control over whether GIFs get optimised or not.
+- `config.img.optimiseJPEGs` which allows more granular control over whether JPEGs get optimised or not.
+- `config.img.optimisePNGs` which allows more granular control over whether PNGs get optimised or not.
+
 v11.2.0
 ------------------------------
 *December 22, 2022*
