@@ -40,7 +40,7 @@
     "assemble": "0.24.3",
     "autoprefixer": "9.7.4",
     "babelify": "10.0.0",
-    "browser-sync": "2.27.11",
+    "browser-sync": "2.27.12",
     "browserify": "16.5.0",
     "cssnano": "4.1.10",
     "del": "5.1.0",
