@@ -31,7 +31,7 @@
   "dependencies": {
     "@babel/cli": "7.20.7",
     "@babel/core": "7.20.7",
-    "@babel/preset-env": "7.20.2",
+    "@babel/preset-env": "7.22.0",
     "@justeat/eslint-config-fozzie": "3.4.0",
     "@justeat/f-copy-assets": "1.1.0",
     "@justeat/f-templates-loader": "0.1.1",
