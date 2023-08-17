@@ -93,11 +93,11 @@
     "vinyl-source-stream": "2.0.0"
   },
   "devDependencies": {
-    "concurrently": "4.1.0",
+    "concurrently": "5.0.1",
     "coveralls": "3.1.1",
-    "danger": "6.1.6",
+    "danger": "11.2.1",
     "lodash.clonedeep": "4.5.0",
-    "release-it": "8.1.0"
+    "release-it": "16.0.0"
   },
   "resolutions": {
     "babel-core": "7.0.0-bridge.0"
