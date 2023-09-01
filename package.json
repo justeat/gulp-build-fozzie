@@ -42,7 +42,7 @@
     "babelify": "10.0.0",
     "browser-sync": "2.27.12",
     "browserify": "16.5.0",
-    "cssnano": "4.1.10",
+    "cssnano": "5.0.0",
     "del": "5.1.0",
     "eslint": "6.8.0",
     "eslint-plugin-import": "2.26.0",
