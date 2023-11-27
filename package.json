@@ -40,9 +40,9 @@
     "assemble": "0.24.3",
     "autoprefixer": "9.7.4",
     "babelify": "10.0.0",
-    "browser-sync": "2.27.12",
+    "browser-sync": "2.28.0",
     "browserify": "16.5.0",
-    "cssnano": "4.1.10",
+    "cssnano": "5.0.0",
     "del": "5.1.0",
     "eslint": "6.8.0",
     "eslint-plugin-import": "2.26.0",
@@ -58,7 +58,7 @@
     "gulp-file": "0.4.0",
     "gulp-filenames": "4.0.1",
     "gulp-if": "3.0.0",
-    "gulp-imagemin": "7.1.0",
+    "gulp-imagemin": "8.0.0",
     "gulp-newer": "1.4.0",
     "gulp-plumber": "1.2.1",
     "gulp-postcss": "8.0.0",
@@ -79,10 +79,10 @@
     "handlebars-helpers": "0.10.0",
     "helper-markdown": "1.0.0",
     "helper-md": "0.2.2",
-    "jest": "25.1.0",
+    "jest": "27.0.0",
     "lodash.union": "4.6.0",
     "merge-stream": "2.0.0",
-    "postcss-assets": "5.0.0",
+    "postcss-assets": "6.0.0",
     "postcss-reporter": "6.0.1",
     "require-dir": "1.2.0",
     "sass": "1.57.1",
@@ -95,9 +95,9 @@
   "devDependencies": {
     "concurrently": "4.1.0",
     "coveralls": "3.1.1",
-    "danger": "6.1.6",
+    "danger": "9.2.1",
     "lodash.clonedeep": "4.5.0",
-    "release-it": "8.1.0"
+    "release-it": "13.0.0"
   },
   "resolutions": {
     "babel-core": "7.0.0-bridge.0"
