@@ -43,7 +43,7 @@
     "browser-sync": "2.27.12",
     "browserify": "16.5.0",
     "cssnano": "4.1.10",
-    "del": "5.1.0",
+    "del": "6.0.0",
     "eslint": "6.8.0",
     "eslint-plugin-import": "2.26.0",
     "event-stream": "4.0.1",
@@ -58,7 +58,7 @@
     "gulp-file": "0.4.0",
     "gulp-filenames": "4.0.1",
     "gulp-if": "3.0.0",
-    "gulp-imagemin": "7.1.0",
+    "gulp-imagemin": "8.0.0",
     "gulp-newer": "1.4.0",
     "gulp-plumber": "1.2.1",
     "gulp-postcss": "8.0.0",
@@ -97,7 +97,7 @@
     "coveralls": "3.1.1",
     "danger": "6.1.6",
     "lodash.clonedeep": "4.5.0",
-    "release-it": "8.1.0"
+    "release-it": "11.0.0"
   },
   "resolutions": {
     "babel-core": "7.0.0-bridge.0"
