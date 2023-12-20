@@ -31,7 +31,7 @@
   "dependencies": {
     "@babel/cli": "7.20.7",
     "@babel/core": "7.20.7",
-    "@babel/preset-env": "7.20.2",
+    "@babel/preset-env": "7.22.0",
     "@justeat/eslint-config-fozzie": "3.4.0",
     "@justeat/f-copy-assets": "1.1.0",
     "@justeat/f-templates-loader": "0.1.1",
@@ -79,7 +79,7 @@
     "handlebars-helpers": "0.10.0",
     "helper-markdown": "1.0.0",
     "helper-md": "0.2.2",
-    "jest": "25.1.0",
+    "jest": "27.0.0",
     "lodash.union": "4.6.0",
     "merge-stream": "2.0.0",
     "postcss-assets": "5.0.0",
@@ -95,7 +95,7 @@
   "devDependencies": {
     "concurrently": "4.1.0",
     "coveralls": "3.1.1",
-    "danger": "6.1.6",
+    "danger": "7.0.8",
     "lodash.clonedeep": "4.5.0",
     "release-it": "8.1.0"
   },
