@@ -49,7 +49,7 @@
     "event-stream": "4.0.1",
     "exorcist": "1.0.1",
     "filesizegzip": "2.0.0",
-    "gulp": "4.0.2",
+    "gulp": "5.0.0",
     "gulp-cached": "1.1.1",
     "gulp-changed": "4.0.3",
     "gulp-clone": "2.0.1",
